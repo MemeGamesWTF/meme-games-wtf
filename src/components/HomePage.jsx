@@ -8,7 +8,7 @@ import gamelogo3 from "../assets/doge.png";
 
 const HomePage = () => {
   return (
-    <div>
+    <div className="main0">
       <NavBar />
       <div className="main1">
         <div className="main2">

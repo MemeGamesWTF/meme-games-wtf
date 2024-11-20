@@ -22,3 +22,12 @@ body {
         background-repeat: no-repeat;  /* Prevents the image from repeating */
     }
 }
+
+@media (max-width: 768px) {
+    body {
+        background-image: url('./assets/mobilebg.jpg'); /* Replace with your image path */
+        background-size: cover;  /* Ensures the image covers the entire body */
+        /* background-position: center; */
+        background-repeat: no-repeat;  /* Prevents the image from repeating */
+    }
+}

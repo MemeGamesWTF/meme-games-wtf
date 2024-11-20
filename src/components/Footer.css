@@ -17,3 +17,9 @@
         @apply bg-black p-5 w-[15%] z-[1] h-fit bottom-2 absolute rounded-[100px] left-[550px];
     }
 }
+
+@media (max-width: 768px) {
+    .foot1 {
+        display: none;
+    }
+}
