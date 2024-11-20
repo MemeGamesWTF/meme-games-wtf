@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* body{
+    background-color: rgb(38, 38, 38);
+} */
+
+body {
+    background-image: url('./assets/background.jpg'); /* Replace with your image path */
+    background-size: cover;  /* Ensures the image covers the entire body */
+    /* background-position: center; */
+    background-repeat: no-repeat;  /* Prevents the image from repeating */
+}
+
+@media screen and (max-width: 1280px) and (max-height: 800px) {
+    body {
+        background-image: url('./assets/macbg.jpg'); /* Replace with your image path */
+        background-size: cover;  /* Ensures the image covers the entire body */
+        /* background-position: center; */
+        background-repeat: no-repeat;  /* Prevents the image from repeating */
+    }
+}
