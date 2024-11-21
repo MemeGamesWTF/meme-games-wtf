@@ -5,11 +5,41 @@ import Footer from "./Footer";
 import gamelogo1 from "../assets/hammer2.png";
 import gamelogo2 from "../assets/tyson2.png";
 import gamelogo3 from "../assets/doge.png";
+// import movingImage from "../assets/thunder.png";
 
 const HomePage = () => {
+  // const numberOfImages = 200;
   return (
     <>
       <div className="main0">
+      {/* <div className="background-animation">
+          <img src={movingImage} alt="Moving Background" className="moving-image" />
+        </div> */}
+        {/* Background animation */}
+        {/* Background animation */}
+        {/* <div className="background-animation">
+          {Array.from({ length: numberOfImages }).map((_, index) => {
+            const randomDuration = 10 + Math.random() * 10; // Random duration between 10s and 20s
+            const randomDelay = Math.random() * 5; // Random delay between 0s and 5s
+            const randomTop = Math.random() * 100; // Random vertical position
+            const randomLeft = Math.random() * 100; // Random horizontal position
+
+            return (
+              <img
+                key={index}
+                src={movingImage}
+                alt="Moving Background"
+                className="moving-image"
+                style={{
+                  animationDuration: `${randomDuration}s`,
+                  animationDelay: `${randomDelay}s`,
+                  top: `${randomTop}vh`,
+                  left: `${randomLeft}vw`,
+                }}
+              />
+            );
+          })}
+        </div> */}
         <NavBar />
         <div className="main1">
           <div className="main2">
@@ -65,6 +95,9 @@ const HomePage = () => {
           </div>
         </div>
       </div>
+      {/* <div className="main5">
+        <p className="main6">Any Meme Game Ideas? Submit Here...</p>
+      </div> */}
       <Footer />
     </>
   );
