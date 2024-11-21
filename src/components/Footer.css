@@ -28,6 +28,6 @@
         display: none;
     }    */
     .foot1 {
-        @apply bg-black p-5 w-[50%] z-[1] h-fit bottom-2 absolute rounded-[100px] ml-[25%]  mr-[25%];
+        @apply bg-black p-5 w-[50%] z-[1] h-fit bottom-2 absolute rounded-[100px] ml-[25%]  mr-[25%] relative mt-6;
     }
 }
