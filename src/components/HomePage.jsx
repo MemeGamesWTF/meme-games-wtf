@@ -2,7 +2,7 @@ import React from "react";
 import "./HomePage.css";
 import NavBar from "./NavBar";
 import Footer from "./Footer";
-import gamelogo1 from "../assets/hammer.png";
+import gamelogo1 from "../assets/hammer2.png";
 import gamelogo2 from "../assets/tyson2.png";
 import gamelogo3 from "../assets/doge.png";
 
