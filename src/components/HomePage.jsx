@@ -29,7 +29,8 @@ const HomePage = () => {
           </a>
 
           <a
-            href="https://t.me/meme_games_wtf_bot/tysontaptapbut"
+            // href="https://t.me/meme_games_wtf_bot/tysontaptapbut"
+            href="https://tysonbutt.memegames.wtf/"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -43,17 +44,17 @@ const HomePage = () => {
               <span className="spanclass">PLAY</span>
             </div>
           </a>
-          <a href="#" target="_blank" rel="noopener noreferrer">
-            <div className="main3 group">
-              <img
-                src={gamelogo3}
-                alt="Description of Image"
-                className="imageclass"
-              />
-              <div className="main4"></div>
-              <span className="spanclass">COMING SOON</span>
-            </div>
-          </a>
+          {/* <a href="#" target="_blank" rel="noopener noreferrer"> */}
+          <div className="main3 group">
+            <img
+              src={gamelogo3}
+              alt="Description of Image"
+              className="imageclass"
+            />
+            <div className="main4"></div>
+            <span className="spanclass">COMING SOON</span>
+          </div>
+          {/* </a> */}
           {/*<div className="bg-slate-600 text-white p-4 mt-16 w-52 h-52 flex justify-center items-center rounded-2xl">
             Coming Soon
           </div>
