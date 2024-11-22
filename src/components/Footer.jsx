@@ -4,6 +4,7 @@ import "./Footer.css";
 export default function Footer() {
   return (
     <>
+    <a href="https://x.com/memegameswtf" className="footicon2">
       <footer className="foot1">
         <div className="foot2">
           <ul className="foot3 group">
@@ -15,6 +16,7 @@ export default function Footer() {
           </ul>
         </div>
       </footer>
+      </a>
     </>
   );
 }

@@ -8,10 +8,27 @@
 } */
 
 body {
-    background-image: url('./assets/background.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
+    background-image: 
+        url('./assets/ground.png'), /* New static image (now in front) */
+        url('./assets/snowsparkles.png'), /* Animated snow (now behind) */
+        url('./assets/background.jpg'); /* Existing background */
+    background-size: cover, cover, cover; /* Size for all images */
+    background-repeat: no-repeat, repeat, no-repeat; /* Adjust repeats for each layer */
+    background-position: center, top, center; /* Position each background appropriately */
+    animation: snowfall 100s linear infinite; /* Animate only the snow layer */
+    background-attachment: scroll, scroll, fixed; /* Attachments for each layer */
 }
+
+@keyframes snowfall {
+    from {
+        background-position: center, bottom, center; /* Keep static layers unchanged */
+    }
+    to {
+        background-position: center, top, center; /* Move only the snow layer */
+    }
+}
+
+
 
 @media screen and (max-width: 1280px) and (max-height: 800px) {
     body {
