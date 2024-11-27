@@ -2,7 +2,7 @@
   @apply flex justify-center items-center;
 }
 .main2 {
-  @apply grid grid-cols-3 gap-14;
+  @apply grid grid-cols-4 gap-14;
 }
 .main3 {
   @apply bg-gray-200 p-1 mt-16 w-64 h-64 flex justify-center items-center rounded-2xl relative overflow-hidden;

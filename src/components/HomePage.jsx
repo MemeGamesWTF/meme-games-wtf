@@ -5,6 +5,7 @@ import Footer from "./Footer";
 import gamelogo1 from "../assets/hammer2.png";
 import gamelogo2 from "../assets/tyson2.png";
 import gamelogo3 from "../assets/doge.png";
+import gamelogo4 from "../assets/elon.png";
 // import movingImage from "../assets/thunder.png";
 
 const HomePage = () => {
@@ -75,8 +76,40 @@ const HomePage = () => {
                 <span className="spanclass">PLAY</span>
               </div>
             </a>
+            <a
+              // href="https://t.me/meme_games_wtf_bot/tysontaptapbut"
+              href="https://memegameswtf.github.io/elon/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div className="main3 group">
+                <img
+                  src={gamelogo3}
+                  alt="Description of Image"
+                  className="imageclass"
+                />
+                <div className="main4"></div>
+                <span className="spanclass">PLAY</span>
+              </div>
+            </a>
+            <a
+              // href="https://t.me/meme_games_wtf_bot/tysontaptapbut"
+              href="https://memegameswtf.github.io/doge/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div className="main3 group">
+                <img
+                  src={gamelogo4}
+                  alt="Description of Image"
+                  className="imageclass"
+                />
+                <div className="main4"></div>
+                <span className="spanclass">PLAY</span>
+              </div>
+            </a>
             {/* <a href="#" target="_blank" rel="noopener noreferrer"> */}
-            <div className="main3 group">
+            {/* <div className="main3 group">
               <img
                 src={gamelogo3}
                 alt="Description of Image"
@@ -84,7 +117,7 @@ const HomePage = () => {
               />
               <div className="main4"></div>
               <span className="spanclass">COMING SOON</span>
-            </div>
+            </div> */}
             {/* </a> */}
             {/*<div className="bg-slate-600 text-white p-4 mt-16 w-52 h-52 flex justify-center items-center rounded-2xl">
             Coming Soon
