@@ -1,11 +1,11 @@
 .nav1 {
-    @apply bg-transparent p-[0px] w-full flex justify-center items-center; /* Center the content */
+    @apply bg-transparent p-[0px] w-full flex justify-start items-start; /* Center the content */
 }
 
 .navclz1 {
-    @apply flex justify-center items-center w-auto; /* Center align the logo */
+    @apply flex justify-start items-start w-auto; /* Center align the logo */
 }
 
 .atag1 {
-    @apply h-32 w-32 bg-no-repeat bg-contain; /* Style the logo */
+    @apply h-40 w-40 bg-no-repeat bg-contain; /* Style the logo */
 }
