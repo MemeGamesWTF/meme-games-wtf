@@ -15,6 +15,7 @@ function App() {
           name="keywords"
           content="Gaming, Meme, Meme Games, Game Development, Gaming Studio"
         />
+        {/* <link rel="icon" type="image/png" href="/assets/logo4.png" /> */}
       </Helmet>
       <BrowserRouter basename="/">
         <Routes>
