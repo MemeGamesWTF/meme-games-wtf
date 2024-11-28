@@ -16,7 +16,7 @@ export default function NavBar() {
           <img src={Box} alt="aboutus" className="atag2" loading="lazy" />
 
           <div className="navright">
-            <Link to="/" className="nav-item">KGames</Link>
+            <Link to="/" className="nav-item">Games</Link>
             <Link to="/about" className="nav-item">About Us</Link>
             <Link to="/" className="nav-item">Road Map</Link>
           </div>
