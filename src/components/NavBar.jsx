@@ -13,7 +13,7 @@ export default function NavBar() {
             style={{ backgroundImage: `url(${Logo})` }}
           >
           </a>
-          <img src={Box} alt="aboutus" className="atag2" />
+          <img src={Box} alt="aboutus" className="atag2" loading="lazy" />
 
           <div className="navright">
             <Link to="/" className="nav-item">KGames</Link>

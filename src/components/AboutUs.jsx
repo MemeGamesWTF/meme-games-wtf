@@ -8,7 +8,7 @@ export default function AboutUs() {
     <div>
         <NavBar />
         <div>
-            <img src={abt} alt="aboutus" className="aboutusimg" />
+            <img src={abt} alt="aboutus" className="aboutusimg" loading="lazy" />
         </div>
     </div>
   )

@@ -55,6 +55,7 @@ const HomePage = () => {
                 <img
                   src={gamelogo1}
                   alt="Description of Image"
+                  loading="lazy"
                   className="imageclass"
                 />
                 <div className="main4"></div>
@@ -74,6 +75,7 @@ const HomePage = () => {
                 <img
                   src={gamelogo2}
                   alt="Description of Image"
+                  loading="lazy"
                   className="imageclass"
                 />
                 <div className="main4"></div>
@@ -92,6 +94,7 @@ const HomePage = () => {
                 <img
                   src={gamelogo3}
                   alt="Description of Image"
+                  loading="lazy"
                   className="imageclass"
                 />
                 <div className="main4"></div>
@@ -110,6 +113,7 @@ const HomePage = () => {
                 <img
                   src={gamelogo4}
                   alt="Description of Image"
+                  loading="lazy"
                   className="imageclass"
                 />
                 <div className="main4"></div>
@@ -128,6 +132,7 @@ const HomePage = () => {
                 <img
                   src={gamelogo5}
                   alt="Description of Image"
+                  loading="lazy"
                   className="imageclass"
                 />
                 <div className="main4"></div>
@@ -144,6 +149,7 @@ const HomePage = () => {
                 <img
                   src={gamelogo5}
                   alt="Description of Image"
+                  loading="lazy"
                   className="imageclass"
                 />
                 <div className="main4"></div>
