@@ -3,11 +3,12 @@ import "./HomePage.css";
 import NavBar from "./NavBar";
 import Footer from "./Footer";
 import play from "../assets/play2.png";
-import gamelogo1 from "../assets/taptapamerica.png";
-import gamelogo2 from "../assets/tysonbutt.png";
-import gamelogo3 from "../assets/dogegame.png";
-import gamelogo4 from "../assets/elongame.png";
-import gamelogo5 from "../assets/comingsoon.png";
+import gamelogo1 from "../assets/taptapamerica2.png";
+import gamelogo2 from "../assets/tysonbutt2.png";
+import gamelogo3 from "../assets/dogegame2.png";
+import gamelogo4 from "../assets/elongame2.png";
+import gamelogo5 from "../assets/martian.png";
+import gamelogo6 from "../assets/comingsoon2.png";
 // import movingImage from "../assets/thunder.png";
 
 const HomePage = () => {
@@ -123,6 +124,25 @@ const HomePage = () => {
               </div>
             </a>
             <a
+              href="https://memegameswtf.github.io/whackamartian/"
+              // href=""
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div className="main3 group">
+                <img
+                  src={gamelogo5}
+                  alt="Description of Image"
+                  loading="lazy"
+                  className="imageclass"
+                />
+                <div className="main4"></div>
+                <span className="spanclass">
+                  <img src={play}/>
+                </span>
+              </div>
+            </a>
+            <a
               // href="https://t.me/meme_games_wtf_bot/tysontaptapbut"
               href=""
               target="_blank"
@@ -130,7 +150,7 @@ const HomePage = () => {
             >
               <div className="main3 group">
                 <img
-                  src={gamelogo5}
+                  src={gamelogo6}
                   alt="Description of Image"
                   loading="lazy"
                   className="imageclass"
@@ -147,7 +167,7 @@ const HomePage = () => {
             >
               <div className="main3 group">
                 <img
-                  src={gamelogo5}
+                  src={gamelogo6}
                   alt="Description of Image"
                   loading="lazy"
                   className="imageclass"
