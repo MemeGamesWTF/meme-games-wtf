@@ -90,7 +90,7 @@ const HomePage = () => {
             </a>
             <a
               // href="https://t.me/meme_games_wtf_bot/tysontaptapbut"
-              href="https://memegameswtf.github.io/elon/"
+              href="https://elon.memegames.wtf/"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -109,7 +109,7 @@ const HomePage = () => {
             </a>
             <a
               // href="https://t.me/meme_games_wtf_bot/tysontaptapbut"
-              href="https://memegameswtf.github.io/doge/"
+              href="https://doge.memegames.wtf/"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -127,7 +127,7 @@ const HomePage = () => {
               </div>
             </a>
             <a
-              href="https://memegameswtf.github.io/whackamartian/"
+              href="https://whackamartian.memegames.wtf/"
               // href=""
               target="_blank"
               rel="noopener noreferrer"
