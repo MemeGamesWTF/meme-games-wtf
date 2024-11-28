@@ -22,6 +22,7 @@
 .navright {
 
     @apply flex gap-x-6 justify-center align-middle absolute right-14 top-12;
+    font-family: "Jersey 10", sans-serif;
     /* position: absolute;
     display: flex;
     justify-content: center;
