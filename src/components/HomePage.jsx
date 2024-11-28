@@ -5,13 +5,13 @@ import NavBar from "./NavBar";
 import Footer from "./Footer2";
 import play from "../assets/play2.png";
 import tap from "../assets/tap.png";
-import gamelogo1 from "../assets/taptapamerica2.png";
-import gamelogo2 from "../assets/tysonbutt2.png";
-import gamelogo3 from "../assets/dogegame2.png";
-import gamelogo4 from "../assets/elongame2.png";
-import gamelogo5 from "../assets/martian.png";
-import gamelogo6 from "../assets/comingsoon3.png";
-import gamelogo7 from "../assets/comingsoon4.png";
+import gamelogo1 from "../assets/taptapamerica.webp";
+import gamelogo2 from "../assets/tysonbutt2.webp";
+import gamelogo3 from "../assets/dogegame2.webp";
+import gamelogo4 from "../assets/elongame2.webp";
+import gamelogo5 from "../assets/martian.webp";
+import gamelogo6 from "../assets/comingsoon3.webp";
+import gamelogo7 from "../assets/comingsoon4.webp";
 // import movingImage from "../assets/thunder.png";
 
 const HomePage = () => {
