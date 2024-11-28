@@ -1,14 +1,17 @@
 import React from "react";
 import "./HomePage.css";
 import NavBar from "./NavBar";
-import Footer from "./Footer";
+// import Footer from "./Footer";
+import Footer from "./Footer2";
 import play from "../assets/play2.png";
+import tap from "../assets/tap.png";
 import gamelogo1 from "../assets/taptapamerica2.png";
 import gamelogo2 from "../assets/tysonbutt2.png";
 import gamelogo3 from "../assets/dogegame2.png";
 import gamelogo4 from "../assets/elongame2.png";
 import gamelogo5 from "../assets/martian.png";
-import gamelogo6 from "../assets/comingsoon2.png";
+import gamelogo6 from "../assets/comingsoon3.png";
+import gamelogo7 from "../assets/comingsoon4.png";
 // import movingImage from "../assets/thunder.png";
 
 const HomePage = () => {
@@ -156,7 +159,9 @@ const HomePage = () => {
                   className="imageclass"
                 />
                 <div className="main4"></div>
-                {/* <span className="spanclass">PLAY</span> */}
+                <span className="spanclass">
+                  <img src={tap}/>
+                </span>
               </div>
             </a>
             <a
@@ -167,13 +172,15 @@ const HomePage = () => {
             >
               <div className="main3 group">
                 <img
-                  src={gamelogo6}
+                  src={gamelogo7}
                   alt="Description of Image"
                   loading="lazy"
                   className="imageclass"
                 />
                 <div className="main4"></div>
-                {/* <span className="spanclass">PLAY</span> */}
+                <span className="spanclass">
+                  <img src={tap}/>
+                </span>
               </div>
             </a>
             {/* <a href="#" target="_blank" rel="noopener noreferrer"> */}
@@ -199,7 +206,7 @@ const HomePage = () => {
       {/* <div className="main5">
         <p className="main6">Any Meme Game Ideas? Submit Here...</p>
       </div> */}
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 };

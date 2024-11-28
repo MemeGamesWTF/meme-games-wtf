@@ -1,0 +1,67 @@
+.footermain{
+    @apply relative
+}
+
+.foot{
+    @apply h-16
+}
+
+.footfoot{
+    @apply flex items-center justify-center w-[100%] mt-14 mb-4
+    /* @apply w-[25%] ml-[37.5%] mr-[37.5%] */
+}
+
+.footfoot2{
+    @apply flex items-center justify-center w-[100%] mt-0 bottom-5 absolute
+}
+
+
+.foot1 {
+    @apply bg-black p-5 w-[15%] z-[1] h-fit bottom-2 absolute rounded-[100px] ml-[42.5%]  mr-[42.5%];
+}
+
+.foot2 {
+    display: block;
+    /* width: 15% */
+}
+
+.foot3 {
+    @apply flex items-center justify-center transition duration-300 ease-in-out opacity-40 hover:opacity-100 cursor-pointer;
+}
+
+.footicon2 {
+    /* background-image: url("../assets/twitter.svg"); */
+    @apply cursor-pointer;
+}
+
+.footicon1 {
+    background-image: url("../assets/twitter3.svg");
+    @apply h-[25px] w-[25px] bg-no-repeat bg-contain;
+}
+.footicon11 {
+    background-image: url("../assets/telegram.svg");
+    @apply h-[28px] w-[28px] bg-no-repeat bg-contain;
+}
+
+.ptag{
+    font-family: "Jersey 10", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 30px;
+}
+
+
+/* @media screen and (max-width: 1280px) and (max-height: 800px) {
+    .foot1 {
+        @apply bg-black p-5 w-[15%] z-[1] h-fit bottom-2 absolute rounded-[100px] left-[550px];
+    }
+}*/
+
+@media (max-width: 768px) {
+    /* .foot1 {
+        display: none;
+    }    */
+    .foot1 {
+        @apply bg-black p-5 w-[50%] z-[1] h-fit bottom-2 relative rounded-[100px] ml-[25%]  mr-[25%] mt-16;
+    }
+}

@@ -1,5 +1,5 @@
 .main1 {
-  @apply flex justify-center items-center mb-16;
+  @apply flex justify-center items-center;
 }
 .main2 {
   @apply grid grid-cols-4 gap-x-20;
