@@ -9,3 +9,39 @@
 .atag1 {
     @apply h-40 w-40 bg-no-repeat bg-contain; /* Style the logo */
 }
+.atag2 {
+    @apply absolute h-16 right-8 top-8 ;
+}
+
+
+/* .navright{
+    @apply flex
+} */
+
+
+.navright {
+
+    @apply flex gap-x-6 justify-center align-middle absolute right-14 top-12;
+    /* position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center; */
+    /* background-color: white; */
+    /* border-radius: 10px; */
+    /* box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25); */
+    /* padding: 10px 20px; */
+    font-family: 'Press Start 2P', sans-serif; /* Add a pixel-art styled font */
+  }
+  
+  .nav-item {
+    /* margin: 0 20px; */
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+    text-align: center;
+  }
+  
+  .nav-item:hover {
+    text-decoration: underline;
+  }
+  
