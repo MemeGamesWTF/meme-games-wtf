@@ -14,11 +14,6 @@
 }
 
 
-/* .navright{
-    @apply flex
-} */
-
-
 .navright {
 
     @apply flex gap-x-6 justify-center align-middle absolute right-14 top-11;
@@ -37,6 +32,46 @@
   
   .nav-item:hover {
     color: #5600FF;
+  }
+
+  .nav2{
+    display: none;
+  }
+
+
+
+  @media (max-width: 768px) {
+
+    .nav1{
+        display: none;
+    }
+
+    .nav2{
+        display: block;
+    }
+
+    .mobatag {
+        @apply w-[100%] h-40 absolute top-0 bg-no-repeat bg-contain;
+    }
+    .innernav2{
+        font-family: "Jersey 10", sans-serif;
+        font-weight: 500;
+        font-style: normal;
+        /* font-size: larger; */
+        @apply bg-transparent absolute top-4 left-7 flex gap-x-40
+    }
+
+    .nav-item2 {
+        /* margin: 0 20px; */
+        text-decoration: none;
+        color: black;
+        font-size: 28px;
+        text-align: center;
+      }
+      
+      .nav-item2:hover {
+        color: #5600FF;
+      }
   }
 
 

@@ -1,3 +1,45 @@
-.aboutusimg{
+/* .aboutusimg{
     @apply w-[65%] ml-[17.5%] mr-[17.5%]
+} */
+
+.aboutus-container {
+    background-image: url('../assets/about4.webp'); /* Update the path as needed */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 65%;
+    height: 520px;
+    margin-left: 17.5%;
+    margin-right: 17.5%;
+}
+
+.backbutton{
+    display: none;
+}
+
+
+@media (max-width: 768px) {
+    .aboutus-container {
+        background-image: url('../assets/mobileabout.webp'); /* Update the path as needed */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        width: 80%;
+        height: 630px;
+        margin-left: 10%;
+        margin-right: 10%;
+        margin-top:20px; /*CHANGE LATER*/
+    }
+
+    .backbutton{
+        display: block;
+        position: relative;
+    }
+
+    .backarrow{
+        width: 50px;
+        height: 40px;
+        margin-top: 100px;
+        margin-left: 20px;
+    }
 }

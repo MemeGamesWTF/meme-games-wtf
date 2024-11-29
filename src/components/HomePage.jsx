@@ -147,7 +147,7 @@ const HomePage = () => {
             </a>
             <a
               // href="https://t.me/meme_games_wtf_bot/tysontaptapbut"
-              href=""
+              // href=""
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -166,7 +166,7 @@ const HomePage = () => {
             </a>
             <a
               // href="https://t.me/meme_games_wtf_bot/tysontaptapbut"
-              href=""
+              // href=""
               target="_blank"
               rel="noopener noreferrer"
             >
