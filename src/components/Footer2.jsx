@@ -18,14 +18,22 @@ export default function Footer2() {
         </div>
       </footer>
       </a> */}
+      <div className="footNew">
+        <p className="ptag text-black text-xl">CA: AgDNMAi8r2QS1FQEeTHLsZSmkQKCK7xXP2bR7jQ2pump &nbsp;</p>
+      </div>
       <div className="footfoot">
         <img src={Box} alt="aboutus" className="foot" loading="lazy" />
       </div>
       <div className="footfoot2">
+        {/* X */}
         <p className="ptag text-back font-bold text-xl">Follow us on &nbsp;</p>
         <a href="https://x.com/memegameswtf?s=21" className="footicon1"></a>
         <p className="text-back font-bold text-lg">&nbsp;&nbsp;&nbsp;</p>
+        {/* Telegram */}
         <a href="https://t.me/memegameswtf" className="footicon11"></a>
+        {/* Pump */}
+        <p className="text-white font-bold text-lg">&nbsp;&nbsp;&nbsp;</p>
+        <a href="https://pump.fun/coin/AgDNMAi8r2QS1FQEeTHLsZSmkQKCK7xXP2bR7jQ2pump" className="pumpicon"></a>
       </div>
     </div>
   );
