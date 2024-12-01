@@ -10,8 +10,10 @@ import gamelogo2 from "../assets/tysonbutt2.webp";
 import gamelogo3 from "../assets/dogegame2.webp";
 import gamelogo4 from "../assets/elongame2.webp";
 import gamelogo5 from "../assets/martian.webp";
-import gamelogo6 from "../assets/comingsoon3.webp";
-import gamelogo7 from "../assets/comingsoon4.webp";
+import gamelogo6 from "../assets/mash.webp";
+import gamelogo7 from "../assets/something.webp";
+import gamelogo8 from "../assets/comingsoon3.webp";
+import gamelogo9 from "../assets/comingsoon4.webp";
 // import movingImage from "../assets/thunder.png";
 
 const HomePage = () => {
@@ -145,6 +147,44 @@ const HomePage = () => {
                 </span>
               </div>
             </a>
+            {/* <a
+              href="http://mememash.memegames.wtf/"
+              // href=""
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div className="main3 group">
+                <img
+                  src={gamelogo6}
+                  alt="Description of Image"
+                  loading="lazy"
+                  className="imageclass"
+                />
+                <div className="main4"></div>
+                <span className="spanclass">
+                  <img src={play}/>
+                </span>
+              </div>
+            </a> */}
+            <a
+              href="https://letmetellyousomething.memegames.wtf/"
+              // href=""
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div className="main3 group">
+                <img
+                  src={gamelogo7}
+                  alt="Description of Image"
+                  loading="lazy"
+                  className="imageclass"
+                />
+                <div className="main4"></div>
+                <span className="spanclass">
+                  <img src={play}/>
+                </span>
+              </div>
+            </a>
             <a
               // href="https://t.me/meme_games_wtf_bot/tysontaptapbut"
               // href=""
@@ -153,7 +193,7 @@ const HomePage = () => {
             >
               <div className="main3 group">
                 <img
-                  src={gamelogo6}
+                  src={gamelogo8}
                   alt="Description of Image"
                   loading="lazy"
                   className="imageclass"
@@ -172,7 +212,7 @@ const HomePage = () => {
             >
               <div className="main3 group">
                 <img
-                  src={gamelogo7}
+                  src={gamelogo9}
                   alt="Description of Image"
                   loading="lazy"
                   className="imageclass"
