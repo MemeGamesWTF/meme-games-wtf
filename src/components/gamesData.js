@@ -36,6 +36,12 @@ const gamesData = [
       icon: "/assets/play2.png"
     },
     {
+      name: "Banana",
+      url: "http://banana.memegames.wtf/",
+      image: "/assets/banana.webp",
+      icon: "/assets/play2.png"
+    },
+    {
       name: "Coming Soon 1",
       url: null,
       image: "/assets/comingsoon3.webp",
