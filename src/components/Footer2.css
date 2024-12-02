@@ -61,6 +61,10 @@
     font-size: 30px;
 }
 
+.footNew2{
+    display: none;
+}
+
 
 /* @media screen and (max-width: 1280px) and (max-height: 800px) {
     .foot1 {
@@ -74,5 +78,17 @@
     }    */
     .foot1 {
         @apply bg-black p-5 w-[50%] z-[1] h-fit bottom-2 relative rounded-[100px] ml-[25%]  mr-[25%] mt-16;
+    }
+    .footNew{
+        display: none;
+    }
+    .footNew2 {
+        @apply flex items-center justify-center w-[95%] ml-[2.5%] mr-[2.5%] mt-14 mb-4 bg-white rounded-md px-4 py-2;
+    }
+    .ptag2{
+        font-family: "Jersey 10", sans-serif;
+        font-weight: 500;
+        font-style: normal;
+        font-size: 17px;
     }
 }

@@ -21,6 +21,9 @@ export default function Footer2() {
       <div className="footNew">
         <p className="ptag text-black text-xl">CA: AgDNMAi8r2QS1FQEeTHLsZSmkQKCK7xXP2bR7jQ2pump &nbsp;</p>
       </div>
+      <div className="footNew2">
+        <p className="ptag2 text-black text-xl">CA: AgDNMAi8r2QS1FQEeTHLsZSmkQKCK7xXP2bR7jQ2pump &nbsp;</p>
+      </div>
       <div className="footfoot">
         <img src={Box} alt="aboutus" className="foot" loading="lazy" />
       </div>
