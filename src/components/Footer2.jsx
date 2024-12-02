@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Footer2.css";
-import Box from "../assets/empbox.png";
-import Copy from "../assets/duplicate.svg";
+import Box from "/assets/empbox.png";
+import Copy from "/assets/duplicate.svg";
 
 export default function Footer2() {
 

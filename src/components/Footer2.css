@@ -40,17 +40,17 @@
 }
 
 .footicon1 {
-    background-image: url("../assets/twitter3.svg");
+    background-image: url("/assets/twitter3.svg");
     @apply h-[25px] w-[25px] bg-no-repeat bg-contain transition duration-300 ease-in-out opacity-100 hover:opacity-40 cursor-pointer;
     
 }
 .footicon11 {
-    background-image: url("../assets/telegram.svg");
+    background-image: url("/assets/telegram.svg");
     @apply h-[28px] w-[28px] bg-no-repeat bg-contain transition duration-300 ease-in-out opacity-100 hover:opacity-40 cursor-pointer;
 }
 
 .pumpicon {
-    background-image: url("../assets/pump.svg");
+    background-image: url("/assets/pump.svg");
     @apply h-[28px] w-[28px] bg-no-repeat bg-contain transition duration-300 ease-in-out opacity-100 hover:opacity-40 cursor-pointer;
 }
 

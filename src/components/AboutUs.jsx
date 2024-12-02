@@ -1,8 +1,7 @@
 import React from 'react'
 import './AboutUs.css'
 import NavBar from './NavBar'
-import arrow from "../assets/arrow.png";
-// import abt from "../assets/about4.webp";
+import arrow from "/assets/arrow.png";
 
 export default function AboutUs() {
   return (
