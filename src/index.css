@@ -15,9 +15,9 @@ body {
 
 /* body {
     background-image: 
-        url('./assets/ground4.png'),
-        url('./assets/snowsparkles.png'),
-        url('./assets/background.jpg');
+        url('/christmas/ground4.png'),
+        url('/christmas/snowsparkles.png'),
+        url('/assets/background2.jpg');
     background-size: cover, cover, cover;
     background-repeat: no-repeat, repeat, no-repeat;
     background-position: center, top, center;
@@ -36,8 +36,8 @@ body {
 
 /* body {
     background-image: 
-        url('./assets/snowsparkles.png'),
-        url('./assets/background.jpg');
+        url('/christmas/snowsparkles.png'),
+        url('./assets/background2.jpg');
     background-size: cover, cover;
     background-repeat: repeat, no-repeat;
     background-position: top, center;
@@ -64,9 +64,9 @@ body {
 
     /* body {
         background-image: 
-            url('./assets/macground3.png'),
-            url('./assets/macsnow.png'),
-            url('./assets/macbg.jpg');
+            url('/christmas/macground3.png'),
+            url('/christmas/macsnow.png'),
+            url('/assets/macbg2.jpg');
         background-size: cover, cover, cover;
         background-repeat: no-repeat, repeat, no-repeat;
         background-position: center, top, center;
@@ -93,9 +93,9 @@ body {
 
     /* body {
         background-image: 
-            url('./assets/mobileground2.png'),
-            url('./assets/mobilesnow.png'),
-            url('./assets/mobilebg.jpg');
+            url('/christmas/mobileground2.png'),
+            url('/christmas/mobilesnow.png'),
+            url('/assets/mobilebg2.jpg');
         background-size: cover, cover, cover;
         background-repeat: no-repeat, repeat, no-repeat;
         background-position: center, top, center;
