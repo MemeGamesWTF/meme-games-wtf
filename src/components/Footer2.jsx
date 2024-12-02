@@ -1,8 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Footer2.css";
 import Box from "../assets/empbox.png";
+import Copy from "../assets/duplicate.svg";
 
 export default function Footer2() {
+
+  const [showTooltip, setShowTooltip] = useState(false);
+
+  const copyToClipboard = () => {
+    const textToCopy = "CA: AgDNMAi8r2QS1FQEeTHLsZSmkQKCK7xXP2bR7jQ2pump";
+    navigator.clipboard.writeText(textToCopy).then(() => {
+      setShowTooltip(true);
+      setTimeout(() => setShowTooltip(false), 2000); // Hide tooltip after 2 seconds
+    });
+  };
+
   return (
     <div className="footermain">
       {/* <a href="https://x.com/memegameswtf" className="footicon2">
@@ -19,10 +31,39 @@ export default function Footer2() {
       </footer>
       </a> */}
       <div className="footNew">
-        <p className="ptag text-black text-xl">CA: AgDNMAi8r2QS1FQEeTHLsZSmkQKCK7xXP2bR7jQ2pump &nbsp;</p>
+        <p className="ptag text-black text-xl">CA: AgDNMAi8r2QS1FQEeTHLsZSmkQKCK7xXP2bR7jQ2pump &nbsp;
+        {/* <button
+          onClick={copyToClipboard}
+          className="copyButton text-blue-500"
+        >
+          <img src={Copy} className="copyimg" loading="lazy" />
+        </button> */}
+        </p>
+        <button
+          onClick={copyToClipboard}
+          className="copyButton text-blue-500"
+        >
+          <img src={Copy} className="copyimg" loading="lazy" />
+        </button>
+        {showTooltip && (
+          <span className="tooltip">
+            Copied to clipboard!
+          </span>
+        )}
       </div>
       <div className="footNew2">
         <p className="ptag2 text-black text-xl">CA: AgDNMAi8r2QS1FQEeTHLsZSmkQKCK7xXP2bR7jQ2pump &nbsp;</p>
+        <button
+          onClick={copyToClipboard}
+          className="copyButton text-blue-500"
+        >
+          <img src={Copy} className="copyimg" loading="lazy" />
+        </button>
+        {showTooltip && (
+          <span className="tooltip">
+            Copied to clipboard!
+          </span>
+        )}
       </div>
       <div className="footfoot">
         <img src={Box} alt="aboutus" className="foot" loading="lazy" />
