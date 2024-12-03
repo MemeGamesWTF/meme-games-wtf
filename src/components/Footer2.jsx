@@ -4,11 +4,10 @@ import Box from "/assets/empbox.png";
 import Copy from "/assets/duplicate.svg";
 
 export default function Footer2() {
-
   const [showTooltip, setShowTooltip] = useState(false);
 
   const copyToClipboard = () => {
-    const textToCopy = "CA: AgDNMAi8r2QS1FQEeTHLsZSmkQKCK7xXP2bR7jQ2pump";
+    const textToCopy = "AgDNMAi8r2QS1FQEeTHLsZSmkQKCK7xXP2bR7jQ2pump";
     navigator.clipboard.writeText(textToCopy).then(() => {
       setShowTooltip(true);
       setTimeout(() => setShowTooltip(false), 2000); // Hide tooltip after 2 seconds
@@ -31,39 +30,28 @@ export default function Footer2() {
       </footer>
       </a> */}
       <div className="footNew">
-        <p className="ptag text-black text-xl">CA: AgDNMAi8r2QS1FQEeTHLsZSmkQKCK7xXP2bR7jQ2pump &nbsp;
-        {/* <button
+        <p className="ptag text-black text-xl">
+          CA: AgDNMAi8r2QS1FQEeTHLsZSmkQKCK7xXP2bR7jQ2pump &nbsp;
+          {/* <button
           onClick={copyToClipboard}
           className="copyButton text-blue-500"
         >
           <img src={Copy} className="copyimg" loading="lazy" />
         </button> */}
         </p>
-        <button
-          onClick={copyToClipboard}
-          className="copyButton text-blue-500"
-        >
+        <button onClick={copyToClipboard} className="copyButton text-blue-500">
           <img src={Copy} className="copyimg" loading="lazy" />
         </button>
-        {showTooltip && (
-          <span className="tooltip">
-            Copied to clipboard!
-          </span>
-        )}
+        {showTooltip && <span className="tooltip">Copied to clipboard!</span>}
       </div>
       <div className="footNew2">
-        <p className="ptag2 text-black text-xl">CA: AgDNMAi8r2QS1FQEeTHLsZSmkQKCK7xXP2bR7jQ2pump &nbsp;</p>
-        <button
-          onClick={copyToClipboard}
-          className="copyButton text-blue-500"
-        >
+        <p className="ptag2 text-black text-xl">
+          CA: AgDNMAi8r2QS1FQEeTHLsZSmkQKCK7xXP2bR7jQ2pump &nbsp;
+        </p>
+        <button onClick={copyToClipboard} className="copyButton text-blue-500">
           <img src={Copy} className="copyimg" loading="lazy" />
         </button>
-        {showTooltip && (
-          <span className="tooltip">
-            Copied to clipboard!
-          </span>
-        )}
+        {showTooltip && <span className="tooltip">Copied to clipboard!</span>}
       </div>
       <div className="footfoot">
         <img src={Box} alt="aboutus" className="foot" loading="lazy" />
@@ -77,7 +65,10 @@ export default function Footer2() {
         <a href="https://t.me/memegameswtf" className="footicon11"></a>
         {/* Pump */}
         <p className="text-white font-bold text-lg">&nbsp;&nbsp;&nbsp;</p>
-        <a href="https://pump.fun/coin/AgDNMAi8r2QS1FQEeTHLsZSmkQKCK7xXP2bR7jQ2pump" className="pumpicon"></a>
+        <a
+          href="https://pump.fun/coin/AgDNMAi8r2QS1FQEeTHLsZSmkQKCK7xXP2bR7jQ2pump"
+          className="pumpicon"
+        ></a>
       </div>
     </div>
   );
