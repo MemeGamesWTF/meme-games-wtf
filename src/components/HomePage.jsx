@@ -1,10 +1,37 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
 import "./HomePage.css";
 import NavBar from "./NavBar";
 import Footer from "./Footer2";
-import gamesData from "./gamesData";
+// import gamesData from "./gamesData";
 
 const HomePage = () => {
+
+  const [gamesData, setGamesData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchGamesData = async () => {
+      try {
+        const response = await fetch('http://gamesdata.movindusenuraaluthge.workers.dev/');
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        setGamesData(data);
+        setIsLoading(false);
+      } catch (error) {
+        setError(error.message);
+        setIsLoading(false);
+      }
+    };
+
+    fetchGamesData();
+  }, []);
+
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error}</div>;
+
   return (
     <>
       <div className="main0">
