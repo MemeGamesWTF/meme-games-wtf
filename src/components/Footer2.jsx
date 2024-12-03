@@ -64,10 +64,16 @@ export default function Footer2() {
         {/* Telegram */}
         <a href="https://t.me/memegameswtf" className="footicon11"></a>
         {/* Pump */}
-        <p className="text-white font-bold text-lg">&nbsp;&nbsp;&nbsp;</p>
+        {/* <p className="text-white font-bold text-lg">&nbsp;&nbsp;&nbsp;</p>
         <a
           href="https://pump.fun/coin/AgDNMAi8r2QS1FQEeTHLsZSmkQKCK7xXP2bR7jQ2pump"
           className="pumpicon"
+        ></a> */}
+        {/* Dex */}
+        <p className="text-white font-bold text-lg">&nbsp;&nbsp;&nbsp;&nbsp;</p>
+        <a
+          href="https://dexscreener.com/solana/7bNW3AZzo8Jc8gFs2Q2a5gEbji8SoDD8YKbvURJfy6M8"
+          className="dexicon"
         ></a>
       </div>
     </div>
