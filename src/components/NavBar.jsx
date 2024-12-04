@@ -36,15 +36,19 @@ export default function NavBar() {
         <div className="innernav">
           {/* <Link to="/" className="nav-item">Road Map</Link> */}
 
-          <a href='/'
+          {/* <a href='/'
             className="mobatag"
             style={{ backgroundImage: `url(${Logo2})` }}
           >
-          </a>
+          </a> */}
 
           {/* <Link to="/about" className="nav-item">About Us</Link> */}
         </div>
+        <div className='moblogodiv'>
+          <img src={Logo} className="moblogo" loading="lazy" />
+        </div>
         <div className='innernav2'>
+          
           <Link to="/" className="nav-item2" as={NavLink}>Road Map</Link>
           <Link to="/about" className="nav-item2" as={NavLink}>About Us</Link>
         </div>
