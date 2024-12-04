@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./Footer2.css";
-import Box from "/assets/empbox.png";
 import Copy from "/assets/duplicate.svg";
 
 export default function Footer2() {
@@ -53,11 +52,10 @@ export default function Footer2() {
         </button>
         {showTooltip && <span className="tooltip">Copied to clipboard!</span>}
       </div>
-      <div className="footfoot">
-        <img src={Box} alt="aboutus" className="foot" loading="lazy" />
-      </div>
-      <div className="footfoot2">
-        {/* X */}
+
+      <div className='atag22'>
+          <div className="atag222">
+            {/* X */}
         <p className="ptag text-back font-bold text-xl">Follow us on &nbsp;</p>
         <a href="https://x.com/memegameswtf?s=21" className="footicon1"></a>
         <p className="text-back font-bold text-lg">&nbsp;&nbsp;&nbsp;</p>
@@ -75,7 +73,8 @@ export default function Footer2() {
           href="https://dexscreener.com/solana/7bNW3AZzo8Jc8gFs2Q2a5gEbji8SoDD8YKbvURJfy6M8"
           className="dexicon"
         ></a>
-      </div>
+          </div>
+          </div>
     </div>
   );
 }
