@@ -19,7 +19,7 @@ export default function NavBar() {
             <Link to="/" className="nav-item" as={NavLink}>Games</Link>
             <Link to="/about" className="nav-item" as={NavLink}>About Us</Link>            
             <Link to="/howtobuy" className="nav-item" as={NavLink}>How To Buy</Link>
-            <Link to="/roadmap" className="nav-item" as={NavLink}>Road Map</Link>
+            <Link to="/" className="nav-item" as={NavLink}>Road Map</Link>
           </div>
           </div>
 
