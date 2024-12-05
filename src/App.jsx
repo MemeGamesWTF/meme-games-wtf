@@ -3,6 +3,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import HomePage, { gamesLoader } from "./components/HomePage";
 import AboutUs from "./components/AboutUs";
+import HowToBuy from "./components/HowToBuy";
+import RoadMap from "./components/RoadMap";
 import "./index.css";
 
 const wireRouter = createBrowserRouter([
@@ -14,6 +16,16 @@ const wireRouter = createBrowserRouter([
   {
     path: "/about",
     element: <AboutUs />,
+    errorElement: <div>notfound</div>,
+  },
+  {
+    path: "/howtobuy",
+    element: <HowToBuy />,
+    errorElement: <div>notfound</div>,
+  },
+  {
+    path: "/roadmap",
+    element: <RoadMap />,
     errorElement: <div>notfound</div>,
   },
 ]);

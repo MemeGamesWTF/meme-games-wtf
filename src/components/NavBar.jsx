@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link, NavLink } from 'react-router-dom';
 import Logo from '/assets/logo4.webp'; // Import the logo
-import Logo2 from '/assets/header2.png';
 import './NavBar.css'
 
 export default function NavBar() {
@@ -18,8 +17,9 @@ export default function NavBar() {
           <div className='atag2'>
           <div className="navright">
             <Link to="/" className="nav-item" as={NavLink}>Games</Link>
-            <Link to="/about" className="nav-item" as={NavLink}>About Us</Link>
-            <Link to="/" className="nav-item" as={NavLink}>Road Map</Link>
+            <Link to="/about" className="nav-item" as={NavLink}>About Us</Link>            
+            <Link to="/howtobuy" className="nav-item" as={NavLink}>How To Buy</Link>
+            <Link to="/roadmap" className="nav-item" as={NavLink}>Road Map</Link>
           </div>
           </div>
 

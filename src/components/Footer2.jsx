@@ -60,7 +60,7 @@ export default function Footer2() {
         <a href="https://x.com/memegameswtf?s=21" className="footicon1"></a>
         <p className="text-back font-bold text-lg">&nbsp;&nbsp;&nbsp;</p>
         {/* Telegram */}
-        <a href="https://t.me/memegameswtf" className="footicon11"></a>
+        <a href="https://t.me/+bTQird4VphdlNzhk" className="footicon11"></a>
         {/* Pump */}
         {/* <p className="text-white font-bold text-lg">&nbsp;&nbsp;&nbsp;</p>
         <a

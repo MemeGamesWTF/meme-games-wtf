@@ -1,0 +1,86 @@
+.htb1 {
+  @apply flex justify-center items-center bg-white opacity-95;
+  font-family: "Jersey 10", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.topic {
+  text-decoration: none;
+  color: black;
+  font-size: 55px;
+  text-align: center;
+}
+
+.htb2 {
+  @apply flex justify-center items-center mt-12 w-[90%] ml-[5%] mr-[5%];
+}
+
+.htb3 {
+  @apply grid grid-cols-4 gap-x-12;
+}
+
+.htb4 {
+    box-shadow: 0px 9px 0px black;
+    background: linear-gradient(to bottom, #98e05f, #0de3ac); /* Gradient from top to bottom */
+    border-radius: 0.375rem; /* Tailwind's rounded-md */
+    padding: 1.25rem; /* Tailwind's px-5 py-5 */
+  }
+
+.htb4second {
+    @apply flex flex-col justify-between h-full gap-4; /* Ensure even spacing and full height */
+  }
+
+.htb5 {
+  @apply flex gap-x-6 justify-center align-middle;
+  font-family: "Jersey 10", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.htb6div {
+  /* background-color: black; */
+  /* color: white; */
+  @apply py-0 px-0 rounded-lg;
+}
+
+.htb6 {
+  font-family: "Jersey 10", sans-serif;
+  font-weight: 500;
+  /* font-style: normal; */
+  /* text-decoration: none; */
+  color: white;
+  font-size: 40px;
+  text-align: center;
+  text-shadow:
+    1px 1px 0px black,  /* Light shadow for stroke effect */
+    -1px -1px 0px black,
+    1px -1px 0px black,
+    -1px 1px 0px black,
+    0px 2px 0px black, /* Vertical shadow */
+    5px -2px 0px black, /* Vertical shadow */
+    5px 0px 0px black, /* Horizontal shadow */
+    -2px 0px 0px black; /* Horizontal shadow */
+}
+
+.htb7 {
+  /* margin: 0 20px; */
+  text-decoration: none;
+  color: black;
+  font-size: 23px;
+  text-align: center;
+}
+
+.htb8 {
+    font-family: "Jersey 10", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    text-decoration: none;
+    color: white;
+    font-size: 30px;
+    text-align: center;
+    background: linear-gradient(to bottom, #6d5281, #5808fb); /* Gradient from top to bottom */
+    @apply py-0 px-0 rounded-full mt-auto; /* Push button to the bottom */
+    box-shadow: 0px 6px 0px black;
+  }
+  
