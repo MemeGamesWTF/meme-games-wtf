@@ -1,13 +1,13 @@
 .nav1 {
-    @apply bg-transparent p-[0px] w-full flex justify-start items-start; /* Center the content */
+  @apply bg-transparent p-[0px] w-full flex justify-start items-start; /* Center the content */
 }
 
 .navclz1 {
-    @apply flex justify-start items-start w-auto; /* Center align the logo */
+  @apply flex justify-start items-start w-auto; /* Center align the logo */
 }
 
 .atag1 {
-    @apply h-40 w-40 bg-no-repeat bg-contain; /* Style the logo */
+  @apply h-40 w-40 bg-no-repeat bg-contain; /* Style the logo */
 }
 /* .atag2 {
     @apply absolute h-16 right-8 top-8 ;
@@ -15,82 +15,76 @@
 
 .atag2 {
   box-shadow: 0px 9px 0px black;
-  @apply  absolute right-8 top-8 bg-white rounded-md px-4 py-2;
+  @apply absolute right-8 top-8 bg-white rounded-md px-4 py-2;
 }
 
-
 .navright {
+  @apply flex gap-x-6 justify-center align-middle;
+  font-family: "Jersey 10", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
 
-    @apply flex gap-x-6 justify-center align-middle;
-    font-family: "Jersey 10", sans-serif;
-    font-weight: 500;
-    font-style: normal;
-  }
-  
-  .nav-item {
-    /* margin: 0 20px; */
-    text-decoration: none;
-    color: black;
-    font-size: 25px;
-    text-align: center;
-  }
-  
-  .nav-item:hover {
-    color: #5600FF;
-  }
+.nav-item {
+  /* margin: 0 20px; */
+  text-decoration: none;
+  color: black;
+  font-size: 25px;
+  text-align: center;
+}
 
-  .nav2{
+.nav-item:hover {
+  color: #5600ff;
+}
+
+.nav2 {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .nav1 {
     display: none;
   }
 
-
-
-  @media (max-width: 768px) {
-
-    .nav1{
-        display: none;
-    }
-
-    .nav2{
-      display: block;
-      box-shadow: 0px 9px 0px black;
-      @apply absolute top-0 bg-white px-4 py-2 w-[100%] rounded-b-md z-30;
-    }
-
-    .moblogo{
-      @apply absolute top-0 h-20;
-    }
-
-    .moblogodiv{
-      @apply w-fit ml-auto mr-auto flex items-center justify-center;
-    }
-
-    .mobatag {
-        @apply w-[100%] h-40 absolute top-0 bg-no-repeat bg-contain;
-    }
-    
-    .innernav2{
-        font-family: "Jersey 10", sans-serif;
-        font-weight: 500;
-        font-style: normal;
-        /* font-size: larger; */
-        /* @apply bg-transparent absolute top-4 left-7 flex gap-x-40 */
-        @apply flex gap-x-40 w-fit ml-auto mr-auto py-2
-    }
-
-    .nav-item2 {
-        /* margin: 0 20px; */
-        text-decoration: none;
-        color: black;
-        font-size: 28px;
-        /* text-align: center; */
-      }
-      
-      .nav-item2:hover {
-        color: #5600FF;
-      }
+  .nav2 {
+    display: block;
+    box-shadow: 0px 9px 0px black;
+    @apply absolute top-0 bg-white px-4 py-2 w-[100%] rounded-b-md z-30;
   }
 
+  .moblogo {
+    @apply absolute top-0 h-20;
+    left: 50%; /* Move to the center of the screen */
+    transform: translateX(-50%); /* Adjust for the width of the image */
+  }
 
-  
-  
+  .moblogodiv {
+    @apply flex items-center justify-center;
+    width: 100%; /* Ensure the container spans the full width of the screen */
+  }
+
+  .mobatag {
+    @apply w-[100%] h-40 absolute top-0 bg-no-repeat bg-contain;
+  }
+
+  .innernav2 {
+    font-family: "Jersey 10", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    /* font-size: larger; */
+    /* @apply bg-transparent absolute top-4 left-7 flex gap-x-40 */
+    @apply flex gap-x-40 w-fit ml-auto mr-auto py-2;
+  }
+
+  .nav-item2 {
+    /* margin: 0 20px; */
+    text-decoration: none;
+    color: black;
+    font-size: 28px;
+    /* text-align: center; */
+  }
+
+  .nav-item2:hover {
+    color: #5600ff;
+  }
+}
