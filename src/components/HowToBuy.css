@@ -89,8 +89,34 @@
   box-shadow: 0px 6px 0px black;
 }
 
+.backbutton{
+    display: none;
+  }
+
+
+
+
+
+
+
 @media (max-width: 768px) {
-    .htb3 {
-        @apply grid grid-cols-1 gap-y-5 mt-28 w-[85%] ml-[7.5%] mr-[7.5%]; /* Single column with vertical gaps */
-      }
+  .htb3 {
+    @apply grid grid-cols-1 gap-y-5 mt-[20px] w-[85%] ml-[7.5%] mr-[7.5%]; /* Single column with vertical gaps */
+  }
+
+  .htb4{
+    @apply rounded-2xl
+  }
+
+  .backbutton{
+    display: block;
+    position: relative;
+}
+
+.backarrow{
+    width: 50px;
+    height: 40px;
+    margin-top: 100px;
+    margin-left: 20px;
+}
 }

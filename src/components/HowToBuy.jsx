@@ -3,6 +3,7 @@ import "./HowToBuy.css";
 import NavBar from './NavBar'
 import { Link, NavLink } from 'react-router-dom';
 import Footer from "./Footer2";
+import arrow from "/assets/arrow.webp";
 
 export default function HowToBuy() {
   return (
@@ -12,6 +13,15 @@ export default function HowToBuy() {
         {/* <div className='htb1'>
           <h2 className='topic'>How To Buy</h2>
         </div> */}
+
+<div className='backbutton'>
+        <button 
+  onClick={() => window.history.back()} 
+  style={{ border: "none", background: "none", padding: 0, cursor: "pointer" }}
+>
+  <img src={arrow} alt="arrow" className="backarrow" loading="lazy" />
+</button>
+        </div>
 
         <div className='htb2'>
           <div className='htb3 group'>
