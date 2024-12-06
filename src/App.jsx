@@ -42,7 +42,7 @@ function App() {
         />
         {/* <link rel="icon" type="image/png" href="/assets/logo4.png" /> */}
       </Helmet>
-      <RouterProvider router={wireRouter} />
+      <RouterProvider router={wireRouter} basename={import.meta.env.BASE_URL} />
     </>
   );
 }
