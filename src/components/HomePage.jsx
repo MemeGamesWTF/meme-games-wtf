@@ -19,9 +19,9 @@ const HomePage = () => {
         <div className="main1">
           <div className="main2">
             {gamesData.length > 0 &&
-              gamesData.map((game, index) => (
+              gamesData.map((game) => (
                 <a
-                  key={index}
+                  key={game.name}
                   href={game.url}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -32,10 +32,20 @@ const HomePage = () => {
                       alt={game.name}
                       loading="lazy"
                       className="imageclass"
+                      onLoad={(e) => {
+                        e.target.style.opacity = 1;
+                      }}
                     />
                     <div className="main4"></div>
                     <span className="spanclass">
-                      <img src={game.icon} alt="Play Icon" loading="lazy" />
+                      <img
+                        src={game.icon}
+                        alt="Play Icon"
+                        loading="lazy"
+                        onLoad={(e) => {
+                          e.target.style.opacity = 1;
+                        }}
+                      />
                     </span>
                   </div>
                 </a>

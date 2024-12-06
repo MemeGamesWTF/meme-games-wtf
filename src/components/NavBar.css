@@ -54,7 +54,7 @@
     .nav2{
       display: block;
       box-shadow: 0px 9px 0px black;
-      @apply absolute top-0 bg-white px-4 py-2 w-[100%] rounded-b-md;
+      @apply absolute top-0 bg-white px-4 py-2 w-[100%] rounded-b-md z-30;
     }
 
     .moblogo{
