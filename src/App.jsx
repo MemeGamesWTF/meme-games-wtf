@@ -12,6 +12,7 @@ const wireRouter = createBrowserRouter([
     path: "/",
     element: <HomePage />,
     loader: gamesLoader,
+    errorElement: <div>notfound</div>,
   },
   {
     path: "/about",
@@ -34,7 +35,10 @@ function App() {
   return (
     <>
       <Helmet>
-        <meta name="description" content="CA: AgDNMAi8r2QS1FQEeTHLsZSmkQKCK7xXP2bR7jQ2pump" />
+        <meta
+          name="description"
+          content="CA: AgDNMAi8r2QS1FQEeTHLsZSmkQKCK7xXP2bR7jQ2pump"
+        />
         <meta name="author" content="MemeGames.WTF" />
         <meta
           name="keywords"

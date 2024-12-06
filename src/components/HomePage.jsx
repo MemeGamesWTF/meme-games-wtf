@@ -2,14 +2,18 @@ import React from "react";
 import "./HomePage.css";
 import NavBar from "./NavBar";
 import Footer from "./Footer2";
-import { useLoaderData, useNavigation } from "react-router-dom";
+import { Outlet, useLoaderData, useNavigation } from "react-router-dom";
 import Loader from "./Loader";
 // import gamesData from "./gamesData";
 
 const HomePage = () => {
   const navigation = useNavigation();
 
-  if (navigation.state !== "idle") return <Loader />;
+  if (navigation.state !== "idle") {
+    <Loader />;
+  } else {
+    <Outlet />;
+  }
 
   const gamesData = useLoaderData();
   return (
@@ -18,7 +22,8 @@ const HomePage = () => {
         <NavBar />
         <div className="main1">
           <div className="main2">
-            {gamesData.length > 0 &&
+            {typeof gamesData !== undefined &&
+              gamesData.length > 0 &&
               gamesData.map((game) => (
                 <a
                   key={game.name}
