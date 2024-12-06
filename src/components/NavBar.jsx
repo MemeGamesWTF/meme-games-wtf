@@ -57,7 +57,9 @@ export default function NavBar() {
           {/* <Link to="/about" className="nav-item">About Us</Link> */}
         </div>
         <div className="moblogodiv">
-          <img src={Logo} className="moblogo" loading="lazy" />
+        <Link to="/">
+          <img src={Logo} className="moblogo" loading="lazy" alt="Logo" />
+        </Link>
         </div>
         <div className="innernav2">
           <Link to="/howtobuy" className="nav-item2" as={NavLink}>
