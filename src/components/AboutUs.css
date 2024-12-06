@@ -98,7 +98,7 @@
   .abt4 {
     box-shadow: 0px 12px 0px black;
     background-color: white;
-    @apply rounded-2xl px-8 pb-6 pt-2 mt-6 mb-10;
+    @apply rounded-2xl px-8 pb-6 pt-2 mt-6 mb-12;
     width: 80%;
     margin-left: 10%;
     margin-right: 10%;
