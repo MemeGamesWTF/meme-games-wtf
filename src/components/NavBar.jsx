@@ -49,7 +49,7 @@ export default function NavBar() {
         </div>
         <div className='innernav2'>
           
-          <Link to="/" className="nav-item2" as={NavLink}>Road Map</Link>
+          <Link to="/howtobuy" className="nav-item2" as={NavLink}>How To Buy</Link>
           <Link to="/about" className="nav-item2" as={NavLink}>About Us</Link>
         </div>
       </div>

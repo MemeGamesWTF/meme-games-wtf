@@ -9,9 +9,9 @@ export default function HowToBuy() {
     <>
       <div>
         <NavBar />
-        <div className='htb1'>
+        {/* <div className='htb1'>
           <h2 className='topic'>How To Buy</h2>
-        </div>
+        </div> */}
 
         <div className='htb2'>
           <div className='htb3 group'>

@@ -13,7 +13,7 @@
 }
 
 .htb2 {
-  @apply flex justify-center items-center mt-12 w-[90%] ml-[5%] mr-[5%];
+  @apply flex justify-center items-center mt-5 w-[90%] ml-[5%] mr-[5%];
 }
 
 .htb3 {
@@ -21,15 +21,19 @@
 }
 
 .htb4 {
-    box-shadow: 0px 9px 0px black;
-    background: linear-gradient(to bottom, #98e05f, #0de3ac); /* Gradient from top to bottom */
-    border-radius: 0.375rem; /* Tailwind's rounded-md */
-    padding: 1.25rem; /* Tailwind's px-5 py-5 */
-  }
+  box-shadow: 0px 9px 0px black;
+  background: linear-gradient(
+    to bottom,
+    #98e05f,
+    #0de3ac
+  ); /* Gradient from top to bottom */
+  border-radius: 0.375rem; /* Tailwind's rounded-md */
+  padding: 1.25rem; /* Tailwind's px-5 py-5 */
+}
 
 .htb4second {
-    @apply flex flex-col justify-between h-full gap-4; /* Ensure even spacing and full height */
-  }
+  @apply flex flex-col justify-between h-full gap-4; /* Ensure even spacing and full height */
+}
 
 .htb5 {
   @apply flex gap-x-6 justify-center align-middle;
@@ -52,15 +56,12 @@
   color: white;
   font-size: 40px;
   text-align: center;
-  text-shadow:
-    1px 1px 0px black,  /* Light shadow for stroke effect */
-    -1px -1px 0px black,
-    1px -1px 0px black,
-    -1px 1px 0px black,
-    0px 2px 0px black, /* Vertical shadow */
-    5px -2px 0px black, /* Vertical shadow */
-    5px 0px 0px black, /* Horizontal shadow */
-    -2px 0px 0px black; /* Horizontal shadow */
+  text-shadow: 1px 1px 0px black,
+    /* Light shadow for stroke effect */ -1px -1px 0px black, 1px -1px 0px black,
+    -1px 1px 0px black, 0px 2px 0px black,
+    /* Vertical shadow */ 5px -2px 0px black,
+    /* Vertical shadow */ 5px 0px 0px black,
+    /* Horizontal shadow */ -2px 0px 0px black; /* Horizontal shadow */
 }
 
 .htb7 {
@@ -72,15 +73,24 @@
 }
 
 .htb8 {
-    font-family: "Jersey 10", sans-serif;
-    font-weight: 500;
-    font-style: normal;
-    text-decoration: none;
-    color: white;
-    font-size: 30px;
-    text-align: center;
-    background: linear-gradient(to bottom, #6d5281, #5808fb); /* Gradient from top to bottom */
-    @apply py-0 px-0 rounded-full mt-auto; /* Push button to the bottom */
-    box-shadow: 0px 6px 0px black;
-  }
-  
+  font-family: "Jersey 10", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  text-decoration: none;
+  color: white;
+  font-size: 30px;
+  text-align: center;
+  background: linear-gradient(
+    to bottom,
+    #6d5281,
+    #5808fb
+  ); /* Gradient from top to bottom */
+  @apply py-0 px-0 rounded-full mt-auto; /* Push button to the bottom */
+  box-shadow: 0px 6px 0px black;
+}
+
+@media (max-width: 768px) {
+    .htb3 {
+        @apply grid grid-cols-1 gap-y-5 mt-28 w-[85%] ml-[7.5%] mr-[7.5%]; /* Single column with vertical gaps */
+      }
+}
