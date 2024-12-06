@@ -20,21 +20,22 @@ export default function NavBar() {
           ></Link>
           {/* <img src={Box} alt="aboutus" className="atag2" loading="lazy" /> */}
           <div className="atag2">
-            <div className="navright">
-              <Link to="/" className="nav-item" as={NavLink} replace={true}>
-                Games
-              </Link>
-              <Link to="/about" className="nav-item" as={NavLink}>
-                About Us
-              </Link>
-              <Link to="/howtobuy" className="nav-item" as={NavLink}>
-                How To Buy
-              </Link>
-              <Link to="/" className="nav-item" as={NavLink}>
-                Road Map
-              </Link>
-            </div>
-          </div>
+  <div className="navright">
+    <NavLink to="/" className="nav-item" activeClassName="active" exact>
+      Games
+    </NavLink>
+    <NavLink to="/about" className="nav-item" activeClassName="active">
+      About Us
+    </NavLink>
+    <NavLink to="/howtobuy" className="nav-item" activeClassName="active">
+      How To Buy
+    </NavLink>
+    <NavLink to="/roadmap" className="nav-item" activeClassName="active">
+      Road Map
+    </NavLink>
+  </div>
+</div>
+
 
           {/* <div className="navright">
             <Link to="/" className="nav-item" as={NavLink}>Games</Link>
@@ -62,13 +63,14 @@ export default function NavBar() {
         </Link>
         </div>
         <div className="innernav2">
-          <Link to="/howtobuy" className="nav-item2" as={NavLink}>
-            How To Buy
-          </Link>
-          <Link to="/about" className="nav-item2" as={NavLink}>
-            About Us
-          </Link>
-        </div>
+  <NavLink to="/howtobuy" className="nav-item2" activeClassName="active">
+    How To Buy
+  </NavLink>
+  <NavLink to="/about" className="nav-item2" activeClassName="active">
+    About Us
+  </NavLink>
+</div>
+
       </div>
     </>
   );
