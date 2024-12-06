@@ -2,8 +2,8 @@
     @apply w-[65%] ml-[17.5%] mr-[17.5%]
 } */
 
-.aboutus-container {
-    background-image: url('/assets/about4.webp'); /* Update the path as needed */
+/* .aboutus-container {
+    background-image: url('/assets/about4.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -11,52 +11,128 @@
     height: 520px;
     margin-left: 17.5%;
     margin-right: 17.5%;
+} */
+
+.backbutton {
+  display: none;
 }
 
-.backbutton{
-    display: none;
+.abt4 {
+  box-shadow: 0px 9px 0px black;
+  background-color: white;
+  @apply rounded-md px-10 pb-8 pt-2;
+  width: 75%;
+  margin-left: 12.5%;
+  margin-right: 12.5%;
 }
+
+
+
+/* .abt5 {
+  @apply flex gap-x-6 justify-center align-middle;
+  font-family: "Jersey 10", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+} */
+
+/* .abt5{
+  @apply mb-10
+} */
+
+.abt6 {
+  font-family: "Jersey 10", sans-serif;
+  font-weight: 500;
+  /* font-style: normal; */
+  /* text-decoration: none; */
+  color: black;
+  font-size: 60px;
+  text-align: center;
+}
+
+.abt7 {
+  /* margin: 0 20px; */
+  text-decoration: none;
+  color: black;
+  font-size: 23px;
+  text-align: justify;
+  line-height: 1.1; /* Adjust line height */
+  margin-bottom: 20px; /* Reduce spacing between paragraphs */
+}
+
+
+
+
+
+
 
 
 @media screen and (max-width: 1280px) and (max-height: 800px) {
-    .aboutus-container {
-        background-image: url('/assets/about4.webp'); /* Update the path as needed */
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        width: 80%;
-        height: 535px;
-        margin-left: 10%;
-        margin-right: 10%;
-        margin-top:20px; /*CHANGE LATER*/
-        margin-bottom: 20px;
-    }
+  /* .aboutus-container {
+    background-image: url("/assets/about4.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 80%;
+    height: 535px;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  } */
 }
 
-
 @media (max-width: 768px) {
-    .aboutus-container {
-        background-image: url('/assets/mobileabout.webp'); /* Update the path as needed */
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        width: 80%;
-        height: 630px;
-        margin-left: 10%;
-        margin-right: 10%;
-        margin-top:20px; /*CHANGE LATER*/
-        margin-bottom: 20px;
-    }
+  /* .aboutus-container {
+    background-image: url("/assets/mobileabout.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 80%;
+    height: 630px;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  } */
 
-    .backbutton{
-        display: block;
-        position: relative;
-    }
+  .abt4 {
+    box-shadow: 0px 12px 0px black;
+    background-color: white;
+    @apply rounded-2xl px-8 pb-6 pt-2 mt-6;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
 
-    .backarrow{
-        width: 50px;
-        height: 40px;
-        margin-top: 100px;
-        margin-left: 20px;
-    }
+  .abt6 {
+    font-family: "Jersey 10", sans-serif;
+    font-weight: 500;
+    /* font-style: normal; */
+    /* text-decoration: none; */
+    color: black;
+    font-size: 50px;
+    text-align: center;
+  }
+
+  .abt7 {
+    /* margin: 0 20px; */
+    text-decoration: none;
+    color: black;
+    font-size: 17px;
+    text-align: justify;
+    line-height: 0.8; /* Adjust line height */
+    margin-bottom: 20px; /* Reduce spacing between paragraphs */
+  }
+
+  .backbutton {
+    display: block;
+    position: relative;
+  }
+
+  .backarrow {
+    width: 50px;
+    height: 40px;
+    margin-top: 100px;
+    margin-left: 20px;
+  }
 }
