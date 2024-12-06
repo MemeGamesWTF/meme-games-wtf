@@ -34,7 +34,7 @@ function App() {
   return (
     <>
       <Helmet>
-        <meta name="description" content="We are MemeGames.WTF" />
+        <meta name="description" content="CA: AgDNMAi8r2QS1FQEeTHLsZSmkQKCK7xXP2bR7jQ2pump" />
         <meta name="author" content="MemeGames.WTF" />
         <meta
           name="keywords"
