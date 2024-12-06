@@ -1,7 +1,11 @@
-import React from 'react'
+import React from "react";
+import NavBar from "./NavBar";
+import "./RoadMap.css";
 
 export default function RoadMap() {
   return (
-    <div>RoadMap</div>
-  )
+    <>
+      <NavBar />
+    </>
+  );
 }

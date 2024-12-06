@@ -20,22 +20,41 @@ export default function NavBar() {
           ></Link>
           {/* <img src={Box} alt="aboutus" className="atag2" loading="lazy" /> */}
           <div className="atag2">
-  <div className="navright">
-    <NavLink to="/" className="nav-item" activeClassName="active" exact>
-      Games
-    </NavLink>
-    <NavLink to="/about" className="nav-item" activeClassName="active">
-      About Us
-    </NavLink>
-    <NavLink to="/howtobuy" className="nav-item" activeClassName="active">
-      How To Buy
-    </NavLink>
-    {/* <NavLink to="/roadmap" className="nav-item" activeClassName="active">
-      Road Map
-    </NavLink> */}
-  </div>
-</div>
-
+            <div className="navright">
+              <NavLink
+                to="/"
+                className="nav-item"
+                activeClassName="active"
+                exact
+              >
+                Games
+              </NavLink>
+              <NavLink
+                to="/about"
+                className="nav-item"
+                activeClassName="active"
+              >
+                About Us
+              </NavLink>
+              <NavLink
+                to="/howtobuy"
+                className="nav-item"
+                activeClassName="active"
+              >
+                How To Buy
+              </NavLink>
+              {/* <NavLink
+                to="/roadmap"
+                className="nav-item"
+                activeClassName="active"
+              >
+                Road Map
+              </NavLink> */}
+              <a className="nav-item" activeClassName="active">
+                Road Map
+              </a>
+            </div>
+          </div>
 
           {/* <div className="navright">
             <Link to="/" className="nav-item" as={NavLink}>Games</Link>
@@ -58,19 +77,22 @@ export default function NavBar() {
           {/* <Link to="/about" className="nav-item">About Us</Link> */}
         </div>
         <div className="moblogodiv">
-        <Link to="/">
-          <img src={Logo} className="moblogo" loading="lazy" alt="Logo" />
-        </Link>
+          <Link to="/">
+            <img src={Logo} className="moblogo" loading="lazy" alt="Logo" />
+          </Link>
         </div>
         <div className="innernav2">
-  <NavLink to="/howtobuy" className="nav-item2" activeClassName="active">
-    How To Buy
-  </NavLink>
-  <NavLink to="/about" className="nav-item2" activeClassName="active">
-    About Us
-  </NavLink>
-</div>
-
+          <NavLink
+            to="/howtobuy"
+            className="nav-item2"
+            activeClassName="active"
+          >
+            How To Buy
+          </NavLink>
+          <NavLink to="/about" className="nav-item2" activeClassName="active">
+            About Us
+          </NavLink>
+        </div>
       </div>
     </>
   );
