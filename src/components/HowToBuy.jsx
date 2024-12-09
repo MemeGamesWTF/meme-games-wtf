@@ -2,7 +2,7 @@ import React from "react";
 import "./HowToBuy.css";
 import NavBar from "./NavBar";
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import Footer from "./Footer2";
+// import Footer from "./Footer2";
 import arrow from "/assets/arrow.svg";
 
 export default function HowToBuy() {

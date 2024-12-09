@@ -43,16 +43,16 @@ export default function NavBar() {
               >
                 How To Buy
               </NavLink>
-              {/* <NavLink
+              <NavLink
                 to="/roadmap"
                 className="nav-item"
                 activeClassName="active"
               >
                 Road Map
-              </NavLink> */}
-              <a className="nav-item" activeClassName="active">
+              </NavLink>
+              {/* <a className="nav-item" activeClassName="active">
                 Road Map
-              </a>
+              </a> */}
             </div>
           </div>
 
