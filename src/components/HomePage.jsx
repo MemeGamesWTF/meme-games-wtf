@@ -26,7 +26,7 @@ const HomePage = () => {
               gamesData.length > 0 &&
               gamesData.map((game) => (
                 <Link
-                  to={`/game/${game.name}`}
+                  to={game.url === null ? '' :  `/game/${game.name}`}
                   key={game.name}
                   // key={game.name}
                   // href={game.url}
