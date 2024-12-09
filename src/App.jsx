@@ -5,6 +5,7 @@ import HomePage, { gamesLoader } from "./components/HomePage";
 import AboutUs from "./components/AboutUs";
 import HowToBuy from "./components/HowToBuy";
 import RoadMap from "./components/RoadMap";
+import Game from "./components/Game";
 import "./index.css";
 
 const wireRouter = createBrowserRouter([
@@ -27,6 +28,12 @@ const wireRouter = createBrowserRouter([
   {
     path: "/roadmap",
     element: <RoadMap />,
+    errorElement: <div>notfound</div>,
+  },
+  {
+    path: "/game/:gameName",
+    element: <Game />,
+    loader: gamesLoader,
     errorElement: <div>notfound</div>,
   },
 ]);

@@ -2,7 +2,7 @@ import React from "react";
 import "./HomePage.css";
 import NavBar from "./NavBar";
 import Footer from "./Footer2";
-import { Outlet, useLoaderData, useNavigation } from "react-router-dom";
+import { Link, Outlet, useLoaderData, useNavigation } from "react-router-dom";
 import Loader from "./Loader";
 // import gamesData from "./gamesData";
 
@@ -25,11 +25,13 @@ const HomePage = () => {
             {typeof gamesData !== undefined &&
               gamesData.length > 0 &&
               gamesData.map((game) => (
-                <a
+                <Link
+                  to={`/game/${game.name}`}
                   key={game.name}
-                  href={game.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  // key={game.name}
+                  // href={game.url}
+                  // target="_blank"
+                  // rel="noopener noreferrer"
                 >
                   <div className="main3 group">
                     <img
@@ -53,7 +55,7 @@ const HomePage = () => {
                       />
                     </span>
                   </div>
-                </a>
+                </Link>
               ))}
           </div>
         </div>
