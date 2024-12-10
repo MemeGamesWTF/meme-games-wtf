@@ -48,7 +48,7 @@ export default function NavBar() {
                 className="nav-item"
                 activeClassName="active"
               >
-                Road Map
+                Roadmap
               </NavLink>
               {/* <a className="nav-item" activeClassName="active">
                 Road Map

@@ -1,12 +1,35 @@
 /* body {
-    background-image: url("/assets/background2.webp");
-    background-size: auto;
-    background-repeat: repeat;
+    background-image: url("/assets/roadmapbg.webp");
+    background-size: cover;
+    background-repeat: no-repeat;
   } */
+
+  .roadmapmain {
+    background-image: url("/assets/roadmapbg6.webp");
+    background-size: cover;
+    background-repeat: repeat;
+  }
+  
 
   .phasen{
     @apply mb-14
 }
+
+.rmn0 {
+    /* @apply flex justify-center items-center; */
+    font-family: "Jersey 10", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 20px;
+  }
+
+  .rmbigtopic{
+    font-size: 100px;
+    color: white
+  }
 
 .rmn1 {
     @apply flex justify-center items-center;

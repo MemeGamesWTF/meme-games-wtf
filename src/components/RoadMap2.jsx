@@ -1,7 +1,7 @@
 import React from "react";
 import "./RoadMap2.css";
 import NavBar from "./NavBar";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import arrow from "/assets/arrow.svg";
 import tick from "/assets/tick.svg";
 import hourglass from "/assets/hourglass.svg";
@@ -10,28 +10,16 @@ import greentick from "/assets/greentick.svg";
 import pending from "/assets/pending.svg";
 import star from "/assets/star.svg";
 
-import rm1 from "/assets/rm1.webp";
-import rm2 from "/assets/rm2.webp";
-import rm3 from "/assets/rm3.webp";
-import rm4 from "/assets/rm4.webp";
-import rm5 from "/assets/rm5.webp";
-import rm6 from "/assets/rm6.webp";
-import rm7 from "/assets/rm7.webp";
-import rm8 from "/assets/rm8.webp";
-import rm9 from "/assets/rm9.webp";
-import rm10 from "/assets/rm10.webp";
-import rm11 from "/assets/rm11.webp";
-import rm12 from "/assets/rm12.webp";
-import rm13 from "/assets/rm13.webp";
-import rm14 from "/assets/rm14.webp";
-import rm15 from "/assets/rm15.webp";
-
 export default function RoadMap2() {
   const navigate = useNavigate();
   return (
-    <>
+    <div className="roadmapmain">
       <>
         <NavBar />
+
+        <div className='rmn0'>
+          <h2 className='rmbigtopic'>Roadmap</h2>
+        </div>
 
         <div className="backbutton">
           <button
@@ -711,6 +699,6 @@ export default function RoadMap2() {
           </div>
         </div>
       </>
-    </>
+    </div>
   );
 }
