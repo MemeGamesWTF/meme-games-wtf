@@ -44,7 +44,7 @@ export default function NavBar() {
                 How To Buy
               </NavLink>
               <NavLink
-                to="/roadmap"
+                to="/roadmap2"
                 className="nav-item"
                 activeClassName="active"
               >
