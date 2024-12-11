@@ -112,6 +112,20 @@
 
 
 @media (max-width: 768px) {
+  .howtobuymain {
+    background-image: url("/assets/mobilebg2.webp");
+    background-size: auto;
+    background-repeat: repeat;
+  }
+  
+  .htb2 {
+    @apply flex justify-center items-center mt-6 w-[90%];
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+  }
+  
   .htb3 {
     @apply grid grid-cols-1 gap-y-5 w-[85%] ml-[7.5%] mr-[7.5%]; /* Single column with vertical gaps */
   }
