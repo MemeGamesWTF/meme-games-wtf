@@ -6,13 +6,15 @@
 
   .roadmapmain {
     background-image: url("/assets/roadmapbg6.webp");
-    background-size: cover;
+    background-size: contain;
     background-repeat: repeat;
+    /* min-height: 500vh; */
   }
   
 
   .phasen{
-    @apply mb-14
+    /* @apply mb-14 */
+    /* @apply  */
 }
 
 .rmn0 {
@@ -87,6 +89,7 @@
     background-color: white; /* Set background to white */
     border-radius: 0.375rem; /* Tailwind's rounded-md */
     padding: 1.25rem; /* Tailwind's px-5 py-5 */
+    @apply mb-14
   }
   
   .rmn4second {
@@ -184,13 +187,13 @@
   .greentick {
     width: 25px;
     height: 25px;
-    margin-top: 5px; /* Adjust alignment with text */
+    margin-top: 9px; /* Adjust alignment with text */
   }
 
   .pending {
     width: 25px;
     height: 25px;
-    margin-top: 5px; /* Adjust alignment with text */
+    margin-top: 9px; /* Adjust alignment with text */
   }
   
   /* Text styles */

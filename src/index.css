@@ -6,11 +6,11 @@
     background-color: #00fe2a;
 } */
 
-body {
+/* body {
   background-image: url("/assets/background2.webp");
-  background-size: contain;
-  background-repeat: repeat;
-}
+  background-size: cover;
+  background-repeat: no-repeat;
+} */
 
 * {
   font-family: "Jersey 10", sans-serif;

@@ -1,3 +1,10 @@
+.aboutmain {
+  background-image: url("/assets/background2.webp");
+  background-size: cover;
+  background-repeat: repeat;
+  min-height: 100vh;
+}
+
 /* .aboutusimg{
     @apply w-[65%] ml-[17.5%] mr-[17.5%]
 } */
@@ -18,13 +25,16 @@
 }
 
 .abt4 {
+  position: absolute; /* Or use fixed if you want it always centered regardless of scrolling */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   box-shadow: 0px 9px 0px black;
   background-color: white;
-  @apply rounded-md px-10 pb-8 pt-2;
+  @apply rounded-md px-10 pb-8 pt-2 mt-6;
   width: 75%;
-  margin-left: 12.5%;
-  margin-right: 12.5%;
 }
+
 
 
 
