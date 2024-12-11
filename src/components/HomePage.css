@@ -112,6 +112,9 @@
 
 
 @media (max-width: 768px) {
+  .homemain {
+    background-image: none;
+  }
   .main1 {
     @apply flex justify-center items-center mt-24;
   }

@@ -113,9 +113,7 @@
 
 @media (max-width: 768px) {
   .howtobuymain {
-    background-image: url("/assets/mobilebg2.webp");
-    background-size: auto;
-    background-repeat: repeat;
+    background-image: none;
     @apply pb-16
   }
   

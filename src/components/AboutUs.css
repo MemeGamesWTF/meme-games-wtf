@@ -106,9 +106,7 @@
   } */
 
   .aboutmain {
-    background-image: url("/assets/mobilebg2.webp");
-    background-size: auto;
-    background-repeat: repeat;
+    background-image: none;
     @apply mb-16
   }
   .abt4 {
