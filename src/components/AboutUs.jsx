@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 export default function AboutUs() {
   const navigate = useNavigate();
   return (
-    <>
+    <div className="aboutmain">
       <NavBar />
       <div className="backbutton">
         <button
@@ -56,6 +56,6 @@ export default function AboutUs() {
           </p>
         </div>
       </div>
-    </>
+    </div>
   );
 }

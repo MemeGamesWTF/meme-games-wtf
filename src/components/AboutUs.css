@@ -1,3 +1,10 @@
+.aboutmain {
+  background-image: url("/assets/background2.webp");
+  background-size: cover;
+  background-repeat: repeat;
+  min-height: 100vh;
+}
+
 /* .aboutusimg{
     @apply w-[65%] ml-[17.5%] mr-[17.5%]
 } */
@@ -18,13 +25,16 @@
 }
 
 .abt4 {
+  position: absolute; /* Or use fixed if you want it always centered regardless of scrolling */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   box-shadow: 0px 9px 0px black;
   background-color: white;
-  @apply rounded-md px-10 pb-8 pt-2;
+  @apply rounded-md px-10 pb-8 pt-2 mt-6;
   width: 75%;
-  margin-left: 12.5%;
-  margin-right: 12.5%;
 }
+
 
 
 
@@ -95,13 +105,21 @@
     margin-bottom: 20px;
   } */
 
+  .aboutmain{
+    background-image: url("/assets/mobilebg2.webp");
+    background-size: auto;
+    background-repeat: repeat;
+  }
+
   .abt4 {
-    box-shadow: 0px 12px 0px black;
+    position: absolute; /* Or use fixed if you want it always centered regardless of scrolling */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0px 9px 0px black;
     background-color: white;
-    @apply rounded-2xl px-8 pb-6 pt-2 mt-6 mb-12;
-    width: 80%;
-    margin-left: 10%;
-    margin-right: 10%;
+    @apply rounded-md px-10 pb-8 pt-2 mt-16;
+    width: 75%;
   }
 
   .abt6 {
