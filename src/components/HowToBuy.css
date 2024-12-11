@@ -20,8 +20,13 @@
 }
 
 .htb2 {
-  @apply flex justify-center items-center mt-6 w-[90%] ml-[5%] mr-[5%];
+  @apply flex justify-center items-center mt-6 w-[90%];
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
+
 
 .htb3 {
   @apply grid grid-cols-4 gap-x-12;

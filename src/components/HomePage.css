@@ -2,6 +2,7 @@
   background-image: url("/assets/background2.webp");
   background-size: contain;
   background-repeat: repeat;
+  @apply pb-6
 }
 
 .main1 {
