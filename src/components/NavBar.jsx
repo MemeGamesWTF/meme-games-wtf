@@ -83,6 +83,13 @@ export default function NavBar() {
         </div>
         <div className="innernav2">
           <NavLink
+            to="/roadmap2"
+            className="nav-item2"
+            activeClassName="active"
+          >
+            Roadmap
+          </NavLink>
+          <NavLink
             to="/howtobuy"
             className="nav-item2"
             activeClassName="active"

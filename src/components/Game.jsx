@@ -12,7 +12,7 @@ export default function Game() {
   return (
     <div style={{backgroundColor: "black"}}>
       {/* <h1>{gameName}</h1> */}
-      <iframe
+      {/* <iframe
         src={url}
         title={gameName}
         style={{
@@ -23,6 +23,19 @@ export default function Game() {
           top: "50%", 
           left: "50%", 
           transform: "translate(-50%, -50%)"
+        }}
+      ></iframe> */}
+      <iframe
+        src={url}
+        title={gameName}
+        style={{
+          width: "100%", 
+          height: "100vh", 
+          border: "none", 
+          // position: "absolute", 
+          // top: "50%", 
+          // left: "50%", 
+          // transform: "translate(-50%, -50%)"
         }}
       ></iframe>
     </div>
