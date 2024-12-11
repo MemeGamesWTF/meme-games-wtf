@@ -116,10 +116,11 @@
     background-image: url("/assets/mobilebg2.webp");
     background-size: auto;
     background-repeat: repeat;
+    @apply pb-16
   }
   
   .htb2 {
-    @apply flex justify-center items-center mt-6 w-[90%];
+    @apply flex justify-center items-center mt-6 w-[90%] pb-16;
     position: absolute;
     top: 20%;
     left: 50%;

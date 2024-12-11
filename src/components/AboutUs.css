@@ -109,6 +109,7 @@
     background-image: url("/assets/mobilebg2.webp");
     background-size: auto;
     background-repeat: repeat;
+    @apply mb-16
   }
   .abt4 {
     position: absolute; /* Or use fixed if you want it always centered regardless of scrolling */
