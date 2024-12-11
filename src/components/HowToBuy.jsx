@@ -8,7 +8,7 @@ import arrow from "/assets/arrow.svg";
 export default function HowToBuy() {
   const navigate = useNavigate();
   return (
-    <>
+    <div className="howtobuymain">
       <>
         <NavBar />
         {/* <div className='htb1'>
@@ -140,6 +140,6 @@ export default function HowToBuy() {
         </div>
       </>
       {/* <Footer /> */}
-    </>
+    </div>
   );
 }

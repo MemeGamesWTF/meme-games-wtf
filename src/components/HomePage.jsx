@@ -17,7 +17,7 @@ const HomePage = () => {
 
   const gamesData = useLoaderData();
   return (
-    <>
+    <div className="homemain">
       <div className="main0">
         <NavBar />
         <div className="main1">
@@ -60,8 +60,8 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-      <Footer />
-    </>
+      {/* <Footer /> */}
+    </div>
   );
 };
 

@@ -1,3 +1,10 @@
+.howtobuymain {
+  background-image: url("/assets/background2.webp");
+  background-size: cover;
+  background-repeat: repeat;
+  min-height: 100vh;
+}
+
 .htb1 {
   @apply flex justify-center items-center bg-white opacity-95;
   font-family: "Jersey 10", sans-serif;
