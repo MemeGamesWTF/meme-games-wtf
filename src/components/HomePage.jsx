@@ -1,6 +1,7 @@
 import React from "react";
 import "./HomePage.css";
-import NavBar from "./NavBar";
+// import NavBar from "./NavBar";
+import NavBar2 from "./NavBar2";
 import Footer from "./Footer2";
 import { Link, Outlet, useLoaderData, useNavigation } from "react-router-dom";
 import Loader from "./Loader";
@@ -19,7 +20,7 @@ const HomePage = () => {
   return (
     <div className="homemain">
       <div className="main0">
-        <NavBar />
+        <NavBar2 />
         <div className="main1">
           <div className="main2">
             {typeof gamesData !== undefined &&

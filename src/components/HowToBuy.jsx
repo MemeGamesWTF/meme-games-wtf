@@ -1,21 +1,22 @@
 import React from "react";
 import "./HowToBuy.css";
-import NavBar from "./NavBar";
+// import NavBar from "./NavBar";
+import NavBar2 from "./NavBar2";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 // import Footer from "./Footer2";
-import arrow from "/assets/arrow.svg";
+// import arrow from "/assets/arrow.svg";
 
 export default function HowToBuy() {
   const navigate = useNavigate();
   return (
     <div className="howtobuymain">
       <>
-        <NavBar />
+        <NavBar2 />
         {/* <div className='htb1'>
           <h2 className='topic'>How To Buy</h2>
         </div> */}
 
-        <div className="backbutton">
+        {/* <div className="backbutton">
           <button
             onClick={() => navigate(-1)}
             style={{
@@ -27,7 +28,7 @@ export default function HowToBuy() {
           >
             <img src={arrow} alt="arrow" className="backarrow" loading="lazy" />
           </button>
-        </div>
+        </div> */}
 
         <div className="htb2">
           <div className="htb3 group">

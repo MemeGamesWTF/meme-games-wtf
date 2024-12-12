@@ -209,9 +209,11 @@
   
   @media (max-width: 768px) {
     .roadmapmain {
-      background-image: url("/assets/mobilebg2.webp");
-      background-size: contain;
-      background-repeat: repeat;
+      /* background-image: url("/assets/mobilebg2.webp"); */
+      background-image: none;
+      /* background-size: contain;
+      background-repeat: repeat; */
+      background-color: #5600ff;
       /* min-height: 500vh; */
     }
     .rmn0{

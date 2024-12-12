@@ -1,0 +1,179 @@
+/* Navbar Styles */
+.nav1 {
+    @apply bg-transparent p-[0px] w-full flex justify-start items-start; /* Center the content */
+  }
+  
+  .navclz1 {
+    @apply flex justify-start items-start w-auto; /* Center align the logo */
+  }
+  
+  .atag1 {
+    @apply h-40 w-40 bg-no-repeat bg-contain; /* Style the logo */
+  }
+  /* .atag2 {
+      @apply absolute h-16 right-8 top-8 ;
+  } */
+  
+  .atag2 {
+    box-shadow: 0px 9px 0px black;
+    @apply absolute right-8 top-8 bg-white rounded-md px-4 py-2;
+  }
+  
+  .navright {
+    @apply flex gap-x-6 justify-center align-middle;
+    font-family: "Jersey 10", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+  }
+  
+  .nav-item {
+    /* margin: 0 20px; */
+    text-decoration: none;
+    color: black;
+    font-size: 25px;
+    text-align: center;
+  }
+  
+  .nav-item:hover {
+    color: #5600ff;
+  }
+  
+  .nav-item.active {
+    color: #5600ff; /* Your active color */
+  }
+
+  .navbar-container{
+    display: none;
+  }
+  .sliding-menu{
+    display: none;
+  }
+  /* .menu-overlay{
+    display: none;
+  } */
+
+
+@media (max-width: 768px) {
+    .nav1{
+        display: none;
+    }
+    
+    .navbar-container {
+        display: flex;
+        align-items: center;
+        background-color: #5500FF;
+        color: white;
+        padding: 10px 20px;
+        position: relative;
+        height: 80px;
+        background-image: url("/assets/navbg.webp");
+        background-size: contain;
+        background-repeat: repeat;
+      }
+      
+      .hamburger-menu {
+        cursor: pointer;
+        font-size: 24px;
+        margin-right: 20px;
+      }
+      
+      .ham{
+        @apply h-10 w-12
+      }
+      
+      /* Centered Logo */
+      .moblogo123 {
+        position: absolute;
+        top: 0px;
+        height: 80px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      
+      .moblogodiv123 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+      }
+      
+      /* Sliding Menu Styles */
+      .sliding-menu {
+        position: fixed;
+        top: 0;
+        left: -300px; /* Start off-screen */
+        width: 300px;
+        height: 100%;
+        background-color: #24006D;
+        color: white;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+        transition: left 0.3s ease-in-out;
+        display: flex;
+        flex-direction: column;
+        z-index: 5;
+      }
+      
+      .sliding-menu.open {
+        left: 0; /* Slide in when open */
+      }
+      
+      /* Header Section with Background Image */
+      .sliding-menu-header {
+        background-image: url("/assets/navbg.webp");
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 70px; /* Adjust height for the background */
+        width: 100%;
+      }
+      
+      /* Horizontal Divider */
+      .sliding-menu-divider {
+        width: 100%;
+        height: 5px; /* Thin horizontal line */
+        background-color: #3B00B2; /* Line color */
+        margin: 10px 0; /* Space around the line */
+        opacity: 0.5; /* Slight transparency */
+      }
+
+      .close-button {
+        background: none;
+        color: white;
+        font-size: 25px;
+        border: none;
+        cursor: pointer;
+        align-self: flex-end;
+        margin-bottom: 0px;
+        margin-right: 25px;
+      }
+      
+      /* Menu Items */
+      .sliding-menu ul {
+        list-style: none;
+        padding: 20px;
+        margin: 0;
+      }
+      
+      .sliding-menu li {
+        margin: 20px 0;
+        cursor: pointer;
+        font-size: 28px;
+        text-decoration: none;
+      }
+      
+      .sliding-menu li:hover {
+        text-decoration: none;
+        color: #5500FF;
+      }
+      
+      /* Overlay */
+      .menu-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 4;
+      }
+}
+  

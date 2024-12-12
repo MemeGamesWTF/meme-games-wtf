@@ -88,9 +88,11 @@
 
 @media (max-width: 768px) {
   body {
-    background-image: url("/assets/mobilebg2.webp");
+    background-image: none;
+    background-color: #5600ff;
+    /* background-image: url("/assets/mobilebg2.webp");
     background-size: auto;
-    background-repeat: repeat;
+    background-repeat: repeat; */
   }
 
   /* body {

@@ -107,11 +107,12 @@
 
   .aboutmain {
     background-image: none;
-    @apply mb-16
+    background-color: #5600ff;
+    @apply mb-10
   }
   .abt4 {
     position: absolute; /* Or use fixed if you want it always centered regardless of scrolling */
-    top: 25%;
+    top: 20%;
     left: 50%;
     transform: translate(-50%, 0%);
     box-shadow: 0px 9px 0px black;

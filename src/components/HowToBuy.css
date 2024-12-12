@@ -114,11 +114,13 @@
 @media (max-width: 768px) {
   .howtobuymain {
     background-image: none;
-    @apply pb-16
+    background-color: #5600ff;
+    /* min-height: 240vh; */
+    /* @apply pb-16 */
   }
   
   .htb2 {
-    @apply flex justify-center items-center mt-6 w-[90%] pb-16;
+    @apply flex justify-center items-center mt-0 w-[90%] pb-16;
     position: absolute;
     top: 20%;
     left: 50%;

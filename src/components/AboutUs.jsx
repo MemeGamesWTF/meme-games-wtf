@@ -1,15 +1,16 @@
 import React from "react";
 import "./AboutUs.css";
-import NavBar from "./NavBar";
-import arrow from "/assets/arrow.svg";
+// import NavBar from "./NavBar";
+import NavBar2 from "./NavBar2";
+// import arrow from "/assets/arrow.svg";
 import { useNavigate } from "react-router-dom";
 
 export default function AboutUs() {
   const navigate = useNavigate();
   return (
     <div className="aboutmain">
-      <NavBar />
-      <div className="backbutton">
+      <NavBar2 />
+      {/* <div className="backbutton">
         <button
           onClick={() => navigate(-1)}
           style={{
@@ -21,7 +22,7 @@ export default function AboutUs() {
         >
           <img src={arrow} alt="arrow" className="backarrow" loading="lazy" />
         </button>
-      </div>
+      </div> */}
       {/* <div className="aboutus-container"></div> */}
 
       <div className="abt4">

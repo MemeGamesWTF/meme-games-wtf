@@ -114,9 +114,10 @@
 @media (max-width: 768px) {
   .homemain {
     background-image: none;
+    background-color: #5600ff
   }
   .main1 {
-    @apply flex justify-center items-center mt-24;
+    @apply flex justify-center items-center mt-5;
   }
   .main2 {
     @apply grid-cols-1 gap-0;

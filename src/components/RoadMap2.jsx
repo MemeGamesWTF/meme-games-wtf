@@ -1,8 +1,9 @@
 import React from "react";
 import "./RoadMap2.css";
-import NavBar from "./NavBar";
+// import NavBar from "./NavBar";
+import NavBar2 from "./NavBar2";
 import { useNavigate } from "react-router-dom";
-import arrow from "/assets/arrow.svg";
+// import arrow from "/assets/arrow.svg";
 import tick from "/assets/tick.svg";
 import hourglass from "/assets/hourglass.svg";
 import blank from "/assets/blank.svg";
@@ -15,13 +16,13 @@ export default function RoadMap2() {
   return (
     <div className="roadmapmain">
       <>
-        <NavBar />
+        <NavBar2 />
 
         <div className='rmn0'>
           <h2 className='rmbigtopic'>Roadmap</h2>
         </div>
 
-        <div className="backbutton">
+        {/* <div className="backbutton">
           <button
             onClick={() => navigate(-1)}
             style={{
@@ -33,7 +34,7 @@ export default function RoadMap2() {
           >
             <img src={arrow} alt="arrow" className="backarrow" loading="lazy" />
           </button>
-        </div>
+        </div> */}
 
         <div className="phasen">
           <div className="rmn1 bg-[#00DB1D]">
