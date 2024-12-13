@@ -87,7 +87,7 @@ export default function NavBar2() {
                   handleClick();
                 }}
               >
-                Login with{" "}
+                Login With{" "}
                 <img src={Xlogo} className="xlogo" alt="xlogo" loading="lazy" />
               </NavLink>
               {showTooltip && <div className="tooltip2345">Coming Soon</div>}
