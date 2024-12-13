@@ -6,6 +6,7 @@ import AboutUs from "./components/AboutUs";
 import HowToBuy from "./components/HowToBuy";
 import RoadMap from "./components/RoadMap";
 import RoadMap2 from "./components/RoadMap2";
+import CallBack from "./components/CallBack";
 import Game from "./components/Game";
 import "./index.css";
 
@@ -34,6 +35,11 @@ const wireRouter = createBrowserRouter([
   {
     path: "/roadmap2",
     element: <RoadMap2 />,
+    errorElement: <div>notfound</div>,
+  },
+  {
+    path: "/callback",
+    element: <CallBack />,
     errorElement: <div>notfound</div>,
   },
   {

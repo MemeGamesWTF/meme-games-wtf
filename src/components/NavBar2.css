@@ -16,8 +16,14 @@
   
   .atag2 {
     box-shadow: 0px 9px 0px black;
-    @apply absolute right-8 top-8 bg-white rounded-md px-4 py-2;
+    @apply absolute right-48 top-8 bg-white rounded-md px-4 py-2;
   }
+  .atag2345 {
+    box-shadow: 0px 9px 0px black;
+    /* @apply absolute right-8 top-8 bg-[#00E5FF] rounded-md px-4 py-2; */
+    @apply absolute right-8 top-8 bg-[#7a7b7b] rounded-md px-4 py-2;
+  }
+  
   
   .navright {
     @apply flex gap-x-6 justify-center align-middle;
@@ -33,14 +39,69 @@
     font-size: 25px;
     text-align: center;
   }
+  /* .nav-item2345 {
+    text-decoration: none;
+    color: black;
+    font-size: 25px;
+    text-align: center;
+  } */
+
+  .nav-item2345 {
+    text-decoration: none;
+    color: black;
+    font-size: 25px;
+    text-align: center;
+
+    /* New styles added */
+    display: inline-flex; /* Aligns text and image inline */
+    align-items: center;  /* Vertically aligns text and image */
+    gap: 8px;             /* Adds spacing between text and image */
+}
+
+.tooltip2345 {
+  position: absolute;
+  background-color: #000000;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 24px;
+  top: 50px; /* Adjust position as needed */
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  z-index: 10;
+  animation: fade-in-out 3s ease-in-out;
+}
+
+@keyframes fade-in-out {
+  0%, 100% {
+    opacity: 0;
+  }
+  10%, 90% {
+    opacity: 1;
+  }
+}
+
+
+.xlogo {
+  width: 19px; /* Adjust size to fit better */
+  height: auto;
+  vertical-align: middle; /* Keeps image aligned with the text baseline */
+}
   
   .nav-item:hover {
     color: #5600ff;
   }
+  /* .nav-item2345:hover {
+    color: white;
+  } */
   
   .nav-item.active {
     color: #5600ff; /* Your active color */
   }
+  /* .nav-item2345.active {
+    color: white;
+  } */
 
   .navbar-container{
     display: none;

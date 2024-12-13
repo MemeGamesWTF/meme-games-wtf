@@ -3,8 +3,16 @@ import { Link, NavLink } from "react-router-dom";
 import "./NavBar2.css"; // Styles for the navbar and sliding menu
 import Logo from "/assets/logo5.webp";
 import Ham from "/assets/ham3.webp";
+import Xlogo from "/assets/twitter3.svg";
 
 export default function NavBar2() {
+  const [showTooltip, setShowTooltip] = useState(false);
+
+  const handleClick = () => {
+    setShowTooltip(true);
+    setTimeout(() => setShowTooltip(false), 3000); // Hide tooltip after 2 seconds
+  };
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -30,6 +38,7 @@ export default function NavBar2() {
             style={{ backgroundImage: `url(${Logo})` }}
           ></Link>
           {/* <img src={Box} alt="aboutus" className="atag2" loading="lazy" /> */}
+
           <div className="atag2">
             <div className="navright">
               <NavLink
@@ -64,6 +73,24 @@ export default function NavBar2() {
               {/* <a className="nav-item" activeClassName="active">
                     Road Map
                   </a> */}
+            </div>
+          </div>
+          <div className="atag2345">
+            <div className="navright">
+              <NavLink
+                to="/about"
+                className="nav-item2345"
+                activeClassName="active"
+                exact
+                onClick={(e) => {
+                  e.preventDefault(); // Prevent navigation for this example
+                  handleClick();
+                }}
+              >
+                Login with{" "}
+                <img src={Xlogo} className="xlogo" alt="xlogo" loading="lazy" />
+              </NavLink>
+              {showTooltip && <div className="tooltip2345">Coming Soon</div>}
             </div>
           </div>
 
