@@ -4,6 +4,7 @@ import "./NavBar2.css"; // Styles for the navbar and sliding menu
 import Logo from "/assets/logo5.webp";
 import Ham from "/assets/ham3.webp";
 import Xlogo from "/assets/twitter3.svg";
+import Xlogomob from "/assets/twitter4.svg";
 
 export default function NavBar2() {
   const [showTooltip, setShowTooltip] = useState(false);
@@ -77,7 +78,7 @@ export default function NavBar2() {
           </div>
           <div className="atag2345">
             <div className="navright">
-            <NavLink
+              <NavLink
                 // to="/about"
                 className="nav-item2345"
                 activeClassName="active"
@@ -91,7 +92,7 @@ export default function NavBar2() {
                 Login With{" "}
                 <img src={Xlogo} className="xlogo" alt="xlogo" loading="lazy" />
               </NavLink>
-              {showTooltip && <div className="tooltip2345">Coming Soon</div>}
+              {/* {showTooltip && <div className="tooltip2345">Coming Soon</div>} */}
             </div>
           </div>
 
@@ -141,6 +142,22 @@ export default function NavBar2() {
           <NavLink to="/roadmap2">
             <li onClick={closeMenu}>🛣 Roadmap</li>
           </NavLink>
+          <div  className="absolute bottom-8 left-16 bg-[#00E5FF] px-4 py-1 rounded-md">
+          <NavLink
+            // to="/about"
+            className="nav-item234567"
+            activeClassName="active"
+            exact
+            onClick={(e) => {
+              e.preventDefault(); // Prevent default navigation
+              window.location.href =
+                "https://x-login.movindusenuraaluthge.workers.dev/";
+            }}
+          >
+            Login With{" "}
+            <img src={Xlogo} className="xlogomob" alt="xlogo" loading="lazy" />
+          </NavLink>
+          </div>
         </ul>
       </div>
 

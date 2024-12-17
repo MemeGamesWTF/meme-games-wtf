@@ -236,5 +236,23 @@
         background-color: rgba(0, 0, 0, 0.5);
         z-index: 4;
       }
+
+      .nav-item234567 {
+        text-decoration: none;
+        color: black;
+        font-size: 28px;
+        text-align: center;
+    
+        /* New styles added */
+        display: inline-flex; /* Aligns text and image inline */
+        align-items: center;  /* Vertically aligns text and image */
+        gap: 8px;             /* Adds spacing between text and image */
+    }
+
+    .xlogomob {
+      width: 25px; /* Adjust size to fit better */
+      height: auto;
+      vertical-align: middle; /* Keeps image aligned with the text baseline */
+    }
 }
   
