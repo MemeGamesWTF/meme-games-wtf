@@ -77,14 +77,15 @@ export default function NavBar2() {
           </div>
           <div className="atag2345">
             <div className="navright">
-              <NavLink
-                to="/about"
+            <NavLink
+                // to="/about"
                 className="nav-item2345"
                 activeClassName="active"
                 exact
                 onClick={(e) => {
-                  e.preventDefault(); // Prevent navigation for this example
-                  handleClick();
+                  e.preventDefault(); // Prevent default navigation
+                  window.location.href =
+                    "https://x-login.movindusenuraaluthge.workers.dev/";
                 }}
               >
                 Login With{" "}

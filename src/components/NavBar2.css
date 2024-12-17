@@ -21,7 +21,7 @@
   .atag2345 {
     box-shadow: 0px 9px 0px black;
     /* @apply absolute right-8 top-8 bg-[#00E5FF] rounded-md px-4 py-2; */
-    @apply absolute right-8 top-8 bg-[#7a7b7b] rounded-md px-4 py-2;
+    @apply absolute right-8 top-8 bg-[#00E5FF] rounded-md px-4 py-2;
   }
   
   
