@@ -16,27 +16,27 @@ export default function CallBack() {
   const getTwitterAuthData = async () => {
     if (oauth_token && oauth_verifier) {
       // Construct the URL
-      const url = `https://api.x.com/oauth/access_token?oauth_token=${encodeURIComponent(
+      const url = `/twitter-auth/oauth/access_token?oauth_token=${encodeURIComponent(
         oauth_token
       )}&oauth_verifier=${encodeURIComponent(oauth_verifier)}`;
 
       // Post the data
-      fetch(url, {
+
+      const requestOptions = {
         method: "POST",
-        // redirect: "follow",
         headers: {
-          "Access-Control-Allow-Origin": "*",
-        },
-      })
-        .then((response) => response.text())
-        .then((data) => {
-          console.log(JSON.stringify(data));
-          setResponseMessage(data);
-        })
-        .catch((error) => {
-          console.error("Error:", error);
-          setResponseMessage({ error: "An error occurred" });
-        });
+          'Content-Type': 'application/x-www-form-urlencoded'
+        }
+      };
+
+      try {
+        const response = await fetch(url, requestOptions);
+        const result = await response.text();
+        // console.log(result)
+        setResponseMessage(result);
+      } catch (error) {
+        console.error(error);
+      }
     }
   };
 
