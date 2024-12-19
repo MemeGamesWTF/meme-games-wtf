@@ -71,6 +71,9 @@ export default function CallBack() {
 
       try {
         const response = await fetch(url, requestOptions);
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
         const result = await response.text();
         console.log({ result });
         // const params = new URLSearchParams(result);
