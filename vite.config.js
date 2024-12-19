@@ -5,13 +5,13 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   base: '/',
-  server: {
-    proxy: {
-      '/twitter-auth': {
-        target: 'https://api.x.com',
-        changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/twitter-auth/, '')
-      }
-    }
-  }
+  // server: {
+  //   proxy: {
+  //     '/twitter-auth': {
+  //       target: 'https://api.x.com',
+  //       changeOrigin: true,
+  //       rewrite: (path) => path.replace(/^\/twitter-auth/, '')
+  //     }
+  //   }
+  // }
 })
