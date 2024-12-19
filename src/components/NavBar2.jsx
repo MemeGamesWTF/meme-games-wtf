@@ -92,7 +92,7 @@ export default function NavBar2({ screen_name, profile_image_url_https }) {
                 {/* Login With{" "} */}
                 {screen_name ? screen_name : "Login With "}
 
-                <img src={profile_image_url_https ? profile_image_url_https : Xlogomob} className="xlogo" alt="xlogo" loading="lazy" />
+                <img src={profile_image_url_https ? profile_image_url_https : Xlogo} className="xlogo" alt="xlogo" loading="lazy" />
               </NavLink>
             </div>
           </div>
@@ -156,7 +156,7 @@ export default function NavBar2({ screen_name, profile_image_url_https }) {
               }}
             >
               {screen_name ? screen_name : "Login With X"}
-              <img src={profile_image_url_https ? profile_image_url_https : Xlogo} className="xlogomob" alt="xlogo" loading="lazy" />
+              <img src={profile_image_url_https ? profile_image_url_https : Xlogomob} className="xlogomob" alt="xlogo" loading="lazy" />
             </NavLink>
           </div>
         </ul>
