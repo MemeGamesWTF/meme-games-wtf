@@ -92,10 +92,43 @@ export default function NavBar2({ screen_name, profile_image_url_https }) {
                 {/* Login With{" "} */}
                 {screen_name ? screen_name : "Login With "}
 
-                <img src={profile_image_url_https ? profile_image_url_https : Xlogomob} className="xlogo" alt="xlogo" loading="lazy" />
+                <img
+                  src={
+                    profile_image_url_https ? profile_image_url_https : Xlogo
+                  }
+                  className="xlogo"
+                  alt="xlogo"
+                  loading="lazy"
+                />
+                {/* {screen_name != "Login With " && (
+                  <div>aaaa</div>
+                )} */}
               </NavLink>
             </div>
           </div>
+
+          {screen_name != "Login With " && (
+            <div className="logoutdiv">
+              <div className="navright">
+                <NavLink
+                  className="nav-item2345"
+                  activeClassName="active"
+                  exact
+                  onClick={(e) => {
+                    e.preventDefault(); // Prevent default navigation
+                    // Clear user data (e.g., localStorage or any global state)
+                    localStorage.removeItem("screen_name");
+                    localStorage.removeItem("profile_image_url_https");
+
+                    // Redirect to login or home page
+                    window.location.href = "/";
+                  }}
+                >
+                  Logout
+                </NavLink>
+              </div>
+            </div>
+          )}
 
           {/* <div className="navright">
                 <Link to="/" className="nav-item" as={NavLink}>Games</Link>
@@ -156,7 +189,14 @@ export default function NavBar2({ screen_name, profile_image_url_https }) {
               }}
             >
               {screen_name ? screen_name : "Login With X"}
-              <img src={profile_image_url_https ? profile_image_url_https : Xlogo} className="xlogomob" alt="xlogo" loading="lazy" />
+              <img
+                src={
+                  profile_image_url_https ? profile_image_url_https : Xlogomob
+                }
+                className="xlogomob"
+                alt="xlogo"
+                loading="lazy"
+              />
             </NavLink>
           </div>
         </ul>
