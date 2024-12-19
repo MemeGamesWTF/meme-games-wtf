@@ -67,8 +67,8 @@ export default function CallBack() {
     if (oauth_token && oauth_verifier) {
       const url = `${API_BASE}/oauth/access_token?oauth_token=${encodeURIComponent(oauth_token)}&oauth_verifier=${encodeURIComponent(oauth_verifier)}`;
       const requestOptions = {
-        method: "POST",
-        mode: 'no-cors',
+        // method: "POST",
+        // mode: 'no-cors',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded'
         }
