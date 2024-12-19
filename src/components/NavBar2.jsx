@@ -85,8 +85,8 @@ export default function NavBar2() {
                 exact
                 onClick={(e) => {
                   e.preventDefault(); // Prevent default navigation
-                  // window.location.href =
-                  //   "https://x-login.movindusenuraaluthge.workers.dev/";
+                  window.location.href =
+                    "https://x-login.movindusenuraaluthge.workers.dev/";
                 }}
               >
                 Login With{" "}
@@ -150,8 +150,8 @@ export default function NavBar2() {
             exact
             onClick={(e) => {
               e.preventDefault(); // Prevent default navigation
-              // window.location.href =
-              //   "https://x-login.movindusenuraaluthge.workers.dev/";
+              window.location.href =
+                "https://x-login.movindusenuraaluthge.workers.dev/";
             }}
           >
             Login With{" "}
