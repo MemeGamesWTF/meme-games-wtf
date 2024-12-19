@@ -60,27 +60,14 @@ export default function CallBack() {
   const oauth_token = searchParams.get("oauth_token");
   const oauth_verifier = searchParams.get("oauth_verifier");
 
-  const API_BASE = import.meta.env.PROD ? 'https://api.x.com' : '/twitter-auth';
+  // const API_BASE = import.meta.env.PROD ? 'https://api.x.com' : '/twitter-auth';
   // const API_BASE = 'https://api.x.com';
 
   const getTwitterAuthData = async () => {
     if (oauth_token && oauth_verifier) {
-      const url = `${API_BASE}/oauth/access_token?oauth_token=${encodeURIComponent(oauth_token)}&oauth_verifier=${encodeURIComponent(oauth_verifier)}`;
-      const requestOptions = {
-        // method: "POST",
-        // mode: 'no-cors',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded'
-        }
-      };
-
+      const url = `https://67645ae7589ad07a96fd.appwrite.global/?oauth_token=${encodeURIComponent(oauth_token)}&oauth_verifier=${encodeURIComponent(oauth_verifier)}`;
       try {
-        // const response = await fetch(url, requestOptions);
-        // if (!response.ok) {
-        //   throw new Error(`HTTP error! status: ${response.status}`);
-        // }
-        // const result = await response.text();
-        const { data: result } = await axios.post(url, requestOptions);
+        const { data: { data: result } } = await axios.get(url);
         console.log({ result });
         // const params = new URLSearchParams(result);
         const credentials = handleOAuthResponse(result);
