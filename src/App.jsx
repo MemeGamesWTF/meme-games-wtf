@@ -40,12 +40,13 @@ const wireRouter = createBrowserRouter([
   {
     path: "/callback",
     element: <CallBack />,
+    // loader: credentialsLoader,
     errorElement: <div>notfound</div>,
   },
   {
     path: "/game/:gameName",
     element: <Game />,
-    loader: gamesLoader,
+    // loader: gamesLoader,
     errorElement: <div>notfound</div>,
   },
 ]);
