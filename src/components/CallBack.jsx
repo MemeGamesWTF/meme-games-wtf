@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 
@@ -25,11 +26,15 @@ const getUserData = async (oauth_token, oauth_token_secret) => {
     const options = {
       method: 'GET'
     }
-    const response = await fetch(`https://x-user-data.movindusenuraaluthge.workers.dev?oauth_token=${oauth_token}&oauth_token_secret=${oauth_token_secret}`, options);
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    const data = await response.json();
+    const url = `https://x-user-data.movindusenuraaluthge.workers.dev?oauth_token=${oauth_token}&oauth_token_secret=${oauth_token_secret}`;
+    // const response = await fetch(url, options);
+    // if (!response.ok) {
+    //   throw new Error(`HTTP error! status: ${response.status}`);
+    // }
+    // const data = await response.json();
+    const { data } = await axios.get(url, options);
+    console.log({ data });
+
     const userData = {
       name: data.name,
       screen_name: data.screen_name,
@@ -70,11 +75,12 @@ export default function CallBack() {
       };
 
       try {
-        const response = await fetch(url, requestOptions);
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const result = await response.text();
+        // const response = await fetch(url, requestOptions);
+        // if (!response.ok) {
+        //   throw new Error(`HTTP error! status: ${response.status}`);
+        // }
+        // const result = await response.text();
+        const { data: result } = await axios.post(url, requestOptions);
         console.log({ result });
         // const params = new URLSearchParams(result);
         const credentials = handleOAuthResponse(result);
