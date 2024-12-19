@@ -45,9 +45,11 @@ export default function CallBack() {
   const oauth_token = searchParams.get("oauth_token");
   const oauth_verifier = searchParams.get("oauth_verifier");
 
+  const API_BASE = import.meta.env.PROD ? 'https://api.x.com' : '/twitter-auth';
+
   const getTwitterAuthData = async () => {
     if (oauth_token && oauth_verifier) {
-      const url = `/twitter-auth/oauth/access_token?oauth_token=${encodeURIComponent(
+      const url = `${API_BASE}/oauth/access_token?oauth_token=${encodeURIComponent(
         oauth_token
       )}&oauth_verifier=${encodeURIComponent(oauth_verifier)}`;
       const requestOptions = {
