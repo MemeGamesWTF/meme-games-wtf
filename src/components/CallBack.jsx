@@ -45,7 +45,8 @@ export default function CallBack() {
   const oauth_token = searchParams.get("oauth_token");
   const oauth_verifier = searchParams.get("oauth_verifier");
 
-  const API_BASE = import.meta.env.PROD ? 'https://api.x.com' : '/twitter-auth';
+  // const API_BASE = import.meta.env.PROD ? 'https://api.x.com' : '/twitter-auth';
+  const API_BASE = 'https://api.x.com';
 
   const getTwitterAuthData = async () => {
     if (oauth_token && oauth_verifier) {
@@ -54,6 +55,7 @@ export default function CallBack() {
       )}&oauth_verifier=${encodeURIComponent(oauth_verifier)}`;
       const requestOptions = {
         method: "POST",
+        mode: 'no-cors',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded'
         }
