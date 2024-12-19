@@ -21,21 +21,31 @@ const handleOAuthResponse = (responseText) => {
 };
 
 const getUserData = async (oauth_token, oauth_token_secret) => {
-  const response = await fetch(`https://x-user-data.movindusenuraaluthge.workers.dev?oauth_token=${oauth_token}&oauth_token_secret=${oauth_token_secret}`);
-  const data = await response.json();
-  const userData = {
-    name: data.name,
-    screen_name: data.screen_name,
-    profile_banner_url: data.profile_banner_url,
-    location: data.location,
-    profile_image_url_https: data.profile_image_url_https,
-    following: data.following,
-  }
-  Object.entries(userData).forEach(([key, value]) => {
-    if (value) {
-      localStorage.setItem(key, value);
+  try {
+    const options = {
+      method: 'GET'
     }
-  });
+    const response = await fetch(`https://x-user-data.movindusenuraaluthge.workers.dev?oauth_token=${oauth_token}&oauth_token_secret=${oauth_token_secret}`, options);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
+    const userData = {
+      name: data.name,
+      screen_name: data.screen_name,
+      profile_banner_url: data.profile_banner_url,
+      location: data.location,
+      profile_image_url_https: data.profile_image_url_https,
+      following: data.following,
+    }
+    Object.entries(userData).forEach(([key, value]) => {
+      if (value) {
+        localStorage.setItem(key, value);
+      }
+    });
+  } catch (error) {
+    console.error("Error fetching user data:", error);
+  }
 };
 
 export default function CallBack() {
@@ -45,13 +55,15 @@ export default function CallBack() {
   const oauth_token = searchParams.get("oauth_token");
   const oauth_verifier = searchParams.get("oauth_verifier");
 
+  const API_BASE = import.meta.env.PROD ? 'https://api.x.com' : '/twitter-auth';
+  // const API_BASE = 'https://api.x.com';
+
   const getTwitterAuthData = async () => {
     if (oauth_token && oauth_verifier) {
-      const url = `/twitter-auth/oauth/access_token?oauth_token=${encodeURIComponent(
-        oauth_token
-      )}&oauth_verifier=${encodeURIComponent(oauth_verifier)}`;
+      const url = `${API_BASE}/oauth/access_token?oauth_token=${encodeURIComponent(oauth_token)}&oauth_verifier=${encodeURIComponent(oauth_verifier)}`;
       const requestOptions = {
         method: "POST",
+        mode: 'no-cors',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded'
         }
@@ -60,13 +72,15 @@ export default function CallBack() {
       try {
         const response = await fetch(url, requestOptions);
         const result = await response.text();
+        console.log({ result });
+        // const params = new URLSearchParams(result);
         const credentials = handleOAuthResponse(result);
         console.log('Stored credentials:', credentials);
         await getUserData(credentials.oauth_token, credentials.oauth_token_secret);
         setMessage('Authentication successful!');
         navigate('/');
       } catch (error) {
-        console.error(error);
+        console.log({ error });
         setMessage('Authentication failed.');
         navigate('/');
       }
