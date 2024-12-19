@@ -7,6 +7,18 @@ import { Link, Outlet, useLoaderData, useNavigation } from "react-router-dom";
 import Loader from "./Loader";
 // import gamesData from "./gamesData";
 
+const STORAGE_KEYS = [
+  'oauth_token',
+  'oauth_token_secret',
+  'user_id',
+  'name',
+  'screen_name',
+  'profile_banner_url',
+  'location',
+  'profile_image_url_https',
+  'following'
+];
+
 const HomePage = () => {
   const navigation = useNavigation();
 
@@ -16,23 +28,19 @@ const HomePage = () => {
     <Outlet />;
   }
 
-  const gamesData = useLoaderData();
+  const { gamesData, screen_name, profile_image_url_https } = useLoaderData();
   return (
     <div className="homemain">
       <div className="main0">
-        <NavBar2 />
+        <NavBar2 screen_name={screen_name} profile_image_url_https={profile_image_url_https} />
         <div className="main1">
           <div className="main2">
             {typeof gamesData !== undefined &&
               gamesData.length > 0 &&
               gamesData.map((game) => (
                 <Link
-                  to={game.url === null ? '' :  `/game/${game.name}`}
+                  to={game.url === null ? '' : `/game/${game.name}`}
                   key={game.name}
-                  // key={game.name}
-                  // href={game.url}
-                  // target="_blank"
-                  // rel="noopener noreferrer"
                 >
                   <div className="main3 group">
                     <img
@@ -72,10 +80,17 @@ export const gamesLoader = async () => {
   const response = await fetch(
     "https://gamesdata.movindusenuraaluthge.workers.dev/"
   );
-  if (!response.ok) {
-    // throw new Error("Network response was not ok");
-    return [];
-  }
-  const data = await response.json();
-  return data;
+  if (!response.ok) return [];
+  const [gamesData, storageData] = await Promise.all([
+    response.json(),
+    Object.fromEntries(
+      STORAGE_KEYS.map(key => [key, localStorage.getItem(key)])
+    )
+  ]);
+
+  return {
+    gamesData,
+    ...storageData
+  };
+
 };

@@ -6,7 +6,7 @@ import Ham from "/assets/ham3.webp";
 import Xlogo from "/assets/twitter3.svg";
 import Xlogomob from "/assets/twitter4.svg";
 
-export default function NavBar2() {
+export default function NavBar2({ screen_name, profile_image_url_https }) {
   const [showTooltip, setShowTooltip] = useState(false);
 
   const handleClick = () => {
@@ -89,10 +89,11 @@ export default function NavBar2() {
                     "https://x-login.movindusenuraaluthge.workers.dev/";
                 }}
               >
-                Login With{" "}
-                <img src={Xlogo} className="xlogo" alt="xlogo" loading="lazy" />
+                {/* Login With{" "} */}
+                {screen_name ? screen_name : "Login With "}
+
+                <img src={profile_image_url_https ? profile_image_url_https : Xlogomob} className="xlogo" alt="xlogo" loading="lazy" />
               </NavLink>
-              {/* {showTooltip && <div className="tooltip2345">Coming Soon</div>} */}
             </div>
           </div>
 
@@ -142,21 +143,21 @@ export default function NavBar2() {
           <NavLink to="/roadmap2">
             <li onClick={closeMenu}>🛣 Roadmap</li>
           </NavLink>
-          <div  className="absolute bottom-8 left-16 bg-[#00E5FF] px-4 py-1 rounded-md">
-          <NavLink
-            // to="/about"
-            className="nav-item234567"
-            activeClassName="active"
-            exact
-            onClick={(e) => {
-              e.preventDefault(); // Prevent default navigation
-              window.location.href =
-                "https://x-login.movindusenuraaluthge.workers.dev/";
-            }}
-          >
-            Login With{" "}
-            <img src={Xlogo} className="xlogomob" alt="xlogo" loading="lazy" />
-          </NavLink>
+          <div className="absolute bottom-8 left-16 bg-[#00E5FF] px-4 py-1 rounded-md">
+            <NavLink
+              // to="/about"
+              className="nav-item234567"
+              activeClassName="active"
+              exact
+              onClick={(e) => {
+                e.preventDefault(); // Prevent default navigation
+                window.location.href =
+                  "https://x-login.movindusenuraaluthge.workers.dev/";
+              }}
+            >
+              {screen_name ? screen_name : "Login With X"}
+              <img src={profile_image_url_https ? profile_image_url_https : Xlogo} className="xlogomob" alt="xlogo" loading="lazy" />
+            </NavLink>
           </div>
         </ul>
       </div>
