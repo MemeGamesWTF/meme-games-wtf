@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 
@@ -25,11 +26,15 @@ const getUserData = async (oauth_token, oauth_token_secret) => {
     const options = {
       method: 'GET'
     }
-    const response = await fetch(`https://x-user-data.movindusenuraaluthge.workers.dev?oauth_token=${oauth_token}&oauth_token_secret=${oauth_token_secret}`, options);
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    const data = await response.json();
+    const url = `https://x-user-data.movindusenuraaluthge.workers.dev?oauth_token=${oauth_token}&oauth_token_secret=${oauth_token_secret}`;
+    // const response = await fetch(url, options);
+    // if (!response.ok) {
+    //   throw new Error(`HTTP error! status: ${response.status}`);
+    // }
+    // const data = await response.json();
+    const { data } = await axios.get(url, options);
+    console.log({ data });
+
     const userData = {
       name: data.name,
       screen_name: data.screen_name,
@@ -55,23 +60,14 @@ export default function CallBack() {
   const oauth_token = searchParams.get("oauth_token");
   const oauth_verifier = searchParams.get("oauth_verifier");
 
-  const API_BASE = import.meta.env.PROD ? 'https://api.x.com' : '/twitter-auth';
+  // const API_BASE = import.meta.env.PROD ? 'https://api.x.com' : '/twitter-auth';
   // const API_BASE = 'https://api.x.com';
 
   const getTwitterAuthData = async () => {
     if (oauth_token && oauth_verifier) {
-      const url = `${API_BASE}/oauth/access_token?oauth_token=${encodeURIComponent(oauth_token)}&oauth_verifier=${encodeURIComponent(oauth_verifier)}`;
-      const requestOptions = {
-        method: "POST",
-        mode: 'no-cors',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded'
-        }
-      };
-
+      const url = `https://67645ae7589ad07a96fd.appwrite.global/?oauth_token=${encodeURIComponent(oauth_token)}&oauth_verifier=${encodeURIComponent(oauth_verifier)}`;
       try {
-        const response = await fetch(url, requestOptions);
-        const result = await response.text();
+        const { data: { data: result } } = await axios.get(url);
         console.log({ result });
         // const params = new URLSearchParams(result);
         const credentials = handleOAuthResponse(result);

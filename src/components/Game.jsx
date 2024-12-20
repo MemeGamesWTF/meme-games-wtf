@@ -3,14 +3,14 @@ import { useLoaderData, useParams } from "react-router-dom";
 
 export default function Game() {
   const gameName = useParams().gameName;
-  const gamesData = useLoaderData();
+  const { gamesData } = useLoaderData();
   // find game
   const url = gamesData.find((game) => game.name === gameName).url;
   if (url === undefined) {
     return <div>Game not found</div>;
   }
   return (
-    <div style={{backgroundColor: "black"}}>
+    <div style={{ backgroundColor: "black" }}>
       {/* <h1>{gameName}</h1> */}
       {/* <iframe
         src={url}
@@ -29,9 +29,9 @@ export default function Game() {
         src={url}
         title={gameName}
         style={{
-          width: "100%", 
-          height: "100vh", 
-          border: "none", 
+          width: "100%",
+          height: "100vh",
+          border: "none",
           // position: "absolute", 
           // top: "50%", 
           // left: "50%", 

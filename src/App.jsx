@@ -46,7 +46,7 @@ const wireRouter = createBrowserRouter([
   {
     path: "/game/:gameName",
     element: <Game />,
-    // loader: gamesLoader,
+    loader: gamesLoader,
     errorElement: <div>notfound</div>,
   },
 ]);
