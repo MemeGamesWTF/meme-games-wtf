@@ -2,8 +2,8 @@
 .clbk-container {
   @apply flex flex-col items-center justify-center min-h-screen text-gray-800;
   background-image: url("/assets/background2.webp");
-  background-size: contain;
-  background-repeat: repeat;
+  background-size: cover;
+  background-repeat: no-repeat;
   font-family: "Jersey 10", sans-serif;
   font-weight: 500;
   font-style: normal;

@@ -74,6 +74,22 @@
   gap: 8px;             /* Adds spacing between text and image */
 }
 
+.nav-item23455432 {
+  text-decoration: none;
+  color: black;
+  font-size: 25px;
+  text-align: center;
+
+  /* New styles added */
+  display: inline-flex; /* Aligns text and image inline */
+  align-items: center;  /* Vertically aligns text and image */
+  gap: 8px;             /* Adds spacing between text and image */
+}
+
+.nav-item23455432:hover{
+  color: rgb(218, 15, 8);
+}
+
 .tooltip2345 {
 position: absolute;
 background-color: #000000;

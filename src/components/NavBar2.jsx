@@ -115,7 +115,7 @@ export default function NavBar2({ screen_name, profile_image_url_https }) {
             <div className="logoutdiv">
               <div className="navright">
                 <NavLink
-                  className="nav-item2345"
+                  className="nav-item23455432"
                   activeClassName="active"
                   exact
                   onClick={(e) => {
@@ -211,7 +211,7 @@ export default function NavBar2({ screen_name, profile_image_url_https }) {
             <div className="logoutdiv2">
               <div className="navright">
                 <NavLink
-                  className="nav-item2345"
+                  className="nav-item23455432"
                   activeClassName="active"
                   exact
                   onClick={(e) => {
