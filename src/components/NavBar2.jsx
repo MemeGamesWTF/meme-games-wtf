@@ -79,31 +79,34 @@ export default function NavBar2({ screen_name, profile_image_url_https }) {
           <div className="atag2345">
             <div className="navright">
               <NavLink
-                // to="/about"
-                className="nav-item2345"
+                className={`nav-item2345 ${screen_name ? "disabled" : ""}`}
                 activeClassName="active"
                 exact
-                // onClick={(e) => {
-                //   e.preventDefault();
-                //   window.location.href = `https://x-login.movindusenuraaluthge.workers.dev?envr=${
-                //     import.meta.env.PROD ? "PROD" : "DEV"
-                //   }`;
-                // }}
+                onClick={(e) => {
+                  if (screen_name) {
+                    e.preventDefault(); // Prevent navigation if logged in
+                  } else {
+                    e.preventDefault();
+                    window.location.href = `https://x-login.movindusenuraaluthge.workers.dev?envr=${
+                      import.meta.env.PROD ? "PROD" : "DEV"
+                    }`;
+                  }
+                }}
               >
-                {/* Login With{" "} */}
-                {screen_name ? screen_name : "Login With"}
+                {screen_name?.length > 7
+                  ? `${screen_name.slice(0, 7)}...`
+                  : screen_name || "Login With"}
 
                 <img
                   src={
                     profile_image_url_https ? profile_image_url_https : Xlogo
                   }
-                  className="xlogo"
+                  className={
+                    profile_image_url_https ? "profile-circle" : "xlogo"
+                  }
                   alt="xlogo"
                   loading="lazy"
                 />
-                {/* {screen_name != "Login With " && (
-                  <div>aaaa</div>
-                )} */}
               </NavLink>
             </div>
           </div>
@@ -177,29 +180,55 @@ export default function NavBar2({ screen_name, profile_image_url_https }) {
           <NavLink to="/roadmap2">
             <li onClick={closeMenu}>🛣 Roadmap</li>
           </NavLink>
-          <div className="absolute bottom-8 left-16 bg-[#00E5FF] px-4 py-1 rounded-md">
+          <div className="moblogbtn">
             <NavLink
-              // to="/about"
-              className="nav-item234567"
+              className={`nav-item234567 ${screen_name ? "disabled" : ""}`}
               activeClassName="active"
               exact
-              // onClick={(e) => {
-              //   e.preventDefault();
-              //   window.location.href =
-              //     "https://x-login.movindusenuraaluthge.workers.dev/";
-              // }}
-            >
-              {screen_name ? screen_name : "Login With X"}
-              <img
-                src={
-                  profile_image_url_https ? profile_image_url_https : Xlogomob
+              onClick={(e) => {
+                if (screen_name) {
+                  e.preventDefault(); // Prevent navigation if already logged in
+                } else {
+                  e.preventDefault();
+                  window.location.href = `https://x-login.movindusenuraaluthge.workers.dev?envr=${
+                    import.meta.env.PROD ? "PROD" : "DEV"
+                  }`;
                 }
-                className="xlogomob"
+              }}
+            >
+              {screen_name?.length > 7
+                ? `${screen_name.slice(0, 7)}...`
+                : screen_name || "Login With"}
+              <img
+                src={profile_image_url_https ? profile_image_url_https : Xlogo}
+                className={profile_image_url_https ? "profile-circle" : "xlogo"}
                 alt="xlogo"
                 loading="lazy"
               />
             </NavLink>
           </div>
+          {screen_name ? (
+            <div className="logoutdiv2">
+              <div className="navright">
+                <NavLink
+                  className="nav-item2345"
+                  activeClassName="active"
+                  exact
+                  onClick={(e) => {
+                    e.preventDefault(); // Prevent default navigation
+                    // Clear user data (e.g., localStorage or any global state)
+                    localStorage.removeItem("screen_name");
+                    localStorage.removeItem("profile_image_url_https");
+
+                    // Redirect to login or home page
+                    window.location.href = "/";
+                  }}
+                >
+                  Logout
+                </NavLink>
+              </div>
+            </div>
+          ) : null}
         </ul>
       </div>
 

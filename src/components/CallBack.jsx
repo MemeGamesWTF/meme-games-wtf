@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
+import './CallBack.css';
 
 
 const handleOAuthResponse = (responseText) => {
@@ -90,10 +91,9 @@ export default function CallBack() {
 
 
   return (
-    <div>
-      {/* <p>Redirecting...</p> */}
-      <h3>Response:</h3>
-      <pre>
+    <div className="clbk-container">
+      {/* <h3 className="clbk-title">Response:</h3> */}
+      <pre className="clbk-pre">
         {JSON.stringify(message, null, 2)}
       </pre>
     </div>

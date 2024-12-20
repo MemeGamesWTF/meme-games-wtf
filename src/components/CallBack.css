@@ -1,0 +1,23 @@
+/* Tailwind custom styles for the CallBack component */
+.clbk-container {
+    @apply flex flex-col items-center justify-center min-h-screen bg-[#5600ff] text-gray-800;
+  }
+  
+  .clbk-title {
+    @apply text-xl font-semibold mb-4 text-gray-700;
+  }
+  
+  .clbk-pre {
+    @apply bg-gray-200 p-4 rounded-md shadow-md w-11/12 max-w-2xl text-sm text-gray-800 overflow-x-auto;
+  }
+  
+  @media (max-width: 768px) {
+    .clbk-title {
+      @apply text-lg;
+    }
+  
+    .clbk-pre {
+      @apply text-xs;
+    }
+  }
+  

@@ -26,7 +26,12 @@
 
 .logoutdiv{
   box-shadow: 0px 9px 0px black;
-  @apply absolute right-8 top-[105px] bg-[#00E5FF] rounded-md px-4 py-1;
+  @apply absolute right-14 top-[102px] bg-[#ffffff] rounded-md px-4 py-0;
+}
+
+.disabled {
+  pointer-events: none; /* Prevent clicks */
+  cursor: not-allowed; /* Change the cursor to show it's disabled */
 }
 
 .navright {
@@ -98,6 +103,13 @@ animation: fade-in-out 3s ease-in-out;
 width: 19px; /* Adjust size to fit better */
 height: auto;
 vertical-align: middle; /* Keeps image aligned with the text baseline */
+}
+
+.profile-circle {
+  width: 19px;
+  height: 19px;
+  border-radius: 50%; /* Makes the image a circle */
+  object-fit: cover; /* Ensures the image fits well inside the circle */
 }
 
 .nav-item:hover {
@@ -264,5 +276,15 @@ vertical-align: middle; /* Keeps image aligned with the text baseline */
     width: 25px; /* Adjust size to fit better */
     height: auto;
     vertical-align: middle; /* Keeps image aligned with the text baseline */
+  }
+
+  .moblogbtn{
+    box-shadow: 0px 9px 0px black;
+    @apply absolute bottom-20 left-16 bg-[#00E5FF] px-4 py-1 rounded-md;
+  }
+
+  .logoutdiv2{
+    box-shadow: 0px 9px 0px black;
+    @apply absolute bottom-6 left-24 bg-[#ffffff] rounded-md px-4 py-0;
   }
 }
