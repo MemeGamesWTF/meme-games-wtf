@@ -2,16 +2,20 @@ import React from "react";
 import "./HowToBuy.css";
 // import NavBar from "./NavBar";
 import NavBar2 from "./NavBar2";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useLoaderData, useNavigate } from "react-router-dom";
 // import Footer from "./Footer2";
 // import arrow from "/assets/arrow.svg";
 
 export default function HowToBuy() {
   const navigate = useNavigate();
+  const { screen_name, profile_image_url_https } = useLoaderData();
   return (
     <div className="howtobuymain">
       <>
-        <NavBar2 />
+      <NavBar2
+        screen_name={screen_name}
+        profile_image_url_https={profile_image_url_https}
+      />
         {/* <div className='htb1'>
           <h2 className='topic'>How To Buy</h2>
         </div> */}

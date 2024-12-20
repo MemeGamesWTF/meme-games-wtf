@@ -8,15 +8,15 @@ import Loader from "./Loader";
 // import gamesData from "./gamesData";
 
 const STORAGE_KEYS = [
-  'oauth_token',
-  'oauth_token_secret',
-  'user_id',
-  'name',
-  'screen_name',
-  'profile_banner_url',
-  'location',
-  'profile_image_url_https',
-  'following'
+  "oauth_token",
+  "oauth_token_secret",
+  "user_id",
+  "name",
+  "screen_name",
+  "profile_banner_url",
+  "location",
+  "profile_image_url_https",
+  "following",
 ];
 
 const HomePage = () => {
@@ -32,14 +32,17 @@ const HomePage = () => {
   return (
     <div className="homemain">
       <div className="main0">
-        <NavBar2 screen_name={screen_name} profile_image_url_https={profile_image_url_https} />
+        <NavBar2
+          screen_name={screen_name}
+          profile_image_url_https={profile_image_url_https}
+        />
         <div className="main1">
           <div className="main2">
             {typeof gamesData !== undefined &&
               gamesData.length > 0 &&
               gamesData.map((game) => (
                 <Link
-                  to={game.url === null ? '' : `/game/${game.name}`}
+                  to={game.url === null ? "" : `/game/${game.name}`}
                   key={game.name}
                 >
                   <div className="main3 group">
@@ -84,13 +87,21 @@ export const gamesLoader = async () => {
   const [gamesData, storageData] = await Promise.all([
     response.json(),
     Object.fromEntries(
-      STORAGE_KEYS.map(key => [key, localStorage.getItem(key)])
-    )
+      STORAGE_KEYS.map((key) => [key, localStorage.getItem(key)])
+    ),
   ]);
 
   return {
     gamesData,
-    ...storageData
+    ...storageData,
   };
+};
 
+export const userLoader = async () => {
+  const storageData = await Object.fromEntries(
+    STORAGE_KEYS.map((key) => [key, localStorage.getItem(key)])
+  );
+  return {
+    ...storageData,
+  };
 };

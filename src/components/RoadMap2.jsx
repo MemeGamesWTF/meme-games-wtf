@@ -2,7 +2,7 @@ import React from "react";
 import "./RoadMap2.css";
 // import NavBar from "./NavBar";
 import NavBar2 from "./NavBar2";
-import { useNavigate } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 // import arrow from "/assets/arrow.svg";
 import tick from "/assets/tick.svg";
 import hourglass from "/assets/hourglass.svg";
@@ -13,10 +13,14 @@ import star from "/assets/star.svg";
 
 export default function RoadMap2() {
   const navigate = useNavigate();
+  const { screen_name, profile_image_url_https } = useLoaderData();
   return (
     <div className="roadmapmain">
       <>
-        <NavBar2 />
+      <NavBar2
+        screen_name={screen_name}
+        profile_image_url_https={profile_image_url_https}
+      />
 
         <div className='rmn0'>
           <h2 className='rmbigtopic'>Roadmap</h2>

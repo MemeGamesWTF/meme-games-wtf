@@ -94,7 +94,7 @@ export default function CallBack() {
     <div className="clbk-container">
       {/* <h3 className="clbk-title">Response:</h3> */}
       <pre className="clbk-pre">
-        {JSON.stringify(message, null, 2)}
+        {(message)}
       </pre>
     </div>
   );

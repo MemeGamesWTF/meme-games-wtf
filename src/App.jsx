@@ -1,7 +1,7 @@
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Helmet } from "react-helmet";
-import HomePage, { gamesLoader } from "./components/HomePage";
+import HomePage, { gamesLoader, userLoader } from "./components/HomePage";
 import AboutUs from "./components/AboutUs";
 import HowToBuy from "./components/HowToBuy";
 import RoadMap from "./components/RoadMap";
@@ -20,21 +20,25 @@ const wireRouter = createBrowserRouter([
   {
     path: "/about",
     element: <AboutUs />,
+    loader: userLoader,
     errorElement: <div>notfound</div>,
   },
   {
     path: "/howtobuy",
     element: <HowToBuy />,
+    loader: userLoader,
     errorElement: <div>notfound</div>,
   },
   {
     path: "/roadmap",
     element: <RoadMap />,
+    loader: userLoader,
     errorElement: <div>notfound</div>,
   },
   {
     path: "/roadmap2",
     element: <RoadMap2 />,
+    loader: userLoader,
     errorElement: <div>notfound</div>,
   },
   {
