@@ -85,8 +85,9 @@ export default function NavBar2({ screen_name, profile_image_url_https }) {
                 exact
                 onClick={(e) => {
                   e.preventDefault(); // Prevent default navigation
-                  window.location.href =
-                    "https://x-login.movindusenuraaluthge.workers.dev?envr=DEV";
+                  window.location.href = `https://x-login.movindusenuraaluthge.workers.dev?envr=${
+                    import.meta.env.PROD ? "PROD" : "DEV"
+                  }`;
                 }}
               >
                 {/* Login With{" "} */}
