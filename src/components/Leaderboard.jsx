@@ -1,7 +1,53 @@
-import React from 'react'
+import React from "react";
+import "./Leaderboard.css";
+import gold from "/assets/gold.svg";
+import silver from "/assets/silver.svg";
+import bronze from "/assets/bronze.svg";
+import up from "/assets/up.svg";
 
 export default function Leaderboard() {
   return (
-    <div>Leaderboard</div>
-  )
+    <div className="lbmain">
+      <div className="lb0">
+        <h2 className="lbbigtopic">Leaderboard</h2>
+      </div>
+      <div className="lbbody">
+        <div className="lbbody2">
+          <img src={gold} alt="Gold Medal" className="lbbody2img" />
+          <div className="lbavatar"></div>
+          <h1 className="lbtext">Twitter Name</h1>
+          <h1 className="lbscore">100,000</h1>
+          <img src={up} alt="Up Icon" className="lbbody2img" />
+        </div>
+      </div>
+      <div className="lbbody">
+        <div className="lbbody3">
+          <img src={silver} alt="Silver Medal" className="lbbody2img" />
+          <div className="lbavatar"></div>
+          <h1 className="lbtext">Twitter Name</h1>
+          <h1 className="lbscore">100,000</h1>
+          <img src={up} alt="Up Icon" className="lbbody2img" />
+        </div>
+      </div>
+      <div className="lbbody">
+        <div className="lbbody4">
+          <img src={bronze} alt="Bronze Medal" className="lbbody2img" />
+          <div className="lbavatar"></div>
+          <h1 className="lbtext">Twitter Name</h1>
+          <h1 className="lbscore">100,000</h1>
+          <img src={up} alt="Up Icon" className="lbbody2img" />
+        </div>
+      </div>
+      <div className="lbbody">
+  <div className="lbbody5">
+    <h1 className="lbnumber">04</h1>
+    <div className="lbavatar"></div>
+    <h1 className="lbtext">Twitter Name</h1>
+    <h1 className="lbscore">100,000</h1>
+    <img src={up} alt="Up Icon" className="lbbody2img" />
+  </div>
+</div>
+
+    </div>
+  );
 }

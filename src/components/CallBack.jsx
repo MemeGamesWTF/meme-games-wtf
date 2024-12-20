@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import './CallBack.css';
+import "./CallBack.css";
 
 
 const handleOAuthResponse = (responseText) => {
