@@ -86,11 +86,11 @@ export default function NavBar2({ screen_name, profile_image_url_https }) {
                 onClick={(e) => {
                   e.preventDefault(); // Prevent default navigation
                   window.location.href =
-                    "https://x-login.movindusenuraaluthge.workers.dev/";
+                    "https://x-login.movindusenuraaluthge.workers.dev?envr=DEV";
                 }}
               >
                 {/* Login With{" "} */}
-                {screen_name ? screen_name : "Login With "}
+                {screen_name ? screen_name : "Login With"}
 
                 <img
                   src={
@@ -107,7 +107,7 @@ export default function NavBar2({ screen_name, profile_image_url_https }) {
             </div>
           </div>
 
-          {screen_name != "Login With " && (
+          {screen_name ? (
             <div className="logoutdiv">
               <div className="navright">
                 <NavLink
@@ -128,7 +128,7 @@ export default function NavBar2({ screen_name, profile_image_url_https }) {
                 </NavLink>
               </div>
             </div>
-          )}
+          ) : null}
 
           {/* <div className="navright">
                 <Link to="/" className="nav-item" as={NavLink}>Games</Link>
