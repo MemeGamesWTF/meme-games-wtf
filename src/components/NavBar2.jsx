@@ -83,12 +83,12 @@ export default function NavBar2({ screen_name, profile_image_url_https }) {
                 className="nav-item2345"
                 activeClassName="active"
                 exact
-                onClick={(e) => {
-                  e.preventDefault(); // Prevent default navigation
-                  window.location.href = `https://x-login.movindusenuraaluthge.workers.dev?envr=${
-                    import.meta.env.PROD ? "PROD" : "DEV"
-                  }`;
-                }}
+                // onClick={(e) => {
+                //   e.preventDefault();
+                //   window.location.href = `https://x-login.movindusenuraaluthge.workers.dev?envr=${
+                //     import.meta.env.PROD ? "PROD" : "DEV"
+                //   }`;
+                // }}
               >
                 {/* Login With{" "} */}
                 {screen_name ? screen_name : "Login With"}
@@ -183,11 +183,11 @@ export default function NavBar2({ screen_name, profile_image_url_https }) {
               className="nav-item234567"
               activeClassName="active"
               exact
-              onClick={(e) => {
-                e.preventDefault(); // Prevent default navigation
-                window.location.href =
-                  "https://x-login.movindusenuraaluthge.workers.dev/";
-              }}
+              // onClick={(e) => {
+              //   e.preventDefault();
+              //   window.location.href =
+              //     "https://x-login.movindusenuraaluthge.workers.dev/";
+              // }}
             >
               {screen_name ? screen_name : "Login With X"}
               <img
