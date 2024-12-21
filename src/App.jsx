@@ -57,6 +57,7 @@ const wireRouter = createBrowserRouter([
   {
     path: "/leaderboard",
     element: <Leaderboard />,
+    loader: userLoader,
     errorElement: <div>notfound</div>,
   },
 ]);

@@ -71,6 +71,13 @@ export default function NavBar2({ screen_name, profile_image_url_https }) {
               >
                 Roadmap
               </NavLink>
+              <NavLink
+                to="/leaderboard"
+                className="nav-item"
+                activeClassName="active"
+              >
+                Leaderboard
+              </NavLink>
               {/* <a className="nav-item" activeClassName="active">
                     Road Map
                   </a> */}
@@ -179,6 +186,9 @@ export default function NavBar2({ screen_name, profile_image_url_https }) {
           </NavLink>
           <NavLink to="/roadmap2">
             <li onClick={closeMenu}>🛣 Roadmap</li>
+          </NavLink>
+          <NavLink to="/leaderboard">
+            <li onClick={closeMenu}>🏆Leaderboard</li>
           </NavLink>
           <div className="moblogbtn">
             <NavLink
