@@ -5,6 +5,7 @@ import Logo from "/assets/logo5.webp";
 import Ham from "/assets/ham3.webp";
 import Xlogo from "/assets/twitter3.svg";
 import Xlogomob from "/assets/twitter4.svg";
+import { logoutAction } from "./HomePage";
 
 export default function NavBar2({ screen_name, profile_image_url_https }) {
   const [showTooltip, setShowTooltip] = useState(false);
@@ -94,9 +95,8 @@ export default function NavBar2({ screen_name, profile_image_url_https }) {
                     e.preventDefault(); // Prevent navigation if logged in
                   } else {
                     e.preventDefault();
-                    window.location.href = `https://x-login.movindusenuraaluthge.workers.dev?envr=${
-                      import.meta.env.PROD ? "PROD" : "DEV"
-                    }`;
+                    window.location.href = `https://x-login.movindusenuraaluthge.workers.dev?envr=${import.meta.env.PROD ? "PROD" : "DEV"
+                      }`;
                   }
                 }}
               >
@@ -127,12 +127,7 @@ export default function NavBar2({ screen_name, profile_image_url_https }) {
                   exact
                   onClick={(e) => {
                     e.preventDefault(); // Prevent default navigation
-                    // Clear user data (e.g., localStorage or any global state)
-                    localStorage.removeItem("screen_name");
-                    localStorage.removeItem("profile_image_url_https");
-
-                    // Redirect to login or home page
-                    window.location.href = "/";
+                    logoutAction();
                   }}
                 >
                   Logout
@@ -140,12 +135,6 @@ export default function NavBar2({ screen_name, profile_image_url_https }) {
               </div>
             </div>
           ) : null}
-
-          {/* <div className="navright">
-                <Link to="/" className="nav-item" as={NavLink}>Games</Link>
-                <Link to="/about" className="nav-item" as={NavLink}>About Us</Link>
-                <Link to="/" className="nav-item" as={NavLink}>Road Map</Link>
-              </div> */}
         </div>
       </nav>
       <div className="navbar-container">
@@ -200,9 +189,8 @@ export default function NavBar2({ screen_name, profile_image_url_https }) {
                   e.preventDefault(); // Prevent navigation if already logged in
                 } else {
                   e.preventDefault();
-                  window.location.href = `https://x-login.movindusenuraaluthge.workers.dev?envr=${
-                    import.meta.env.PROD ? "PROD" : "DEV"
-                  }`;
+                  window.location.href = `https://x-login.movindusenuraaluthge.workers.dev?envr=${import.meta.env.PROD ? "PROD" : "DEV"
+                    }`;
                 }
               }}
             >
@@ -227,11 +215,12 @@ export default function NavBar2({ screen_name, profile_image_url_https }) {
                   onClick={(e) => {
                     e.preventDefault(); // Prevent default navigation
                     // Clear user data (e.g., localStorage or any global state)
-                    localStorage.removeItem("screen_name");
-                    localStorage.removeItem("profile_image_url_https");
+                    // localStorage.removeItem("screen_name");
+                    // localStorage.removeItem("profile_image_url_https");
 
-                    // Redirect to login or home page
-                    window.location.href = "/";
+                    // // Redirect to login or home page
+                    // window.location.href = "/";
+                    logoutAction();
                   }}
                 >
                   Logout

@@ -7,7 +7,7 @@ import { Link, Outlet, useLoaderData, useNavigation } from "react-router-dom";
 import Loader from "./Loader";
 // import gamesData from "./gamesData";
 
-const STORAGE_KEYS = [
+export const STORAGE_KEYS = [
   "oauth_token",
   "oauth_token_secret",
   "user_id",
@@ -105,3 +105,8 @@ export const userLoader = async () => {
     ...storageData,
   };
 };
+
+export const logoutAction = () => {
+  STORAGE_KEYS.forEach((key) => localStorage.removeItem(key));
+  window.location.reload();
+}

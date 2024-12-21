@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import HomePage, { gamesLoader, userLoader } from "./components/HomePage";
@@ -7,9 +7,11 @@ import HowToBuy from "./components/HowToBuy";
 import RoadMap from "./components/RoadMap";
 import RoadMap2 from "./components/RoadMap2";
 import CallBack from "./components/CallBack";
-import Leaderboard from "./components/Leaderboard";
-import Game from "./components/Game";
+import Leaderboard, { userLoaderLeaderboard } from "./components/Leaderboard";
+import Game, { gameLoader } from "./components/Game";
 import "./index.css";
+import { supabase } from './supabaseClient'
+
 
 const wireRouter = createBrowserRouter([
   {
@@ -51,18 +53,31 @@ const wireRouter = createBrowserRouter([
   {
     path: "/game/:gameName",
     element: <Game />,
-    loader: gamesLoader,
+    loader: gameLoader,
     errorElement: <div>notfound</div>,
   },
   {
     path: "/leaderboard",
     element: <Leaderboard />,
-    loader: userLoader,
-    errorElement: <div>notfound</div>,
+    loader: userLoaderLeaderboard,
+    // errorElement: <div>notfound</div>,
   },
 ]);
 
 function App() {
+  // const [session, setSession] = useState(null)
+
+  // useEffect(() => {
+  //   supabase.auth.getSession().then(({ data: { session } }) => {
+  //     setSession(session)
+  //   })
+
+  //   const { data } = supabase.auth.onAuthStateChange((_event, session) => {
+  //     setSession(session)
+  //   })
+
+  //   return () => data.subscription.unsubscribe();
+  // }, [])
   return (
     <>
       <Helmet>
