@@ -4,16 +4,10 @@ import "./NavBar2.css"; // Styles for the navbar and sliding menu
 import Logo from "/assets/logo5.webp";
 import Ham from "/assets/ham3.webp";
 import Xlogo from "/assets/twitter3.svg";
-import Xlogomob from "/assets/twitter4.svg";
+// import Xlogomob from "/assets/twitter4.svg";
 import { logoutAction } from "./HomePage";
 
 export default function NavBar2({ screen_name, profile_image_url_https }) {
-  const [showTooltip, setShowTooltip] = useState(false);
-
-  const handleClick = () => {
-    setShowTooltip(true);
-    setTimeout(() => setShowTooltip(false), 3000); // Hide tooltip after 2 seconds
-  };
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -29,60 +23,54 @@ export default function NavBar2({ screen_name, profile_image_url_https }) {
     <>
       <nav className="nav1">
         <div className="navclz1">
-          {/* <a href='/'
-                className="atag1"
-                style={{ backgroundImage: `url(${Logo})` }}
-              >
-              </a> */}
           <Link
             to="/"
             className="atag1"
             style={{ backgroundImage: `url(${Logo})` }}
           ></Link>
-          {/* <img src={Box} alt="aboutus" className="atag2" loading="lazy" /> */}
-
           <div className="atag2">
-            <div className="navright">
-              <NavLink
-                to="/"
-                className="nav-item"
-                activeClassName="active"
-                exact
-              >
-                Games
-              </NavLink>
-              <NavLink
-                to="/about"
-                className="nav-item"
-                activeClassName="active"
-              >
-                About Us
-              </NavLink>
-              <NavLink
-                to="/howtobuy"
-                className="nav-item"
-                activeClassName="active"
-              >
-                How To Buy
-              </NavLink>
-              <NavLink
-                to="/roadmap2"
-                className="nav-item"
-                activeClassName="active"
-              >
-                Roadmap
-              </NavLink>
-              <NavLink
-                to="/leaderboard"
-                className="nav-item"
-                activeClassName="active"
-              >
-                Leaderboard
-              </NavLink>
-              {/* <a className="nav-item" activeClassName="active">
-                    Road Map
-                  </a> */}
-            </div>
+            <ul className="navright">
+              <li>
+                <NavLink
+                  to="/"
+                  className="nav-item"
+                >
+                  Games
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/about"
+                  className="nav-item"
+                >
+                  About Us
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/howtobuy"
+                  className="nav-item"
+                >
+                  How To Buy
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/roadmap2"
+                  className="nav-item"
+                >
+                  Roadmap
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/leaderboard"
+                  className="nav-item"
+                >
+                  Leaderboard
+                </NavLink>
+              </li>
+            </ul>
           </div>
           <div className="atag2345">
             <div className="navright">
@@ -214,12 +202,6 @@ export default function NavBar2({ screen_name, profile_image_url_https }) {
                   exact
                   onClick={(e) => {
                     e.preventDefault(); // Prevent default navigation
-                    // Clear user data (e.g., localStorage or any global state)
-                    // localStorage.removeItem("screen_name");
-                    // localStorage.removeItem("profile_image_url_https");
-
-                    // // Redirect to login or home page
-                    // window.location.href = "/";
                     logoutAction();
                   }}
                 >
