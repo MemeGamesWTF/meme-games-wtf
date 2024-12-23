@@ -1,34 +1,9 @@
 import React from "react";
 import "./AboutUs.css";
-// import NavBar from "./NavBar";
-import NavBar2 from "./NavBar2";
-// import arrow from "/assets/arrow.svg";
-import { useLoaderData, useNavigate } from "react-router-dom";
 
 export default function AboutUs() {
-  const navigate = useNavigate();
-  const { screen_name, profile_image_url_https } = useLoaderData();
   return (
     <div className="aboutmain">
-      <NavBar2
-        screen_name={screen_name}
-        profile_image_url_https={profile_image_url_https}
-      />
-      {/* <div className="backbutton">
-        <button
-          onClick={() => navigate(-1)}
-          style={{
-            border: "none",
-            background: "none",
-            padding: 0,
-            cursor: "pointer",
-          }}
-        >
-          <img src={arrow} alt="arrow" className="backarrow" loading="lazy" />
-        </button>
-      </div> */}
-      {/* <div className="aboutus-container"></div> */}
-
       <div className="abt4">
         <h1 className="abt6">About Us!</h1>
         <div className="abt5">

@@ -1,11 +1,6 @@
 import React from "react";
 import "./HomePage.css";
-// import NavBar from "./NavBar";
-import NavBar2 from "./NavBar2";
-import Footer from "./Footer2";
-import { Link, Outlet, useLoaderData, useNavigation } from "react-router-dom";
-import Loader from "./Loader";
-// import gamesData from "./gamesData";
+import { Link, useLoaderData } from "react-router-dom";
 
 export const STORAGE_KEYS = [
   "oauth_token",
@@ -20,59 +15,42 @@ export const STORAGE_KEYS = [
 ];
 
 const HomePage = () => {
-  const navigation = useNavigation();
-
-  if (navigation.state !== "idle") {
-    <Loader />;
-  } else {
-    <Outlet />;
-  }
-
-  const { gamesData, screen_name, profile_image_url_https } = useLoaderData();
+  const { gamesData } = useLoaderData();
   return (
-    <div className="homemain">
-      <div className="main0">
-        <NavBar2
-          screen_name={screen_name}
-          profile_image_url_https={profile_image_url_https}
-        />
-        <div className="main1">
-          <div className="main2">
-            {typeof gamesData !== undefined &&
-              gamesData.length > 0 &&
-              gamesData.map((game) => (
-                <Link
-                  to={game.url === null ? "" : `/game/${game.name}`}
-                  key={game.name}
-                >
-                  <div className="main3 group">
-                    <img
-                      src={game.image}
-                      alt={game.name}
-                      loading="lazy"
-                      className="imageclass"
-                      onLoad={(e) => {
-                        e.target.style.opacity = 1;
-                      }}
-                    />
-                    <div className="main4"></div>
-                    <span className="spanclass">
-                      <img
-                        src={game.icon}
-                        alt="Play Icon"
-                        loading="lazy"
-                        onLoad={(e) => {
-                          e.target.style.opacity = 1;
-                        }}
-                      />
-                    </span>
-                  </div>
-                </Link>
-              ))}
-          </div>
-        </div>
+    <div className="main1">
+      <div className="main2">
+        {typeof gamesData !== undefined &&
+          gamesData.length > 0 &&
+          gamesData.map((game) => (
+            <Link
+              to={game.url === null ? "" : `/game/${game.name}`}
+              key={game.name}
+            >
+              <div className="main3 group">
+                <img
+                  src={game.image}
+                  alt={game.name}
+                  loading="lazy"
+                  className="imageclass"
+                  onLoad={(e) => {
+                    e.target.style.opacity = 1;
+                  }}
+                />
+                <div className="main4"></div>
+                <span className="spanclass">
+                  <img
+                    src={game.icon}
+                    alt="Play Icon"
+                    loading="lazy"
+                    onLoad={(e) => {
+                      e.target.style.opacity = 1;
+                    }}
+                  />
+                </span>
+              </div>
+            </Link>
+          ))}
       </div>
-      <Footer />
     </div>
   );
 };

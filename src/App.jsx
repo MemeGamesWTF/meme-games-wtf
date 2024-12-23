@@ -10,44 +10,53 @@ import CallBack from "./components/CallBack";
 import Leaderboard, { userLoaderLeaderboard } from "./components/Leaderboard";
 import Game, { gameLoader } from "./components/Game";
 import "./index.css";
-import { supabase } from './supabaseClient'
+import RootLayout from "./components/RootLayout";
 
 
 const wireRouter = createBrowserRouter([
   {
     path: "/",
-    element: <HomePage />,
-    loader: gamesLoader,
-    errorElement: <div>notfound</div>,
-  },
-  {
-    path: "/about",
-    element: <AboutUs />,
+    element: <RootLayout />,
     loader: userLoader,
     errorElement: <div>notfound</div>,
-  },
-  {
-    path: "/howtobuy",
-    element: <HowToBuy />,
-    loader: userLoader,
-    errorElement: <div>notfound</div>,
-  },
-  {
-    path: "/roadmap",
-    element: <RoadMap />,
-    loader: userLoader,
-    errorElement: <div>notfound</div>,
-  },
-  {
-    path: "/roadmap2",
-    element: <RoadMap2 />,
-    loader: userLoader,
-    errorElement: <div>notfound</div>,
+    children: [
+      {
+        path: "/",
+        element: <HomePage />,
+        loader: gamesLoader,
+        errorElement: <div>notfound</div>,
+      },
+      {
+        path: "/about",
+        element: <AboutUs />,
+        errorElement: <div>notfound</div>,
+      },
+      {
+        path: "/howtobuy",
+        element: <HowToBuy />,
+        errorElement: <div>notfound</div>,
+      },
+      {
+        path: "/roadmap",
+        element: <RoadMap />,
+        errorElement: <div>notfound</div>,
+      },
+      {
+        path: "/roadmap2",
+        element: <RoadMap2 />,
+        errorElement: <div>notfound</div>,
+      },
+      {
+        path: "/leaderboard",
+        element: <Leaderboard />,
+        loader: userLoaderLeaderboard,
+        // errorElement: <div>notfound</div>,
+      },
+    ]
   },
   {
     path: "/callback",
     element: <CallBack />,
-    // loader: credentialsLoader,
     errorElement: <div>notfound</div>,
   },
   {
@@ -56,12 +65,7 @@ const wireRouter = createBrowserRouter([
     loader: gameLoader,
     errorElement: <div>notfound</div>,
   },
-  {
-    path: "/leaderboard",
-    element: <Leaderboard />,
-    loader: userLoaderLeaderboard,
-    // errorElement: <div>notfound</div>,
-  },
+
 ]);
 
 function App() {
