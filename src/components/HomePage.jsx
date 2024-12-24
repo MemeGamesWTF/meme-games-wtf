@@ -18,39 +18,41 @@ const HomePage = () => {
   const { gamesData } = useLoaderData();
   return (
     <div className="main1">
-      <div className="main2">
+      <ul className="main2">
         {typeof gamesData !== undefined &&
           gamesData.length > 0 &&
           gamesData.map((game) => (
-            <Link
-              to={game.url === null ? "" : `/game/${game.name}`}
-              key={game.name}
-            >
-              <div className="main3 group">
-                <img
-                  src={game.image}
-                  alt={game.name}
-                  loading="lazy"
-                  className="imageclass"
-                  onLoad={(e) => {
-                    e.target.style.opacity = 1;
-                  }}
-                />
-                <div className="main4"></div>
-                <span className="spanclass">
+            <li key={game.name} className="main3">
+              <Link
+                to={game.url === null ? "" : `/game/${game.name}`}
+                key={game.name}
+              >
+                <div className="main3 group">
                   <img
-                    src={game.icon}
-                    alt="Play Icon"
+                    src={game.image}
+                    alt={game.name}
                     loading="lazy"
+                    className="imageclass"
                     onLoad={(e) => {
                       e.target.style.opacity = 1;
                     }}
                   />
-                </span>
-              </div>
-            </Link>
+                  <div className="main4"></div>
+                  <span className="spanclass">
+                    <img
+                      src={game.icon}
+                      alt="Play Icon"
+                      loading="lazy"
+                      onLoad={(e) => {
+                        e.target.style.opacity = 1;
+                      }}
+                    />
+                  </span>
+                </div>
+              </Link>
+            </li>
           ))}
-      </div>
+      </ul>
     </div>
   );
 };
