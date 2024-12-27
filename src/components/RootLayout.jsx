@@ -1,7 +1,7 @@
 import React from "react";
 import "./HomePage.css";
 import NavBar2 from "./NavBar2";
-import Footer from "./Footer2";
+// import Footer from "./Footer2";
 import { Outlet, useLoaderData } from "react-router-dom";
 
 export const STORAGE_KEYS = [
@@ -27,7 +27,7 @@ const RootLayout = () => {
         />
         <Outlet />
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
