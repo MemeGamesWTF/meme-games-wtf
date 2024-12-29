@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import "./Footer2.css";
 import Copy from "/assets/duplicate.svg";
+import { Link } from "react-router-dom";
+
+const x_url = import.meta.env.VITE_X_URL ? import.meta.env.VITE_X_URL : "https://x.com/memegameswtf";
 
 export default function Footer2() {
   const [showTooltip, setShowTooltip] = useState(false);
@@ -57,7 +60,7 @@ export default function Footer2() {
           <div className="atag222">
             {/* X */}
         <p className="ptag text-back font-bold text-xl">Follow us on &nbsp;</p>
-        <a href="https://x.com/memegameswtf?s=21" className="footicon1"></a>
+        <a href={x_url} className="footicon1"></a>
         <p className="text-back font-bold text-lg">&nbsp;&nbsp;&nbsp;</p>
         {/* Telegram */}
         <a href="https://t.me/+bTQird4VphdlNzhk" className="footicon11"></a>

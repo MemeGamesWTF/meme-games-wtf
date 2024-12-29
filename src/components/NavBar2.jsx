@@ -7,6 +7,8 @@ import Xlogo from "/assets/twitter3.svg";
 // import Xlogomob from "/assets/twitter4.svg";
 import { logoutAction } from "./HomePage";
 
+const X_LOGIN_ENABLED = import.meta.env.VITE_X_LOGIN_ENABLED ? import.meta.env.VITE_X_LOGIN_ENABLED : "false"; 
+
 export default function NavBar2({ screen_name, profile_image_url_https }) {
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -79,12 +81,16 @@ export default function NavBar2({ screen_name, profile_image_url_https }) {
                 activeClassName="active"
                 exact
                 onClick={(e) => {
-                  if (screen_name) {
-                    e.preventDefault(); // Prevent navigation if logged in
+                  if (X_LOGIN_ENABLED === "false") {
+                    e.preventDefault(); // Prevent navigation if disabled
                   } else {
-                    e.preventDefault();
-                    window.location.href = `https://x-login.movindusenuraaluthge.workers.dev?envr=${import.meta.env.PROD ? "PROD" : "DEV"
-                      }`;
+                    if (screen_name) {
+                      e.preventDefault(); // Prevent navigation if logged in
+                    } else {
+                      e.preventDefault();
+                      window.location.href = `https://x-login.movindusenuraaluthge.workers.dev?envr=${import.meta.env.PROD ? "PROD" : "DEV"
+                        }`;
+                    }
                   }
                 }}
               >
@@ -173,12 +179,16 @@ export default function NavBar2({ screen_name, profile_image_url_https }) {
               activeClassName="active"
               exact
               onClick={(e) => {
-                if (screen_name) {
-                  e.preventDefault(); // Prevent navigation if already logged in
+                if (X_LOGIN_ENABLED === "false") {
+                  e.preventDefault(); // Prevent navigation if disabled
                 } else {
-                  e.preventDefault();
-                  window.location.href = `https://x-login.movindusenuraaluthge.workers.dev?envr=${import.meta.env.PROD ? "PROD" : "DEV"
-                    }`;
+                  if (screen_name) {
+                    e.preventDefault(); // Prevent navigation if already logged in
+                  } else {
+                    e.preventDefault();
+                    window.location.href = `https://x-login.movindusenuraaluthge.workers.dev?envr=${import.meta.env.PROD ? "PROD" : "DEV"
+                      }`;
+                  }
                 }
               }}
             >
