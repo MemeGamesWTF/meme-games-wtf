@@ -2,6 +2,7 @@ import React from "react";
 import "./HomePage.css";
 import { Link, useLoaderData } from "react-router-dom";
 import Footer from "./Footer2";
+import { supabase } from "../supabaseClient";
 
 
 export const STORAGE_KEYS = [
@@ -65,19 +66,20 @@ const HomePage = () => {
 export default HomePage;
 
 export const gamesLoader = async () => {
-  const response = await fetch(
-    "https://gamesdata.movindusenuraaluthge.workers.dev/"
-  );
-  if (!response.ok) return [];
-  const [gamesData, storageData] = await Promise.all([
-    response.json(),
+  // const response = await fetch(
+  //   "https://gamesdata.movindusenuraaluthge.workers.dev/"
+  // );
+  // if (!response.ok) return [];
+  const [games, storageData] = await Promise.all([
+    // response.json(),
+   supabase.from("games").select("*"),
     Object.fromEntries(
       STORAGE_KEYS.map((key) => [key, localStorage.getItem(key)])
     ),
   ]);
 
   return {
-    gamesData,
+    gamesData: games?.data,
     ...storageData,
   };
 };

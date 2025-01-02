@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Navigate, redirect, useLoaderData, useNavigate, useParams } from "react-router-dom";
+import { redirect, useLoaderData, useNavigate, useParams } from "react-router-dom";
 import { supabase } from "../supabaseClient";
 import { STORAGE_KEYS } from "./HomePage";
 
@@ -24,34 +24,34 @@ export default function Game() {
         clearTimeout(timeoutId);
         abortController.abort();
       };
-    }
+    } else {
+      const handleMessage = async (event) => {
+        // Verify message origin for security
+        if (!event.origin.includes(new URL(url).origin)) return;
 
-    const handleMessage = async (event) => {
-      // Verify message origin for security
-      if (!event.origin.includes(new URL(url).origin)) return;
+        if (event.data.type === 'SEND_SCORE') {
+          const { score, game } = event.data;
+          const user_id = localStorage.getItem("user_id");
+          const name = localStorage.getItem("name");
 
-      if (event.data.type === 'SEND_SCORE') {
-        const { score, game } = event.data;
-        const user_id = localStorage.getItem("user_id");
-        const name = localStorage.getItem("name");
+          try {
+            if (user_id && name) {
+              const { error } = await supabase
+                .from('scores')
+                .insert({ score, user_id, name, game });
 
-        try {
-          if (user_id && name) {
-            const { error } = await supabase
-              .from('scores')
-              .insert({ score, user_id, name, game });
-
-            if (error) throw error;
-            console.log('Score successfully inserted from iframe');
+              if (error) throw error;
+              console.log('Score successfully inserted from iframe');
+            }
+          } catch (error) {
+            console.error('Error sending score:', error);
           }
-        } catch (error) {
-          console.error('Error sending score:', error);
         }
-      }
-    };
+      };
 
-    window.addEventListener('message', handleMessage);
-    return () => window.removeEventListener('message', handleMessage);
+      window.addEventListener('message', handleMessage);
+      return () => window.removeEventListener('message', handleMessage);
+    }
   }, [url, navigate]);
 
   if (!url) {
@@ -82,10 +82,8 @@ export default function Game() {
 export const gameLoader = async ({ params, request }) => {
   const { gameName } = params;
   if (!gameName) return redirect("/");
-  const response = await fetch(`https://gamesdata.movindusenuraaluthge.workers.dev/?name=${encodeURIComponent(gameName)}`);
-  if (!response.ok) return redirect("/");
-  const [data, storageData] = await Promise.all([
-    response.json(),
+  const [game, storageData] = await Promise.all([
+    supabase.from("games").select("*").eq("name", gameName),
     Object.fromEntries(
       STORAGE_KEYS.map((key) => [key, localStorage.getItem(key)])
     ),
@@ -108,7 +106,7 @@ export const gameLoader = async ({ params, request }) => {
       });
   }
   return {
-    gameData: data,
+    gameData: game?.data.length ? game.data[0] : null,
     ...storageData,
   };
 };

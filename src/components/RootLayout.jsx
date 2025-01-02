@@ -3,6 +3,7 @@ import "./HomePage.css";
 import NavBar2 from "./NavBar2";
 // import Footer from "./Footer2";
 import { Outlet, useLoaderData } from "react-router-dom";
+import { supabase } from "../supabaseClient";
 
 export const STORAGE_KEYS = [
   "oauth_token",
@@ -35,19 +36,15 @@ const RootLayout = () => {
 export default RootLayout;
 
 export const gamesLoader = async () => {
-  const response = await fetch(
-    "https://gamesdata.movindusenuraaluthge.workers.dev/"
-  );
-  if (!response.ok) return [];
-  const [gamesData, storageData] = await Promise.all([
-    response.json(),
+  const [games, storageData] = await Promise.all([
+    supabase.from("games").select("*"),
     Object.fromEntries(
       STORAGE_KEYS.map((key) => [key, localStorage.getItem(key)])
     ),
   ]);
 
   return {
-    gamesData,
+    gamesData: games?.data,
     ...storageData,
   };
 };
