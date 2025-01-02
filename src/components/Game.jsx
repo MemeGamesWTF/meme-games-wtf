@@ -25,6 +25,33 @@ export default function Game() {
         abortController.abort();
       };
     }
+
+    const handleMessage = async (event) => {
+      // Verify message origin for security
+      if (!event.origin.includes(new URL(url).origin)) return;
+
+      if (event.data.type === 'SEND_SCORE') {
+        const { score, game } = event.data;
+        const user_id = localStorage.getItem("user_id");
+        const name = localStorage.getItem("name");
+
+        try {
+          if (user_id && name) {
+            const { error } = await supabase
+              .from('scores')
+              .insert({ score, user_id, name, game });
+
+            if (error) throw error;
+            console.log('Score successfully inserted from iframe');
+          }
+        } catch (error) {
+          console.error('Error sending score:', error);
+        }
+      }
+    };
+
+    window.addEventListener('message', handleMessage);
+    return () => window.removeEventListener('message', handleMessage);
   }, [url, navigate]);
 
   if (!url) {
@@ -40,7 +67,7 @@ export default function Game() {
     <div style={{ backgroundColor: "black" }}>
 
       <iframe
-        src={url}
+        src={`${url}?random=${new Date().getTime()}`}
         title={gameName}
         style={{
           width: "100%",
@@ -69,6 +96,7 @@ export const gameLoader = async ({ params, request }) => {
       game_name: gameName,
       screen_name: storageData.screen_name,
     }
+
     supabase
       .from("memegames")
       .upsert(gamePlayData)
