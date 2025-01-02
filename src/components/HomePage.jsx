@@ -9,6 +9,7 @@ import brain from "/assets/brain.svg";
 import heart from "/assets/heart.svg";
 import thumbsup from "/assets/thumbsup.svg";
 import thumbsdown from "/assets/thumbsdown.svg";
+import { supabase } from "../supabaseClient";
 
 export const STORAGE_KEYS = [
   "oauth_token",
@@ -263,7 +264,7 @@ const HomePage = () => {
                     </Link>
 
                     <div className="card-body">
-                      <h2 className="card-title">{game.name}</h2>
+                      <h2 className="card-title">{`[${game.name}]`}</h2>
                       <p className="card-text">19.K Times Played</p>
                       <div className="dots">
                         <button
@@ -361,19 +362,20 @@ const HomePage = () => {
 export default HomePage;
 
 export const gamesLoader = async () => {
-  const response = await fetch(
-    "https://gamesdata-dev.movindusenuraaluthge.workers.dev/"
-  );
-  if (!response.ok) return [];
-  const [gamesData, storageData] = await Promise.all([
-    response.json(),
+  // const response = await fetch(
+  //   "https://gamesdata.movindusenuraaluthge.workers.dev/"
+  // );
+  // if (!response.ok) return [];
+  const [games, storageData] = await Promise.all([
+    // response.json(),
+    supabase.from("games").select("*"),
     Object.fromEntries(
       STORAGE_KEYS.map((key) => [key, localStorage.getItem(key)])
     ),
   ]);
 
   return {
-    gamesData,
+    gamesData: games?.data,
     ...storageData,
   };
 };
