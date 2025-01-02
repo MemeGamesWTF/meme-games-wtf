@@ -1,8 +1,26 @@
 .aboutmain {
-  background-image: url("/assets/background2.webp");
+  background-color: #5500FF;
+  /* background-image: url("/assets/background2.webp");
   background-size: cover;
-  background-repeat: repeat;
-  min-height: 100vh;
+  background-repeat: repeat; */
+  min-height: 80vh;
+  /* overflow: hidden; */
+}
+
+.au0 {
+  /* @apply flex justify-center items-center; */
+  font-family: "Jersey 10", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  width: 95%;
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+  margin-top: 0px;
+}
+
+.aubigtopic{
+  font-size: 100px;
+  color: white
 }
 
 /* .aboutusimg{
@@ -25,13 +43,13 @@
 }
 
 .abt4 {
-  position: absolute; /* Or use fixed if you want it always centered regardless of scrolling */
-  top: 50%;
+  position: relative; /* Or use fixed if you want it always centered regardless of scrolling */
+  /* top: 50%; */
   left: 50%;
-  transform: translate(-50%, -50%);
-  box-shadow: 0px 9px 0px black;
+  transform: translate(-50%, 0%);
+  box-shadow: 10px 10px 0px black;
   background-color: white;
-  @apply rounded-md px-10 pb-8 pt-2 mt-10;
+  @apply rounded-[10px] px-10 pb-8 pt-2 mt-0 border-black border-[3px];
   width: 75%;
 }
 

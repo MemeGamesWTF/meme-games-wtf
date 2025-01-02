@@ -1,9 +1,14 @@
 import React from "react";
 import "./AboutUs.css";
+import Footer from "./Footer2";
 
 export default function AboutUs() {
   return (
+    <>
     <div className="aboutmain">
+      <div className="au0">
+          <h2 className="aubigtopic">About Us</h2>
+        </div>
       <div className="abt4">
         <h1 className="abt6">About Us!</h1>
         <div className="abt5">
@@ -37,5 +42,7 @@ export default function AboutUs() {
         </div>
       </div>
     </div>
+    <Footer />
+    </>
   );
 }

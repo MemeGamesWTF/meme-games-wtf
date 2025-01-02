@@ -5,10 +5,11 @@
   } */
 
   .roadmapmain {
-    background-image: url("/assets/roadmapbg6.webp");
+    background-color: #5500FF;
+    /* background-image: url("/assets/roadmapbg6.webp");
     background-size: contain;
-    background-repeat: repeat;
-    /* min-height: 500vh; */
+    background-repeat: repeat; */
+    min-height: 80vh;
   }
   
 
@@ -22,10 +23,10 @@
     font-family: "Jersey 10", sans-serif;
     font-weight: 500;
     font-style: normal;
-    width: 90%;
-    margin-left: 5%;
-    margin-right: 5%;
-    margin-top: 20px;
+    width: 95%;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    margin-top: 0px;
   }
 
   .rmbigtopic{
@@ -39,9 +40,9 @@
     font-weight: 500;
     font-style: normal;
     border-radius: 40px;
-    width: 90%;
-    margin-left: 5%;
-    margin-right: 5%;
+    width: 95%;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
   }
   
   .topicn {
@@ -50,7 +51,11 @@
     font-size: 40px;
     padding: 2px;
     text-align: left;
-    width: 94%;
+    width: 95%;
+  }
+
+  .phaseimages{
+    @apply inline-block w-10 h-10 mr-5 ml-2 mb-2;
   }
 
   .tickn{
@@ -60,7 +65,7 @@
 
   .hourglassn{
     height: 40px;
-    margin-right: 20px;
+    margin-right: 0px;
   }
 
   .blankn{
@@ -73,11 +78,11 @@
   }
   
   .rmn2 {
-    @apply flex justify-center items-center mt-6 w-[90%] ml-[5%] mr-[5%];
+    @apply flex justify-center items-center mt-8 w-[95%] ml-[2.5%] mr-[2.5%];
   }
   
   .rmn3 {
-    @apply grid grid-cols-3 gap-x-4;
+    @apply grid grid-cols-3 gap-x-12;
   }
 
   /* .rm{
@@ -85,11 +90,11 @@
   } */
   
   .rmn4 {
-    box-shadow: 0px 9px 0px black;
+    box-shadow: 10px 10px 0px black;
     background-color: white; /* Set background to white */
-    border-radius: 0.375rem; /* Tailwind's rounded-md */
+    border-radius: 10px; /* Tailwind's rounded-md */
     padding: 1.25rem; /* Tailwind's px-5 py-5 */
-    @apply mb-14
+    @apply mb-20 border-black border-[3px];
   }
   
   .rmn4second {
@@ -115,8 +120,9 @@
     /* font-style: normal; */
     /* text-decoration: none; */
     color: white;
-    font-size: 40px;
+    font-size: 35px;
     text-align: left;
+    margin-left: 2px;
     text-shadow: 1px 1px 0px black,
       /* Light shadow for stroke effect */ -1px -1px 0px black, 1px -1px 0px black,
       -1px 1px 0px black, 0px 2px 0px black,
@@ -125,13 +131,17 @@
       /* Horizontal shadow */ -2px 0px 0px black; /* Horizontal shadow */
   }
 
+  .boximages{
+    @apply inline-block w-10 h-10 mr-3 ml-1 mb-3;
+  }
+
   .blktopic {
     font-family: "Jersey 10", sans-serif;
     font-weight: 500;
     /* font-style: normal; */
     /* text-decoration: none; */
     color: black;
-    font-size: 45px;
+    font-size: 40px;
     text-align: left;
     text-shadow: none;
   }
@@ -185,20 +195,20 @@
   
   /* Tick icon styles */
   .greentick {
-    width: 25px;
-    height: 25px;
-    margin-top: 9px; /* Adjust alignment with text */
+    width: 22px;
+    height: 22px;
+    margin-top: 6px; /* Adjust alignment with text */
   }
 
   .pending {
-    width: 25px;
-    height: 25px;
-    margin-top: 9px; /* Adjust alignment with text */
+    width: 22px;
+    height: 22px;
+    margin-top: 6px; /* Adjust alignment with text */
   }
   
   /* Text styles */
   .rmn7 {
-    font-size: 30px;
+    font-size: 23px;
     line-height: 1.5;
     color: black;
   }

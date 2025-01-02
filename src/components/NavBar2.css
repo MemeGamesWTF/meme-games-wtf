@@ -1,6 +1,12 @@
 /* Navbar Styles */
+.bgnav{
+  background-image: url("/assets/mainnavbg.webp");
+  background-size: contain;
+  background-repeat: repeat;
+}
+
 .nav1 {
-  @apply bg-transparent p-[0px] w-full flex justify-start items-start; /* Center the content */
+  @apply p-[0px] w-[98%] ml-[1%] mr-[1%] flex justify-start items-start; /* Center the content */
 }
 
 .navclz1 {
@@ -10,23 +16,43 @@
 .atag1 {
   @apply h-40 w-40 bg-no-repeat bg-contain; /* Style the logo */
 }
+
+.atag1:hover {
+  /* @apply bg-[#84f37a]; */
+  transform: scale(1.05);
+}
 /* .atag2 {
     @apply absolute h-16 right-8 top-8 ;
 } */
 
 .atag2 {
-  box-shadow: 0px 9px 0px black;
-  @apply absolute right-48 top-8 bg-white rounded-md px-4 py-2;
+  box-shadow: 7px 7px 0px black;
+  @apply absolute right-60 top-8 bg-white rounded-[10px] px-6 py-2 border-black border-[3px];
 }
+
+.atag2:hover {
+  /* @apply bg-[#84f37a]; */
+  transform: scale(1.05);
+}
+
 .atag2345 {
-  box-shadow: 0px 9px 0px black;
+  box-shadow: 7px 7px 0px black;
   /* @apply absolute right-8 top-8 bg-[#00E5FF] rounded-md px-4 py-2; */
-  @apply absolute right-8 top-8 bg-[#00E5FF] rounded-md px-4 py-2;
+  @apply absolute right-10 top-8 bg-[#00E5FF] rounded-[10px] px-6 py-2 border-black border-[3px];
+}
+
+.atag2345:hover {
+  /* @apply bg-[#84f37a]; */
+  transform: scale(1.05);
 }
 
 .logoutdiv{
-  box-shadow: 0px 9px 0px black;
-  @apply absolute right-14 top-[102px] bg-[#ffffff] rounded-md px-4 py-0;
+  box-shadow: 7px 7px 0px black;
+  @apply absolute right-[75px] top-[102px] bg-[#ffffff] rounded-md px-4 py-0;
+}
+
+.logoutdiv:hover{
+  transform: scale(1.05);
 }
 
 .disabled {
@@ -154,6 +180,10 @@ vertical-align: middle; /* Keeps image aligned with the text baseline */
 
 
 @media (max-width: 768px) {
+  .bgnav{
+    display: none;
+  }
+
   .nav1{
       display: none;
   }

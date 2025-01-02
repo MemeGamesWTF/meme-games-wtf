@@ -1,7 +1,8 @@
 .homemain {
-  background-image: url("/assets/background2.webp");
+  background-color: #5500ff;
+  /* background-image: url("/assets/background2.webp");
   background-size: contain;
-  background-repeat: repeat;
+  background-repeat: repeat; */
   @apply pb-6
 }
 

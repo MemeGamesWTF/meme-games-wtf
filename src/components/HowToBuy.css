@@ -1,8 +1,25 @@
 .howtobuymain {
-  background-image: url("/assets/background2.webp");
+  background-color: #5500FF;
+  /* background-image: url("/assets/background2.webp");
   background-size: cover;
-  background-repeat: repeat;
-  min-height: 100vh;
+  background-repeat: repeat;*/
+  min-height: 80vh; 
+}
+
+.htb0 {
+  /* @apply flex justify-center items-center; */
+  font-family: "Jersey 10", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  width: 95%;
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+  margin-top: 0px;
+}
+
+.htbbigtopic{
+  font-size: 100px;
+  color: white
 }
 
 .htb1 {
@@ -20,11 +37,11 @@
 }
 
 .htb2 {
-  @apply flex justify-center items-center mt-6 w-[90%];
-  position: absolute;
-  top: 50%;
+  @apply flex justify-center items-center mt-0 w-[90%];
+  position: relative;
+  /* top: 50%; */
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 0%);
 }
 
 
@@ -33,14 +50,15 @@
 }
 
 .htb4 {
-  box-shadow: 0px 9px 0px black;
+  box-shadow: 10px 10px 0px black;
   background: linear-gradient(
     to bottom,
     #98e05f,
     #0de3ac
   ); /* Gradient from top to bottom */
-  border-radius: 0.375rem; /* Tailwind's rounded-md */
+  border-radius: 10px; /* Tailwind's rounded-md */
   padding: 1.25rem; /* Tailwind's px-5 py-5 */
+  @apply border-black border-[3px];
 }
 
 .htb4second {

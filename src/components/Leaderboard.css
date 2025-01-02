@@ -1,23 +1,22 @@
 .lbmain {
     background-color: #5600ff;
-    height: 100vh;
+    min-height: 100vh;
   }
   
-  .lb0 {
+  .lbn0 {
     /* @apply flex justify-center items-center; */
     font-family: "Jersey 10", sans-serif;
     font-weight: 500;
     font-style: normal;
-    width: 90%;
-    margin-left: 5%;
-    margin-right: 5%;
-    /* margin-top: 20px; */
+    width: 95%;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    margin-top: 0px;
   }
-  
-  .lbbigtopic {
+
+  .lbnbigtopic{
     font-size: 100px;
-    color: white;
-    @apply text-center;
+    color: white
   }
   
   .lbbody {
