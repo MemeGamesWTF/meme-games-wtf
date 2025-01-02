@@ -72,7 +72,7 @@ export const gamesLoader = async () => {
   // if (!response.ok) return [];
   const [games, storageData] = await Promise.all([
     // response.json(),
-   supabase.from("games").select("*"),
+   supabase.from("games").select("*").order("created_at", { ascending: false }),
     Object.fromEntries(
       STORAGE_KEYS.map((key) => [key, localStorage.getItem(key)])
     ),

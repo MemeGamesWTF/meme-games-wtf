@@ -37,7 +37,7 @@ export default RootLayout;
 
 export const gamesLoader = async () => {
   const [games, storageData] = await Promise.all([
-    supabase.from("games").select("*"),
+    supabase.from("games").select("*").order("created_at", { ascending: false }),
     Object.fromEntries(
       STORAGE_KEYS.map((key) => [key, localStorage.getItem(key)])
     ),
