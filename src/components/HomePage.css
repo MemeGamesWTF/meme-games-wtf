@@ -245,10 +245,48 @@
 } */
 
 @media screen and (max-width: 1280px) and (max-height: 800px) {
-  .main2 {
-    @apply grid-cols-3 gap-x-24;
+  .homegamesection {
+    /* @apply flex justify-center items-center; */
+    font-family: "Jersey 10", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    width: 95%;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    margin-top: 0px;
+    /* height: 130px; */
+  }
+  
+  .homegamesectiontopic{
+    font-size: 100px;
+    color: white;
+  }
+  
+  .homegamecontainer{
+    @apply w-[95%] ml-[2.5%] mr-[2.5%];
+  }
+  
+  .homegamecontainergrid{
+    @apply grid grid-cols-1 md:grid-cols-4 gap-8;
+  }
+  .share-button {
+    @apply bg-[#15FF00] text-black font-normal py-0 px-5 -mt-4 ml-[180px] rounded-full shadow relative;
+    font-size: 20px;
+    border: 3px solid black;
+    transition: all 0.2s ease;
+    box-shadow: 7px 7px 0px black;
+  }
+  
+  .share-button:hover {
+    /* @apply bg-[#84f37a]; */
+    transform: scale(1.05);
   }
 }
+
+
+
+
+
 
 @media (max-width: 768px) {
   .homemain {
