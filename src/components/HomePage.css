@@ -322,4 +322,16 @@
   .homegamecontainer{
     @apply mt-10 w-[85%] ml-[7.5%] mr-[7.5%];
   }
+  .share-button {
+    @apply bg-[#15FF00] text-black font-normal py-0 px-5 -mt-4 ml-[210px] rounded-full shadow relative;
+    font-size: 27px;
+    border: 3px solid black;
+    transition: all 0.2s ease;
+    box-shadow: 7px 7px 0px black;
+  }
+  
+  .share-button:hover {
+    /* @apply bg-[#84f37a]; */
+    transform: scale(1.05);
+  }
 }
