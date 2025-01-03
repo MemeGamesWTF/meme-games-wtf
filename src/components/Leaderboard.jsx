@@ -57,7 +57,9 @@ export default function Leaderboard() {
         <Item key={index} {...item} rank={++index} />
       ))}
     </div>
+    <div className="lbfooter">
     <Footer />
+    </div>
     </>
   );
 }

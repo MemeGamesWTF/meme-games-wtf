@@ -9,7 +9,7 @@
     /* background-image: url("/assets/roadmapbg6.webp");
     background-size: contain;
     background-repeat: repeat; */
-    min-height: 80vh;
+    min-height: 90vh;
   }
   
 
@@ -218,6 +218,11 @@
   
   
   @media (max-width: 768px) {
+
+.rmfooter{
+  display: none;
+}
+
     .roadmapmain {
       /* background-image: url("/assets/mobilebg2.webp"); */
       background-image: none;
@@ -234,7 +239,7 @@
     }
   
     .rmn4{
-      @apply rounded-2xl
+      @apply rounded-2xl;
     }
 
     .rmn1 {
@@ -268,13 +273,17 @@
         /* Horizontal shadow */ -2px 0px 0px black; /* Horizontal shadow */
     }
 
+    .boximages{
+      @apply inline-block w-7 h-7 mr-1 ml-0 mb-3;
+    }
+
     .blktopic {
       font-family: "Jersey 10", sans-serif;
       font-weight: 500;
       /* font-style: normal; */
       /* text-decoration: none; */
       color: black;
-      font-size: 33px;
+      font-size: 30px;
       text-align: left;
       text-shadow: none;
       margin-left: 8px;
@@ -285,7 +294,7 @@
     }
 
     .rmn4 {
-      box-shadow: 0px 9px 0px black;
+      box-shadow: 10px 10px 0px black;
       background-color: white; /* Set background to white */
       border-radius: 0.375rem; /* Tailwind's rounded-md */
       padding: 1.25rem; /* Tailwind's px-5 py-5 */
@@ -303,7 +312,7 @@
     }
 
     .rmn7 {
-      font-size: 22px;
+      font-size: 20px;
       line-height: 1.5;
       color: black;
     }
@@ -323,11 +332,15 @@
     .topicn {
       text-decoration: none;
       color: white;
-      font-size: 22px;
+      font-size: 18px;
       padding: 10px;
       padding-left: 10px;
       text-align: left;
       width: 94%;
+    }
+    
+    .phaseimages{
+      @apply inline-block w-8 h-8 mr-4 ml-2 mb-1;
     }
 
     .tickn{

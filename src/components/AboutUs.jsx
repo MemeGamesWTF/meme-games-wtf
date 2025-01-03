@@ -42,7 +42,9 @@ export default function AboutUs() {
         </div>
       </div>
     </div>
+    <div className="abtfooter">
     <Footer />
+    </div>
     </>
   );
 }

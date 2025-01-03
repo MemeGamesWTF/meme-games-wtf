@@ -814,7 +814,9 @@ export default function RoadMap2() {
         </div>
       </>
     </div>
+    <div className="rmfooter">
     <Footer />
+    </div>
     </>
   );
 }

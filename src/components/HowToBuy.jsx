@@ -120,7 +120,9 @@ export default function HowToBuy() {
         </div>
       </div>
     </div>
+    <div className="htbfooter">
     <Footer />
+    </div>
     </>
   );
 }

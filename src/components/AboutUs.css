@@ -3,7 +3,7 @@
   /* background-image: url("/assets/background2.webp");
   background-size: cover;
   background-repeat: repeat; */
-  min-height: 80vh;
+  min-height: 90vh;
   /* overflow: hidden; */
 }
 
@@ -110,6 +110,14 @@
 }
 
 @media (max-width: 768px) {
+
+  .au0{
+    display: none;
+  }
+
+  .abtfooter{
+    display: none;
+  }
   /* .aboutus-container {
     background-image: url("/assets/mobileabout.webp");
     background-size: cover;
@@ -133,9 +141,9 @@
     top: 20%;
     left: 50%;
     transform: translate(-50%, 0%);
-    box-shadow: 0px 9px 0px black;
+    box-shadow: 10px 10px 0px black;
     background-color: white;
-    @apply rounded-md px-10 pb-8 pt-2 mb-10 mt-0;
+    @apply rounded-md px-10 pb-8 pt-2 mb-0 mt-0;
     width: 75%;
   }
 
