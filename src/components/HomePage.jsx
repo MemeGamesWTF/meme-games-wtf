@@ -75,7 +75,7 @@ const HomePage = () => {
 
   return (
     <>
-      <div className="gametypesdiv">
+      {/* <div className="gametypesdiv">
         <button
           className={`gamebtns ${
             selectedType === "trending" ? "bg-[#FFF600]" : "bg-white"
@@ -123,7 +123,46 @@ const HomePage = () => {
           <img src={brain} alt="brain" className="gamebtnsimages" />
           <span>Brain Rot</span>
         </button>
-      </div>
+      </div> */}
+      
+      <div className="gametypesdiv">
+  <button
+    className={`gamebtns ${selectedType === "trending" ? "bg-[#FFF600]" : "bg-white"}`}
+    onClick={(e) => selectedType !== "trending" && setSelectedType("trending")}
+    disabled={true} // Optional if you want to visually disable it (optional)
+  >
+    <img src={fire} alt="fire" className="gamebtnsimages" />
+    <span>Trending</span>
+  </button>
+
+  <button
+    className={`gamebtns ${selectedType === "classic" ? "bg-[#FFF600]" : "bg-white"}`}
+    onClick={(e) => selectedType !== "classic" && setSelectedType("classic")}
+    disabled={true} // Optional if you want to visually disable it (optional)
+  >
+    <img src={chad} alt="chad" className="gamebtnsimages" />
+    <span>Classic Games</span>
+  </button>
+
+  <button
+    className={`gamebtns ${selectedType === "elon" ? "bg-[#FFF600]" : "bg-white"}`}
+    onClick={(e) => selectedType !== "elon" && setSelectedType("elon")}
+    disabled={true} // Optional if you want to visually disable it (optional)
+  >
+    <img src={rocket} alt="rocket" className="gamebtnsimages" />
+    <span>Elon's Games</span>
+  </button>
+
+  <button
+    className={`gamebtns ${selectedType === "brainrot" ? "bg-[#FFF600]" : "bg-white"}`}
+    onClick={(e) => selectedType !== "brainrot" && setSelectedType("brainrot")}
+    disabled={true} // Optional if you want to visually disable it (optional)
+  >
+    <img src={brain} alt="brain" className="gamebtnsimages" />
+    <span>Brain Rot</span>
+  </button>
+</div>
+
 
       <div className="homegamesection">
         <h2 className="homegamesectiontopic">Games</h2>
