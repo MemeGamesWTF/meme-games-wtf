@@ -273,4 +273,15 @@
   .spanclass {
     @apply absolute text-white text-xl font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300;
   }
+  .gametypesdiv{
+    display: none;
+  }
+  .homegamesectiontopic{
+    display: none
+    /* font-size: 80px;
+    @apply ml-3; */
+  }
+  .homegamecontainer{
+    @apply mt-10 w-[85%] ml-[7.5%] mr-[7.5%];
+  }
 }
