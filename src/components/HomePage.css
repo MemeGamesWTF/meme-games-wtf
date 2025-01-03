@@ -1,9 +1,157 @@
 .homemain {
-  background-image: url("/assets/background2.webp");
+  background-color: #5500ff;
+  /* background-image: url("/assets/background2.webp");
   background-size: contain;
-  background-repeat: repeat;
-  @apply pb-6
+  background-repeat: repeat; */
+  @apply pb-6;
 }
+
+.gametypesdiv {
+  @apply flex justify-start space-x-4 mt-5 w-[95%] ml-[2.5%] mr-[2.5%];
+}
+
+.gamebtns {
+  @apply px-4 py-0 rounded-full flex items-center space-x-2 border-black border-[3px];
+  font-size: 27px;
+  font-family: "Jersey 10", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  box-shadow: 2px 2px 0px black;
+}
+
+
+
+.gamebtnsimages{
+  @apply h-6 mb-1;
+}
+
+.gamebtns:hover{
+
+  transform: scale(1.05);
+}
+
+.homegamesection {
+  /* @apply flex justify-center items-center; */
+  font-family: "Jersey 10", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  width: 95%;
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+  margin-top: 0px;
+  /* height: 130px; */
+}
+
+.homegamesectiontopic{
+  font-size: 100px;
+  color: white;
+}
+
+.homegamecontainer{
+  @apply w-[95%] ml-[2.5%] mr-[2.5%];
+}
+
+.homegamecontainergrid{
+  @apply grid grid-cols-1 md:grid-cols-4 gap-8;
+}
+
+.card {
+  @apply bg-white shadow-lg rounded-lg overflow-hidden border-4 border-black;
+  box-shadow: 7px 7px 0px black;
+}
+
+.card00:hover {
+  /* @apply bg-[#84f37a]; */
+  transform: scale(1.05);
+}
+
+.card-header {
+  @apply relative;
+  height: 180px;
+  background-color: #ffffff; /* Light Gray Background */
+}
+
+.card-header-icon {
+  @apply absolute top-2 right-2;
+  font-size: 1.5rem;
+}
+
+.card-body {
+  padding: 5px 12px;
+  border-top: 5px solid black;
+}
+
+.card-title {
+  @apply text-3xl font-normal text-black;
+}
+
+.card-text {
+  @apply text-sm text-black mb-4;
+}
+
+.dots{
+  @apply flex space-x-2 mb-2;
+}
+
+.dots .dot {
+  @apply bg-[#4b4a4b] rounded-full;
+  width: 35px;
+  height: 35px;
+}
+
+.dot.clicked {
+  background-color: #5500ff; /* Change this color as you wish */
+}
+
+.emoji-image {
+  width: 24px; /* Adjust the size as needed */
+  height: 24px;
+  margin-left: 5.5px;
+}
+
+.share-button {
+  @apply bg-[#15FF00] text-black font-normal py-0 px-5 -mt-4 ml-[210px] rounded-full shadow relative;
+  font-size: 27px;
+  border: 3px solid black;
+  transition: all 0.2s ease;
+  box-shadow: 7px 7px 0px black;
+}
+
+.share-button:hover {
+  /* @apply bg-[#84f37a]; */
+  transform: scale(1.05);
+}
+
+.card-header {
+  position: relative;
+  overflow: hidden;
+}
+
+/* .gamebtnsimages{
+  @apply bg-orange-400
+} */
+
+.card-header img.gamebtnsimages2 {
+  /* display: block; */
+  transition: filter 0.3s ease-in-out;
+  @apply transition-opacity duration-300;
+}
+
+.card-header:hover img.gamebtnsimages2 {
+  filter: brightness(50%); /* Darkens the card */
+}
+
+.game-icon {
+  @apply opacity-0 group-hover:opacity-100 transition-opacity duration-200 absolute inset-0 mx-auto my-auto;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  transform: translate(0%, 0%);
+  transition: opacity 0.2s ease-in-out;
+  /* width: auto */
+}
+
+
 
 .main1 {
   @apply flex justify-center items-center;
@@ -27,11 +175,9 @@
   @apply absolute text-white text-xl font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300 -mt-20;
 }
 
-
-.main5{
-  @apply bg-black text-white text-lg font-bold mt-28 rounded-[100px] ml-[20%]  mr-[20%] w-[60%] h-fit p-3
+.main5 {
+  @apply bg-black text-white text-lg font-bold mt-28 rounded-[100px] ml-[20%]  mr-[20%] w-[60%] h-fit p-3;
 }
-
 
 /* Center the spinner */
 .loading-container {
@@ -61,8 +207,6 @@
     transform: rotate(360deg);
   }
 }
-
-
 
 /* .background-animation {
   position: absolute;
@@ -100,13 +244,46 @@
   }
 } */
 
-
-
 @media screen and (max-width: 1280px) and (max-height: 800px) {
-  .main2 {
-    @apply grid-cols-3 gap-x-24;
+  .homegamesection {
+    /* @apply flex justify-center items-center; */
+    font-family: "Jersey 10", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    width: 95%;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    margin-top: 0px;
+    /* height: 130px; */
+  }
+  
+  .homegamesectiontopic{
+    font-size: 100px;
+    color: white;
+  }
+  
+  .homegamecontainer{
+    @apply w-[95%] ml-[2.5%] mr-[2.5%];
+  }
+  
+  .homegamecontainergrid{
+    @apply grid grid-cols-1 md:grid-cols-4 gap-8;
+  }
+  .share-button {
+    @apply bg-[#15FF00] text-black font-normal py-0 px-5 -mt-4 ml-[180px] rounded-full shadow relative;
+    font-size: 20px;
+    border: 3px solid black;
+    transition: all 0.2s ease;
+    box-shadow: 7px 7px 0px black;
+  }
+  
+  .share-button:hover {
+    /* @apply bg-[#84f37a]; */
+    transform: scale(1.05);
   }
 }
+
+
 
 
 
@@ -114,7 +291,7 @@
 @media (max-width: 768px) {
   .homemain {
     background-image: none;
-    background-color: #5600ff
+    background-color: #5600ff;
   }
   .main1 {
     @apply flex justify-center items-center mt-5;
@@ -133,5 +310,16 @@
   }
   .spanclass {
     @apply absolute text-white text-xl font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300;
+  }
+  .gametypesdiv{
+    display: none;
+  }
+  .homegamesectiontopic{
+    display: none
+    /* font-size: 80px;
+    @apply ml-3; */
+  }
+  .homegamecontainer{
+    @apply mt-10 w-[85%] ml-[7.5%] mr-[7.5%];
   }
 }

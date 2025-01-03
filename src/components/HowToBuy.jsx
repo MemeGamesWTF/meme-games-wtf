@@ -1,10 +1,15 @@
 import React from "react";
 import "./HowToBuy.css";
 import { Link, NavLink } from "react-router-dom";
+import Footer from "./Footer2";
 
 export default function HowToBuy() {
   return (
+    <>
     <div className="howtobuymain">
+      <div className="htb0">
+          <h2 className="htbbigtopic">How To Buy</h2>
+        </div>
       <div className="htb2">
         <div className="htb3 group">
           <div className="htb4">
@@ -115,5 +120,9 @@ export default function HowToBuy() {
         </div>
       </div>
     </div>
+    <div className="htbfooter">
+    <Footer />
+    </div>
+    </>
   );
 }

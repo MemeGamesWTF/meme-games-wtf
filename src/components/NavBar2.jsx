@@ -23,6 +23,7 @@ export default function NavBar2({ screen_name, profile_image_url_https }) {
 
   return (
     <>
+    <div className="bgnav">
       <nav className="nav1">
         <div className="navclz1">
           <Link
@@ -131,6 +132,7 @@ export default function NavBar2({ screen_name, profile_image_url_https }) {
           ) : null}
         </div>
       </nav>
+      </div>
       <div className="navbar-container">
         {/* Hamburger Menu Icon */}
         <div className="hamburger-menu" onClick={toggleMenu}>
@@ -171,7 +173,7 @@ export default function NavBar2({ screen_name, profile_image_url_https }) {
             <li onClick={closeMenu}>🛣 Roadmap</li>
           </NavLink>
           <NavLink to="/leaderboard">
-            <li onClick={closeMenu}>🏆Leaderboard</li>
+            <li onClick={closeMenu}>🏆 Leaderboard</li>
           </NavLink>
           <div className="moblogbtn">
             <NavLink

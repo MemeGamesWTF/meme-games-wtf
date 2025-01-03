@@ -105,7 +105,7 @@
 
 
 .atag22 {
-  box-shadow: 0px 7px 0px black;
+  box-shadow: 7px 7px 0px black;
   @apply w-fit ml-auto mr-auto bg-white rounded-md px-5 py-4;
 }
 

@@ -5,6 +5,7 @@ import gold from "/assets/gold.svg";
 import silver from "/assets/silver.svg";
 import bronze from "/assets/bronze.svg";
 import { supabase } from "../supabaseClient";
+import Footer from "./Footer2";
 
 
 
@@ -47,11 +48,19 @@ const Item = ({ rank, screen_name, profile_image_url_https, count }) => {
 export default function Leaderboard() {
   const { leaderboard } = useLoaderData();
   return (
+    <>
     <div className="lbmain">
+      <div className="lbn0">
+          <h2 className="lbnbigtopic">Leaderboard</h2>
+        </div>
       {leaderboard.length > 0 && leaderboard.map((item, index) => (
         <Item key={index} {...item} rank={++index} />
       ))}
     </div>
+    <div className="lbfooter">
+    <Footer />
+    </div>
+    </>
   );
 }
 
