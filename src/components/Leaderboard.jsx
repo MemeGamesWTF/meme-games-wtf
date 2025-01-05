@@ -64,7 +64,7 @@ export default function Leaderboard() {
   );
 }
 
-export const userLoaderLeaderboard = async () => {
+export const totalLeaderboardLoader = async () => {
 
   const leaderboard = await supabase.from("memegames_leaderboard").select("*");
   return {

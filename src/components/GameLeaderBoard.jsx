@@ -1,5 +1,5 @@
 import React from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import "./GameLeaderBoard.css";
 import gold from "/assets/gold.svg";
 import silver from "/assets/silver.svg";
@@ -7,7 +7,7 @@ import bronze from "/assets/bronze.svg";
 import { supabase } from "../supabaseClient";
 import Footer from "./Footer2";
 
-const Item = ({ rank, screen_name, profile_image_url_https, count }) => {
+const Item = ({ rank, name, score }) => {
   let bodyClass = "lbbody5";
   let rankClass = "lbnumber";
   switch (rank) {
@@ -41,21 +41,18 @@ const Item = ({ rank, screen_name, profile_image_url_https, count }) => {
             className="lbbody2img"
           />
         )}
-        <h1 className="lbtext">{screen_name}</h1>
-        <h1 className="lbscore">{count}</h1>
+        <h1 className="lbtext">{name}</h1>
+        <h1 className="lbscore">{score}</h1>
       </div>
     </div>
   );
 };
 
 export default function Leaderboard() {
-  const { leaderboard } = useLoaderData();
+  const { leaderboard, gameName } = useLoaderData();
   return (
     <>
       <div className="lbmain">
-      {/* <div className="lbn0">
-          <h2 className="lbnbigtopic">Leaderboard</h2>
-        </div>  */}
         <div className="lb-banner">
           <img
             src="/assets/banner.jpg"
@@ -63,8 +60,8 @@ export default function Leaderboard() {
             className="lb-banner-img"
           />
           <div className="lb-buttons">
-            <button className="lb-btn game-name">Game Name</button>
-            <button className="lb-btn play-btn">Play</button>
+            <button className="lb-btn game-name">{gameName}</button>
+            <Link to={`/game/${gameName}`} className="lb-btn play-btn">Play</Link>
           </div>
         </div>
         <br></br>
@@ -80,9 +77,36 @@ export default function Leaderboard() {
   );
 }
 
-export const userLoaderLeaderboard = async () => {
-  const leaderboard = await supabase.from("memegames_leaderboard").select("*");
-  return {
-    leaderboard: leaderboard?.data,
-  };
+
+export const gameLeaderboardLoader = async ({ params }) => {
+  try {
+    const { gameId, gameName } = params;
+
+    const { data: leaderboard, error } = await supabase
+      .from('scores')
+      .select('name, score, game')
+      .eq('game', gameId)
+      .or(`name.neq.${null},name.neq.''`)
+      .order('score', { ascending: false })
+      .limit(10)
+      .not('name', 'eq', null);
+    console.log({ leaderboard });
+    if (error) {
+      console.error("Database error:", error);
+      return { leaderboard: [], gameName };
+    }
+
+    const uniqueLeaderboard = leaderboard?.filter((item, index, self) =>
+      index === self.findIndex((t) => t.name === item.name)
+    );
+
+    return {
+      leaderboard: uniqueLeaderboard || [],
+      gameName
+    };
+
+  } catch (error) {
+    console.error("Error fetching leaderboard:", error);
+    return { leaderboard: [], gameName: null };
+  }
 };

@@ -7,11 +7,11 @@ import HowToBuy from "./components/HowToBuy";
 import RoadMap from "./components/RoadMap";
 import RoadMap2 from "./components/RoadMap2";
 import CallBack from "./components/CallBack";
-import Leaderboard, { userLoaderLeaderboard } from "./components/Leaderboard";
+import Leaderboard, { totalLeaderboardLoader } from "./components/Leaderboard";
 import Game, { gameLoader } from "./components/Game";
 import "./index.css";
 import RootLayout from "./components/RootLayout";
-import GamrLeaderboard from "./components/GameLeaderBoard";
+import GamrLeaderboard, { gameLeaderboardLoader } from "./components/GameLeaderBoard";
 
 
 const wireRouter = createBrowserRouter([
@@ -50,13 +50,13 @@ const wireRouter = createBrowserRouter([
       {
         path: "/leaderboard",
         element: <Leaderboard />,
-        loader: userLoaderLeaderboard,
+        loader: totalLeaderboardLoader,
         // errorElement: <div>notfound</div>,
       },
       {
-        path: "/gameleaderboard",
+        path: "/game-leaderboard/:gameId/:gameName",
         element: <GamrLeaderboard />,
-        loader: userLoaderLeaderboard,
+        loader: gameLeaderboardLoader,
         // errorElement: <div>notfound</div>,
       },
     ]
@@ -72,6 +72,10 @@ const wireRouter = createBrowserRouter([
     loader: gameLoader,
     errorElement: <div>notfound</div>,
   },
+  // {
+  //   path: "*",
+  //   element: <div>notfound</div>,
+  // }
 
 ]);
 
