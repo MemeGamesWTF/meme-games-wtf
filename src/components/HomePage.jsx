@@ -24,6 +24,7 @@ export const STORAGE_KEYS = [
   "following",
 ];
 
+const getK = (val) => new Intl.NumberFormat("en", { notation: "compact" }).format(val || 0); 
 
 const LoadingImage = ({ game }) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -159,7 +160,7 @@ const HomePage = () => {
                   <LoadingImage game={game} />
                   <div className="card-body">
                     <h2 className="card-title">{game.name}</h2>
-                    <p className="card-text">19.K Times Played</p>
+                    <p className="card-text">{getK(game.played)} Times Played</p>
                     <div className="dots">
                       <button
                         className={`dot ${gameEmojiStates[game.name]?.fire ? "clicked" : ""
@@ -255,7 +256,7 @@ const HomePage = () => {
                         </button>
                       </Link>
                     </h2>
-                    <p className="card-text">19.K Times Played</p>
+                    <p className="card-text">{getK(game.played)} Times Played</p>
                     <div className="dots">
                       <button
                         className={`dot ${gameEmojiStates[game.name]?.fire ? "clicked" : ""
