@@ -11,6 +11,7 @@ import Leaderboard, { userLoaderLeaderboard } from "./components/Leaderboard";
 import Game, { gameLoader } from "./components/Game";
 import "./index.css";
 import RootLayout from "./components/RootLayout";
+import GamrLeaderboard from "./components/GameLeaderBoard";
 
 
 const wireRouter = createBrowserRouter([
@@ -49,6 +50,12 @@ const wireRouter = createBrowserRouter([
       {
         path: "/leaderboard",
         element: <Leaderboard />,
+        loader: userLoaderLeaderboard,
+        // errorElement: <div>notfound</div>,
+      },
+      {
+        path: "/gameleaderboard",
+        element: <GamrLeaderboard />,
         loader: userLoaderLeaderboard,
         // errorElement: <div>notfound</div>,
       },

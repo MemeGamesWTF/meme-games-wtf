@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./HomePage.css";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, useLoaderData , useNavigate } from "react-router-dom";
 import Footer from "./Footer2";
 import fire from "/assets/fire.svg";
 import chad from "/assets/chad.svg";
@@ -9,6 +9,7 @@ import brain from "/assets/brain.svg";
 import heart from "/assets/heart.svg";
 import thumbsup from "/assets/thumbsup.svg";
 import thumbsdown from "/assets/thumbsdown.svg";
+import trophy from "/assets/trophy.png"
 import { supabase } from "../supabaseClient";
 
 export const STORAGE_KEYS = [
@@ -72,6 +73,12 @@ const HomePage = () => {
   const trendingGames = firedGames.length
     ? gamesData.filter((game) => firedGames.includes(game.name))
     : [];
+
+    const navigate = useNavigate();
+
+  const handleTrophyClick = () => {
+    navigate("/gameleaderboard");
+  };
 
   return (
     <>
@@ -303,7 +310,7 @@ const HomePage = () => {
                     </Link>
 
                     <div className="card-body">
-                      <h2 className="card-title">{`[${game.name}]`}</h2>
+                      <h2 className="card-title">{`[${game.name}]`} <button className="emoji-image" onClick={handleTrophyClick} ><img src={trophy} alt="Trophy" /></button></h2>
                       <p className="card-text">19.K Times Played</p>
                       <div className="dots">
                         <button

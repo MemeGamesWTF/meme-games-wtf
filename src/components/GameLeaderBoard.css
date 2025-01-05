@@ -1,0 +1,91 @@
+.lbmain {
+    background-color: #5600ff;
+    min-height: 90vh;
+  }
+  
+  .lbn0 {
+    font-family: "Jersey 10", sans-serif;
+    font-weight: 500;
+    width: 95%;
+    margin: 0 auto;
+  }
+  
+  .lbnbigtopic {
+    font-size: 100px;
+    color: white;
+  }
+  
+  .lb-banner {
+    text-align: center;
+    margin: 20px auto;
+    width: 80%;
+    max-width: 1200px;
+    margin-left: 10%;
+    position: relative; /* Keeps the buttons relative to the banner */
+  }
+  
+  .lb-banner-img {
+    width: 100%; /* Keep the width at 100% */
+    height: 300px; /* Set a fixed height */
+    border-radius: 20px;
+    box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.2);
+    object-fit: cover; /* Ensures the image fills the height and crops excess */
+  }
+  
+  
+  .lb-buttons {
+    display: flex;
+    justify-content: space-between; /* Align buttons at opposite ends */
+    position: absolute;
+    bottom: -30px; /* Move the buttons below the banner image */
+    width: 100%;
+    padding: 0 20px; /* Add some padding to prevent the buttons from touching the sides */
+    
+  }
+  
+  .lb-btn {
+    font-family: "Jersey 10", sans-serif;
+    padding: 10px 30px;
+    border-radius: 10px;
+    font-size: 32px;
+    cursor: pointer;
+    border: none;
+    color: #fff;
+    box-shadow: 8px 6px;
+  }
+  
+  .lb-btn.game-name {
+    background-color: #ffffff;
+    color:black;
+  }
+  
+  .lb-btn.play-btn {
+    background-color: #00ff00;
+    color:black;
+
+  }
+  
+  .lb-btn:hover {
+    opacity: 0.8;
+  }
+  
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .lbnbigtopic {
+      font-size: 50px;
+    }
+  
+    .lb-banner-img {
+      max-width: 100%;
+      height: 180px; /* Set a fixed height */
+      object-fit: cover; /* Ensures the image fills the height and crops excess */
+    }
+  
+    .lb-btn {
+      font-size: 24px;
+      padding: 10px 20px;
+      box-shadow: 4px 3px;
+    }
+  }
+  
