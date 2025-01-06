@@ -49,13 +49,13 @@ const Item = ({ rank, name, score }) => {
 };
 
 export default function Leaderboard() {
-  const { leaderboard, gameName } = useLoaderData();
+  const { leaderboard, gameName , gameImage  } = useLoaderData();
   return (
     <>
       <div className="lbmain">
         <div className="lb-banner">
           <img
-            src="/assets/banner.jpg"
+            src={gameImage}
             alt="Banner"
             className="lb-banner-img"
           />
@@ -80,7 +80,7 @@ export default function Leaderboard() {
 
 export const gameLeaderboardLoader = async ({ params }) => {
   try {
-    const { gameId, gameName } = params;
+    const { gameId, gameName, gameImage } = params;
 
     const { data: leaderboard, error } = await supabase
       .from('scores')
@@ -96,17 +96,30 @@ export const gameLeaderboardLoader = async ({ params }) => {
       return { leaderboard: [], gameName };
     }
 
+    // Fetch game image
+    const { data: gameData, error: gameError } = await supabase
+      .from('games')
+      .select('image')
+      .eq('id', gameId)
+      .single();
+
+    if (gameError) {
+      console.error("Game database error:", gameError);
+      return { leaderboard: [], gameName, gameImage: null };
+    }
+
     const uniqueLeaderboard = leaderboard?.filter((item, index, self) =>
       index === self.findIndex((t) => t.name === item.name)
     );
 
     return {
       leaderboard: uniqueLeaderboard || [],
-      gameName
+      gameName,
+      gameImage: gameData?.image || null,
     };
 
   } catch (error) {
     console.error("Error fetching leaderboard:", error);
-    return { leaderboard: [], gameName: null };
+    return { leaderboard: [], gameName: null, };
   }
 };

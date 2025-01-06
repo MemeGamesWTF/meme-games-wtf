@@ -9,7 +9,7 @@ import brain from "/assets/brain.svg";
 import heart from "/assets/heart.svg";
 import thumbsup from "/assets/thumbsup.svg";
 import thumbsdown from "/assets/thumbsdown.svg";
-import trophy from "/assets/trophy.png"
+import trophy from "/assets/trophy.svg"
 import { supabase } from "../supabaseClient";
 
 export const STORAGE_KEYS = [
@@ -112,7 +112,7 @@ const HomePage = () => {
         <button
           className={`gamebtns ${selectedType === "trending" ? "bg-[#FFF600]" : "bg-white"}`}
           onClick={(e) => selectedType !== "trending" && setSelectedType("trending")}
-          disabled={true} // Optional if you want to visually disable it (optional)
+          // disabled={false} // Optional if you want to visually disable it (optional)
         >
           <img src={fire} alt="fire" className="gamebtnsimages" />
           <span>Trending</span>
@@ -121,7 +121,7 @@ const HomePage = () => {
         <button
           className={`gamebtns ${selectedType === "classic" ? "bg-[#FFF600]" : "bg-white"}`}
           onClick={(e) => selectedType !== "classic" && setSelectedType("classic")}
-          disabled={true} // Optional if you want to visually disable it (optional)
+          // disabled={true} // Optional if you want to visually disable it (optional)
         >
           <img src={chad} alt="chad" className="gamebtnsimages" />
           <span>Classic Games</span>
@@ -130,7 +130,7 @@ const HomePage = () => {
         <button
           className={`gamebtns ${selectedType === "elon" ? "bg-[#FFF600]" : "bg-white"}`}
           onClick={(e) => selectedType !== "elon" && setSelectedType("elon")}
-          disabled={true} // Optional if you want to visually disable it (optional)
+          // disabled={true} // Optional if you want to visually disable it (optional)
         >
           <img src={rocket} alt="rocket" className="gamebtnsimages" />
           <span>Elon's Games</span>
@@ -139,7 +139,7 @@ const HomePage = () => {
         <button
           className={`gamebtns ${selectedType === "brainrot" ? "bg-[#FFF600]" : "bg-white"}`}
           onClick={(e) => selectedType !== "brainrot" && setSelectedType("brainrot")}
-          disabled={true} // Optional if you want to visually disable it (optional)
+          // disabled={true} // Optional if you want to visually disable it (optional)
         >
           <img src={brain} alt="brain" className="gamebtnsimages" />
           <span>Brain Rot</span>
@@ -159,7 +159,13 @@ const HomePage = () => {
                 <div className="card">
                   <LoadingImage game={game} />
                   <div className="card-body">
-                    <h2 className="card-title">{game.name}</h2>
+                  <h2 className="card-title">{`[${game.name}]`}
+                      <Link to={`/game-leaderboard/${game.id}/${game.name}`}>
+                        <button className="emoji-image">
+                          <img src={trophy} alt="Trophy" />
+                        </button>
+                      </Link>
+                    </h2>
                     <p className="card-text">{getK(game.played)} Times Played</p>
                     <div className="dots">
                       <button
