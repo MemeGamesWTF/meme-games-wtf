@@ -24,7 +24,7 @@ export const STORAGE_KEYS = [
   "following",
 ];
 
-const getK = (val) => new Intl.NumberFormat("en", { notation: "compact" }).format(val || 0); 
+const getK = (val) => new Intl.NumberFormat("en", { notation: "compact" }).format(val || 0);
 
 const LoadingImage = ({ game }) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -112,7 +112,7 @@ const HomePage = () => {
         <button
           className={`gamebtns ${selectedType === "trending" ? "bg-[#FFF600]" : "bg-white"}`}
           onClick={(e) => selectedType !== "trending" && setSelectedType("trending")}
-          // disabled={false} // Optional if you want to visually disable it (optional)
+        // disabled={false} // Optional if you want to visually disable it (optional)
         >
           <img src={fire} alt="fire" className="gamebtnsimages" />
           <span>Trending</span>
@@ -121,7 +121,7 @@ const HomePage = () => {
         <button
           className={`gamebtns ${selectedType === "classic" ? "bg-[#FFF600]" : "bg-white"}`}
           onClick={(e) => selectedType !== "classic" && setSelectedType("classic")}
-          // disabled={true} // Optional if you want to visually disable it (optional)
+        // disabled={true} // Optional if you want to visually disable it (optional)
         >
           <img src={chad} alt="chad" className="gamebtnsimages" />
           <span>Classic Games</span>
@@ -130,7 +130,7 @@ const HomePage = () => {
         <button
           className={`gamebtns ${selectedType === "elon" ? "bg-[#FFF600]" : "bg-white"}`}
           onClick={(e) => selectedType !== "elon" && setSelectedType("elon")}
-          // disabled={true} // Optional if you want to visually disable it (optional)
+        // disabled={true} // Optional if you want to visually disable it (optional)
         >
           <img src={rocket} alt="rocket" className="gamebtnsimages" />
           <span>Elon's Games</span>
@@ -139,7 +139,7 @@ const HomePage = () => {
         <button
           className={`gamebtns ${selectedType === "brainrot" ? "bg-[#FFF600]" : "bg-white"}`}
           onClick={(e) => selectedType !== "brainrot" && setSelectedType("brainrot")}
-          // disabled={true} // Optional if you want to visually disable it (optional)
+        // disabled={true} // Optional if you want to visually disable it (optional)
         >
           <img src={brain} alt="brain" className="gamebtnsimages" />
           <span>Brain Rot</span>
@@ -159,7 +159,7 @@ const HomePage = () => {
                 <div className="card">
                   <LoadingImage game={game} />
                   <div className="card-body">
-                  <h2 className="card-title">{`[${game.name}]`}
+                    <h2 className="card-title">{`[${game.name}]`}
                       <Link to={`/game-leaderboard/${game.id}/${game.name}`}>
                         <button className="emoji-image">
                           <img src={trophy} alt="Trophy" />
@@ -356,7 +356,7 @@ export default HomePage;
 
 export const gamesLoader = async () => {
   const [games, storageData] = await Promise.all([
-    supabase.from("games").select("*").order("created_at", { ascending: false }),
+    supabase.from("games").select("*").eq("enabled", true).order("created_at", { ascending: false }),
 
     Object.fromEntries(
       STORAGE_KEYS.map((key) => [key, localStorage.getItem(key)])
