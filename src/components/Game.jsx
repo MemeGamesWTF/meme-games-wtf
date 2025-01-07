@@ -105,6 +105,16 @@ export const gameLoader = async ({ params, request }) => {
         console.error("Error inserting game play data", { error });
       });
   }
+
+  supabase
+    .rpc('increment', { x: 1, row_id: game.data[0].id })
+    .then((response) => {
+      console.log("Game plays updated", { response });
+    })
+    .catch((error) => {
+      console.error("Error inserting game play data", { error });
+    });
+
   return {
     gameData: game?.data.length ? game.data[0] : null,
     ...storageData,
