@@ -10,6 +10,7 @@ import heart from "/assets/heart.svg";
 import thumbsup from "/assets/thumbsup.svg";
 import thumbsdown from "/assets/thumbsdown.svg";
 import trophy from "/assets/trophy.svg"
+import physics from "/assets/physics.png"
 import { supabase } from "../supabaseClient";
 
 export const STORAGE_KEYS = [
@@ -107,45 +108,79 @@ const HomePage = () => {
 
   return (
     <>
-
       <div className="gametypesdiv">
         <button
-          className={`gamebtns ${selectedType === "trending" ? "bg-[#FFF600]" : "bg-white"}`}
-          onClick={(e) => selectedType !== "trending" && setSelectedType("trending")}
-        // disabled={false} // Optional if you want to visually disable it (optional)
+          className={`gamebtns ${
+            selectedType === "trending" ? "bg-[#FFF600]" : "bg-white"
+          }`}
+          onClick={(e) =>
+            selectedType !== "trending" && setSelectedType("trending")
+          }
+          // disabled={false} // Optional if you want to visually disable it (optional)
         >
           <img src={fire} alt="fire" className="gamebtnsimages" />
           <span>Trending</span>
         </button>
 
         <button
-          className={`gamebtns ${selectedType === "classic" ? "bg-[#FFF600]" : "bg-white"}`}
-          onClick={(e) => selectedType !== "classic" && setSelectedType("classic")}
-        // disabled={true} // Optional if you want to visually disable it (optional)
+          className={`gamebtns ${
+            selectedType === "classic" ? "bg-[#FFF600]" : "bg-white"
+          }`}
+          onClick={(e) =>
+            selectedType !== "classic" && setSelectedType("classic")
+          }
+          // disabled={true} // Optional if you want to visually disable it (optional)
         >
           <img src={chad} alt="chad" className="gamebtnsimages" />
           <span>Classic Games</span>
         </button>
 
         <button
-          className={`gamebtns ${selectedType === "elon" ? "bg-[#FFF600]" : "bg-white"}`}
+          className={`gamebtns ${
+            selectedType === "elon" ? "bg-[#FFF600]" : "bg-white"
+          }`}
           onClick={(e) => selectedType !== "elon" && setSelectedType("elon")}
-        // disabled={true} // Optional if you want to visually disable it (optional)
+          // disabled={true} // Optional if you want to visually disable it (optional)
         >
           <img src={rocket} alt="rocket" className="gamebtnsimages" />
           <span>Elon's Games</span>
         </button>
 
         <button
-          className={`gamebtns ${selectedType === "brainrot" ? "bg-[#FFF600]" : "bg-white"}`}
-          onClick={(e) => selectedType !== "brainrot" && setSelectedType("brainrot")}
-        // disabled={true} // Optional if you want to visually disable it (optional)
+          className={`gamebtns ${
+            selectedType === "brainrot" ? "bg-[#FFF600]" : "bg-white"
+          }`}
+          onClick={(e) =>
+            selectedType !== "brainrot" && setSelectedType("brainrot")
+          }
+          // disabled={true} // Optional if you want to visually disable it (optional)
         >
           <img src={brain} alt="brain" className="gamebtnsimages" />
           <span>Brain Rot</span>
         </button>
-      </div>
 
+        <button
+          className={`gamebtns ${
+            selectedType === "physics" ? "bg-[#FFF600]" : "bg-white"
+          }`}
+          onClick={(e) =>
+            selectedType !== "physics" && setSelectedType("physics")
+          }
+          // disabled={true} // Optional if you want to visually disable it (optional)
+        >
+          <img src={physics} alt="brain" className="gamebtnsimages" />
+          <span>Physics</span>
+        </button>
+
+        {selectedType && (
+          <button
+            className="gamebtns bg-[#FFDDC1] text-black"
+            onClick={() => setSelectedType(null)} // Reset filter
+          >
+            <span>Back to All Games</span>
+          </button>
+        )}
+      </div>
 
       <div className="homegamesection">
         <h2 className="homegamesectiontopic">Games</h2>
@@ -155,196 +190,190 @@ const HomePage = () => {
         <div className="homegamecontainergrid">
           {selectedType === "trending"
             ? trendingGames.map((game) => (
-              <div className="card00" key={game.name}>
-                <div className="card">
-                  <LoadingImage game={game} />
-                  <div className="card-body">
-                    <h2 className="card-title">{`[${game.name}]`}
-                      <Link to={`/game-leaderboard/${game.id}/${game.name}`}>
-                        <button className="emoji-image">
-                          <img src={trophy} alt="Trophy" />
+                <div className="card00" key={game.name}>
+                  <div className="card">
+                    <LoadingImage game={game} />
+                    <div className="card-body">
+                      <h2 className="card-title">{`[${game.name}]`}</h2>
+                      <p className="card-text">
+                        {getK(game.played)} Times Played
+                      </p>
+                      <div className="dots">
+                        {/* <button
+                          className={`dot ${
+                            gameEmojiStates[game.name]?.fire ? "clicked" : ""
+                          }`}
+                          onClick={() => handleEmojiClick(game.name, "fire")}
+                        >
+                          <img
+                            src={fire} // Replace with your image path
+                            alt="Fire"
+                            className="emoji-image"
+                          />
+                        </button> */}
+                        <button
+                          className={`dot ${
+                            gameEmojiStates[game.name]?.heart ? "clicked" : ""
+                          }`}
+                          onClick={() => handleEmojiClick(game.name, "heart")}
+                        >
+                          <img
+                            src={heart} // Replace with your image path
+                            alt="Heart"
+                            className="emoji-image"
+                          />
                         </button>
-                      </Link>
-                    </h2>
-                    <p className="card-text">{getK(game.played)} Times Played</p>
-                    <div className="dots">
-                      <button
-                        className={`dot ${gameEmojiStates[game.name]?.fire ? "clicked" : ""
+                        <button
+                          className={`dot ${
+                            gameEmojiStates[game.name]?.thumbsdown
+                              ? "clicked"
+                              : ""
                           }`}
-                        onClick={() => handleEmojiClick(game.name, "fire")}
-                      >
-                        <img
-                          src={fire} // Replace with your image path
-                          alt="Fire"
-                          className="emoji-image"
-                        />
-                      </button>
-                      <button
-                        className={`dot ${gameEmojiStates[game.name]?.heart ? "clicked" : ""
-                          }`}
-                        onClick={() => handleEmojiClick(game.name, "heart")}
-                      >
-                        <img
-                          src={heart} // Replace with your image path
-                          alt="Heart"
-                          className="emoji-image"
-                        />
-                      </button>
-                      <button
-                        className={`dot ${gameEmojiStates[game.name]?.thumbsup
-                          ? "clicked"
-                          : ""
-                          }`}
-                        onClick={() =>
-                          handleEmojiClick(game.name, "thumbsup")
-                        }
-                      >
-                        <img
-                          src={thumbsup} // Replace with your image path
-                          alt="Thumbs Up"
-                          className="emoji-image"
-                        />
-                      </button>
-                      <button
-                        className={`dot ${gameEmojiStates[game.name]?.thumbsdown
-                          ? "clicked"
-                          : ""
-                          }`}
-                        onClick={() =>
-                          handleEmojiClick(game.name, "thumbsdown")
-                        }
-                      >
-                        <img
-                          src={thumbsdown} // Replace with your image path
-                          alt="Thumbs Down"
-                          className="emoji-image"
-                        />
-                      </button>
+                          onClick={() =>
+                            handleEmojiClick(game.name, "thumbsdown")
+                          }
+                        >
+                          <img
+                            src={thumbsdown} // Replace with your image path
+                            alt="Thumbs Down"
+                            className="emoji-image"
+                          />
+                        </button>
+                        <Link
+                          to={`/game-leaderboard/${game.id}/${game.name}`}
+                          className="dot"
+                        >
+                          <button>
+                            <img
+                              src={trophy} // Replace with your image path
+                              alt="Trophy"
+                              className="emoji-image2"
+                            />
+                          </button>
+                        </Link>
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                <div className="sharediv -mt-3">
-                  <button
-                    className="share-button"
-                    onClick={() => {
-                      if (navigator.share) {
-                        navigator
-                          .share({
-                            title: "Check out this game!",
-                            text: `Play ${game.name} now!`,
-                            url: window.location.href,
-                          })
-                          .then(() => console.log("Successfully shared"))
-                          .catch((error) =>
-                            console.error("Error sharing:", error)
-                          );
-                      } else {
-                        alert("Sharing is not supported on this browser.");
-                      }
-                    }}
-                  >
-                    Share
-                  </button>
+                  <div className="sharediv -mt-3">
+                    <button
+                      className="share-button"
+                      onClick={() => {
+                        if (navigator.share) {
+                          navigator
+                            .share({
+                              title: "Check out this game!",
+                              text: `Play ${game.name} now!`,
+                              url: window.location.href,
+                            })
+                            .then(() => console.log("Successfully shared"))
+                            .catch((error) =>
+                              console.error("Error sharing:", error)
+                            );
+                        } else {
+                          alert("Sharing is not supported on this browser.");
+                        }
+                      }}
+                    >
+                      Share
+                    </button>
+                  </div>
                 </div>
-              </div>
-            ))
+              ))
             : filteredGames.map((game) => (
-              <div className="card00" key={game.name}>
-                <div className="card">
-                  <LoadingImage game={game} />
+                <div className="card00" key={game.name}>
+                  <div className="card">
+                    <LoadingImage game={game} />
 
-                  <div className="card-body">
-                    <h2 className="card-title">{`[${game.name}]`}
-                      <Link to={`/game-leaderboard/${game.id}/${game.name}`}>
-                        <button className="emoji-image">
-                          <img src={trophy} alt="Trophy" />
+                    <div className="card-body">
+                      <h2 className="card-title">{`[${game.name}]`}</h2>
+                      <p className="card-text">
+                        {getK(game.played)} Times Played
+                      </p>
+                      <div className="dots">
+                        {/* <button
+                          className={`dot ${
+                            gameEmojiStates[game.name]?.fire ? "clicked" : ""
+                          }`}
+                          onClick={() => handleEmojiClick(game.name, "fire")}
+                        >
+                          <img
+                            src={fire} // Replace with your image path
+                            alt="Fire"
+                            className="emoji-image"
+                          />
+                        </button> */}
+                        <button
+                          className={`dot ${
+                            gameEmojiStates[game.name]?.heart ? "clicked" : ""
+                          }`}
+                          onClick={() => handleEmojiClick(game.name, "heart")}
+                        >
+                          <img
+                            src={heart} // Replace with your image path
+                            alt="Heart"
+                            className="emoji-image"
+                          />
                         </button>
-                      </Link>
-                    </h2>
-                    <p className="card-text">{getK(game.played)} Times Played</p>
-                    <div className="dots">
-                      <button
-                        className={`dot ${gameEmojiStates[game.name]?.fire ? "clicked" : ""
+
+                        <button
+                          className={`dot ${
+                            gameEmojiStates[game.name]?.thumbsdown
+                              ? "clicked"
+                              : ""
                           }`}
-                        onClick={() => handleEmojiClick(game.name, "fire")}
-                      >
-                        <img
-                          src={fire} // Replace with your image path
-                          alt="Fire"
-                          className="emoji-image"
-                        />
-                      </button>
-                      <button
-                        className={`dot ${gameEmojiStates[game.name]?.heart ? "clicked" : ""
-                          }`}
-                        onClick={() => handleEmojiClick(game.name, "heart")}
-                      >
-                        <img
-                          src={heart} // Replace with your image path
-                          alt="Heart"
-                          className="emoji-image"
-                        />
-                      </button>
-                      <button
-                        className={`dot ${gameEmojiStates[game.name]?.thumbsup
-                          ? "clicked"
-                          : ""
-                          }`}
-                        onClick={() =>
-                          handleEmojiClick(game.name, "thumbsup")
-                        }
-                      >
-                        <img
-                          src={thumbsup} // Replace with your image path
-                          alt="Thumbs Up"
-                          className="emoji-image"
-                        />
-                      </button>
-                      <button
-                        className={`dot ${gameEmojiStates[game.name]?.thumbsdown
-                          ? "clicked"
-                          : ""
-                          }`}
-                        onClick={() =>
-                          handleEmojiClick(game.name, "thumbsdown")
-                        }
-                      >
-                        <img
-                          src={thumbsdown} // Replace with your image path
-                          alt="Thumbs Down"
-                          className="emoji-image"
-                        />
-                      </button>
+                          onClick={() =>
+                            handleEmojiClick(game.name, "thumbsdown")
+                          }
+                        >
+                          <img
+                            src={thumbsdown} // Replace with your image path
+                            alt="Thumbs Down"
+                            className="emoji-image"
+                          />
+                        </button>
+
+                        <Link
+                          to={`/game-leaderboard/${game.id}/${game.name}`}
+                          className="dot"
+                        >
+                          <button>
+                            <img
+                              src={trophy} // Replace with your image path
+                              alt="Trophy"
+                              className="emoji-image2"
+                            />
+                          </button>
+                        </Link>
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                <div className="sharediv -mt-3">
-                  <button
-                    className="share-button"
-                    onClick={() => {
-                      if (navigator.share) {
-                        navigator
-                          .share({
-                            title: "Check out this game!",
-                            text: `Play ${game.name} now!`,
-                            url: window.location.href,
-                          })
-                          .then(() => console.log("Successfully shared"))
-                          .catch((error) =>
-                            console.error("Error sharing:", error)
-                          );
-                      } else {
-                        alert("Sharing is not supported on this browser.");
-                      }
-                    }}
-                  >
-                    Share
-                  </button>
+                  <div className="sharediv -mt-3">
+                    <button
+                      className="share-button"
+                      onClick={() => {
+                        if (navigator.share) {
+                          navigator
+                            .share({
+                              title: "Check out this game!",
+                              text: `Play ${game.name} now!`,
+                              url: window.location.href,
+                            })
+                            .then(() => console.log("Successfully shared"))
+                            .catch((error) =>
+                              console.error("Error sharing:", error)
+                            );
+                        } else {
+                          alert("Sharing is not supported on this browser.");
+                        }
+                      }}
+                    >
+                      Share
+                    </button>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
         </div>
       </div>
       <Footer />
