@@ -109,6 +109,13 @@
   margin-left: 5.5px;
 }
 
+.emoji-image2 {
+  width: 24px; /* Adjust the size as needed */
+  height: 24px;
+  margin-left: 5.5px;
+  margin-top: 7px;
+}
+
 .share-button {
   @apply bg-[#15FF00] text-black font-normal py-0 px-5 -mt-4 ml-[210px] rounded-full shadow relative;
   font-size: 27px;
