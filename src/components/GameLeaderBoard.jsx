@@ -49,26 +49,26 @@ const Item = ({ rank, name, score }) => {
 };
 
 export default function Leaderboard() {
-  const { leaderboard, gameName , gameImage  } = useLoaderData();
+  const { leaderboard, gameName, gameImage } = useLoaderData();
   return (
     <>
       <div className="lbmain">
         <div className="lb-banner">
-          <img
-            src={gameImage}
-            alt="Banner"
-            className="lb-banner-img"
-          />
+          <img src={gameImage} alt="Banner" className="lb-banner-img" />
           <div className="lb-buttons">
             <button className="lb-btn game-name">{gameName}</button>
-            <Link to={`/game/${gameName}`} className="lb-btn play-btn">Play</Link>
+            <Link to={`/game/${gameName}`} className="lb-btn play-btn">
+              Play
+            </Link>
           </div>
         </div>
-        <br></br>
-        {leaderboard.length > 0 &&
-          leaderboard.map((item, index) => (
-            <Item key={index} {...item} rank={++index} />
-          ))}
+        {/* <br></br> */}
+        <div className="lbgamelb">
+          {leaderboard.length > 0 &&
+            leaderboard.map((item, index) => (
+              <Item key={index} {...item} rank={++index} />
+            ))}
+        </div>
       </div>
       <div className="lbfooter">
         <Footer />
@@ -77,19 +77,18 @@ export default function Leaderboard() {
   );
 }
 
-
 export const gameLeaderboardLoader = async ({ params }) => {
   try {
     const { gameId, gameName, gameImage } = params;
 
     const { data: leaderboard, error } = await supabase
-      .from('scores')
-      .select('name, score, game')
-      .eq('game', gameId)
+      .from("scores")
+      .select("name, score, game")
+      .eq("game", gameId)
       .or(`name.neq.${null},name.neq.''`)
-      .order('score', { ascending: false })
+      .order("score", { ascending: false })
       .limit(10)
-      .not('name', 'eq', null);
+      .not("name", "eq", null);
     console.log({ leaderboard });
     if (error) {
       console.error("Database error:", error);
@@ -98,9 +97,9 @@ export const gameLeaderboardLoader = async ({ params }) => {
 
     // Fetch game image
     const { data: gameData, error: gameError } = await supabase
-      .from('games')
-      .select('image')
-      .eq('id', gameId)
+      .from("games")
+      .select("image")
+      .eq("id", gameId)
       .single();
 
     if (gameError) {
@@ -108,8 +107,9 @@ export const gameLeaderboardLoader = async ({ params }) => {
       return { leaderboard: [], gameName, gameImage: null };
     }
 
-    const uniqueLeaderboard = leaderboard?.filter((item, index, self) =>
-      index === self.findIndex((t) => t.name === item.name)
+    const uniqueLeaderboard = leaderboard?.filter(
+      (item, index, self) =>
+        index === self.findIndex((t) => t.name === item.name)
     );
 
     return {
@@ -117,9 +117,8 @@ export const gameLeaderboardLoader = async ({ params }) => {
       gameName,
       gameImage: gameData?.image || null,
     };
-
   } catch (error) {
     console.error("Error fetching leaderboard:", error);
-    return { leaderboard: [], gameName: null, };
+    return { leaderboard: [], gameName: null };
   }
 };

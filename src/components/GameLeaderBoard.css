@@ -40,14 +40,13 @@
     bottom: -30px; /* Move the buttons below the banner image */
     width: 100%;
     padding: 0 20px; /* Add some padding to prevent the buttons from touching the sides */
-    
   }
   
   .lb-btn {
     font-family: "Jersey 10", sans-serif;
-    padding: 10px 30px;
+    padding: 5px 22px;
     border-radius: 10px;
-    font-size: 32px;
+    font-size: 40px;
     cursor: pointer;
     color: #fff;
     box-shadow: 7px 7px 0px black;
@@ -56,17 +55,23 @@
   
   .lb-btn.game-name {
     background-color: #ffffff;
+    /* font-size: 40px; */
     color:black;
   }
   
   .lb-btn.play-btn {
-    background-color: #00ff00;
+    background-color: #00FF22;
+    /* font-size: 40px; */
     color:black;
 
   }
   
   .lb-btn:hover {
     transform: scale(1.05);
+  }
+
+  .lbgamelb{
+    @apply mt-20;
   }
   
   
