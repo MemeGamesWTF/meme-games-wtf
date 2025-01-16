@@ -89,6 +89,12 @@
   @apply text-sm text-black mb-4;
 }
 
+.dotsnshare{
+  display: flex;
+  justify-content: space-between; /* Distribute dots and sharediv */
+  align-items: center; /* Vertically align dots and share button */
+}
+
 .dots{
   @apply flex space-x-2 mb-2;
 }
@@ -117,11 +123,13 @@
 }
 
 .share-button {
-  @apply bg-[#15FF00] text-black font-normal py-0 px-5 -mt-4 ml-[210px] rounded-full shadow relative;
-  font-size: 27px;
-  border: 3px solid black;
+  /* @apply bg-[#15FF00] text-black font-normal py-0 px-5 -mt-4 ml-[210px] rounded-full shadow relative; */
+  @apply bg-[#15FF00] text-black font-normal py-0 px-5 mt-0 ml-[0px] rounded-full shadow relative bottom-1.5 right-0.5;
+  font-size: 26px;
+  /* border: 3px solid black; */
+  border: 2px solid black;
   transition: all 0.2s ease;
-  box-shadow: 7px 7px 0px black;
+  /* box-shadow: 7px 7px 0px black; */
 }
 
 .share-button:hover {
@@ -280,12 +288,22 @@
   .homegamecontainergrid{
     @apply grid grid-cols-1 md:grid-cols-4 gap-8;
   }
-  .share-button {
+  /* .share-button {
     @apply bg-[#15FF00] text-black font-normal py-0 px-5 -mt-4 ml-[180px] rounded-full shadow relative;
     font-size: 20px;
     border: 3px solid black;
     transition: all 0.2s ease;
     box-shadow: 7px 7px 0px black;
+  } */
+
+  .share-button {
+    /* @apply bg-[#15FF00] text-black font-normal py-0 px-5 -mt-4 ml-[210px] rounded-full shadow relative; */
+    @apply bg-[#15FF00] text-black font-normal py-0 px-5 mt-0 ml-[0px] rounded-full shadow relative bottom-1.5 right-0.5;
+    font-size: 26px;
+    /* border: 3px solid black; */
+    border: 2px solid black;
+    transition: all 0.2s ease;
+    /* box-shadow: 7px 7px 0px black; */
   }
   
   .share-button:hover {
@@ -333,12 +351,22 @@
   .homegamecontainer{
     @apply mt-10 w-[85%] ml-[7.5%] mr-[7.5%];
   }
-  .share-button {
+  /* .share-button {
     @apply bg-[#15FF00] text-black font-normal py-0 px-5 -mt-4 ml-[210px] rounded-full shadow relative;
     font-size: 27px;
     border: 3px solid black;
     transition: all 0.2s ease;
     box-shadow: 7px 7px 0px black;
+  } */
+
+  .share-button {
+    /* @apply bg-[#15FF00] text-black font-normal py-0 px-5 -mt-4 ml-[210px] rounded-full shadow relative; */
+    @apply bg-[#15FF00] text-black font-normal py-0 px-5 mt-0 ml-[0px] rounded-full shadow relative bottom-1.5 right-0.5;
+    font-size: 26px;
+    /* border: 3px solid black; */
+    border: 2px solid black;
+    transition: all 0.2s ease;
+    /* box-shadow: 7px 7px 0px black; */
   }
   
   .share-button:hover {
@@ -346,3 +374,4 @@
     transform: scale(1.05);
   }
 }
+

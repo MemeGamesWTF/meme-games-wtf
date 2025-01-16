@@ -9,8 +9,8 @@ import brain from "/assets/brain.svg";
 import heart from "/assets/heart.svg";
 import thumbsup from "/assets/thumbsup.svg";
 import thumbsdown from "/assets/thumbsdown.svg";
-import trophy from "/assets/trophy.svg"
-import physics from "/assets/physics.png"
+import trophy from "/assets/trophy.svg";
+import physics from "/assets/physics.png";
 import { supabase } from "../supabaseClient";
 
 export const STORAGE_KEYS = [
@@ -25,7 +25,8 @@ export const STORAGE_KEYS = [
   "following",
 ];
 
-const getK = (val) => new Intl.NumberFormat("en", { notation: "compact" }).format(val || 0);
+const getK = (val) =>
+  new Intl.NumberFormat("en", { notation: "compact" }).format(val || 0);
 
 const LoadingImage = ({ game }) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -35,8 +36,7 @@ const LoadingImage = ({ game }) => {
       to={game.url === null ? "" : `/game/${game.name}`}
       style={{ cursor: "pointer" }}
     >
-      <div className="card-header group"
-        style={{ position: "relative" }}>
+      <div className="card-header group" style={{ position: "relative" }}>
         {isLoading && (
           <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
             <span className="text-gray-600">Loading...</span>
@@ -104,7 +104,6 @@ const HomePage = () => {
   const trendingGames = firedGames.length
     ? gamesData.filter((game) => firedGames.includes(game.name))
     : [];
-
 
   return (
     <>
@@ -255,7 +254,7 @@ const HomePage = () => {
                     </div>
                   </div>
 
-                  <div className="sharediv -mt-3">
+                  <div className="sharediv">
                     <button
                       className="share-button"
                       onClick={() => {
@@ -290,8 +289,9 @@ const HomePage = () => {
                       <p className="card-text">
                         {getK(game.played)} Times Played
                       </p>
-                      <div className="dots">
-                        {/* <button
+                      <div className="dotsnshare">
+                        <div className="dots">
+                          {/* <button
                           className={`dot ${
                             gameEmojiStates[game.name]?.fire ? "clicked" : ""
                           }`}
@@ -303,53 +303,82 @@ const HomePage = () => {
                             className="emoji-image"
                           />
                         </button> */}
-                        <button
-                          className={`dot ${
-                            gameEmojiStates[game.name]?.heart ? "clicked" : ""
-                          }`}
-                          onClick={() => handleEmojiClick(game.name, "heart")}
-                        >
-                          <img
-                            src={heart} // Replace with your image path
-                            alt="Heart"
-                            className="emoji-image"
-                          />
-                        </button>
-
-                        <button
-                          className={`dot ${
-                            gameEmojiStates[game.name]?.thumbsdown
-                              ? "clicked"
-                              : ""
-                          }`}
-                          onClick={() =>
-                            handleEmojiClick(game.name, "thumbsdown")
-                          }
-                        >
-                          <img
-                            src={thumbsdown} // Replace with your image path
-                            alt="Thumbs Down"
-                            className="emoji-image"
-                          />
-                        </button>
-
-                        <Link
-                          to={`/game-leaderboard/${game.id}/${game.name}`}
-                          className="dot"
-                        >
-                          <button>
+                          <button
+                            className={`dot ${
+                              gameEmojiStates[game.name]?.heart ? "clicked" : ""
+                            }`}
+                            onClick={() => handleEmojiClick(game.name, "heart")}
+                          >
                             <img
-                              src={trophy} // Replace with your image path
-                              alt="Trophy"
-                              className="emoji-image2"
+                              src={heart} // Replace with your image path
+                              alt="Heart"
+                              className="emoji-image"
                             />
                           </button>
-                        </Link>
+
+                          <button
+                            className={`dot ${
+                              gameEmojiStates[game.name]?.thumbsdown
+                                ? "clicked"
+                                : ""
+                            }`}
+                            onClick={() =>
+                              handleEmojiClick(game.name, "thumbsdown")
+                            }
+                          >
+                            <img
+                              src={thumbsdown} // Replace with your image path
+                              alt="Thumbs Down"
+                              className="emoji-image"
+                            />
+                          </button>
+
+                          <Link
+                            to={`/game-leaderboard/${game.id}/${game.name}`}
+                            className="dot"
+                          >
+                            <button>
+                              <img
+                                src={trophy} // Replace with your image path
+                                alt="Trophy"
+                                className="emoji-image2"
+                              />
+                            </button>
+                          </Link>
+                        </div>
+                        <div className="sharediv">
+                          <button
+                            className="share-button"
+                            onClick={() => {
+                              if (navigator.share) {
+                                navigator
+                                  .share({
+                                    title: "Check out this game!",
+                                    text: `Play ${game.name} now!`,
+                                    url: window.location.href,
+                                  })
+                                  .then(() =>
+                                    console.log("Successfully shared")
+                                  )
+                                  .catch((error) =>
+                                    console.error("Error sharing:", error)
+                                  );
+                              } else {
+                                alert(
+                                  "Sharing is not supported on this browser."
+                                );
+                              }
+                            }}
+                          >
+                            Share
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>
 
-                  <div className="sharediv -mt-3">
+                  {/* <div className="sharediv -mt-3"> */}
+                  {/* <div className="sharediv">
                     <button
                       className="share-button"
                       onClick={() => {
@@ -371,7 +400,7 @@ const HomePage = () => {
                     >
                       Share
                     </button>
-                  </div>
+                  </div> */}
                 </div>
               ))}
         </div>
@@ -385,7 +414,11 @@ export default HomePage;
 
 export const gamesLoader = async () => {
   const [games, storageData] = await Promise.all([
-    supabase.from("games").select("*").eq("enabled", true).order("created_at", { ascending: false }),
+    supabase
+      .from("games")
+      .select("*")
+      .eq("enabled", true)
+      .order("created_at", { ascending: false }),
 
     Object.fromEntries(
       STORAGE_KEYS.map((key) => [key, localStorage.getItem(key)])
