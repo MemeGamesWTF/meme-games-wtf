@@ -67,7 +67,7 @@
 
 .card-header {
   @apply relative;
-  height: 150px;
+  height: auto;
   background-color: #ffffff; /* Light Gray Background */
 }
 
