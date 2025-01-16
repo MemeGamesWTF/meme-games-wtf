@@ -56,20 +56,18 @@ const LoadingImage = ({ game }) => {
 };
 
 const HomePage = () => {
-  const { gamesData } = useLoaderData();
+  const { gamesData: initialGamesData } = useLoaderData();
+  const [gamesData, setGamesData] = useState(initialGamesData);
   const [selectedType, setSelectedType] = useState(null);
   const [gameEmojiStates, setGameEmojiStates] = useState(
-    gamesData.reduce((acc, game) => {
+    initialGamesData.reduce((acc, game) => {
       acc[game.name] = {
         fire: false,
         heart: false,
-        thumbsup: false,
-        thumbsdown: false,
       };
       return acc;
     }, {})
   );
-
   const [firedGames, setFiredGames] = useState([]);
 
   // Filter games based on selected type
@@ -84,15 +82,14 @@ const HomePage = () => {
         ...prevState,
         [gameName]: {
           ...prevState[gameName],
-          [emoji]: !prevState[gameName][emoji], // Toggle the emoji's selected state
+          [emoji]: !prevState[gameName][emoji],
         },
       };
 
       if (emoji === "fire") {
-        // Track the "fire" button state and update fired games
         const newFiredGames = Object.keys(newState)
           .filter((game) => newState[game].fire)
-          .slice(0, 4); // Get the top 4 "fired" games
+          .slice(0, 4);
         setFiredGames(newFiredGames);
       }
 
@@ -104,6 +101,39 @@ const HomePage = () => {
   const trendingGames = firedGames.length
     ? gamesData.filter((game) => firedGames.includes(game.name))
     : [];
+
+  // Increment/Decrement heart count and toggle state
+  const handleHeartIncrement = (gameId) => {
+    const isLiked = gameEmojiStates[gameId]?.heart;
+
+    // Toggle emoji state
+    setGameEmojiStates((prevState) => ({
+      ...prevState,
+      [gameId]: { heart: !isLiked }, // Toggle heart liked state
+    }));
+
+    // Update heart count in the database
+    supabase
+      .rpc("increment_heart", {
+        x: isLiked ? -1 : 1, // If already liked, decrement, otherwise increment
+        row_id: gameId,
+      })
+      .then((response) => {
+        console.log("Heart count updated:", response);
+
+        // Update local gamesData state
+        setGamesData((prevGames) =>
+          prevGames.map((game) =>
+            game.id === gameId
+              ? { ...game, heart: (game.heart || 0) + (isLiked ? -1 : 1) }
+              : game
+          )
+        );
+      })
+      .catch((error) => {
+        console.error("Error incrementing/decrementing heart count:", error);
+      });
+  };
 
   return (
     <>
@@ -197,98 +227,6 @@ const HomePage = () => {
                       <p className="card-text">
                         {getK(game.played)} Times Played
                       </p>
-                      <div className="dots">
-                        {/* <button
-                          className={`dot ${
-                            gameEmojiStates[game.name]?.fire ? "clicked" : ""
-                          }`}
-                          onClick={() => handleEmojiClick(game.name, "fire")}
-                        >
-                          <img
-                            src={fire} // Replace with your image path
-                            alt="Fire"
-                            className="emoji-image"
-                          />
-                        </button> */}
-                        <button
-                          className={`dot ${
-                            gameEmojiStates[game.name]?.heart ? "clicked" : ""
-                          }`}
-                          onClick={() => handleEmojiClick(game.name, "heart")}
-                        >
-                          <img
-                            src={heart} // Replace with your image path
-                            alt="Heart"
-                            className="emoji-image"
-                          />
-                        </button>
-                        <button
-                          className={`dot ${
-                            gameEmojiStates[game.name]?.thumbsdown
-                              ? "clicked"
-                              : ""
-                          }`}
-                          onClick={() =>
-                            handleEmojiClick(game.name, "thumbsdown")
-                          }
-                        >
-                          <img
-                            src={thumbsdown} // Replace with your image path
-                            alt="Thumbs Down"
-                            className="emoji-image"
-                          />
-                        </button>
-                        <Link
-                          to={`/game-leaderboard/${game.id}/${game.name}`}
-                          className="dot"
-                        >
-                          <button>
-                            <img
-                              src={trophy} // Replace with your image path
-                              alt="Trophy"
-                              className="emoji-image2"
-                            />
-                          </button>
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="sharediv">
-                    <button
-                      className="share-button"
-                      onClick={() => {
-                        if (navigator.share) {
-                          navigator
-                            .share({
-                              title: "Check out this game!",
-                              text: `Play ${game.name} now!`,
-                              url: window.location.href,
-                            })
-                            .then(() => console.log("Successfully shared"))
-                            .catch((error) =>
-                              console.error("Error sharing:", error)
-                            );
-                        } else {
-                          alert("Sharing is not supported on this browser.");
-                        }
-                      }}
-                    >
-                      Share
-                    </button>
-                  </div>
-                </div>
-              ))
-            : filteredGames.map((game) => (
-                <div className="card00" key={game.name}>
-                  <div className="card">
-                    <LoadingImage game={game} />
-
-                    <div className="card-body">
-                      <h2 className="card-title">{`[${game.name}]`}</h2>
-                      <p className="card-text">
-                        {getK(game.played)} Times Played
-                      </p>
                       <div className="dotsnshare">
                         <div className="dots">
                           {/* <button
@@ -315,7 +253,135 @@ const HomePage = () => {
                               className="emoji-image"
                             />
                           </button>
+                          <button
+                            className={`dot ${
+                              gameEmojiStates[game.name]?.thumbsdown
+                                ? "clicked"
+                                : ""
+                            }`}
+                            onClick={() =>
+                              handleEmojiClick(game.name, "thumbsdown")
+                            }
+                          >
+                            <img
+                              src={thumbsdown} // Replace with your image path
+                              alt="Thumbs Down"
+                              className="emoji-image"
+                            />
+                          </button>
+                          <Link
+                            to={`/game-leaderboard/${game.id}/${game.name}`}
+                            className="dot"
+                          >
+                            <button>
+                              <img
+                                src={trophy} // Replace with your image path
+                                alt="Trophy"
+                                className="emoji-image2"
+                              />
+                            </button>
+                          </Link>
+                        </div>
+                        <div className="sharediv">
+                          <button
+                            className="share-button"
+                            onClick={() => {
+                              if (navigator.share) {
+                                navigator
+                                  .share({
+                                    title: "Check out this game!",
+                                    text: `Play ${game.name} now!`,
+                                    url: window.location.href,
+                                  })
+                                  .then(() =>
+                                    console.log("Successfully shared")
+                                  )
+                                  .catch((error) =>
+                                    console.error("Error sharing:", error)
+                                  );
+                              } else {
+                                alert(
+                                  "Sharing is not supported on this browser."
+                                );
+                              }
+                            }}
+                          >
+                            Share
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
 
+                  {/* <div className="sharediv">
+                    <button
+                      className="share-button"
+                      onClick={() => {
+                        if (navigator.share) {
+                          navigator
+                            .share({
+                              title: "Check out this game!",
+                              text: `Play ${game.name} now!`,
+                              url: window.location.href,
+                            })
+                            .then(() => console.log("Successfully shared"))
+                            .catch((error) =>
+                              console.error("Error sharing:", error)
+                            );
+                        } else {
+                          alert("Sharing is not supported on this browser.");
+                        }
+                      }}
+                    >
+                      Share
+                    </button>
+                  </div> */}
+                </div>
+              ))
+            : filteredGames.map((game) => (
+                <div className="card00" key={game.name}>
+                  <div className="card">
+                    <LoadingImage game={game} />
+
+                    <div className="card-body">
+                      <h2 className="card-title">{`[${game.name}]`}</h2>
+                      <p className="card-text">
+                        {getK(game.played)} Times Played
+                      </p>
+                      <div className="dotsnshare">
+                        <div className="dots">
+                          {/* <button
+                            className={`dot ${
+                              gameEmojiStates[game.name]?.fire ? "clicked" : ""
+                            }`}
+                            onClick={() => handleEmojiClick(game.name, "fire")}
+                          >
+                            <img
+                              src={fire} // Replace with your image path
+                              alt="Fire"
+                              className="emoji-image"
+                            />
+                          </button> */}
+                          <div className="heart-container">
+                            <div key={game.id}>
+                              <button
+                                className={`dot ${
+                                  gameEmojiStates[game.id]?.heart
+                                    ? "clicked purple"
+                                    : ""
+                                }`}
+                                onClick={() => handleHeartIncrement(game.id)} // Use game.id
+                              >
+                                <img
+                                  src={heart} // Replace with your image path
+                                  alt="Heart"
+                                  className="emoji-image"
+                                />
+                              </button>
+                            </div>
+
+                            <p className="card-text2">{getK(game.heart)}</p>
+                          </div>
                           <button
                             className={`dot ${
                               gameEmojiStates[game.name]?.thumbsdown

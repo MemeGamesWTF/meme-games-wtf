@@ -89,6 +89,10 @@
   @apply text-sm text-black mb-4;
 }
 
+.card-text2 {
+  @apply text-sm text-black -mb-2 -mt-1;
+}
+
 .dotsnshare{
   display: flex;
   justify-content: space-between; /* Distribute dots and sharediv */
@@ -123,6 +127,12 @@
   height: 24px;
   margin-left: 5.5px;
   margin-top: 7px;
+}
+
+.heart-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center-aligns the button and text */
 }
 
 .share-button {
