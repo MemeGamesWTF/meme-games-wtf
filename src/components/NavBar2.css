@@ -17,13 +17,26 @@
   @apply h-40 w-40 bg-no-repeat bg-contain; /* Style the logo */
 }
 
-.atag1:hover {
-  /* @apply bg-[#84f37a]; */
+/* .atag1:hover {
   transform: scale(1.05);
-}
+} */
 /* .atag2 {
     @apply absolute h-16 right-8 top-8 ;
 } */
+
+.scale-effect {
+  animation: scaleUpDown 2s infinite; /* 2 seconds for one cycle, infinite repeat */
+}
+
+@keyframes scaleUpDown {
+  0%, 100% {
+    transform: scale(1); /* Normal size */
+  }
+  50% {
+    transform: scale(1.2); /* Scale up to 1.1x */
+  }
+}
+
 
 .atag2 {
   box-shadow: 7px 7px 0px black;

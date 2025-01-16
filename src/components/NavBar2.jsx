@@ -28,7 +28,7 @@ export default function NavBar2({ screen_name, profile_image_url_https }) {
         <div className="navclz1">
           <Link
             to="/"
-            className="atag1"
+            className="atag1 scale-effect"
             style={{ backgroundImage: `url(${Logo})` }}
           ></Link>
           <div className="atag2">

@@ -159,7 +159,7 @@
   }
 
   .htb4{
-    @apply rounded-2xl
+    @apply rounded-lg
   }
 
   .backbutton{

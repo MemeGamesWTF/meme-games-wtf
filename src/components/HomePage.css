@@ -104,6 +104,9 @@
   width: 35px;
   height: 35px;
 }
+.dots .dot:hover {
+  transform: scale(1.05);
+}
 
 .dot.clicked {
   background-color: #5500ff; /* Change this color as you wish */
