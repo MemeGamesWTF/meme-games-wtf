@@ -98,7 +98,7 @@ export const gameLeaderboardLoader = async ({ params }) => {
     // Fetch game image
     const { data: gameData, error: gameError } = await supabase
       .from("games")
-      .select("image")
+      .select("banner")
       .eq("id", gameId)
       .single();
 
@@ -115,7 +115,7 @@ export const gameLeaderboardLoader = async ({ params }) => {
     return {
       leaderboard: uniqueLeaderboard || [],
       gameName,
-      gameImage: gameData?.image || null,
+      gameImage: gameData?.banner || null,
     };
   } catch (error) {
     console.error("Error fetching leaderboard:", error);
