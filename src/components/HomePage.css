@@ -135,9 +135,15 @@
   align-items: center; /* Center-aligns the button and text */
 }
 
+.laugh-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center-aligns the button and text */
+}
+
 .share-button {
   /* @apply bg-[#15FF00] text-black font-normal py-0 px-5 -mt-4 ml-[210px] rounded-full shadow relative; */
-  @apply bg-[#15FF00] text-black font-normal py-0 px-5 mt-0 ml-[0px] rounded-full shadow relative bottom-1.5 right-0.5;
+  @apply bg-[#15FF00] text-black font-normal py-0 px-5 mt-0 ml-[0px] rounded-full shadow relative bottom-3 right-0.5;
   font-size: 26px;
   /* border: 3px solid black; */
   border: 2px solid black;
@@ -311,7 +317,7 @@
 
   .share-button {
     /* @apply bg-[#15FF00] text-black font-normal py-0 px-5 -mt-4 ml-[210px] rounded-full shadow relative; */
-    @apply bg-[#15FF00] text-black font-normal py-0 px-5 mt-0 ml-[0px] rounded-full shadow relative bottom-1.5 right-0.5;
+    @apply bg-[#15FF00] text-black font-normal py-0 px-5 mt-0 ml-[0px] rounded-full shadow relative bottom-3 right-0.5;
     font-size: 26px;
     /* border: 3px solid black; */
     border: 2px solid black;
@@ -374,7 +380,7 @@
 
   .share-button {
     /* @apply bg-[#15FF00] text-black font-normal py-0 px-5 -mt-4 ml-[210px] rounded-full shadow relative; */
-    @apply bg-[#15FF00] text-black font-normal py-0 px-5 mt-0 ml-[0px] rounded-full shadow relative bottom-1.5 right-0.5;
+    @apply bg-[#15FF00] text-black font-normal py-0 px-5 mt-0 ml-[0px] rounded-full shadow relative bottom-2.5 right-0.5;
     font-size: 26px;
     /* border: 3px solid black; */
     border: 2px solid black;

@@ -7,8 +7,9 @@ import chad from "/assets/chad.svg";
 import rocket from "/assets/rocket.svg";
 import brain from "/assets/brain.svg";
 import heart from "/assets/heart.svg";
-import thumbsup from "/assets/thumbsup.svg";
-import thumbsdown from "/assets/thumbsdown.svg";
+// import thumbsup from "/assets/thumbsup.svg";
+// import thumbsdown from "/assets/thumbsdown.svg";
+import laugh from "/assets/laugh.svg";
 import trophy from "/assets/trophy.svg";
 import physics from "/assets/physics.png";
 import { supabase } from "../supabaseClient";
@@ -64,6 +65,7 @@ const HomePage = () => {
       acc[game.name] = {
         fire: false,
         heart: false,
+        laugh: false,
       };
       return acc;
     }, {})
@@ -132,6 +134,39 @@ const HomePage = () => {
       })
       .catch((error) => {
         console.error("Error incrementing/decrementing heart count:", error);
+      });
+  };
+
+  // Increment/Decrement laugh count and toggle state
+  const handleLaughIncrement = (gameId) => {
+    const isLaughed = gameEmojiStates[gameId]?.laugh;
+
+    // Toggle emoji state
+    setGameEmojiStates((prevState) => ({
+      ...prevState,
+      [gameId]: { ...prevState[gameId], laugh: !isLaughed }, // Toggle laugh state
+    }));
+
+    // Update laugh count in the database
+    supabase
+      .rpc("increment_laugh", {
+        x: isLaughed ? -1 : 1, // If already laughed, decrement, otherwise increment
+        row_id: gameId,
+      })
+      .then((response) => {
+        console.log("Laugh count updated:", response);
+
+        // Update local gamesData state
+        setGamesData((prevGames) =>
+          prevGames.map((game) =>
+            game.id === gameId
+              ? { ...game, laugh: (game.laugh || 0) + (isLaughed ? -1 : 1) }
+              : game
+          )
+        );
+      })
+      .catch((error) => {
+        console.error("Error incrementing/decrementing laugh count:", error);
       });
   };
 
@@ -241,7 +276,7 @@ const HomePage = () => {
                             className="emoji-image"
                           />
                         </button> */}
-                          <button
+                          {/* <button
                             className={`dot ${
                               gameEmojiStates[game.name]?.heart ? "clicked" : ""
                             }`}
@@ -255,20 +290,61 @@ const HomePage = () => {
                           </button>
                           <button
                             className={`dot ${
-                              gameEmojiStates[game.name]?.thumbsdown
+                              gameEmojiStates[game.name]?.laugh
                                 ? "clicked"
                                 : ""
                             }`}
                             onClick={() =>
-                              handleEmojiClick(game.name, "thumbsdown")
+                              handleEmojiClick(game.name, "laugh")
                             }
                           >
                             <img
-                              src={thumbsdown} // Replace with your image path
-                              alt="Thumbs Down"
+                              src={laugh} // Replace with your image path
+                              alt="Laugh"
                               className="emoji-image"
                             />
-                          </button>
+                          </button> */}
+                          <div className="heart-container">
+                            <div key={game.id}>
+                              <button
+                                className={`dot ${
+                                  gameEmojiStates[game.id]?.heart
+                                    ? "clicked purple"
+                                    : ""
+                                }`}
+                                onClick={() => handleHeartIncrement(game.id)} // Use game.id
+                              >
+                                <img
+                                  src={heart} // Replace with your image path
+                                  alt="Heart"
+                                  className="emoji-image"
+                                />
+                              </button>
+                            </div>
+
+                            <p className="card-text2">{getK(game.heart)}</p>
+                          </div>
+
+                          <div className="laugh-container">
+                            <div key={game.id}>
+                              <button
+                                className={`dot ${
+                                  gameEmojiStates[game.id]?.laugh
+                                    ? "clicked purple"
+                                    : ""
+                                }`}
+                                onClick={() => handleLaughIncrement(game.id)} // Use game.id
+                              >
+                                <img
+                                  src={laugh} // Replace with your laugh image path
+                                  alt="Laugh"
+                                  className="emoji-image"
+                                />
+                              </button>
+                            </div>
+
+                            <p className="card-text2">{getK(game.laugh)}</p>
+                          </div>
                           <Link
                             to={`/game-leaderboard/${game.id}/${game.name}`}
                             className="dot"
@@ -382,22 +458,27 @@ const HomePage = () => {
 
                             <p className="card-text2">{getK(game.heart)}</p>
                           </div>
-                          <button
-                            className={`dot ${
-                              gameEmojiStates[game.name]?.thumbsdown
-                                ? "clicked"
-                                : ""
-                            }`}
-                            onClick={() =>
-                              handleEmojiClick(game.name, "thumbsdown")
-                            }
-                          >
-                            <img
-                              src={thumbsdown} // Replace with your image path
-                              alt="Thumbs Down"
-                              className="emoji-image"
-                            />
-                          </button>
+
+                          <div className="laugh-container">
+                            <div key={game.id}>
+                              <button
+                                className={`dot ${
+                                  gameEmojiStates[game.id]?.laugh
+                                    ? "clicked purple"
+                                    : ""
+                                }`}
+                                onClick={() => handleLaughIncrement(game.id)} // Use game.id
+                              >
+                                <img
+                                  src={laugh} // Replace with your laugh image path
+                                  alt="Laugh"
+                                  className="emoji-image"
+                                />
+                              </button>
+                            </div>
+
+                            <p className="card-text2">{getK(game.laugh)}</p>
+                          </div>
 
                           <Link
                             to={`/game-leaderboard/${game.id}/${game.name}`}
