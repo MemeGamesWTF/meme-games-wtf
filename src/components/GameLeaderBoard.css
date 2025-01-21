@@ -19,28 +19,23 @@
 
 .lb-banner {
   text-align: center;
-  /* margin: 20px auto; */
   margin-top: 25px;
   width: 80%;
   left: 50%;
   transform: translate(-50%, 0%);
-  /* max-width: 1200px; */
-  /* margin-left: 10%; */
-  position: relative; /* Keeps the buttons relative to the banner */
+  position: relative;
   border: 7px solid white;
   border-radius: 32px;
-  /* box-shadow: inset 0 0 0 7px white; */
 }
 
 .lb-banner-img {
-  width: auto; /* Keep the width at 100% */
-  height: auto; /* Set a fixed height */
+  width: 100%; /* Makes the image fill the container */
+  height: auto; /* Maintains the aspect ratio */
   border-radius: 28px;
   box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.2);
-  object-fit: cover; /* Ensures the image fills the height and crops excess */
-  /* border: 7px solid white; */
-  /* box-shadow: inset 0 0 0 7px white; */
+  object-fit: cover; /* Ensures the image fills while cropping excess */
 }
+
 
 .lb-buttons {
   /* display: flex; */
