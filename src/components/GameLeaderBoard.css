@@ -96,8 +96,11 @@
   transform: scale(1.05);
 }
 
-.lbgamelb {
-  @apply mt-20;
+.glbgamelb {
+  @apply mt-[20px];
+  width: 95%;
+  margin-left: 2.5%;
+  margin-right: 2.5%;
 }
 
 .lb-info {
@@ -105,9 +108,9 @@
   /* text-align: center; */
   color: white;
   border-radius: 0 0 32px 32px;
-  width: 75%;
-  margin-left: 12.5%;
-  margin-right: 12.5%;
+  width: 77%;
+  margin-left: 11.5%;
+  margin-right: 11.5%;
   @apply bg-black bg-opacity-50 p-5;
 }
 
@@ -178,6 +181,27 @@
 .lb-share a:hover {
   /* text-decoration: none; */
   /* transform: scale(1.05); */
+}
+
+.glbbigtopicdiv{
+  margin-top: 20px;
+  width: 77%;
+  margin-left: 11.5%;
+  margin-right: 11.5%;
+}
+
+.glbbigtopic{
+  display: flex;
+  align-items: center;
+  font-size: 70px;
+  color: white
+}
+
+.horizontal-line {
+  flex-grow: 1;
+  height: 1px;
+  background-color: rgb(255, 255, 255);
+  margin-left: 20px; /* Adjust this for spacing */
 }
 
 /* Responsive Design */

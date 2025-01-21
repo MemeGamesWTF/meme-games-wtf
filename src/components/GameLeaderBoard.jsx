@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import "./GameLeaderBoard.css";
 import gold from "/assets/gold.svg";
@@ -56,8 +56,10 @@ const Item = ({ rank, name, score }) => {
 };
 
 export default function Leaderboard() {
-  const { leaderboard, gameName, gameImage, gameData } = useLoaderData();
+  const { leaderboard, gameName, gameImage, gameDescription, gameData } =
+    useLoaderData();
   const [gamesData, setGamesData] = useState(gameData);
+  const [description, setDescription] = useState("");
 
   return (
     <>
@@ -75,21 +77,41 @@ export default function Leaderboard() {
             <h2 className="lb-title">{gameName}</h2>
             <img src={fire} alt="fire" className="glbemojis" />
           </div>
-          <p className="lb-description">
+          <p className="lb-description">{gameDescription}</p>
+          {/* <p className="lb-description">
             We were inspired to create a game based on the Los Angeles fires
             after seeing how unpredictable and intense these wildfires can be.
             The idea was to turn this real-world event into an engaging yet
             thought-provoking meme game, capturing the chaos, urgency, and
             survival instincts needed in such situations. Our goal is to blend
             humor with awareness while keeping the gameplay fun and fast-paced.
-          </p>
+          </p> */}
           <div className="lb-statsNshare">
             <div className="lb-stats">
               {/* <span>🔥 10.1k</span>
               <span>😂 10.1k</span> */}
-              <span className="reactionsspan"><img src={heart} alt="heart" className="reactions" /> {gamesData?.heart ? `${getK(gamesData.heart)}` : "No data available"}</span>
-              <span className="reactionsspan"><img src={laugh} alt="laugh" className="reactions" /> {gamesData?.laugh ? `${getK(gamesData.laugh)}` : "No data available"}</span>
-              <span className="reactionsspan"><img src={gameconsoler} alt="gameconsoler" className="reactions" /> {gamesData?.played ? `${getK(gamesData.played)}` : "No data available"}</span>
+              <span className="reactionsspan">
+                <img src={heart} alt="heart" className="reactions" />{" "}
+                {gamesData?.heart
+                  ? `${getK(gamesData.heart)}`
+                  : "No data available"}
+              </span>
+              <span className="reactionsspan">
+                <img src={laugh} alt="laugh" className="reactions" />{" "}
+                {gamesData?.laugh
+                  ? `${getK(gamesData.laugh)}`
+                  : "No data available"}
+              </span>
+              <span className="reactionsspan">
+                <img
+                  src={gameconsoler}
+                  alt="gameconsoler"
+                  className="reactions"
+                />{" "}
+                {gamesData?.played
+                  ? `${getK(gamesData.played)}`
+                  : "No data available"}
+              </span>
               {/* <p className="card-text">
   {gamesData?.played ? `${getK(gamesData.played)} Times Played` : "No data available"}
 </p> */}
@@ -101,7 +123,14 @@ export default function Leaderboard() {
             </div>
           </div>
         </div>
-        <div className="lbgamelb">
+        <div className="glbbigtopicdiv">
+  <h2 className="glbbigtopic">
+    Leaderboard
+    <span className="horizontal-line"></span>
+  </h2>
+</div>
+
+        <div className="glbgamelb">
           {leaderboard.length > 0 &&
             leaderboard.map((item, index) => (
               <Item key={index} {...item} rank={++index} />
@@ -131,19 +160,19 @@ export const gameLeaderboardLoader = async ({ params }) => {
 
     if (error) {
       console.error("Database error:", error);
-      return { leaderboard: [], gameName, gameImage: null, gameData: null };
+      return { leaderboard: [], gameName, gameImage: null, gameData: null, gameDescription: null };
     }
 
-    // Fetch game data (image and additional info)
+    // Fetch game data (image, additional info, and description)
     const { data: gameData, error: gameError } = await supabase
       .from("games")
-      .select("banner, played, heart, laugh, fire")
+      .select("banner, played, heart, laugh, fire, description")
       .eq("id", gameId)
       .single();
 
     if (gameError) {
       console.error("Game database error:", gameError);
-      return { leaderboard: [], gameName, gameImage: null, gameData: null };
+      return { leaderboard: [], gameName, gameImage: null, gameData: null, gameDescription: null };
     }
 
     const uniqueLeaderboard = leaderboard?.filter(
@@ -156,9 +185,11 @@ export const gameLeaderboardLoader = async ({ params }) => {
       gameName,
       gameImage: gameData?.banner || null,
       gameData,
+      gameDescription: gameData?.description || null, // Add gameDescription
     };
   } catch (error) {
     console.error("Error fetching leaderboard:", error);
-    return { leaderboard: [], gameName: null, gameImage: null, gameData: null };
+    return { leaderboard: [], gameName: null, gameImage: null, gameData: null, gameDescription: null };
   }
 };
+
