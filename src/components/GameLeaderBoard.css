@@ -268,25 +268,25 @@
   }
 
   .lb-title {
-    font-size: 40px;
+    font-size: 25px;
     margin-left: 2px;
-    margin-top: -20px;
+    margin-top: -10px;
     font-weight: normal;
   }
   
   .glbemojis {
-    height: 30px;
-    margin-top: -20px;
+    height: 20px;
+    margin-top: -10px;
   }
 
   .lb-description {
-    font-size: 15px;
+    font-size: 13px;
     margin-left: 2px;
     max-width: auto;
     font-weight: normal;
     text-align: justify;
     line-height: 1;
-    margin-top: -5px;
+    margin-top: 5px;
     margin-bottom: 25px;
   }
 
@@ -327,7 +327,7 @@
   .glbbigtopic{
     display: flex;
     align-items: center;
-    font-size: 40px;
+    font-size: 30px;
     color: white
   }
   
