@@ -27,6 +27,9 @@
   /* max-width: 1200px; */
   /* margin-left: 10%; */
   position: relative; /* Keeps the buttons relative to the banner */
+  border: 7px solid white;
+  border-radius: 32px;
+  /* box-shadow: inset 0 0 0 7px white; */
 }
 
 .lb-banner-img {
@@ -35,20 +38,36 @@
   border-radius: 28px;
   box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.2);
   object-fit: cover; /* Ensures the image fills the height and crops excess */
+  /* border: 7px solid white; */
+  /* box-shadow: inset 0 0 0 7px white; */
 }
 
 .lb-buttons {
-  display: flex;
-  justify-content: space-between; /* Align buttons at opposite ends */
+  /* display: flex; */
+  /* justify-content: space-between; */
   position: absolute;
-  bottom: -30px; /* Move the buttons below the banner image */
-  width: 100%;
+  bottom: 20px; /* Move the buttons below the banner image */
+  right: 10px;
+  width: auto;
   padding: 0 20px; /* Add some padding to prevent the buttons from touching the sides */
 }
 
+.lb-buttons:hover {
+  transform: scale(1.05);
+}
+
+/* .lb-buttons {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  bottom: -30px;
+  width: 100%;
+  padding: 0 20px;
+} */
+
 .lb-btn {
   font-family: "Jersey 10", sans-serif;
-  padding: 5px 22px;
+  padding: 1px 20px;
   border-radius: 10px;
   font-size: 40px;
   cursor: pointer;
@@ -69,12 +88,120 @@
   color: black;
 }
 
+.lb-btn.play-btn:hover {
+  transform: scale(1.05);
+}
+
 .lb-btn:hover {
   transform: scale(1.05);
 }
 
-.lbgamelb {
-  @apply mt-20;
+.glbgamelb {
+  @apply mt-[20px];
+  width: 95%;
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+}
+
+.lb-info {
+  margin-top: 0px;
+  /* text-align: center; */
+  color: white;
+  border-radius: 0 0 32px 32px;
+  width: 77%;
+  margin-left: 11.5%;
+  margin-right: 11.5%;
+  @apply bg-black bg-opacity-50 p-5;
+}
+
+.lb-titleNemoji{
+  @apply flex items-center gap-x-4;
+}
+
+.lb-title {
+  font-size: 70px;
+  margin-left: 20px;
+  margin-top: -20px;
+  font-weight: normal;
+}
+
+.glbemojis {
+  height: 45px;
+  margin-top: -20px;
+}
+
+.lb-description {
+  font-size: 20px;
+  margin-left: 20px;
+  max-width: auto;
+  font-weight: normal;
+  line-height: 1;
+  margin-top: -15px;
+  margin-bottom: 40px;
+}
+
+.lb-statsNshare{
+  @apply flex justify-between;
+}
+
+.reactionsspan{
+  @apply flex items-center gap-x-2;
+}
+
+.reactions{
+  @apply h-7
+}
+
+.lb-stats {
+  margin-left: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  font-size: 23px;
+  /* margin-top: 15px; */
+}
+
+.lb-share {
+  /* margin-top: 20px; */
+  font-size: 23px;
+  margin-right: 20px;
+}
+
+.lb-share:hover {
+  /* text-decoration: none; */
+  transform: scale(1.05);
+}
+
+.lb-share a {
+  color: white;
+  /* text-decoration: none; */
+  /* font-weight: bold; */
+}
+
+.lb-share a:hover {
+  /* text-decoration: none; */
+  /* transform: scale(1.05); */
+}
+
+.glbbigtopicdiv{
+  margin-top: 20px;
+  width: 77%;
+  margin-left: 11.5%;
+  margin-right: 11.5%;
+}
+
+.glbbigtopic{
+  display: flex;
+  align-items: center;
+  font-size: 70px;
+  color: white
+}
+
+.horizontal-line {
+  flex-grow: 1;
+  height: 1px;
+  background-color: rgb(255, 255, 255);
+  margin-left: 20px; /* Adjust this for spacing */
 }
 
 /* Responsive Design */
@@ -90,9 +217,27 @@
 }
 
 
+
+
+
 @media (max-width: 768px) {
   .lbnbigtopic {
     font-size: 50px;
+  }
+
+  .lb-banner {
+    text-align: center;
+    /* margin: 20px auto; */
+    margin-top: 25px;
+    width: 80%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    /* max-width: 1200px; */
+    /* margin-left: 10%; */
+    position: relative; /* Keeps the buttons relative to the banner */
+    border: 3px solid white;
+    border-radius: 10px;
+    /* box-shadow: inset 0 0 0 7px white; */
   }
 
   .lb-banner-img {
@@ -106,5 +251,91 @@
     font-size: 18px;
     padding: 10px 15px;
     box-shadow: 4px 3px;
+  }
+
+  .lb-buttons {
+    /* display: flex; */
+    /* justify-content: space-between; */
+    position: absolute;
+    bottom: 25px; /* Move the buttons below the banner image */
+    right: 5px;
+    width: auto;
+    padding: 0 12px; /* Add some padding to prevent the buttons from touching the sides */
+  }
+
+  .lb-titleNemoji{
+    @apply flex items-center gap-x-2;
+  }
+
+  .lb-title {
+    font-size: 40px;
+    margin-left: 2px;
+    margin-top: -20px;
+    font-weight: normal;
+  }
+  
+  .glbemojis {
+    height: 30px;
+    margin-top: -20px;
+  }
+
+  .lb-description {
+    font-size: 15px;
+    margin-left: 2px;
+    max-width: auto;
+    font-weight: normal;
+    text-align: justify;
+    line-height: 1;
+    margin-top: -5px;
+    margin-bottom: 25px;
+  }
+
+  .lb-statsNshare{
+    @apply flex justify-between;
+  }
+  
+  .reactionsspan{
+    @apply flex items-center gap-x-1.5;
+  }
+  
+  .reactions{
+    @apply h-4
+  }
+  
+  .lb-stats {
+    margin-left: 2px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    font-size: 18px;
+    /* margin-top: 15px; */
+  }
+  
+  .lb-share {
+    /* margin-top: 20px; */
+    font-size: 18px;
+    margin-right: 0px;
+  }
+
+  .glbbigtopicdiv{
+    margin-top: 20px;
+    width: 77%;
+    margin-left: 11.5%;
+    margin-right: 11.5%;
+  }
+  
+  .glbbigtopic{
+    display: flex;
+    align-items: center;
+    font-size: 40px;
+    color: white
+  }
+  
+  .horizontal-line {
+    display: none;
+    /* flex-grow: 1;
+    height: 1px;
+    background-color: rgb(255, 255, 255);
+    margin-left: 10px; */
   }
 }
