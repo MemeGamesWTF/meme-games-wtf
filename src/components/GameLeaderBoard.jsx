@@ -117,18 +117,18 @@ export default function Leaderboard() {
 </p> */}
             </div>
             <div className="lb-share">
-              <a href="https://x.com" target="_blank" rel="noopener noreferrer">
+              {/* <a href="https://x.com" target="_blank" rel="noopener noreferrer">
                 Share on x.com
-              </a>
+              </a> */}
             </div>
           </div>
         </div>
         <div className="glbbigtopicdiv">
-  <h2 className="glbbigtopic">
-    Leaderboard
-    <span className="horizontal-line"></span>
-  </h2>
-</div>
+          <h2 className="glbbigtopic">
+            Leaderboard
+            <span className="horizontal-line"></span>
+          </h2>
+        </div>
 
         <div className="glbgamelb">
           {leaderboard.length > 0 &&
@@ -160,7 +160,13 @@ export const gameLeaderboardLoader = async ({ params }) => {
 
     if (error) {
       console.error("Database error:", error);
-      return { leaderboard: [], gameName, gameImage: null, gameData: null, gameDescription: null };
+      return {
+        leaderboard: [],
+        gameName,
+        gameImage: null,
+        gameData: null,
+        gameDescription: null,
+      };
     }
 
     // Fetch game data (image, additional info, and description)
@@ -172,7 +178,13 @@ export const gameLeaderboardLoader = async ({ params }) => {
 
     if (gameError) {
       console.error("Game database error:", gameError);
-      return { leaderboard: [], gameName, gameImage: null, gameData: null, gameDescription: null };
+      return {
+        leaderboard: [],
+        gameName,
+        gameImage: null,
+        gameData: null,
+        gameDescription: null,
+      };
     }
 
     const uniqueLeaderboard = leaderboard?.filter(
@@ -189,7 +201,12 @@ export const gameLeaderboardLoader = async ({ params }) => {
     };
   } catch (error) {
     console.error("Error fetching leaderboard:", error);
-    return { leaderboard: [], gameName: null, gameImage: null, gameData: null, gameDescription: null };
+    return {
+      leaderboard: [],
+      gameName: null,
+      gameImage: null,
+      gameData: null,
+      gameDescription: null,
+    };
   }
 };
-
