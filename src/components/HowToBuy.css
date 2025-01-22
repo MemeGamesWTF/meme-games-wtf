@@ -119,6 +119,10 @@
   box-shadow: 0px 6px 0px black;
 }
 
+.htb8:hover {
+  transform: scale(1.05);
+}
+
 .backbutton{
     display: none;
   }
