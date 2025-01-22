@@ -117,9 +117,9 @@ export default function Leaderboard() {
 </p> */}
             </div>
             <div className="lb-share">
-              {/* <a href="https://x.com" target="_blank" rel="noopener noreferrer">
+              <a href="https://twitter.com/intent/tweet?url=https://twitter.com/user/status/1881003825361977387&text=Check%20this%20out" target="_blank" rel="noopener noreferrer">
                 Share on x.com
-              </a> */}
+              </a>
             </div>
           </div>
         </div>
