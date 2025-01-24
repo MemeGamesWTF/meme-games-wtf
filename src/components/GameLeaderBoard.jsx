@@ -117,13 +117,19 @@ export default function Leaderboard() {
 </p> */}
             </div>
             <div className="lb-share">
-              <a href={`https://twitter.com/intent/tweet?url=https://twitter.com/user/status/1881003825361977387&text=${encodeURIComponent(`Check out ${gameName} on https://memegames.wtf/`)}`} target="_blank" rel="noopener noreferrer">
+              <a
+                href={`https://twitter.com/intent/tweet?url=https://twitter.com/user/status/1881003825361977387&text=${encodeURIComponent(
+                  `Check out ${gameName} on https://memegames.wtf/`
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Share on x.com
               </a>
             </div>
           </div>
         </div>
-        <div className="glbbigtopicdiv">
+        {/* <div className="glbbigtopicdiv">
           <h2 className="glbbigtopic">
             Leaderboard
             <span className="horizontal-line"></span>
@@ -135,7 +141,25 @@ export default function Leaderboard() {
             leaderboard.map((item, index) => (
               <Item key={index} {...item} rank={++index} />
             ))}
-        </div>
+        </div> */}
+
+        {leaderboard.length > 0 && (
+          <>
+            <div className="glbbigtopicdiv">
+              <h2 className="glbbigtopic">
+                Leaderboard
+                <span className="horizontal-line"></span>
+              </h2>
+            </div>
+
+            <div className="glbgamelb">
+              {leaderboard.map((item, index) => (
+                <Item key={index} {...item} rank={++index} />
+              ))}
+            </div>
+          </>
+        )}
+        
       </div>
       <div className="lbfooter">
         <Footer />
