@@ -9,7 +9,7 @@ import Footer from "./Footer2";
 
 
 
-const Item = ({ rank, screen_name, profile_image_url_https, count }) => {
+const Item = ({ rank, name, profile_image_url_https, count }) => {
 
   let bodyClass = "lbbody5";
   let rankClass = "lbnumber";
@@ -37,7 +37,7 @@ const Item = ({ rank, screen_name, profile_image_url_https, count }) => {
       <div className={bodyClass}>
         {rank > 3 ? <h1 className={rankClass}>{rank}</h1> : <img src={rank === 1 ? gold : rank === 2 ? silver : bronze} alt="Medal" className="lbbody2img" />}
         {/* <div className="lbavatar" style={{ backgroundImage: `url(${profile_image_url_https})` }}></div> */}
-        <h1 className="lbtext">{screen_name}</h1>
+        <h1 className="lbtext">{name}</h1>
         <h1 className="lbscore">{count}</h1>
         {/* <img src={up} alt="Up Icon" className="lbbody2img" /> */}
       </div>
@@ -66,7 +66,7 @@ export default function Leaderboard() {
 
 export const totalLeaderboardLoader = async () => {
 
-  const leaderboard = await supabase.from("memegames_leaderboard").select("*");
+  const leaderboard = await supabase.from("memegames_leaderboard_new2").select("*");
   return {
     leaderboard: leaderboard?.data,
   };
