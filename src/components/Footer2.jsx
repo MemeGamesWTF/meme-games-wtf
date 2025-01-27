@@ -88,7 +88,7 @@ export default function Footer2() {
           <a href="https://kick.com/memegameswtf" className="kickicon"></a>
           {/* Gecko */}
           <p className="text-back font-bold text-lg">&nbsp;&nbsp;&nbsp;</p>
-          <a className="geckoicon"></a>
+          <a href="https://www.geckoterminal.com/solana/pools/7bNW3AZzo8Jc8gFs2Q2a5gEbji8SoDD8YKbvURJfy6M8" className="geckoicon"></a>
           {/* Pump */}
           {/* <p className="text-white font-bold text-lg">&nbsp;&nbsp;&nbsp;</p>
         <a
@@ -135,7 +135,7 @@ export default function Footer2() {
           <a href="https://kick.com/memegameswtf" className="kickicon"></a>
           {/* Gecko */}
           <p className="text-back font-bold text-lg">&nbsp;</p>
-          <a className="geckoicon"></a>
+          <a href="https://www.geckoterminal.com/solana/pools/7bNW3AZzo8Jc8gFs2Q2a5gEbji8SoDD8YKbvURJfy6M8" className="geckoicon"></a>
           {/* Pump */}
           {/* <p className="text-white font-bold text-lg">&nbsp;&nbsp;&nbsp;</p>
         <a
