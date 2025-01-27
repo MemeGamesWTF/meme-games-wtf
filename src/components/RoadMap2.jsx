@@ -201,18 +201,19 @@ export default function RoadMap2() {
         </div>
 
         <div className="phasen">
-          <div className="rmn1 bg-[#EA3300]">
+          <div className="rmn1 bg-[#00DB1D]">
             {/* <h2 className="topicn">🏆 PHASE 2: COMMUNITY REPUTATION</h2> */}
             <h2 className="topicn">
               <img src={trophy} alt="rocket" className="phaseimages" />
               PHASE 2: COMMUNITY REPUTATION
             </h2>
-            <img
+            {/* <img
               src={hourglass}
               alt="hourglass"
               className="hourglassn"
               loading="lazy"
-            />
+            /> */}
+            <img src={tick} alt="tick" className="tickn" loading="lazy" />
           </div>
 
           <div className="rmn2">
@@ -363,13 +364,19 @@ export default function RoadMap2() {
         </div>
 
         <div className="phasen">
-          <div className="rmn1 bg-[#000000]">
+          <div className="rmn1 bg-[#EA3300]">
             {/* <h2 className="topicn">⛓️ PHASE 3: BLOCKCHAIN INTEGRATION</h2> */}
             <h2 className="topicn">
               <img src={chains} alt="chains" className="phaseimages" />
               PHASE 3: BLOCKCHAIN INTEGRATION
             </h2>
-            <img src={blank} alt="blank" className="blankn" loading="lazy" />
+            {/* <img src={blank} alt="blank" className="blankn" loading="lazy" /> */}
+            <img
+              src={hourglass}
+              alt="hourglass"
+              className="hourglassn"
+              loading="lazy"
+            />
           </div>
 
           <div className="rmn2">
