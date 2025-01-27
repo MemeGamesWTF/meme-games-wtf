@@ -140,13 +140,13 @@
 }
 
 .htbfooter{
-  display: none;
+  display: block;
 }
 
   .howtobuymain {
     background-image: none;
     background-color: #5600ff;
-    /* min-height: 240vh; */
+    min-height: 219vh;
     /* @apply pb-16 */
   }
   
