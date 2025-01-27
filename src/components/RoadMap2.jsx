@@ -238,10 +238,10 @@ export default function RoadMap2() {
                   </div>
                   <div className="rmn5">
                     <div className="rmn-item">
-                      <img
-                        src={pending}
-                        alt="pending"
-                        className="pending"
+                    <img
+                        src={greentick}
+                        alt="greentick"
+                        className="greentick"
                         loading="lazy"
                       />
                       <p className="rmn7">
@@ -249,10 +249,10 @@ export default function RoadMap2() {
                       </p>
                     </div>
                     <div className="rmn-item">
-                      <img
-                        src={pending}
-                        alt="pending"
-                        className="pending"
+                    <img
+                        src={greentick}
+                        alt="greentick"
+                        className="greentick"
                         loading="lazy"
                       />
                       <p className="rmn7">
@@ -260,10 +260,10 @@ export default function RoadMap2() {
                       </p>
                     </div>
                     <div className="rmn-item">
-                      <img
-                        src={pending}
-                        alt="pending"
-                        className="pending"
+                    <img
+                        src={greentick}
+                        alt="greentick"
+                        className="greentick"
                         loading="lazy"
                       />
                       <p className="rmn7">
@@ -293,10 +293,10 @@ export default function RoadMap2() {
                   </div>
                   <div className="rmn5">
                     <div className="rmn-item">
-                      <img
-                        src={pending}
-                        alt="pending"
-                        className="pending"
+                    <img
+                        src={greentick}
+                        alt="greentick"
+                        className="greentick"
                         loading="lazy"
                       />
                       <p className="rmn7">
@@ -304,10 +304,10 @@ export default function RoadMap2() {
                       </p>
                     </div>
                     <div className="rmn-item">
-                      <img
-                        src={pending}
-                        alt="pending"
-                        className="pending"
+                    <img
+                        src={greentick}
+                        alt="greentick"
+                        className="greentick"
                         loading="lazy"
                       />
                       <p className="rmn7">
