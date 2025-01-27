@@ -55,6 +55,31 @@
   @apply h-[28px] w-[28px] bg-no-repeat bg-contain transition duration-300 ease-in-out opacity-100 hover:opacity-40 cursor-pointer;
 }
 
+.instaicon {
+  background-image: url("/assets/instagram.svg");
+  @apply h-[28px] w-[28px] bg-no-repeat bg-contain transition duration-300 ease-in-out opacity-100 hover:opacity-40 cursor-pointer;
+}
+
+.yticon {
+  background-image: url("/assets/youtube.svg");
+  @apply h-[40px] w-[40px] bg-no-repeat bg-contain transition duration-300 ease-in-out opacity-100 hover:opacity-40 cursor-pointer;
+}
+
+.tiktokicon {
+  background-image: url("/assets/tiktok.svg");
+  @apply h-[28px] w-[28px] bg-no-repeat bg-contain transition duration-300 ease-in-out opacity-100 hover:opacity-40 cursor-pointer;
+}
+
+.kickicon {
+  background-image: url("/assets/kick2.svg");
+  @apply h-[28px] w-[28px] bg-no-repeat bg-contain transition duration-300 ease-in-out opacity-100 hover:opacity-40 cursor-pointer;
+}
+
+.geckoicon {
+  background-image: url("/assets/gecko.svg");
+  @apply h-[28px] w-[28px] bg-no-repeat bg-contain transition duration-300 ease-in-out opacity-100 hover:opacity-40 cursor-pointer;
+}
+
 .ptag {
   font-family: "Jersey 10", sans-serif;
   font-weight: 500;
@@ -106,7 +131,7 @@
 
 .atag22 {
   box-shadow: 7px 7px 0px black;
-  @apply w-fit ml-auto mr-auto bg-white rounded-md px-5 py-4;
+  @apply w-fit ml-auto mr-auto bg-white rounded-md px-5 pt-4 pb-1;
 }
 
 .atag222 {
@@ -116,7 +141,28 @@
     font-style: normal;
   }
 
+  .mobileatag22{
+    display: none;
+  }
+
 @media (max-width: 768px) {
+
+  .atag22 {
+    display: none;
+  }
+
+  .mobileatag22 {
+    display: block;
+    box-shadow: 7px 7px 0px black;
+    @apply w-fit ml-auto mr-auto bg-white rounded-md px-5 pt-3 pb-1 mb-8;
+  }
+  
+  .mobileatag222 {
+      @apply flex gap-x-1 justify-center align-middle;
+      font-family: "Jersey 10", sans-serif;
+      font-weight: 500;
+      font-style: normal;
+    }
   /* .foot1 {
         display: none;
     }    */
@@ -130,6 +176,57 @@
     @apply flex items-center justify-center w-[95%] ml-[2.5%] mr-[2.5%] mt-14 mb-4 bg-white rounded-md px-4 py-2;
   }
   .ptag2 {
+    font-family: "Jersey 10", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 15px;
+  }
+
+  .footicon1 {
+    background-image: url("/assets/twitter3.svg");
+    @apply h-[18px] w-[18px] bg-no-repeat bg-contain transition duration-300 ease-in-out opacity-100 hover:opacity-40 cursor-pointer;
+  }
+  .footicon11 {
+    background-image: url("/assets/telegram.svg");
+    @apply h-[18px] w-[18px] bg-no-repeat bg-contain transition duration-300 ease-in-out opacity-100 hover:opacity-40 cursor-pointer;
+  }
+  
+  .pumpicon {
+    background-image: url("/assets/pump.svg");
+    @apply h-[18px] w-[18px] bg-no-repeat bg-contain transition duration-300 ease-in-out opacity-100 hover:opacity-40 cursor-pointer;
+  }
+  
+  .dexicon {
+    background-image: url("/assets/dex.svg");
+    @apply h-[18px] w-[18px] bg-no-repeat bg-contain transition duration-300 ease-in-out opacity-100 hover:opacity-40 cursor-pointer;
+  }
+  
+  .instaicon {
+    background-image: url("/assets/instagram.svg");
+    @apply h-[18px] w-[18px] bg-no-repeat bg-contain transition duration-300 ease-in-out opacity-100 hover:opacity-40 cursor-pointer;
+  }
+  
+  .yticon {
+    background-image: url("/assets/youtube.svg");
+    @apply h-[23px] w-[23px] bg-no-repeat bg-contain transition duration-300 ease-in-out opacity-100 hover:opacity-40 cursor-pointer;
+  }
+  
+  .tiktokicon {
+    background-image: url("/assets/tiktok.svg");
+    @apply h-[18px] w-[18px] bg-no-repeat bg-contain transition duration-300 ease-in-out opacity-100 hover:opacity-40 cursor-pointer;
+  }
+  
+  .kickicon {
+    background-image: url("/assets/kick2.svg");
+    @apply h-[18px] w-[18px] bg-no-repeat bg-contain transition duration-300 ease-in-out opacity-100 hover:opacity-40 cursor-pointer;
+  }
+  
+  .geckoicon {
+    background-image: url("/assets/gecko.svg");
+    @apply h-[18px] w-[18px] bg-no-repeat bg-contain transition duration-300 ease-in-out opacity-100 hover:opacity-40 cursor-pointer;
+  }
+  
+  .mobileptag {
     font-family: "Jersey 10", sans-serif;
     font-weight: 500;
     font-style: normal;

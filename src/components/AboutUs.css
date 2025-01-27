@@ -116,7 +116,7 @@
   }
 
   .abtfooter{
-    display: none;
+    display: block;
   }
   /* .aboutus-container {
     background-image: url("/assets/mobileabout.webp");

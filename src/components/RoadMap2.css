@@ -220,7 +220,7 @@
   @media (max-width: 768px) {
 
 .rmfooter{
-  display: none;
+  display: block;
 }
 
     .roadmapmain {
@@ -229,6 +229,7 @@
       /* background-size: contain;
       background-repeat: repeat; */
       background-color: #5600ff;
+      margin-bottom: 80px;
       /* min-height: 500vh; */
     }
     .rmn0{
