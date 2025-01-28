@@ -278,6 +278,37 @@
   }
 } */
 
+.pagination {
+  display: flex;
+  justify-content: center;
+  /* margin: 1rem 0; */
+  gap: 0.5rem;
+  margin-top: 60px;
+}
+
+.page-btn {
+  background-color: #f0f0f0;
+  border: none;
+  padding: 0.2rem 1.1rem;
+  cursor: pointer;
+  font-size: 22px;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.page-btn:hover {
+  /* background-color: #dcdcdc; */
+  transform: scale(1.05);
+}
+
+.page-btn.active {
+  background-color: #000000;
+  color: white;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+
 @media screen and (max-width: 1280px) and (max-height: 800px) {
   .homegamesection {
     /* @apply flex justify-center items-center; */
