@@ -6,6 +6,10 @@
   @apply pb-6;
 }
 
+.gametypesNsearch{
+  @apply flex justify-between items-center;
+}
+
 .gametypesdiv {
   @apply flex justify-start space-x-4 mt-5 w-[95%] ml-[2.5%] mr-[2.5%];
 }
@@ -17,6 +21,68 @@
   font-weight: 500;
   font-style: normal;
   box-shadow: 2px 2px 0px black;
+}
+
+.serchdiv{
+  @apply mr-10 mt-5;
+  display: flex;
+  align-items: center;
+}
+
+.serchdiv2{
+  @apply border-black border-[3px] rounded-full bg-white;
+  box-shadow: 2px 2px 0px black;
+  display: flex;
+}
+
+.searchinput{
+  /* @apply px-4 py-2 border-[3px] border-black rounded-full focus:outline-none; */
+  @apply px-4 py-0 flex items-center space-x-2 bg-transparent;
+  font-size: 27px;
+  font-family: "Jersey 10", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  /* box-shadow: 2px 2px 0px black; */
+}
+
+.searchinput:focus{
+  @apply outline-none;
+}
+
+/* .searchbtn {
+  @apply px-4 py-0 rounded-full flex items-center space-x-2 border-black border-[3px];
+  font-size: 27px;
+  font-family: "Jersey 10", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  box-shadow: 2px 2px 0px black;
+} */
+
+/* .search-input {
+  flex: 1;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 9999px;
+  outline: none;
+  font-size: 16px;
+} */
+
+.searchbtn {
+  @apply px-4 py-0 bg-transparent;
+  font-size: 27px;
+  font-family: "Jersey 10", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  cursor: pointer;
+  /* padding: 5px; */
+}
+
+.searchbtn i {
+  font-size: 25px;
+}
+
+.searchbtn:hover i {
+  transform: scale(1.05);
 }
 
 
@@ -327,6 +393,10 @@
     color: white;
   }
 
+  .searchinput{
+    width: 200px;
+  }
+
   .card-title {
     @apply text-2xl font-normal text-black;
   }
@@ -392,6 +462,11 @@
   }
   .gametypesdiv{
     display: none;
+  }
+  .serchdiv{
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
   }
   .homegamesectiontopic{
     display: none
