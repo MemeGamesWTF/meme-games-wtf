@@ -75,7 +75,6 @@ const HomePage = () => {
     .slice(0, 4); // Get the top 4 games
 
   // Filter games based on selected type
-  // Filter games based on selected type
   const filteredGames =
     selectedType === "trending"
       ? mostPlayedGames
