@@ -59,6 +59,7 @@ const HomePage = () => {
   const [gamesData, setGamesData] = useState(initialGamesData);
   const [selectedType, setSelectedType] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
+  const [searchQuery, setSearchQuery] = useState("");
   const gamesPerPage = 8;
   const [gameEmojiStates, setGameEmojiStates] = useState(
     initialGamesData.reduce((acc, game) => {
@@ -74,7 +75,7 @@ const HomePage = () => {
     .sort((a, b) => b.played - a.played) // Sort by played count in descending order
     .slice(0, 4); // Get the top 4 games
 
-  // Filter games based on selected type
+  // Filter games based on selected type and search query
   const filteredGames =
     selectedType === "trending"
       ? mostPlayedGames
@@ -82,10 +83,14 @@ const HomePage = () => {
       ? gamesData.filter((game) => game.type === selectedType)
       : gamesData;
 
+  const searchedGames = filteredGames.filter((game) =>
+    game.name.toLowerCase().startsWith(searchQuery.toLowerCase())
+  );
+
   // Pagination logic
   const indexOfLastGame = currentPage * gamesPerPage;
   const indexOfFirstGame = indexOfLastGame - gamesPerPage;
-  const currentGames = filteredGames.slice(indexOfFirstGame, indexOfLastGame);
+  const currentGames = searchedGames.slice(indexOfFirstGame, indexOfLastGame);
 
   // Increment/Decrement heart count and toggle state
   const handleHeartIncrement = (gameId) => {
@@ -166,7 +171,6 @@ const HomePage = () => {
             onClick={(e) =>
               selectedType !== "trending" && setSelectedType("trending")
             }
-            // disabled={false} // Optional if you want to visually disable it (optional)
           >
             <img src={fire} alt="fire" className="gamebtnsimages" />
             <span>Trending</span>
@@ -179,7 +183,6 @@ const HomePage = () => {
             onClick={(e) =>
               selectedType !== "classic" && setSelectedType("classic")
             }
-            // disabled={true} // Optional if you want to visually disable it (optional)
           >
             <img src={chad} alt="chad" className="gamebtnsimages" />
             <span>Classic Games</span>
@@ -190,7 +193,6 @@ const HomePage = () => {
               selectedType === "elon" ? "bg-[#FFF600]" : "bg-white"
             }`}
             onClick={(e) => selectedType !== "elon" && setSelectedType("elon")}
-            // disabled={true} // Optional if you want to visually disable it (optional)
           >
             <img src={rocket} alt="rocket" className="gamebtnsimages" />
             <span>Elon's Games</span>
@@ -203,7 +205,6 @@ const HomePage = () => {
             onClick={(e) =>
               selectedType !== "brainrot" && setSelectedType("brainrot")
             }
-            // disabled={true} // Optional if you want to visually disable it (optional)
           >
             <img src={brain} alt="brain" className="gamebtnsimages" />
             <span>Brain Rot</span>
@@ -216,7 +217,6 @@ const HomePage = () => {
             onClick={(e) =>
               selectedType !== "physics" && setSelectedType("physics")
             }
-            // disabled={true} // Optional if you want to visually disable it (optional)
           >
             <img src={physics} alt="brain" className="gamebtnsimages" />
             <span>Physics</span>
@@ -233,21 +233,17 @@ const HomePage = () => {
         </div>
         <div className="serchdiv">
           <div className="serchdiv2">
-          <input
-            type="text"
-            placeholder="Search.."
-            name="search"
-            className="searchinput"
-          />
-          <button type="submit" className="searchbtn">
-            <i class="fa fa-search"></i>
-          </button>
-          {/* <input
-            type="text"
-            placeholder="Type to search..."
-            className="searchinput"
-          /> */}
-          {/* <button className="searchbtn">Search</button> */}
+            <input
+              type="text"
+              placeholder="Search.."
+              name="search"
+              className="searchinput"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+            <button type="submit" className="searchbtn">
+              <i className="fa fa-search"></i>
+            </button>
           </div>
         </div>
       </div>
@@ -255,208 +251,6 @@ const HomePage = () => {
       <div className="homegamesection">
         <h2 className="homegamesectiontopic">Games</h2>
       </div>
-
-      {/* <div className="homegamecontainer">
-        <div className="homegamecontainergrid">
-          {selectedType === "trending"
-            ? mostPlayedGames.map((game) => (
-                <div className="card00" key={game.name}>
-                  <div className="card">
-                    <LoadingImage game={game} />
-                    <div className="card-body">
-                      <h2 className="card-title">{`[${game.name}]`}</h2>
-                      <p className="card-text">
-                        {getK(game.played)} Times Played
-                      </p>
-                      <div className="dotsnshare">
-                        <div className="dots">
-                          <div className="heart-container">
-                            <div key={game.id}>
-                              <button
-                                className={`dot ${
-                                  gameEmojiStates[game.id]?.heart
-                                    ? "clicked purple"
-                                    : ""
-                                }`}
-                                onClick={() => handleHeartIncrement(game.id)}
-                              >
-                                <img
-                                  src={heart}
-                                  alt="Heart"
-                                  className="emoji-image"
-                                />
-                              </button>
-                            </div>
-
-                            <p className="card-text2">{getK(game.heart)}</p>
-                          </div>
-
-                          <div className="laugh-container">
-                            <div key={game.id}>
-                              <button
-                                className={`dot ${
-                                  gameEmojiStates[game.id]?.laugh
-                                    ? "clicked purple"
-                                    : ""
-                                }`}
-                                onClick={() => handleLaughIncrement(game.id)}
-                              >
-                                <img
-                                  src={laugh}
-                                  alt="Laugh"
-                                  className="emoji-image"
-                                />
-                              </button>
-                            </div>
-
-                            <p className="card-text2">{getK(game.laugh)}</p>
-                          </div>
-                          <Link
-                            to={`/game-leaderboard/${game.id}/${game.name}`}
-                            className="dot"
-                          >
-                            <button>
-                              <img
-                                src={trophy}
-                                alt="Trophy"
-                                className="emoji-image2"
-                              />
-                            </button>
-                          </Link>
-                        </div>
-                        <div className="sharediv">
-                          <button
-                            className="share-button"
-                            onClick={() => {
-                              if (navigator.share) {
-                                navigator
-                                  .share({
-                                    title: "Check out this game!",
-                                    text: `Play ${game.name} now!`,
-                                    url: window.location.href,
-                                  })
-                                  .then(() =>
-                                    console.log("Successfully shared")
-                                  )
-                                  .catch((error) =>
-                                    console.error("Error sharing:", error)
-                                  );
-                              } else {
-                                alert(
-                                  "Sharing is not supported on this browser."
-                                );
-                              }
-                            }}
-                          >
-                            Share
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))
-            : filteredGames.map((game) => (
-                <div className="card00" key={game.name}>
-                  <div className="card">
-                    <LoadingImage game={game} />
-
-                    <div className="card-body">
-                      <h2 className="card-title">{`[${game.name}]`}</h2>
-                      <p className="card-text">
-                        {getK(game.played)} Times Played
-                      </p>
-                      <div className="dotsnshare">
-                        <div className="dots">
-                          <div className="heart-container">
-                            <div key={game.id}>
-                              <button
-                                className={`dot ${
-                                  gameEmojiStates[game.id]?.heart
-                                    ? "clicked purple"
-                                    : ""
-                                }`}
-                                onClick={() => handleHeartIncrement(game.id)} // Use game.id
-                              >
-                                <img
-                                  src={heart} // Replace with your image path
-                                  alt="Heart"
-                                  className="emoji-image"
-                                />
-                              </button>
-                            </div>
-
-                            <p className="card-text2">{getK(game.heart)}</p>
-                          </div>
-
-                          <div className="laugh-container">
-                            <div key={game.id}>
-                              <button
-                                className={`dot ${
-                                  gameEmojiStates[game.id]?.laugh
-                                    ? "clicked purple"
-                                    : ""
-                                }`}
-                                onClick={() => handleLaughIncrement(game.id)} // Use game.id
-                              >
-                                <img
-                                  src={laugh} // Replace with your laugh image path
-                                  alt="Laugh"
-                                  className="emoji-image"
-                                />
-                              </button>
-                            </div>
-
-                            <p className="card-text2">{getK(game.laugh)}</p>
-                          </div>
-
-                          <Link
-                            to={`/game-leaderboard/${game.id}/${game.name}`}
-                            className="dot"
-                          >
-                            <button>
-                              <img
-                                src={trophy} // Replace with your image path
-                                alt="Trophy"
-                                className="emoji-image2"
-                              />
-                            </button>
-                          </Link>
-                        </div>
-                        <div className="sharediv">
-                          <button
-                            className="share-button"
-                            onClick={() => {
-                              if (navigator.share) {
-                                navigator
-                                  .share({
-                                    title: "Check out this game!",
-                                    text: `Play ${game.name} now!`,
-                                    url: window.location.href,
-                                  })
-                                  .then(() =>
-                                    console.log("Successfully shared")
-                                  )
-                                  .catch((error) =>
-                                    console.error("Error sharing:", error)
-                                  );
-                              } else {
-                                alert(
-                                  "Sharing is not supported on this browser."
-                                );
-                              }
-                            }}
-                          >
-                            Share
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-        </div>
-      </div> */}
 
       <div className="homegamecontainer">
         <div className="homegamecontainergrid">
@@ -554,7 +348,7 @@ const HomePage = () => {
       {/* Pagination Buttons */}
       <div className="pagination">
         {Array.from(
-          { length: Math.ceil(filteredGames.length / gamesPerPage) },
+          { length: Math.ceil(searchedGames.length / gamesPerPage) },
           (_, index) => (
             <button
               key={index + 1}
