@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./HomePage.css";
 import { Link, useLoaderData } from "react-router-dom";
 import Footer from "./Footer2";
@@ -83,6 +83,7 @@ const HomePage = () => {
       ? gamesData.filter((game) => game.type === selectedType)
       : gamesData;
 
+  // Apply search query to the filtered games
   const searchedGames = filteredGames.filter((game) =>
     game.name.toLowerCase().startsWith(searchQuery.toLowerCase())
   );
@@ -91,6 +92,11 @@ const HomePage = () => {
   const indexOfLastGame = currentPage * gamesPerPage;
   const indexOfFirstGame = indexOfLastGame - gamesPerPage;
   const currentGames = searchedGames.slice(indexOfFirstGame, indexOfLastGame);
+
+  // Reset current page to 1 when search query or selected type changes
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [searchQuery, selectedType]);
 
   // Increment/Decrement heart count and toggle state
   const handleHeartIncrement = (gameId) => {
@@ -168,9 +174,7 @@ const HomePage = () => {
             className={`gamebtns ${
               selectedType === "trending" ? "bg-[#FFF600]" : "bg-white"
             }`}
-            onClick={(e) =>
-              selectedType !== "trending" && setSelectedType("trending")
-            }
+            onClick={() => setSelectedType("trending")}
           >
             <img src={fire} alt="fire" className="gamebtnsimages" />
             <span>Trending</span>
@@ -180,9 +184,7 @@ const HomePage = () => {
             className={`gamebtns ${
               selectedType === "classic" ? "bg-[#FFF600]" : "bg-white"
             }`}
-            onClick={(e) =>
-              selectedType !== "classic" && setSelectedType("classic")
-            }
+            onClick={() => setSelectedType("classic")}
           >
             <img src={chad} alt="chad" className="gamebtnsimages" />
             <span>Classic Games</span>
@@ -192,7 +194,7 @@ const HomePage = () => {
             className={`gamebtns ${
               selectedType === "elon" ? "bg-[#FFF600]" : "bg-white"
             }`}
-            onClick={(e) => selectedType !== "elon" && setSelectedType("elon")}
+            onClick={() => setSelectedType("elon")}
           >
             <img src={rocket} alt="rocket" className="gamebtnsimages" />
             <span>Elon's Games</span>
@@ -202,9 +204,7 @@ const HomePage = () => {
             className={`gamebtns ${
               selectedType === "brainrot" ? "bg-[#FFF600]" : "bg-white"
             }`}
-            onClick={(e) =>
-              selectedType !== "brainrot" && setSelectedType("brainrot")
-            }
+            onClick={() => setSelectedType("brainrot")}
           >
             <img src={brain} alt="brain" className="gamebtnsimages" />
             <span>Brain Rot</span>
@@ -214,9 +214,7 @@ const HomePage = () => {
             className={`gamebtns ${
               selectedType === "physics" ? "bg-[#FFF600]" : "bg-white"
             }`}
-            onClick={(e) =>
-              selectedType !== "physics" && setSelectedType("physics")
-            }
+            onClick={() => setSelectedType("physics")}
           >
             <img src={physics} alt="brain" className="gamebtnsimages" />
             <span>Physics</span>
