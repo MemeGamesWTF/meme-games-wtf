@@ -9,7 +9,8 @@ import brain from "/assets/brain.svg";
 import heart from "/assets/heart.svg";
 import laugh from "/assets/laugh.svg";
 import trophy from "/assets/trophy.svg";
-import physics from "/assets/physics.png";
+import physics from "/assets/physics.svg";
+import community from "/assets/community.svg";
 import { supabase } from "../supabaseClient";
 
 export const STORAGE_KEYS = [
@@ -169,66 +170,103 @@ const HomePage = () => {
   return (
     <>
       <div className="gametypesNsearch">
-        <div className="gametypesdiv">
-          <button
-            className={`gamebtns ${
-              selectedType === "trending" ? "bg-[#FFF600]" : "bg-white"
-            }`}
-            onClick={() => setSelectedType("trending")}
-          >
-            <img src={fire} alt="fire" className="gamebtnsimages" />
-            <span>Trending</span>
-          </button>
+      <div className="gametypesdiv">
+  <button
+    className={`gamebtns ${
+      selectedType === "trending" ? "bg-[#FFF600]" : "bg-white"
+    }`}
+    onClick={() => {
+      if (selectedType === "trending") {
+        setSelectedType(null); // Deselect and navigate back to "/"
+      } else {
+        setSelectedType("trending"); // Select the button
+      }
+    }}
+  >
+    <img src={fire} alt="fire" className="gamebtnsimages" />
+    <span>Trending</span>
+  </button>
 
-          <button
-            className={`gamebtns ${
-              selectedType === "classic" ? "bg-[#FFF600]" : "bg-white"
-            }`}
-            onClick={() => setSelectedType("classic")}
-          >
-            <img src={chad} alt="chad" className="gamebtnsimages" />
-            <span>Classic Games</span>
-          </button>
+  <button
+    className={`gamebtns ${
+      selectedType === "classic" ? "bg-[#FFF600]" : "bg-white"
+    }`}
+    onClick={() => {
+      if (selectedType === "classic") {
+        setSelectedType(null); // Deselect and navigate back to "/"
+      } else {
+        setSelectedType("classic"); // Select the button
+      }
+    }}
+  >
+    <img src={chad} alt="chad" className="gamebtnsimages" />
+    <span>Classic Games</span>
+  </button>
 
-          <button
-            className={`gamebtns ${
-              selectedType === "elon" ? "bg-[#FFF600]" : "bg-white"
-            }`}
-            onClick={() => setSelectedType("elon")}
-          >
-            <img src={rocket} alt="rocket" className="gamebtnsimages" />
-            <span>Elon's Games</span>
-          </button>
+  <button
+    className={`gamebtns ${
+      selectedType === "elon" ? "bg-[#FFF600]" : "bg-white"
+    }`}
+    onClick={() => {
+      if (selectedType === "elon") {
+        setSelectedType(null); // Deselect and navigate back to "/"
+      } else {
+        setSelectedType("elon"); // Select the button
+      }
+    }}
+  >
+    <img src={rocket} alt="rocket" className="gamebtnsimages" />
+    <span>Elon's Games</span>
+  </button>
 
-          <button
-            className={`gamebtns ${
-              selectedType === "brainrot" ? "bg-[#FFF600]" : "bg-white"
-            }`}
-            onClick={() => setSelectedType("brainrot")}
-          >
-            <img src={brain} alt="brain" className="gamebtnsimages" />
-            <span>Brain Rot</span>
-          </button>
+  <button
+    className={`gamebtns ${
+      selectedType === "brainrot" ? "bg-[#FFF600]" : "bg-white"
+    }`}
+    onClick={() => {
+      if (selectedType === "brainrot") {
+        setSelectedType(null); // Deselect and navigate back to "/"
+      } else {
+        setSelectedType("brainrot"); // Select the button
+      }
+    }}
+  >
+    <img src={brain} alt="brain" className="gamebtnsimages" />
+    <span>Brain Rot</span>
+  </button>
 
-          <button
-            className={`gamebtns ${
-              selectedType === "physics" ? "bg-[#FFF600]" : "bg-white"
-            }`}
-            onClick={() => setSelectedType("physics")}
-          >
-            <img src={physics} alt="brain" className="gamebtnsimages" />
-            <span>Physics</span>
-          </button>
+  <button
+    className={`gamebtns ${
+      selectedType === "physics" ? "bg-[#FFF600]" : "bg-white"
+    }`}
+    onClick={() => {
+      if (selectedType === "physics") {
+        setSelectedType(null); // Deselect and navigate back to "/"
+      } else {
+        setSelectedType("physics"); // Select the button
+      }
+    }}
+  >
+    <img src={physics} alt="brain" className="gamebtnsimages" />
+    <span>Physics</span>
+  </button>
 
-          {selectedType && (
-            <button
-              className="gamebtns bg-[#FFDDC1] text-black"
-              onClick={() => setSelectedType(null)} // Reset filter
-            >
-              <span>Back to All Games</span>
-            </button>
-          )}
-        </div>
+  <button
+    className={`gamebtns ${
+      selectedType === "community" ? "bg-[#FFF600]" : "bg-white"
+    }`}
+    onClick={() => {
+      if (selectedType === "community") {
+        setSelectedType(null); // Deselect and navigate back to "/"
+      } else {
+        setSelectedType("community"); // Select the button
+      }
+    }}
+  >
+    <img src={community} alt="brain" className="gamebtnsimages" />
+    <span>Community</span>
+  </button>
+</div>
         <div className="serchdiv">
           <div className="serchdiv2">
             <input
