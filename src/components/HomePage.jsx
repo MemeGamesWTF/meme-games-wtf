@@ -170,103 +170,103 @@ const HomePage = () => {
   return (
     <>
       <div className="gametypesNsearch">
-      <div className="gametypesdiv">
-  <button
-    className={`gamebtns ${
-      selectedType === "trending" ? "bg-[#FFF600]" : "bg-white"
-    }`}
-    onClick={() => {
-      if (selectedType === "trending") {
-        setSelectedType(null); // Deselect and navigate back to "/"
-      } else {
-        setSelectedType("trending"); // Select the button
-      }
-    }}
-  >
-    <img src={fire} alt="fire" className="gamebtnsimages" />
-    <span>Trending</span>
-  </button>
+        <div className="gametypesdiv">
+          <button
+            className={`gamebtns ${
+              selectedType === "trending" ? "bg-[#FFF600]" : "bg-white"
+            }`}
+            onClick={() => {
+              if (selectedType === "trending") {
+                setSelectedType(null); // Deselect and navigate back to "/"
+              } else {
+                setSelectedType("trending"); // Select the button
+              }
+            }}
+          >
+            <img src={fire} alt="fire" className="gamebtnsimages" />
+            <span>Trending</span>
+          </button>
 
-  <button
-    className={`gamebtns ${
-      selectedType === "classic" ? "bg-[#FFF600]" : "bg-white"
-    }`}
-    onClick={() => {
-      if (selectedType === "classic") {
-        setSelectedType(null); // Deselect and navigate back to "/"
-      } else {
-        setSelectedType("classic"); // Select the button
-      }
-    }}
-  >
-    <img src={chad} alt="chad" className="gamebtnsimages" />
-    <span>Classic Games</span>
-  </button>
+          <button
+            className={`gamebtns ${
+              selectedType === "classic" ? "bg-[#FFF600]" : "bg-white"
+            }`}
+            onClick={() => {
+              if (selectedType === "classic") {
+                setSelectedType(null); // Deselect and navigate back to "/"
+              } else {
+                setSelectedType("classic"); // Select the button
+              }
+            }}
+          >
+            <img src={chad} alt="chad" className="gamebtnsimages" />
+            <span>Classic Games</span>
+          </button>
 
-  <button
-    className={`gamebtns ${
-      selectedType === "elon" ? "bg-[#FFF600]" : "bg-white"
-    }`}
-    onClick={() => {
-      if (selectedType === "elon") {
-        setSelectedType(null); // Deselect and navigate back to "/"
-      } else {
-        setSelectedType("elon"); // Select the button
-      }
-    }}
-  >
-    <img src={rocket} alt="rocket" className="gamebtnsimages" />
-    <span>Elon's Games</span>
-  </button>
+          <button
+            className={`gamebtns ${
+              selectedType === "elon" ? "bg-[#FFF600]" : "bg-white"
+            }`}
+            onClick={() => {
+              if (selectedType === "elon") {
+                setSelectedType(null); // Deselect and navigate back to "/"
+              } else {
+                setSelectedType("elon"); // Select the button
+              }
+            }}
+          >
+            <img src={rocket} alt="rocket" className="gamebtnsimages" />
+            <span>Elon's Games</span>
+          </button>
 
-  <button
-    className={`gamebtns ${
-      selectedType === "brainrot" ? "bg-[#FFF600]" : "bg-white"
-    }`}
-    onClick={() => {
-      if (selectedType === "brainrot") {
-        setSelectedType(null); // Deselect and navigate back to "/"
-      } else {
-        setSelectedType("brainrot"); // Select the button
-      }
-    }}
-  >
-    <img src={brain} alt="brain" className="gamebtnsimages" />
-    <span>Brain Rot</span>
-  </button>
+          <button
+            className={`gamebtns ${
+              selectedType === "brainrot" ? "bg-[#FFF600]" : "bg-white"
+            }`}
+            onClick={() => {
+              if (selectedType === "brainrot") {
+                setSelectedType(null); // Deselect and navigate back to "/"
+              } else {
+                setSelectedType("brainrot"); // Select the button
+              }
+            }}
+          >
+            <img src={brain} alt="brain" className="gamebtnsimages" />
+            <span>Brain Rot</span>
+          </button>
 
-  <button
-    className={`gamebtns ${
-      selectedType === "physics" ? "bg-[#FFF600]" : "bg-white"
-    }`}
-    onClick={() => {
-      if (selectedType === "physics") {
-        setSelectedType(null); // Deselect and navigate back to "/"
-      } else {
-        setSelectedType("physics"); // Select the button
-      }
-    }}
-  >
-    <img src={physics} alt="brain" className="gamebtnsimages" />
-    <span>Physics</span>
-  </button>
+          <button
+            className={`gamebtns ${
+              selectedType === "physics" ? "bg-[#FFF600]" : "bg-white"
+            }`}
+            onClick={() => {
+              if (selectedType === "physics") {
+                setSelectedType(null); // Deselect and navigate back to "/"
+              } else {
+                setSelectedType("physics"); // Select the button
+              }
+            }}
+          >
+            <img src={physics} alt="brain" className="gamebtnsimages" />
+            <span>Physics</span>
+          </button>
 
-  <button
-    className={`gamebtns ${
-      selectedType === "community" ? "bg-[#FFF600]" : "bg-white"
-    }`}
-    onClick={() => {
-      if (selectedType === "community") {
-        setSelectedType(null); // Deselect and navigate back to "/"
-      } else {
-        setSelectedType("community"); // Select the button
-      }
-    }}
-  >
-    <img src={community} alt="brain" className="gamebtnsimages" />
-    <span>Community</span>
-  </button>
-</div>
+          <button
+            className={`gamebtns ${
+              selectedType === "community" ? "bg-[#FFF600]" : "bg-white"
+            }`}
+            onClick={() => {
+              if (selectedType === "community") {
+                setSelectedType(null); // Deselect and navigate back to "/"
+              } else {
+                setSelectedType("community"); // Select the button
+              }
+            }}
+          >
+            <img src={community} alt="brain" className="gamebtnsimages" />
+            <span>Community</span>
+          </button>
+        </div>
         <div className="serchdiv">
           <div className="serchdiv2">
             <input
@@ -383,50 +383,55 @@ const HomePage = () => {
 
       {/* Pagination Buttons */}
       <div className="pagination">
-  {/* Render the "<" button to go back */}
-  <button
-    className="page-btn"
-    onClick={() => paginate(currentPage - 1)}
-    disabled={currentPage === 1}
-  >
-    &lt;
-  </button>
+        {/* Render the "<" button to go back */}
+        <button
+          className="page-btn"
+          onClick={() => paginate(currentPage - 1)}
+          disabled={currentPage === 1}
+        >
+          &lt;
+        </button>
 
-  {/* Render exactly 4 page buttons */}
-  {Array.from({ length: 4 }, (_, index) => {
-    // Calculate the starting page number dynamically
-    const startPage = Math.max(
-      1,
-      Math.min(
-        currentPage - 1, // Center the current page
-        Math.ceil(searchedGames.length / gamesPerPage) - 3 // Ensure we don't go out of bounds
-      )
-    );
-    const pageNumber = startPage + index;
+        {/* Render exactly 4 page buttons */}
+        {Array.from({ length: 4 }, (_, index) => {
+          // Calculate the starting page number dynamically
+          const startPage = Math.max(
+            1,
+            Math.min(
+              currentPage - 1, // Center the current page
+              Math.ceil(searchedGames.length / gamesPerPage) - 3 // Ensure we don't go out of bounds
+            )
+          );
+          const pageNumber = startPage + index;
 
-    // Don't render if the page number exceeds the total number of pages
-    if (pageNumber > Math.ceil(searchedGames.length / gamesPerPage)) return null;
+          // Don't render if the page number exceeds the total number of pages
+          if (pageNumber > Math.ceil(searchedGames.length / gamesPerPage))
+            return null;
 
-    return (
-      <button
-        key={pageNumber}
-        className={`page-btn ${currentPage === pageNumber ? "active" : ""}`}
-        onClick={() => paginate(pageNumber)}
-      >
-        {pageNumber}
-      </button>
-    );
-  })}
+          return (
+            <button
+              key={pageNumber}
+              className={`page-btn ${
+                currentPage === pageNumber ? "active" : ""
+              }`}
+              onClick={() => paginate(pageNumber)}
+            >
+              {pageNumber}
+            </button>
+          );
+        })}
 
-  {/* Render the ">" button to go forward */}
-  <button
-    className="page-btn"
-    onClick={() => paginate(currentPage + 1)}
-    disabled={currentPage >= Math.ceil(searchedGames.length / gamesPerPage)}
-  >
-    &gt;
-  </button>
-</div>
+        {/* Render the ">" button to go forward */}
+        <button
+          className="page-btn"
+          onClick={() => paginate(currentPage + 1)}
+          disabled={
+            currentPage >= Math.ceil(searchedGames.length / gamesPerPage)
+          }
+        >
+          &gt;
+        </button>
+      </div>
       <Footer />
     </>
   );
