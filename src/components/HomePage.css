@@ -500,17 +500,40 @@
   .spanclass {
     @apply absolute text-white text-xl font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300;
   }
-  .gametypesdiv{
+  /* .gametypesdiv{
     display: none;
+  } */
+  .gametypesdiv {
+    @apply flex justify-start space-x-3 mt-8 w-[95%] ml-[2.5%] mr-[2.5%];
+    overflow-x: auto; /* Enable horizontal scrolling */
+    overflow-y: hidden; /* Disable vertical scrolling */
+    white-space: nowrap; /* Prevent items from wrapping to the next line */
+    padding: 10px 7px; /* Add padding to prevent cutting off content */
+    scrollbar-width: none; /* Hide scrollbar for Firefox */
+  }
+  
+  .gametypesdiv::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Chrome, Safari, and Edge */
+  }
+  .gamebtns {
+    @apply pr-8 py-0 rounded-full flex items-center space-x-2 border-black border-[3px];
+    font-size: 25px;
+    font-family: "Jersey 10", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    box-shadow: 2px 2px 0px black;
   }
   .serchdiv{
+    display: none;
+  }
+  /* .serchdiv{
     position: relative;
     left: 50%;
     transform: translate(-50%);
   }
   .searchinput{
     width: 200px;
-  }
+  } */
   .homegamesectiontopic{
     display: none
     /* font-size: 80px;
