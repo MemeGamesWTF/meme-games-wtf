@@ -383,21 +383,50 @@ const HomePage = () => {
 
       {/* Pagination Buttons */}
       <div className="pagination">
-        {Array.from(
-          { length: Math.ceil(searchedGames.length / gamesPerPage) },
-          (_, index) => (
-            <button
-              key={index + 1}
-              className={`page-btn ${
-                currentPage === index + 1 ? "active" : ""
-              }`}
-              onClick={() => paginate(index + 1)}
-            >
-              {index + 1}
-            </button>
-          )
-        )}
-      </div>
+  {/* Render the "<" button to go back */}
+  <button
+    className="page-btn"
+    onClick={() => paginate(currentPage - 1)}
+    disabled={currentPage === 1}
+  >
+    &lt;
+  </button>
+
+  {/* Render exactly 4 page buttons */}
+  {Array.from({ length: 4 }, (_, index) => {
+    // Calculate the starting page number dynamically
+    const startPage = Math.max(
+      1,
+      Math.min(
+        currentPage - 1, // Center the current page
+        Math.ceil(searchedGames.length / gamesPerPage) - 3 // Ensure we don't go out of bounds
+      )
+    );
+    const pageNumber = startPage + index;
+
+    // Don't render if the page number exceeds the total number of pages
+    if (pageNumber > Math.ceil(searchedGames.length / gamesPerPage)) return null;
+
+    return (
+      <button
+        key={pageNumber}
+        className={`page-btn ${currentPage === pageNumber ? "active" : ""}`}
+        onClick={() => paginate(pageNumber)}
+      >
+        {pageNumber}
+      </button>
+    );
+  })}
+
+  {/* Render the ">" button to go forward */}
+  <button
+    className="page-btn"
+    onClick={() => paginate(currentPage + 1)}
+    disabled={currentPage >= Math.ceil(searchedGames.length / gamesPerPage)}
+  >
+    &gt;
+  </button>
+</div>
       <Footer />
     </>
   );
