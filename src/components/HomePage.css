@@ -7,7 +7,7 @@
   @apply pb-6;
 }
 
-.gametypesNsearch{
+.gametypesNsearch {
   @apply flex justify-between items-center;
 }
 
@@ -24,19 +24,19 @@
   box-shadow: 2px 2px 0px black;
 }
 
-.serchdiv{
+.serchdiv {
   @apply mr-10 mt-5;
   display: flex;
   align-items: center;
 }
 
-.serchdiv2{
+.serchdiv2 {
   @apply border-black border-[3px] rounded-full bg-white;
   box-shadow: 2px 2px 0px black;
   display: flex;
 }
 
-.searchinput{
+.searchinput {
   /* @apply px-4 py-2 border-[3px] border-black rounded-full focus:outline-none; */
   @apply px-4 py-0 flex items-center space-x-2 bg-transparent;
   font-size: 27px;
@@ -47,7 +47,7 @@
   /* box-shadow: 2px 2px 0px black; */
 }
 
-.searchinput:focus{
+.searchinput:focus {
   @apply outline-none;
 }
 
@@ -87,14 +87,11 @@
   transform: scale(1.05);
 }
 
-
-
-.gamebtnsimages{
+.gamebtnsimages {
   @apply h-6 mb-1;
 }
 
-.gamebtns:hover{
-
+.gamebtns:hover {
   transform: scale(1.05);
 }
 
@@ -110,16 +107,16 @@
   /* height: 130px; */
 }
 
-.homegamesectiontopic{
+.homegamesectiontopic {
   font-size: 100px;
   color: white;
 }
 
-.homegamecontainer{
+.homegamecontainer {
   @apply w-[95%] ml-[2.5%] mr-[2.5%];
 }
 
-.homegamecontainergrid{
+.homegamecontainergrid {
   @apply grid grid-cols-1 md:grid-cols-4 gap-8;
 }
 
@@ -161,13 +158,13 @@
   @apply text-sm text-black -mb-2 -mt-1;
 }
 
-.dotsnshare{
+.dotsnshare {
   display: flex;
   justify-content: space-between; /* Distribute dots and sharediv */
   align-items: center; /* Vertically align dots and share button */
 }
 
-.dots{
+.dots {
   @apply flex space-x-2 mb-2;
 }
 
@@ -252,8 +249,6 @@
   transition: opacity 0.2s ease-in-out;
   /* width: auto */
 }
-
-
 
 .main1 {
   @apply flex justify-center items-center;
@@ -376,7 +371,6 @@
   font-size: 25px;
 }
 
-
 @media screen and (max-width: 1280px) and (max-height: 800px) {
   .homegamesection {
     /* @apply flex justify-center items-center; */
@@ -389,8 +383,8 @@
     margin-top: 0px;
     /* height: 130px; */
   }
-  
-  .homegamesectiontopic{
+
+  .homegamesectiontopic {
     font-size: 100px;
     color: white;
   }
@@ -404,7 +398,7 @@
     box-shadow: 2px 2px 0px black;
   }
 
-  .gamebtnsimages{
+  .gamebtnsimages {
     @apply h-4 mb-1;
   }
 
@@ -412,7 +406,7 @@
     width: 200px;
   } */
 
-  .searchinput{
+  .searchinput {
     /* @apply px-4 py-2 border-[3px] border-black rounded-full focus:outline-none; */
     @apply px-4 py-1 flex items-center space-x-2 bg-transparent;
     font-size: 20px;
@@ -432,7 +426,7 @@
     cursor: pointer;
     /* padding: 5px; */
   }
-  
+
   .searchbtn i {
     font-size: 22px;
   }
@@ -440,12 +434,12 @@
   .card-title {
     @apply text-2xl font-normal text-black;
   }
-  
-  .homegamecontainer{
+
+  .homegamecontainer {
     @apply w-[95%] ml-[2.5%] mr-[2.5%];
   }
-  
-  .homegamecontainergrid{
+
+  .homegamecontainergrid {
     @apply grid grid-cols-1 md:grid-cols-4 gap-8;
   }
   /* .share-button {
@@ -465,17 +459,107 @@
     transition: all 0.2s ease;
     /* box-shadow: 7px 7px 0px black; */
   }
-  
+
   .share-button:hover {
     /* @apply bg-[#84f37a]; */
     transform: scale(1.05);
   }
 }
 
+@media screen and (max-width: 1241px) and (max-height: 800px) {
+  .homegamesection {
+    /* @apply flex justify-center items-center; */
+    font-family: "Jersey 10", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    width: 95%;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    margin-top: 0px;
+    /* height: 130px; */
+  }
 
+  .homegamesectiontopic {
+    font-size: 100px;
+    color: white;
+  }
 
+  .gamebtns {
+    @apply px-4 py-1 rounded-full flex items-center space-x-2 border-black border-[3px];
+    font-size: 14px;
+    font-family: "Jersey 10", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    box-shadow: 2px 2px 0px black;
+  }
 
+  .gamebtnsimages {
+    @apply h-3 mb-0;
+  }
 
+  /* .searchinput{
+    width: 200px;
+  } */
+
+  .searchinput {
+    /* @apply px-4 py-2 border-[3px] border-black rounded-full focus:outline-none; */
+    @apply px-4 py-1 flex items-center space-x-2 bg-transparent;
+    font-size: 14px;
+    font-family: "Jersey 10", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    width: 200px;
+    /* box-shadow: 2px 2px 0px black; */
+  }
+
+  .searchbtn {
+    @apply px-4 py-1 bg-transparent;
+    font-size: 14px;
+    font-family: "Jersey 10", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    cursor: pointer;
+    /* padding: 5px; */
+  }
+
+  .searchbtn i {
+    font-size: 16px;
+  }
+
+  .card-title {
+    @apply text-2xl font-normal text-black;
+  }
+
+  .homegamecontainer {
+    @apply w-[95%] ml-[2.5%] mr-[2.5%];
+  }
+
+  .homegamecontainergrid {
+    @apply grid grid-cols-1 md:grid-cols-4 gap-8;
+  }
+  /* .share-button {
+    @apply bg-[#15FF00] text-black font-normal py-0 px-5 -mt-4 ml-[180px] rounded-full shadow relative;
+    font-size: 20px;
+    border: 3px solid black;
+    transition: all 0.2s ease;
+    box-shadow: 7px 7px 0px black;
+  } */
+
+  .share-button {
+    /* @apply bg-[#15FF00] text-black font-normal py-0 px-5 -mt-4 ml-[210px] rounded-full shadow relative; */
+    @apply bg-[#15FF00] text-black font-normal py-0 px-5 mt-0 ml-[0px] rounded-full shadow relative bottom-3 right-0.5;
+    font-size: 26px;
+    /* border: 3px solid black; */
+    border: 2px solid black;
+    transition: all 0.2s ease;
+    /* box-shadow: 7px 7px 0px black; */
+  }
+
+  .share-button:hover {
+    /* @apply bg-[#84f37a]; */
+    transform: scale(1.05);
+  }
+}
 
 @media (max-width: 768px) {
   .homemain {
@@ -511,7 +595,7 @@
     padding: 10px 7px; /* Add padding to prevent cutting off content */
     scrollbar-width: none; /* Hide scrollbar for Firefox */
   }
-  
+
   .gametypesdiv::-webkit-scrollbar {
     display: none; /* Hide scrollbar for Chrome, Safari, and Edge */
   }
@@ -523,7 +607,7 @@
     font-style: normal;
     box-shadow: 2px 2px 0px black;
   }
-  .serchdiv{
+  .serchdiv {
     display: none;
   }
   /* .serchdiv{
@@ -534,12 +618,12 @@
   .searchinput{
     width: 200px;
   } */
-  .homegamesectiontopic{
-    display: none
+  .homegamesectiontopic {
+    display: none;
     /* font-size: 80px;
     @apply ml-3; */
   }
-  .homegamecontainer{
+  .homegamecontainer {
     @apply mt-10 w-[85%] ml-[7.5%] mr-[7.5%];
   }
   /* .share-button {
@@ -559,10 +643,9 @@
     transition: all 0.2s ease;
     /* box-shadow: 7px 7px 0px black; */
   }
-  
+
   .share-button:hover {
     /* @apply bg-[#84f37a]; */
     transform: scale(1.05);
   }
 }
-
