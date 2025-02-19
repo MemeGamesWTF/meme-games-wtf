@@ -40,7 +40,7 @@
 
 .atag2 {
   box-shadow: 7px 7px 0px black;
-  @apply absolute right-60 top-[88px] bg-white rounded-[10px] px-6 py-2 border-black border-[3px];
+  @apply absolute right-60 top-[80px] bg-white rounded-[10px] px-6 py-2 border-black border-[3px];
 }
 
 .atag2:hover {
@@ -51,7 +51,7 @@
 .atag2345 {
   box-shadow: 7px 7px 0px black;
   /* @apply absolute right-8 top-8 bg-[#00E5FF] rounded-md px-4 py-2; */
-  @apply absolute right-10 top-[88px] bg-[#00E5FF] rounded-[10px] px-6 py-2 border-black border-[3px];
+  @apply absolute right-10 top-[80px] bg-[#00E5FF] rounded-[10px] px-6 py-2 border-black border-[3px];
 }
 
 .atag2345:hover {
@@ -61,7 +61,7 @@
 
 .logoutdiv{
   box-shadow: 7px 7px 0px black;
-  @apply absolute right-[75px] top-[102px] bg-[#ffffff] rounded-md px-4 py-0;
+  @apply absolute right-[75px] top-[150px] bg-[#ffffff] rounded-md px-4 py-0;
 }
 
 .logoutdiv:hover{
