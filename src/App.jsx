@@ -12,6 +12,7 @@ import Game, { gameLoader } from "./components/Game";
 import "./index.css";
 import RootLayout from "./components/RootLayout";
 import GamrLeaderboard, { gameLeaderboardLoader } from "./components/GameLeaderBoard";
+import Comic, {comicsLoader} from "./components/Comic";
 
 
 const wireRouter = createBrowserRouter([
@@ -58,6 +59,12 @@ const wireRouter = createBrowserRouter([
         element: <GamrLeaderboard />,
         loader: gameLeaderboardLoader,
         // errorElement: <div>notfound</div>,
+      },
+      {
+        path: "/comic",
+        element: <Comic />,
+        loader: comicsLoader,
+        errorElement: <div>notfound</div>,
       },
     ]
   },
