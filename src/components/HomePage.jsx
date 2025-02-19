@@ -12,6 +12,7 @@ import trophy from "/assets/trophy.svg";
 import physics from "/assets/physics.svg";
 import community from "/assets/community.svg";
 import { supabase } from "../supabaseClient";
+import TransactionList from "./TransactionList"; // Import the new component
 
 export const STORAGE_KEYS = [
   "oauth_token",
@@ -169,6 +170,8 @@ const HomePage = () => {
 
   return (
     <>
+      {/* <TransactionList /> */}
+
       <div className="gametypesNsearch">
         <div className="gametypesdiv">
           <button
