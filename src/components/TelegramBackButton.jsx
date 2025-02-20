@@ -1,5 +1,6 @@
 import { useEffect } from "react";
-import  WebApp  from "@twa-dev/sdk";
+import WebApp from "@twa-dev/sdk";
+import { useNavigate } from "react-router-dom";
 
 const backButton = WebApp.BackButton;
 
@@ -7,7 +8,9 @@ let isButtonShown = false;
 
 const BackButton = ({
   onClick = () => {
-    window.history.back();
+    const navigate = useNavigate();
+    // window.history.back();
+    navigate(-1);
   },
 }) => {
   useEffect(() => {
@@ -15,8 +18,6 @@ const BackButton = ({
     isButtonShown = true;
     return () => {
       isButtonShown = false;
-      // Мы ждем 10мс на случай, если на следующем экране тоже нужен BackButton.
-      // Если через это время isButtonShown не стал true, значит следующему экрану кнопка не нужна и мы её прячем
       setTimeout(() => {
         if (!isButtonShown) {
           backButton.hide();
