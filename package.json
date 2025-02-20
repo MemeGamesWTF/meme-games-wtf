@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.47.10",
+    "@twa-dev/sdk": "^8.0.2",
     "axios": "^1.7.9",
     "helmet": "^8.0.0",
     "react": "^18.3.1",
