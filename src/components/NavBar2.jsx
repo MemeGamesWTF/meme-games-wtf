@@ -14,7 +14,7 @@ const X_LOGIN_ENABLED = import.meta.env.VITE_X_LOGIN_ENABLED
 
 export default function NavBar2({ screen_name, profile_image_url_https }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+  const isTelegramMiniApp = window.Telegram?.WebApp !== undefined;
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -174,19 +174,31 @@ export default function NavBar2({ screen_name, profile_image_url_https }) {
           <NavLink to="/comic">
             <li onClick={closeMenu}>📖 Comic</li>
           </NavLink>
-          <div className="moblogbtn">
+          <div
+            className="moblogbtn"
+            style={{ display: "block", margin: "10px 0" }}
+          >
             <NavLink
               className={`nav-item234567 ${screen_name ? "disabled" : ""}`}
+              // style={{
+              //   display: "flex",
+              //   alignItems: "center",
+              //   padding: "10px",
+              //   textDecoration: "none",
+              // }}
               activeClassName="active"
               exact
               onClick={(e) => {
                 if (X_LOGIN_ENABLED === "false") {
-                  e.preventDefault(); // Prevent navigation if disabled
+                  e.preventDefault();
+                  console.log("Login disabled");
                 } else {
                   if (screen_name) {
-                    e.preventDefault(); // Prevent navigation if already logged in
+                    e.preventDefault();
+                    console.log("Already logged in");
                   } else {
                     e.preventDefault();
+                    console.log("Attempting login");
                     window.location.href = `https://x-login.movindusenuraaluthge.workers.dev?envr=${
                       import.meta.env.PROD ? "PROD" : "DEV"
                     }`;
@@ -200,6 +212,7 @@ export default function NavBar2({ screen_name, profile_image_url_https }) {
               <img
                 src={profile_image_url_https ? profile_image_url_https : Xlogo}
                 className={profile_image_url_https ? "profile-circle" : "xlogo"}
+                style={{ marginLeft: "8px" }}
                 alt="xlogo"
                 loading="lazy"
               />
