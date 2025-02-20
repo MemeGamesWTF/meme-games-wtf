@@ -7,15 +7,6 @@ import Xlogo from "/assets/twitter3.svg";
 // import Xlogomob from "/assets/twitter4.svg";
 import { logoutAction } from "./HomePage";
 import TransactionList from "./TransactionList";
-import { useEffect } from "react";
-
-const [isTelegramMiniApp, setIsTelegramMiniApp] = useState(false);
-
-useEffect(() => {
-  if (window.Telegram?.WebApp) {
-    setIsTelegramMiniApp(true);
-  }
-}, []);
 
 const X_LOGIN_ENABLED = import.meta.env.VITE_X_LOGIN_ENABLED
   ? import.meta.env.VITE_X_LOGIN_ENABLED
@@ -183,20 +174,17 @@ export default function NavBar2({ screen_name, profile_image_url_https }) {
           <NavLink to="/comic">
             <li onClick={closeMenu}>📖 Comic</li>
           </NavLink>
-          <div
-            className="moblogbtn"
-            style={{ display: isTelegramMiniApp ? "none" : "block" }}
-          >
+          <div className="moblogbtn">
             <NavLink
               className={`nav-item234567 ${screen_name ? "disabled" : ""}`}
               activeClassName="active"
               exact
               onClick={(e) => {
                 if (X_LOGIN_ENABLED === "false") {
-                  e.preventDefault();
+                  e.preventDefault(); // Prevent navigation if disabled
                 } else {
                   if (screen_name) {
-                    e.preventDefault();
+                    e.preventDefault(); // Prevent navigation if already logged in
                   } else {
                     e.preventDefault();
                     window.location.href = `https://x-login.movindusenuraaluthge.workers.dev?envr=${
