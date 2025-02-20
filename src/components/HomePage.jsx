@@ -176,7 +176,7 @@ const HomePage = () => {
         <div className="gametypesdiv">
           <button
             className={`gamebtns ${
-              selectedType === "trending" ? "bg-[#FFF600]" : "bg-white"
+              selectedType === "trending" ? "bg-[#FFF600]" : "bg-red-700"
             }`}
             onClick={() => {
               if (selectedType === "trending") {
