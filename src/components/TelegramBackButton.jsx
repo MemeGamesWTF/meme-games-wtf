@@ -1,20 +1,24 @@
 import { useEffect } from "react";
+import  WebApp  from "@twa-dev/sdk";
 
-const backButton = window.Telegram?.WebApp?.BackButton;
+const backButton = WebApp.BackButton;
 
 let isButtonShown = false;
 
-export default function TelegramBackButton({ onClick = () => window.history.back() }) {
+const BackButton = ({
+  onClick = () => {
+    window.history.back();
+  },
+}) => {
   useEffect(() => {
-    if (backButton) {
-      backButton.show();
-      isButtonShown = true;
-    }
-
+    backButton.show();
+    isButtonShown = true;
     return () => {
       isButtonShown = false;
+      // Мы ждем 10мс на случай, если на следующем экране тоже нужен BackButton.
+      // Если через это время isButtonShown не стал true, значит следующему экрану кнопка не нужна и мы её прячем
       setTimeout(() => {
-        if (!isButtonShown && backButton) {
+        if (!isButtonShown) {
           backButton.hide();
         }
       }, 10);
@@ -22,15 +26,13 @@ export default function TelegramBackButton({ onClick = () => window.history.back
   }, []);
 
   useEffect(() => {
-    if (window.Telegram?.WebApp) {
-      window.Telegram.WebApp.onEvent("backButtonClicked", onClick);
-    }
+    WebApp.onEvent("backButtonClicked", onClick);
     return () => {
-      if (window.Telegram?.WebApp) {
-        window.Telegram.WebApp.offEvent("backButtonClicked", onClick);
-      }
+      WebApp.offEvent("backButtonClicked", onClick);
     };
   }, [onClick]);
 
   return null;
-}
+};
+
+export default BackButton;

@@ -67,7 +67,7 @@ export default function Game() {
 
   return (
     <div style={{ backgroundColor: "black" }}>
-      {isTelegramMiniApp && <BackButton />} {/* Show BackButton only in Telegram Mini App */}
+     <BackButton /> {/* Add the BackButton component */}  
       <iframe
         src={`${url}?random=${new Date().getTime()}`}
         title={gameName}
