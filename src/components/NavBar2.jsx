@@ -18,9 +18,16 @@ export default function NavBar2({ screen_name, profile_image_url_https }) {
 
   // Detect if the app is running in a Telegram environment
   useEffect(() => {
-    if (window.Telegram && window.Telegram.WebApp) {
-      setIsTelegramEnv(true);
-    }
+    // Check if the app is running inside Telegram
+    const isTelegram = () => {
+      try {
+        return window.Telegram && window.Telegram.WebApp && window.Telegram.WebApp.initData;
+      } catch (e) {
+        return false;
+      }
+    };
+
+    setIsTelegramEnv(isTelegram());
   }, []);
 
   const toggleMenu = () => {
