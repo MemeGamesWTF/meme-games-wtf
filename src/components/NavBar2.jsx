@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import "./NavBar2.css"; // Styles for the navbar and sliding menu
 import Logo from "/assets/logo5.webp";
@@ -14,6 +14,14 @@ const X_LOGIN_ENABLED = import.meta.env.VITE_X_LOGIN_ENABLED
 
 export default function NavBar2({ screen_name, profile_image_url_https }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isTelegramEnv, setIsTelegramEnv] = useState(false);
+
+  // Detect if the app is running in a Telegram environment
+  useEffect(() => {
+    if (window.Telegram && window.Telegram.WebApp) {
+      setIsTelegramEnv(true);
+    }
+  }, []);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -70,46 +78,49 @@ export default function NavBar2({ screen_name, profile_image_url_https }) {
                 </li>
               </ul>
             </div>
-            <div className="atag2345">
-              <div className="navright">
-                <NavLink
-                  className={`nav-item2345 ${screen_name ? "disabled" : ""}`}
-                  activeClassName="active"
-                  exact
-                  onClick={(e) => {
-                    if (X_LOGIN_ENABLED === "false") {
-                      e.preventDefault(); // Prevent navigation if disabled
-                    } else {
-                      if (screen_name) {
-                        e.preventDefault(); // Prevent navigation if logged in
+            {/* Conditionally render login button based on Telegram environment */}
+            {!isTelegramEnv && (
+              <div className="atag2345">
+                <div className="navright">
+                  <NavLink
+                    className={`nav-item2345 ${screen_name ? "disabled" : ""}`}
+                    activeClassName="active"
+                    exact
+                    onClick={(e) => {
+                      if (X_LOGIN_ENABLED === "false") {
+                        e.preventDefault(); // Prevent navigation if disabled
                       } else {
-                        e.preventDefault();
-                        window.location.href = `https://x-login.movindusenuraaluthge.workers.dev?envr=${
-                          import.meta.env.PROD ? "PROD" : "DEV"
-                        }`;
+                        if (screen_name) {
+                          e.preventDefault(); // Prevent navigation if logged in
+                        } else {
+                          e.preventDefault();
+                          window.location.href = `https://x-login.movindusenuraaluthge.workers.dev?envr=${
+                            import.meta.env.PROD ? "PROD" : "DEV"
+                          }`;
+                        }
                       }
-                    }
-                  }}
-                >
-                  {screen_name?.length > 7
-                    ? `${screen_name.slice(0, 7)}...`
-                    : screen_name || "Login With"}
+                    }}
+                  >
+                    {screen_name?.length > 7
+                      ? `${screen_name.slice(0, 7)}...`
+                      : screen_name || "Login With"}
 
-                  <img
-                    src={
-                      profile_image_url_https ? profile_image_url_https : Xlogo
-                    }
-                    className={
-                      profile_image_url_https ? "profile-circle" : "xlogo"
-                    }
-                    alt="xlogo"
-                    loading="lazy"
-                  />
-                </NavLink>
+                    <img
+                      src={
+                        profile_image_url_https ? profile_image_url_https : Xlogo
+                      }
+                      className={
+                        profile_image_url_https ? "profile-circle" : "xlogo"
+                      }
+                      alt="xlogo"
+                      loading="lazy"
+                    />
+                  </NavLink>
+                </div>
               </div>
-            </div>
+            )}
 
-            {screen_name ? (
+            {screen_name && !isTelegramEnv ? (
               <div className="logoutdiv">
                 <div className="navright">
                   <NavLink
@@ -148,10 +159,6 @@ export default function NavBar2({ screen_name, profile_image_url_https }) {
 
         {/* Horizontal Line */}
         <div className="sliding-menu-divider"></div>
-        {/* Close Button */}
-        {/* <button className="close-button" onClick={closeMenu}>
-          &times;
-        </button> */}
 
         {/* Menu Items */}
         <ul>
@@ -174,38 +181,41 @@ export default function NavBar2({ screen_name, profile_image_url_https }) {
           <NavLink to="/comic">
             <li onClick={closeMenu}>📖 Comic</li>
           </NavLink>
-          <div className="moblogbtn">
-            <NavLink
-              className={`nav-item234567 ${screen_name ? "disabled" : ""}`}
-              activeClassName="active"
-              exact
-              onClick={(e) => {
-                if (X_LOGIN_ENABLED === "false") {
-                  e.preventDefault(); // Prevent navigation if disabled
-                } else {
-                  if (screen_name) {
-                    e.preventDefault(); // Prevent navigation if already logged in
+          {/* Conditionally render login button in mobile menu based on Telegram environment */}
+          {!isTelegramEnv && (
+            <div className="moblogbtn">
+              <NavLink
+                className={`nav-item234567 ${screen_name ? "disabled" : ""}`}
+                activeClassName="active"
+                exact
+                onClick={(e) => {
+                  if (X_LOGIN_ENABLED === "false") {
+                    e.preventDefault(); // Prevent navigation if disabled
                   } else {
-                    e.preventDefault();
-                    window.location.href = `https://x-login.movindusenuraaluthge.workers.dev?envr=${
-                      import.meta.env.PROD ? "PROD" : "DEV"
-                    }`;
+                    if (screen_name) {
+                      e.preventDefault(); // Prevent navigation if already logged in
+                    } else {
+                      e.preventDefault();
+                      window.location.href = `https://x-login.movindusenuraaluthge.workers.dev?envr=${
+                        import.meta.env.PROD ? "PROD" : "DEV"
+                      }`;
+                    }
                   }
-                }
-              }}
-            >
-              {screen_name?.length > 7
-                ? `${screen_name.slice(0, 7)}...`
-                : screen_name || "Login With"}
-              <img
-                src={profile_image_url_https ? profile_image_url_https : Xlogo}
-                className={profile_image_url_https ? "profile-circle" : "xlogo"}
-                alt="xlogo"
-                loading="lazy"
-              />
-            </NavLink>
-          </div>
-          {screen_name ? (
+                }}
+              >
+                {screen_name?.length > 7
+                  ? `${screen_name.slice(0, 7)}...`
+                  : screen_name || "Login With"}
+                <img
+                  src={profile_image_url_https ? profile_image_url_https : Xlogo}
+                  className={profile_image_url_https ? "profile-circle" : "xlogo"}
+                  alt="xlogo"
+                  loading="lazy"
+                />
+              </NavLink>
+            </div>
+          )}
+          {screen_name && !isTelegramEnv ? (
             <div className="logoutdiv2">
               <div className="navright">
                 <NavLink
