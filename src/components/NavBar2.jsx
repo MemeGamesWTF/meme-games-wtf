@@ -275,8 +275,8 @@ export default function NavBar2({ screen_name, profile_image_url_https }) {
 
           {/* Conditionally render Telegram username or login button in mobile menu */}
           {isTelegramEnv ? (
-            <div className="moblogbtn">
-              <div className="nav-item234567">
+            <div className="moblogbtntele">
+              <div className="nav-item234567tele">
                 {telegramUsername || "Telegram User"}
               </div>
             </div>
