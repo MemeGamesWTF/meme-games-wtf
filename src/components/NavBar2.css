@@ -322,7 +322,7 @@ vertical-align: middle; /* Keeps image aligned with the text baseline */
     .nav-item234567 {
       text-decoration: none;
       color: black;
-      font-size: 28px;
+      font-size: 26px;
       text-align: center;
   
       /* New styles added */
@@ -339,11 +339,28 @@ vertical-align: middle; /* Keeps image aligned with the text baseline */
 
   .moblogbtn{
     box-shadow: 7px 7px 0px black;
-    @apply absolute bottom-20 left-16 bg-[#00E5FF] px-4 py-1 rounded-md;
+    @apply absolute bottom-20 left-1/2 transform -translate-x-1/2 bg-[#00E5FF] px-4 py-1 rounded-md;
   }
 
   .logoutdiv2{
     box-shadow: 7px 7px 0px black;
     @apply absolute bottom-6 left-24 bg-[#ffffff] rounded-md px-4 py-0;
   }
+
+  .moblogbtntele{
+    box-shadow: 7px 7px 0px black;
+    @apply absolute bottom-20 left-1/2 transform -translate-x-1/2 bg-[#00E5FF] px-4 py-1 rounded-md;
+  }
+
+  .nav-item234567tele {
+    text-decoration: none;
+    color: black;
+    font-size: 26px;
+    text-align: center;
+
+    /* New styles added */
+    display: inline-flex; /* Aligns text and image inline */
+    align-items: center;  /* Vertically aligns text and image */
+    gap: 8px;             /* Adds spacing between text and image */
+}
 }
