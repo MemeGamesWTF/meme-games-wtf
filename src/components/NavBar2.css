@@ -357,7 +357,6 @@ vertical-align: middle; /* Keeps image aligned with the text baseline */
     color: black;
     font-size: 26px;
     text-align: center;
-
     /* New styles added */
     display: inline-flex; /* Aligns text and image inline */
     align-items: center;  /* Vertically aligns text and image */
