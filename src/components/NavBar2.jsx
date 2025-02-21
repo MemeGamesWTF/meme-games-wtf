@@ -107,12 +107,12 @@ export default function NavBar2({ screen_name, profile_image_url_https }) {
             {/* Conditionally render Telegram username or login button */}
             {isTelegramEnv ? (
               <div className="atag2345tele">
-                <div className="navrighttele">
-                  <div className="nav-item2345tele">
-                    {telegramUsername || "Telegram User"}
-                  </div>
+              <div className="navrighttele">
+                <div className="nav-item2345tele">
+                  {telegramUsername ? (telegramUsername.length > 7 ? `${telegramUsername.slice(0, 7)}...` : telegramUsername) : "Telegram User"}
                 </div>
               </div>
+            </div>
             ) : (
               !isTelegramEnv && (
                 <div className="atag2345">
