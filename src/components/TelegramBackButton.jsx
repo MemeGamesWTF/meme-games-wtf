@@ -6,16 +6,17 @@ const backButton = WebApp.BackButton;
 
 let isButtonShown = false;
 
-const BackButton = ({
-  onClick = () => {
-    const navigate = useNavigate();
-    // window.history.back();
+const BackButton = () => {
+  const navigate = useNavigate();
+
+  const handleBackClick = () => {
     navigate(-1);
-  },
-}) => {
+  };
+
   useEffect(() => {
     backButton.show();
     isButtonShown = true;
+
     return () => {
       isButtonShown = false;
       setTimeout(() => {
@@ -27,11 +28,11 @@ const BackButton = ({
   }, []);
 
   useEffect(() => {
-    WebApp.onEvent("backButtonClicked", onClick);
+    WebApp.onEvent("backButtonClicked", handleBackClick);
     return () => {
-      WebApp.offEvent("backButtonClicked", onClick);
+      WebApp.offEvent("backButtonClicked", handleBackClick);
     };
-  }, [onClick]);
+  }, [handleBackClick]);
 
   return null;
 };
