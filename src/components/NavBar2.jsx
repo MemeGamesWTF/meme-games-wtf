@@ -7,6 +7,12 @@ import Xlogo from "/assets/twitter3.svg";
 // import Xlogomob from "/assets/twitter4.svg";
 import { logoutAction } from "./HomePage";
 import TransactionList from "./TransactionList";
+import GamesImg from "/assets/mbgames.svg";
+import AbtUsImg from "/assets/community.svg";
+import HTBImg from "/assets/mbthink.svg";
+import RMImg from "/assets/mbroad.svg";
+import LBImg from "/assets/trophy.svg";
+import ComicsImg from "/assets/mbbook.svg";
 
 const X_LOGIN_ENABLED = import.meta.env.VITE_X_LOGIN_ENABLED
   ? import.meta.env.VITE_X_LOGIN_ENABLED
@@ -21,7 +27,11 @@ export default function NavBar2({ screen_name, profile_image_url_https }) {
     // Check if the app is running inside Telegram
     const isTelegram = () => {
       try {
-        return window.Telegram && window.Telegram.WebApp && window.Telegram.WebApp.initData;
+        return (
+          window.Telegram &&
+          window.Telegram.WebApp &&
+          window.Telegram.WebApp.initData
+        );
       } catch (e) {
         return false;
       }
@@ -114,7 +124,9 @@ export default function NavBar2({ screen_name, profile_image_url_https }) {
 
                     <img
                       src={
-                        profile_image_url_https ? profile_image_url_https : Xlogo
+                        profile_image_url_https
+                          ? profile_image_url_https
+                          : Xlogo
                       }
                       className={
                         profile_image_url_https ? "profile-circle" : "xlogo"
@@ -170,24 +182,78 @@ export default function NavBar2({ screen_name, profile_image_url_https }) {
         {/* Menu Items */}
         <ul>
           <NavLink to="/">
-            {" "}
-            <li onClick={closeMenu}>🕹 Games</li>
+            <li onClick={closeMenu}>
+              <img
+                src={GamesImg}
+                alt="Games Icon"
+                width="30"
+                height="30"
+                className="inline-block mr-2 mb-2"
+              />
+              Games
+            </li>
           </NavLink>
           <NavLink to="/about">
-            <li onClick={closeMenu}>😎 About Us</li>
+            <li onClick={closeMenu}>
+              <img
+                src={AbtUsImg}
+                alt="About Icon"
+                width="30"
+                height="30"
+                className="inline-block mr-2 mb-1"
+              />
+              About Us
+            </li>
           </NavLink>
           <NavLink to="/howtobuy">
-            <li onClick={closeMenu}>🤔 How to Buy</li>
+            <li onClick={closeMenu}>
+              <img
+                src={HTBImg}
+                alt="How to Buy Icon"
+                width="30"
+                height="30"
+                className="inline-block mr-2 mb-1"
+              />
+              How to Buy
+            </li>
           </NavLink>
           <NavLink to="/roadmap2">
-            <li onClick={closeMenu}>🛣 Roadmap</li>
+            <li onClick={closeMenu}>
+              <img
+                src={RMImg}
+                alt="Roadmap Icon"
+                width="30"
+                height="30"
+                className="inline-block mr-2 mb-1"
+              />
+              Roadmap
+            </li>
           </NavLink>
           <NavLink to="/leaderboard">
-            <li onClick={closeMenu}>🏆 Leaderboard</li>
+            <li onClick={closeMenu}>
+              <img
+                src={LBImg}
+                alt="Leaderboard Icon"
+                width="30"
+                height="30"
+                className="inline-block mr-2 mb-1"
+              />
+              Leaderboard
+            </li>
           </NavLink>
           <NavLink to="/comic">
-            <li onClick={closeMenu}>📖 Comic</li>
+            <li onClick={closeMenu}>
+              <img
+                src={ComicsImg}
+                alt="Comic Icon"
+                width="30"
+                height="30"
+                className="inline-block mr-2 mb-1"
+              />
+              Comic
+            </li>
           </NavLink>
+
           {/* Conditionally render login button in mobile menu based on Telegram environment */}
           {!isTelegramEnv && (
             <div className="moblogbtn">
@@ -214,8 +280,12 @@ export default function NavBar2({ screen_name, profile_image_url_https }) {
                   ? `${screen_name.slice(0, 7)}...`
                   : screen_name || "Login With"}
                 <img
-                  src={profile_image_url_https ? profile_image_url_https : Xlogo}
-                  className={profile_image_url_https ? "profile-circle" : "xlogo"}
+                  src={
+                    profile_image_url_https ? profile_image_url_https : Xlogo
+                  }
+                  className={
+                    profile_image_url_https ? "profile-circle" : "xlogo"
+                  }
                   alt="xlogo"
                   loading="lazy"
                 />
