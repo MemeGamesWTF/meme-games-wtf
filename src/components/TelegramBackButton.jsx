@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import WebApp from "@twa-dev/sdk";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const backButton = WebApp.BackButton;
 
@@ -8,14 +8,9 @@ let isButtonShown = false;
 
 const BackButton = () => {
   const navigate = useNavigate();
-  const location = useLocation();
 
   const handleBackClick = () => {
-    if (location.state?.from) {
-      navigate(location.state.from, { replace: true });
-    } else {
-      navigate("/", { replace: true }); // Fallback route
-    }
+    navigate(-1);
   };
 
   useEffect(() => {
