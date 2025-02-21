@@ -62,7 +62,7 @@
 .atag2345tele {
   box-shadow: 7px 7px 0px black;
   /* @apply absolute right-8 top-8 bg-[#00E5FF] rounded-md px-4 py-2; */
-  @apply absolute right-10 top-[80px] bg-[#00E5FF] rounded-[10px] px-14 py-2 border-black border-[3px];
+  @apply absolute right-10 top-[80px] bg-[#00E5FF] rounded-[10px] px-11 py-2 border-black border-[3px];
 }
 
 .atag2345tele:hover {
