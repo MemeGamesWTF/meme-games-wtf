@@ -59,6 +59,17 @@
   transform: scale(1.05);
 }
 
+.atag2345tele {
+  box-shadow: 7px 7px 0px black;
+  /* @apply absolute right-8 top-8 bg-[#00E5FF] rounded-md px-4 py-2; */
+  @apply absolute right-10 top-[80px] bg-[#00E5FF] rounded-[10px] px-14 py-2 border-black border-[3px];
+}
+
+.atag2345tele:hover {
+  /* @apply bg-[#84f37a]; */
+  transform: scale(1.05);
+}
+
 .logoutdiv{
   box-shadow: 7px 7px 0px black;
   @apply absolute right-[75px] top-[150px] bg-[#ffffff] rounded-md px-4 py-0;
@@ -74,6 +85,13 @@
 }
 
 .navright {
+  @apply flex gap-x-6 justify-center align-middle;
+  font-family: "Jersey 10", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.navrighttele {
   @apply flex gap-x-6 justify-center align-middle;
   font-family: "Jersey 10", sans-serif;
   font-weight: 500;
@@ -102,6 +120,18 @@
 } */
 
 .nav-item2345 {
+  text-decoration: none;
+  color: black;
+  font-size: 25px;
+  text-align: center;
+
+  /* New styles added */
+  display: inline-flex; /* Aligns text and image inline */
+  align-items: center;  /* Vertically aligns text and image */
+  gap: 8px;             /* Adds spacing between text and image */
+}
+
+.nav-item2345tele {
   text-decoration: none;
   color: black;
   font-size: 25px;
