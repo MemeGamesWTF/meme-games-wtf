@@ -142,6 +142,10 @@
 .htbfooter{
   display: block;
 }
+.htbfootertele{
+  display: block;
+  margin-top: 300px;
+}
 
   .howtobuymain {
     background-image: none;
