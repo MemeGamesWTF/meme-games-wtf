@@ -6,6 +6,7 @@ import Footer from "./Footer2";
 export default function HowToBuy() {
   const [isTelegramEnv, setIsTelegramEnv] = useState(false);
   const [telegramUsername, setTelegramUsername] = useState("");
+  const [telegramPlatform, setTelegramPlatform] = useState("");
 
   // Detect if the app is running in a Telegram environment
   useEffect(() => {
@@ -36,6 +37,11 @@ export default function HowToBuy() {
         setTelegramUsername(user.username);
         console.log("Telegram username:", user.username);
       }
+
+      // Get the platform (desktop, mobile, or web)
+      const platform = window.Telegram.WebApp.platform;
+      setTelegramPlatform(platform);
+      console.log("Telegram platform:", platform);
     } else {
       console.log("Not running in Telegram environment");
     }
@@ -157,16 +163,24 @@ export default function HowToBuy() {
           </div>
         </div>
       </div>
+
+      {/* Conditional Footer Rendering */}
       {isTelegramEnv ? (
-        <div className="htbfootertele">
-          <Footer />
-        </div>
-      ) : (
-        !isTelegramEnv && (
-          <div className="htbfooter">
+        telegramPlatform === "tdesktop" ? (
+          <div className="htbfooterteledesktop">
             <Footer />
+            {/* <p>This is Telegram Desktop</p> */}
+          </div>
+        ) : (
+          <div className="htbfootertelemobile">
+            <Footer />
+            {/* <p>This is Telegram Mobile</p> */}
           </div>
         )
+      ) : (
+        <div className="htbfooter">
+          <Footer />
+        </div>
       )}
     </>
   );

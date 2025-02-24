@@ -142,9 +142,13 @@
 .htbfooter{
   display: block;
 }
-.htbfootertele{
+.htbfooterteledesktop{
   display: block;
-  margin-top: 300px;
+  margin-top: 350px;
+}
+.htbfootertelemobile{
+  display: block;
+  /* margin-top: 350px; */
 }
 
   .howtobuymain {
