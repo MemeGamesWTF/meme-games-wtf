@@ -116,6 +116,8 @@
   }
 
   .abtfooter{
+    position: relative;
+    margin-top: 120px;
     display: block;
   }
   /* .aboutus-container {
