@@ -3,7 +3,7 @@ import "./AboutUs.css";
 import Footer from "./Footer2";
 
 export default function AboutUs() {
-  const isTelegramEnv = window.Telegram?.WebApp?.initData !== undefined;
+  const isTelegramEnv = window.Telegram?.WebApp?.initData == undefined;
 
   return (
     <>
@@ -15,11 +15,11 @@ export default function AboutUs() {
           <h1 className="abt6">About Us!</h1>
           <div className="abt5">
             <p className="abt7">
-              Welcome to our world! 🎮✨ We're not just a game dev studio—we're a
-              wild mix of Millennials and Gen Z hardcore gamers who've been
-              leveling up in the industry for the past six years. Stuck in the box
-              for too long, we decided it's time to break free and do something
-              epic.
+              Welcome to our world! 🎮✨ We're not just a game dev studio—we're
+              a wild mix of Millennials and Gen Z hardcore gamers who've been
+              leveling up in the industry for the past six years. Stuck in the
+              box for too long, we decided it's time to break free and do
+              something epic.
             </p>
             <p className="abt7">
               Fueled by an “itch-you-can't-scratch” kind of idea (and a sprinkle
@@ -28,13 +28,14 @@ export default function AboutUs() {
               mechanics, maximum fun—that's our vibe!
             </p>
             <p className="abt7">
-              Our mission? To create quick bursts of joy, make people smile (even
-              if just for a few seconds), and grow alongside the community.
+              Our mission? To create quick bursts of joy, make people smile
+              (even if just for a few seconds), and grow alongside the
+              community.
             </p>
             <p className="abt7">
               But wait, there's more! We're not just about the games—we're
-              building an entire ecosystem. As gamers and developers ourselves, we
-              take this opportunity seriously (like, super seriously). Let's
+              building an entire ecosystem. As gamers and developers ourselves,
+              we take this opportunity seriously (like, super seriously). Let's
               change the game together! 🚀
             </p>
             <p className="abt7">
@@ -46,12 +47,12 @@ export default function AboutUs() {
       </div>
 
       {isTelegramEnv ? (
-        <div className="abtfooter">
+        <div className="abtfootertele">
           <Footer />
         </div>
       ) : (
         !isTelegramEnv && (
-          <div className="abtfootertele">
+          <div className="abtfooter">
             <Footer />
           </div>
         )
