@@ -1,9 +1,35 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./AboutUs.css";
 import Footer from "./Footer2";
 
 export default function AboutUs() {
-  const isTelegramEnv = window.Telegram?.WebApp?.initData == undefined;
+  const [isTelegramEnv, setIsTelegramEnv] = useState(false);
+
+  // Detect if the app is running in a Telegram environment
+    useEffect(() => {
+      // Check if the app is running inside Telegram
+      const isTelegram = () => {
+        try {
+          return (
+            window.Telegram &&
+            window.Telegram.WebApp &&
+            window.Telegram.WebApp.initData
+          );
+        } catch (e) {
+          return false;
+        }
+      };
+  
+      if (isTelegram()) {
+        setIsTelegramEnv(true);
+        // Extract Telegram username from initData
+        const initData = new URLSearchParams(window.Telegram.WebApp.initData);
+        const user = JSON.parse(initData.get("user"));
+        if (user && user.username) {
+          setTelegramUsername(user.username);
+        }
+      }
+    }, []);
 
   return (
     <>

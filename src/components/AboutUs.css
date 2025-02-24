@@ -115,14 +115,17 @@
     display: none;
   }
 
-  .abtfootertele{
-    display: block;
-    margin-top: 200px;
-    background-color: red;
-  }
-  .abtfooter{
-    display: block;
-  }
+  /* Styles for Telegram environment */
+.abtfootertele {
+  display: block;
+  margin-top: 200px;
+  background-color: red;
+}
+
+/* Styles for non-Telegram environment */
+.abtfooter {
+  display: block;
+}
   /* .aboutus-container {
     background-image: url("/assets/mobileabout.webp");
     background-size: cover;
