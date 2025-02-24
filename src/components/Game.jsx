@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { redirect, useLoaderData, useNavigate, useParams } from "react-router-dom";
 import { supabase } from "../supabaseClient";
 import { STORAGE_KEYS } from "./HomePage";
-import BackButton from "./TelegramBackButton"; // Import the BackButton component
 
 export default function Game() {
   const gameName = useParams().gameName;
@@ -11,8 +10,6 @@ export default function Game() {
 
   console.log({ gameData });
   const url = gameData?.url;
-
-  const isTelegramMiniApp = window.Telegram?.WebApp !== undefined;
 
   useEffect(() => {
     if (!url) {
@@ -31,34 +28,28 @@ export default function Game() {
         // Verify message origin for security
         if (!event.origin.includes(new URL(url).origin)) return;
 
-        if (event.data.type === "SEND_SCORE") {
+        if (event.data.type === 'SEND_SCORE') {
           const { score, game } = event.data;
           const user_id = localStorage.getItem("user_id");
           const name = localStorage.getItem("name");
-        
+
           try {
             if (user_id && name) {
               const { error } = await supabase
-                .from("scores")
-                .insert({ 
-                  score, 
-                  user_id, 
-                  name, 
-                  game,
-                  telegram: isTelegramMiniApp // Add this line
-                });
-        
+                .from('scores')
+                .insert({ score, user_id, name, game });
+
               if (error) throw error;
-              console.log("Score successfully inserted from iframe");
+              console.log('Score successfully inserted from iframe');
             }
           } catch (error) {
-            console.error("Error sending score:", error);
+            console.error('Error sending score:', error);
           }
         }
       };
 
-      window.addEventListener("message", handleMessage);
-      return () => window.removeEventListener("message", handleMessage);
+      window.addEventListener('message', handleMessage);
+      return () => window.removeEventListener('message', handleMessage);
     }
   }, [url, navigate]);
 
@@ -73,7 +64,7 @@ export default function Game() {
 
   return (
     <div style={{ backgroundColor: "black" }}>
-     <BackButton /> {/* Add the BackButton component */}  
+
       <iframe
         src={`${url}?random=${new Date().getTime()}`}
         title={gameName}
@@ -101,7 +92,7 @@ export const gameLoader = async ({ params, request }) => {
       user_id: storageData.user_id,
       game_name: gameName,
       screen_name: storageData.screen_name,
-    };
+    }
 
     supabase
       .from("memegames")
@@ -115,7 +106,7 @@ export const gameLoader = async ({ params, request }) => {
   }
 
   supabase
-    .rpc("increment", { x: 1, row_id: game.data[0].id })
+    .rpc('increment', { x: 1, row_id: game.data[0].id })
     .then((response) => {
       console.log("Game plays updated", { response });
     })
