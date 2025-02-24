@@ -4,7 +4,7 @@ import Footer from "./Footer2";
 
 export default function AboutUs() {
   const [isTelegramEnv, setIsTelegramEnv] = useState(false);
-  const [telegramUsername, setTelegramUsername] = useState("");
+  const [telegramPlatform, setTelegramPlatform] = useState("");
 
   // Detect if the app is running in a Telegram environment
   useEffect(() => {
@@ -25,16 +25,10 @@ export default function AboutUs() {
       console.log("Running in Telegram environment");
       setIsTelegramEnv(true);
 
-      // Extract Telegram username from initData
-      const initData = new URLSearchParams(window.Telegram.WebApp.initData);
-      const user = JSON.parse(initData.get("user"));
-      console.log("initData:", initData);
-      console.log("User:", user);
-
-      if (user && user.username) {
-        setTelegramUsername(user.username);
-        console.log("Telegram username:", user.username);
-      }
+      // Get the platform (desktop, mobile, or web)
+      const platform = window.Telegram.WebApp.platform;
+      setTelegramPlatform(platform);
+      console.log("Telegram platform:", platform);
     } else {
       console.log("Not running in Telegram environment");
     }
@@ -82,15 +76,21 @@ export default function AboutUs() {
       </div>
 
       {isTelegramEnv ? (
-        <div className="abtfootertele">
-          <Footer />
-        </div>
-      ) : (
-        !isTelegramEnv && (
-          <div className="abtfooter">
+        telegramPlatform === "tdesktop" ? (
+          <div className="htbfooterteledesktop">
             <Footer />
+            {/* <p>This is Telegram Desktop</p> */}
+          </div>
+        ) : (
+          <div className="htbfootertelemobile">
+            <Footer />
+            {/* <p>This is Telegram Mobile</p> */}
           </div>
         )
+      ) : (
+        <div className="htbfooter">
+          <Footer />
+        </div>
       )}
     </>
   );

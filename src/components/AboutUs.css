@@ -116,9 +116,14 @@
   }
 
   /* Styles for Telegram environment */
-.abtfootertele {
+.htbfootertelemobile {
   display: block;
-  margin-top: 200px;
+  /* margin-top: 250px; */
+  /* background-color: red; */
+}
+.htbfooterteledesktop {
+  display: block;
+  margin-top: 250px;
   /* background-color: red; */
 }
 
