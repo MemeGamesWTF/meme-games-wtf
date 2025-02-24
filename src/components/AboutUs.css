@@ -118,8 +118,8 @@
   /* Styles for Telegram environment */
 .abtfootertele {
   display: block;
-  margin-top: 250px;
-  background-color: red;
+  margin-top: 160px;
+  /* background-color: red; */
 }
 
 /* Styles for non-Telegram environment */
