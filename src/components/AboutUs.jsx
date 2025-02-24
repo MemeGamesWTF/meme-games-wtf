@@ -3,7 +3,7 @@ import "./AboutUs.css";
 import Footer from "./Footer2";
 
 export default function AboutUs() {
-  const isTelegramEnv = window.Telegram?.WebApp?.initData == undefined;
+  const isTelegramEnv = window.Telegram?.WebApp?.initData !== undefined;
 
   return (
     <>
@@ -46,12 +46,12 @@ export default function AboutUs() {
       </div>
 
       {isTelegramEnv ? (
-        <div className="abtfootertele">
+        <div className="abtfooter">
           <Footer />
         </div>
       ) : (
         !isTelegramEnv && (
-          <div className="abtfooter">
+          <div className="abtfootertele">
             <Footer />
           </div>
         )
