@@ -4,32 +4,41 @@ import Footer from "./Footer2";
 
 export default function AboutUs() {
   const [isTelegramEnv, setIsTelegramEnv] = useState(false);
+  const [telegramUsername, setTelegramUsername] = useState("");
 
   // Detect if the app is running in a Telegram environment
-    useEffect(() => {
-      // Check if the app is running inside Telegram
-      const isTelegram = () => {
-        try {
-          return (
-            window.Telegram &&
-            window.Telegram.WebApp &&
-            window.Telegram.WebApp.initData
-          );
-        } catch (e) {
-          return false;
-        }
-      };
-  
-      if (isTelegram()) {
-        setIsTelegramEnv(true);
-        // Extract Telegram username from initData
-        const initData = new URLSearchParams(window.Telegram.WebApp.initData);
-        const user = JSON.parse(initData.get("user"));
-        if (user && user.username) {
-          setTelegramUsername(user.username);
-        }
+  useEffect(() => {
+    const isTelegram = () => {
+      try {
+        return (
+          window.Telegram &&
+          window.Telegram.WebApp &&
+          window.Telegram.WebApp.initData
+        );
+      } catch (e) {
+        console.error("Error checking Telegram environment:", e);
+        return false;
       }
-    }, []);
+    };
+
+    if (isTelegram()) {
+      console.log("Running in Telegram environment");
+      setIsTelegramEnv(true);
+
+      // Extract Telegram username from initData
+      const initData = new URLSearchParams(window.Telegram.WebApp.initData);
+      const user = JSON.parse(initData.get("user"));
+      console.log("initData:", initData);
+      console.log("User:", user);
+
+      if (user && user.username) {
+        setTelegramUsername(user.username);
+        console.log("Telegram username:", user.username);
+      }
+    } else {
+      console.log("Not running in Telegram environment");
+    }
+  }, []);
 
   return (
     <>
