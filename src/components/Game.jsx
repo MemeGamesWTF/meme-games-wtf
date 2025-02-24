@@ -1,5 +1,10 @@
 import React, { useEffect } from "react";
-import { redirect, useLoaderData, useNavigate, useParams } from "react-router-dom";
+import {
+  redirect,
+  useLoaderData,
+  useNavigate,
+  useParams,
+} from "react-router-dom";
 import { supabase } from "../supabaseClient";
 import { STORAGE_KEYS } from "./HomePage";
 import BackButton from "./TelegramBackButton"; // Import the BackButton component
@@ -35,23 +40,22 @@ export default function Game() {
           const { score, game } = event.data;
           const user_id = localStorage.getItem("user_id");
           const name = localStorage.getItem("name");
-        
+
           try {
             if (user_id && name) {
-              const { error } = await supabase
-                .from("scores")
-                .insert({ 
-                  score, 
-                  user_id, 
-                  name, 
-                  game,
-                  telegram: isTelegramMiniApp // Add this line
-                });
-        
+              const { error } = await supabase.from("scores").insert({
+                score,
+                user_id,
+                name,
+                game,
+                telegram: isTelegramMiniApp, // Add this line
+              });
+
               if (error) throw error;
               console.log("Score successfully inserted from iframe");
             }
           } catch (error) {
+            alert("Error sending score. Please try again later.");
             console.error("Error sending score:", error);
           }
         }
@@ -73,7 +77,7 @@ export default function Game() {
 
   return (
     <div style={{ backgroundColor: "black" }}>
-     <BackButton /> {/* Add the BackButton component */}  
+      <BackButton /> {/* Add the BackButton component */}
       <iframe
         src={`${url}?random=${new Date().getTime()}`}
         title={gameName}
