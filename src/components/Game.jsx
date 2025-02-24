@@ -35,13 +35,19 @@ export default function Game() {
           const { score, game } = event.data;
           const user_id = localStorage.getItem("user_id");
           const name = localStorage.getItem("name");
-
+        
           try {
             if (user_id && name) {
               const { error } = await supabase
                 .from("scores")
-                .insert({ score, user_id, name, game });
-
+                .insert({ 
+                  score, 
+                  user_id, 
+                  name, 
+                  game,
+                  telegram: isTelegramMiniApp // Add this line
+                });
+        
               if (error) throw error;
               console.log("Score successfully inserted from iframe");
             }
