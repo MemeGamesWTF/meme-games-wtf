@@ -3,7 +3,6 @@ import { redirect, useLoaderData, useNavigate, useParams } from "react-router-do
 import { supabase } from "../supabaseClient";
 import { STORAGE_KEYS } from "./HomePage";
 
-
 export default function Game() {
   const gameName = useParams().gameName;
   const navigate = useNavigate();
