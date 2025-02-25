@@ -38,26 +38,9 @@ export default function Game() {
 
           try {
             if (user_id && name) {
-              const scoreData = {
-                score,
-                user_id,
-                name,
-                game,
-                telegram: isTelegramMiniApp, // Set telegram to true if it's a Telegram Mini App
-              };
-
-              // Add Telegram user ID and name if it's a Telegram Mini App
-              if (isTelegramMiniApp) {
-                const telegramUser = window.Telegram.WebApp.initDataUnsafe.user;
-                if (telegramUser) {
-                  scoreData.telegram_id = telegramUser.id;
-                  scoreData.telegram_name = `${telegramUser.first_name} ${telegramUser.last_name}`;
-                }
-              }
-
               const { error } = await supabase
                 .from("scores")
-                .insert(scoreData);
+                .insert({ score, user_id, name, game });
 
               if (error) throw error;
               console.log("Score successfully inserted from iframe");
@@ -71,7 +54,7 @@ export default function Game() {
       window.addEventListener("message", handleMessage);
       return () => window.removeEventListener("message", handleMessage);
     }
-  }, [url, navigate, isTelegramMiniApp]);
+  }, [url, navigate]);
 
   if (!url) {
     return (
@@ -84,7 +67,7 @@ export default function Game() {
 
   return (
     <div style={{ backgroundColor: "black" }}>
-      <BackButton /> {/* Add the BackButton component */}
+     <BackButton /> {/* Add the BackButton component */}  
       <iframe
         src={`${url}?random=${new Date().getTime()}`}
         title={gameName}
