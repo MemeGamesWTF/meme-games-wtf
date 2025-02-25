@@ -48,7 +48,7 @@ export default function Game() {
           let name = localStorage.getItem("name");
           console.log({
             WebApp,
-            isActive: WebApp.isActive(),
+            isActive: WebApp.isActive,
             user: WebApp.initDataUnsafe(),
           });
           try {
