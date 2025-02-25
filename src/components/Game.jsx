@@ -38,30 +38,26 @@ export default function Game() {
 
           try {
             if (user_id && name) {
-              // Fetch Telegram user data if it's a Telegram Mini App
-              let telegram_id = null;
-              let telegram_name = null;
+              const scoreData = {
+                score,
+                user_id,
+                name,
+                game,
+                telegram: isTelegramMiniApp, // Set telegram to true if it's a Telegram Mini App
+              };
 
+              // Add Telegram user ID and name if it's a Telegram Mini App
               if (isTelegramMiniApp) {
                 const telegramUser = window.Telegram.WebApp.initDataUnsafe.user;
                 if (telegramUser) {
-                  telegram_id = telegramUser.id;
-                  telegram_name = `${telegramUser.first_name} ${telegramUser.last_name}`;
+                  scoreData.telegram_id = telegramUser.id;
+                  scoreData.telegram_name = `${telegramUser.first_name} ${telegramUser.last_name}`;
                 }
               }
 
-              // Insert score into the database
               const { error } = await supabase
                 .from("scores")
-                .insert({
-                  score,
-                  user_id,
-                  name,
-                  game,
-                  telegram: isTelegramMiniApp, // Set telegram to true if it's a Telegram Mini App
-                  telegram_id, // Add Telegram user ID if available
-                  telegram_name, // Add Telegram user name if available
-                });
+                .insert(scoreData);
 
               if (error) throw error;
               console.log("Score successfully inserted from iframe");
