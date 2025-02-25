@@ -178,7 +178,7 @@ export const gameLeaderboardLoader = async ({ params }) => {
       .from("scores")
       .select("name, score, game")
       .eq("game", gameId)
-      // .eq("telegram", isTelegram)
+      .eq("telegram", isTelegram)
       .or(`name.neq.${null},name.neq.''`)
       .order("score", { ascending: false })
       .limit(10)
