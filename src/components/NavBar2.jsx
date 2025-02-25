@@ -107,18 +107,24 @@ export default function NavBar2({ screen_name, profile_image_url_https }) {
             {/* Conditionally render Telegram username or login button */}
             {isTelegramEnv ? (
               <div className="atag2345tele">
-              <div className="navrighttele">
-                <div className="nav-item2345tele">
-                  {telegramUsername ? (telegramUsername.length > 7 ? `${telegramUsername.slice(0, 7)}...` : telegramUsername) : "Telegram User"}
+                <div className="navrighttele">
+                  <div className="nav-item2345tele">
+                    {telegramUsername
+                      ? telegramUsername.length > 7
+                        ? `${telegramUsername.slice(0, 7)}...`
+                        : telegramUsername
+                      : "Telegram User"}
+                  </div>
                 </div>
               </div>
-            </div>
             ) : (
               !isTelegramEnv && (
                 <div className="atag2345">
                   <div className="navright">
                     <NavLink
-                      className={`nav-item2345 ${screen_name ? "disabled" : ""}`}
+                      className={`nav-item2345 ${
+                        screen_name ? "disabled" : ""
+                      }`}
                       activeClassName="active"
                       exact
                       onClick={(e) => {
@@ -307,9 +313,7 @@ export default function NavBar2({ screen_name, profile_image_url_https }) {
                     : screen_name || "Login With"}
                   <img
                     src={
-                      profile_image_url_https
-                        ? profile_image_url_https
-                        : Xlogo
+                      profile_image_url_https ? profile_image_url_https : Xlogo
                     }
                     className={
                       profile_image_url_https ? "profile-circle" : "xlogo"
