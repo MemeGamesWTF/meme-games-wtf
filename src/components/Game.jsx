@@ -49,7 +49,7 @@ export default function Game() {
           console.log({
             WebApp,
             isActive: WebApp.isActive,
-            user: WebApp.initDataUnsafe(),
+            user: WebApp.initDataUnsafe,
           });
           try {
             if (user_id && name) {
