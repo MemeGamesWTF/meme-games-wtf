@@ -9,6 +9,7 @@ import { supabase } from "../supabaseClient";
 import { STORAGE_KEYS } from "./HomePage";
 // import BackButton from "./TelegramBackButton"; // Import the BackButton component
 import { BackButton } from "@twa-dev/sdk/react";
+import WebApp from "@twa-dev/sdk";
 
 export default function Game() {
   const gameName = useParams().gameName;
@@ -43,9 +44,9 @@ export default function Game() {
 
         if (event.data.type === "SEND_SCORE") {
           const { score, game } = event.data;
-          const user_id = localStorage.getItem("user_id");
-          const name = localStorage.getItem("name");
-
+          let user_id = localStorage.getItem("user_id");
+          let name = localStorage.getItem("name");
+          console.log({ WebApp });
           try {
             if (user_id && name) {
               const { error } = await supabase
