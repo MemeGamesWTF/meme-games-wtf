@@ -46,7 +46,11 @@ export default function Game() {
           const { score, game } = event.data;
           let user_id = localStorage.getItem("user_id");
           let name = localStorage.getItem("name");
-          console.log({ WebApp });
+          console.log({
+            WebApp,
+            isActive: WebApp.isActive(),
+            user: WebApp.initDataUnsafe(),
+          });
           try {
             if (user_id && name) {
               const { error } = await supabase
