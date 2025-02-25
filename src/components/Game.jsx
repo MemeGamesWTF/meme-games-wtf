@@ -97,7 +97,9 @@ export default function Game() {
   return (
     <div style={{ backgroundColor: "black" }}>
       {/* <BackButton /> Add the BackButton component */}
-      <BackButton onClick={goBack} />
+      {WebApp.isActive && WebApp.initDataUnsafe.user && (
+        <BackButton onClick={goBack} />
+      )}
       <iframe
         src={`${url}?random=${new Date().getTime()}`}
         title={gameName}
@@ -126,6 +128,13 @@ export const gameLoader = async ({ params, request }) => {
       game_name: gameName,
       screen_name: storageData.screen_name,
     };
+    if (WebApp.isActive && WebApp.initDataUnsafe.user) {
+      gamePlayData.telegram = true;
+      gamePlayData.user_id = WebApp.initDataUnsafe.user.id;
+      gamePlayData.screen_name =
+        WebApp.initDataUnsafe.user.username ||
+        WebApp.initDataUnsafe.user.first_name;
+    }
 
     supabase
       .from("memegames")
