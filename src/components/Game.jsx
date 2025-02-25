@@ -1,8 +1,14 @@
 import React, { useEffect } from "react";
-import { redirect, useLoaderData, useNavigate, useParams } from "react-router-dom";
+import {
+  redirect,
+  useLoaderData,
+  useNavigate,
+  useParams,
+} from "react-router-dom";
 import { supabase } from "../supabaseClient";
 import { STORAGE_KEYS } from "./HomePage";
-import BackButton from "./TelegramBackButton"; // Import the BackButton component
+// import BackButton from "./TelegramBackButton"; // Import the BackButton component
+import { BackButton } from "@twa-dev/sdk/react";
 
 export default function Game() {
   const gameName = useParams().gameName;
@@ -12,7 +18,11 @@ export default function Game() {
   console.log({ gameData });
   const url = gameData?.url;
 
-  const isTelegramMiniApp = window.Telegram?.WebApp !== undefined;
+  const goBack = () => {
+    navigate(-1);
+  };
+
+  // const isTelegramMiniApp = window.Telegram?.WebApp !== undefined;
 
   useEffect(() => {
     if (!url) {
@@ -67,7 +77,8 @@ export default function Game() {
 
   return (
     <div style={{ backgroundColor: "black" }}>
-     <BackButton /> {/* Add the BackButton component */}  
+      {/* <BackButton /> Add the BackButton component */}
+      <BackButton onClick={goBack} />
       <iframe
         src={`${url}?random=${new Date().getTime()}`}
         title={gameName}
