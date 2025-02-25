@@ -44,13 +44,13 @@ export default function Game() {
 
         if (event.data.type === "SEND_SCORE") {
           const { score, game } = event.data;
-          let user_id = localStorage.getItem("user_id");
-          let name = localStorage.getItem("name");
-          console.log({
-            WebApp,
-            isActive: WebApp.isActive,
-            user: WebApp.initDataUnsafe,
-          });
+          const user_id = localStorage.getItem("user_id");
+          const name = localStorage.getItem("name");
+          // console.log({
+          //   WebApp,
+          //   isActive: WebApp.isActive,
+          //   user: WebApp.initDataUnsafe,
+          // });
           try {
             if (user_id && name) {
               const { error } = await supabase
@@ -59,6 +59,20 @@ export default function Game() {
 
               if (error) throw error;
               console.log("Score successfully inserted from iframe");
+            } else if (WebApp.isActive && WebApp.initDataUnsafe) {
+              // this is fucking unsafe!!!!!
+              const { error } = await supabase.from("scores").insert({
+                score,
+                user_id: WebApp.initDataUnsafe.user.id,
+                name:
+                  WebApp.initDataUnsafe.user.username ||
+                  WebApp.initDataUnsafe.user.first_name,
+                game,
+                telegram: true,
+              });
+
+              if (error) throw error;
+              console.log("Score successfully inserted telegram from iframe");
             }
           } catch (error) {
             console.error("Error sending score:", error);
