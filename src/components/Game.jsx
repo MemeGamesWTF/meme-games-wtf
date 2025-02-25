@@ -59,6 +59,20 @@ export default function Game() {
 
               if (error) throw error;
               console.log("Score successfully inserted from iframe");
+            } else if (WebApp.isActive && WebApp.initDataUnsafe) {
+              // this is fucking unsafe!!!!!
+              const { error } = await supabase.from("scores").insert({
+                score,
+                user_id: WebApp.initDataUnsafe.user.id,
+                name:
+                  WebApp.initDataUnsafe.user.username ||
+                  WebApp.initDataUnsafe.user.first_name,
+                game,
+                telegram: true,
+              });
+
+              if (error) throw error;
+              console.log("Score successfully inserted telegram from iframe");
             }
           } catch (error) {
             console.error("Error sending score:", error);
