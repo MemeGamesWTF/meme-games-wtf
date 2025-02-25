@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import WebApp from "@twa-dev/sdk";
+import { MainButton } from "@twa-dev/sdk/react";
 import { useNavigate } from "react-router-dom";
 
 const backButton = WebApp.BackButton;
