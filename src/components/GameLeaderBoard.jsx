@@ -10,6 +10,7 @@ import fire from "/assets/fire.svg";
 import heart from "/assets/heart.svg";
 import laugh from "/assets/laugh.svg";
 import gameconsoler from "/assets/console.svg";
+import WebApp from "@twa-dev/sdk";
 
 const getK = (val) =>
   new Intl.NumberFormat("en", { notation: "compact" }).format(val || 0);
@@ -159,7 +160,6 @@ export default function Leaderboard() {
             </div>
           </>
         )}
-        
       </div>
       <div className="lbfooter">
         <Footer />
@@ -171,12 +171,14 @@ export default function Leaderboard() {
 export const gameLeaderboardLoader = async ({ params }) => {
   try {
     const { gameId, gameName } = params;
-
+    const isTelegram =
+      WebApp.isActive && WebApp.initDataUnsafe.user ? true : false;
     // Fetch leaderboard data
     const { data: leaderboard, error } = await supabase
       .from("scores")
       .select("name, score, game")
       .eq("game", gameId)
+      // .eq("telegram", isTelegram)
       .or(`name.neq.${null},name.neq.''`)
       .order("score", { ascending: false })
       .limit(10)
