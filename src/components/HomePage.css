@@ -7,6 +7,24 @@
   @apply pb-6;
 }
 
+/* .specialLogo{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 80px;
+  height: 80px;
+} */
+
+.featuring-icon {
+  position: absolute;
+  margin-left: 49px;
+  height: 55px;
+  width: 55px;
+  display: inline-block;
+  /* @apply py-0 px-5 mt-0 ml-[0px] rounded-full shadow bottom-3 right-0.5; */
+  /* vertical-align: middle; */
+}
+
 .gametypesNsearch {
   @apply flex justify-between items-center;
 }
