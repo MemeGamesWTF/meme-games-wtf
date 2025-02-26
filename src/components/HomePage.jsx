@@ -32,6 +32,10 @@ const getK = (val) =>
 const LoadingImage = ({ game }) => {
   const [isLoading, setIsLoading] = useState(true);
 
+  // Define the specific game that should have the special logo
+  // const specialGameId = 71;
+  // const specialLogo = "/assets/featuredIcon.svg";
+
   return (
     <Link
       to={game.url === null ? "" : `/game/${game.name}`}
@@ -50,6 +54,33 @@ const LoadingImage = ({ game }) => {
           loading="lazy"
           onLoad={() => setIsLoading(false)}
         />
+
+        {/* Only display the featured image if game.featuring is true */}
+        {/* {game.featuring && (
+          <img
+            src="/assets/featuredIcon.svg"
+            alt="Featured Game"
+            className="specialLogo"
+          />
+        )} */}
+
+        {/* Display the featured image if it exists */}
+        {/* {game.image && (
+          <img
+            src={game.image}
+            alt="Featured Game"
+            className="specialLogo"
+          />
+        )} */}
+
+        {/* Render the special logo if the game matches the condition */}
+        {/* {game.id === specialGameId && (
+          <img
+            src={specialLogo}
+            alt="Special Logo"
+            className="specialLogo"
+          />
+        )} */}
         <img src={game.icon} alt="icon" className="game-icon" />
       </div>
     </Link>
@@ -298,7 +329,17 @@ const HomePage = () => {
               <div className="card">
                 <LoadingImage game={game} />
                 <div className="card-body">
-                  <h2 className="card-title">{`[${game.name}]`}</h2>
+                  <h2 className="card-title">
+                    {`[${game.name}]`}
+                    {/* Add featuring icon next to the title */}
+                    {/* {game.featuring && (
+                      <img
+                        src="/assets/featuredIcon.svg"
+                        alt="Featured Game"
+                        className="featuring-icon"
+                      />
+                    )} */}
+                  </h2>
                   <p className="card-text">{getK(game.played)} Times Played</p>
                   <div className="dotsnshare">
                     <div className="dots">
@@ -455,8 +496,29 @@ export const gamesLoader = async () => {
     ),
   ]);
 
+  // Sort games so that featuring games come first
+  const sortedGames = games?.data.sort((a, b) => {
+    if (a.featuring && !b.featuring) {
+      return -1; // a comes first
+    } else if (!a.featuring && b.featuring) {
+      return 1; // b comes first
+    } else {
+      // If both have the same featuring status, sort by created_at
+      return new Date(b.created_at) - new Date(a.created_at);
+    }
+  });
+
+  // Add a featured image to all featured games
+  if (sortedGames && sortedGames.length > 0) {
+    sortedGames.forEach((game) => {
+      if (game.featuring) {
+        game.image = "/assets/featuredIcon.svg";
+      }
+    });
+  }
+
   return {
-    gamesData: games?.data,
+    gamesData: sortedGames,
     ...storageData,
   };
 };
