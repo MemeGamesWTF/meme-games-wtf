@@ -317,7 +317,7 @@ const HomePage = () => {
           <div className="serchdiv2">
             <input
               type="text"
-              placeholder="Search.."
+              placeholder="Search..."
               name="search"
               className="searchinput"
               value={searchQuery}
@@ -338,7 +338,7 @@ const HomePage = () => {
         <div className="homegamecontainergrid">
           {currentGames.map((game) => (
             <div className="card00" key={game.name}>
-              <div className="card">
+              <div className={`card ${game.featuring ? 'featured' : ''}`}>
                 <LoadingImage game={game} />
                 <div className="card-body">
                   <h2 className="card-title">

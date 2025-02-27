@@ -7,6 +7,24 @@
   @apply pb-6;
 }
 
+/* For featured games */
+.card.featured {
+  @apply border-4 border-[#000000];
+  background: linear-gradient(45deg, #FFD700, #FFCC00, #DAA520, #B8860B, #FFD700);
+  box-shadow: 7px 7px 0px #000000;
+}
+
+/* Or if you prefer the exact styling from the image */
+/* .card.featured {
+  border: 3px solid #FFD700;
+  box-shadow: 7px 7px 0px rgba(255, 215, 0, 0.5);
+} */
+
+/* .card {
+  @apply bg-white shadow-lg rounded-lg overflow-hidden border-4 border-black;
+  box-shadow: 7px 7px 0px black;
+} */
+
 /* .specialLogo{
   position: absolute;
   top: 10px;
