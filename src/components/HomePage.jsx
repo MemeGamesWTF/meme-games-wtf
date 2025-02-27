@@ -117,9 +117,21 @@ const HomePage = () => {
       : gamesData;
 
   // Apply search query to the filtered games
-  const searchedGames = filteredGames.filter((game) =>
-    game.name.toLowerCase().startsWith(searchQuery.toLowerCase())
-  );
+
+  // const searchedGames = filteredGames.filter((game) =>
+  //   game.name.toLowerCase().startsWith(searchQuery.toLowerCase())
+  // );
+
+  const searchedGames = filteredGames.filter((game) => {
+    const gameName = game.name.toLowerCase();
+    const query = searchQuery.toLowerCase();
+
+    // Split the game name into words
+    const words = gameName.split(" ");
+
+    // Check if any word starts with the search query
+    return words.some((word) => word.startsWith(query));
+  });
 
   // Pagination logic
   const indexOfLastGame = currentPage * gamesPerPage;
