@@ -58,7 +58,7 @@ const LoadingImage = ({ game }) => {
         {/* Only display the featured image if game.featuring is true */}
         {/* {game.featuring && (
           <img
-            src="/assets/featuredIcon.svg"
+            src="/assets/featurednew.svg"
             alt="Featured Game"
             className="specialLogo"
           />
@@ -496,11 +496,15 @@ const HomePage = () => {
 export default HomePage;
 
 export const gamesLoader = async () => {
+
+  const now = new Date().toISOString();
+
   const [games, storageData] = await Promise.all([
     supabase
       .from("games")
       .select("*")
       .eq("enabled", true)
+      .lte("enable_at", now)
       .order("created_at", { ascending: false }),
 
     Object.fromEntries(
@@ -524,7 +528,7 @@ export const gamesLoader = async () => {
   if (sortedGames && sortedGames.length > 0) {
     sortedGames.forEach((game) => {
       if (game.featuring) {
-        game.image = "/assets/featuredIcon.svg";
+        game.image = "/assets/featurednew.svg";
       }
     });
   }
