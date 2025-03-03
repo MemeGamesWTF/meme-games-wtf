@@ -35,19 +35,19 @@ const RootLayout = () => {
 
 export default RootLayout;
 
-export const gamesLoader = async () => {
-  const [games, storageData] = await Promise.all([
-    supabase.from("games").select("*").eq("enabled", true).order("created_at", { ascending: false }),
-    Object.fromEntries(
-      STORAGE_KEYS.map((key) => [key, localStorage.getItem(key)])
-    ),
-  ]);
+// export const gamesLoader = async () => {
+//   const [games, storageData] = await Promise.all([
+//     supabase.from("games").select("*").eq("enabled", true).order("created_at", { ascending: false }),
+//     Object.fromEntries(
+//       STORAGE_KEYS.map((key) => [key, localStorage.getItem(key)])
+//     ),
+//   ]);
 
-  return {
-    gamesData: games?.data,
-    ...storageData,
-  };
-};
+//   return {
+//     gamesData: games?.data,
+//     ...storageData,
+//   };
+// };
 
 export const userLoader = async () => {
   const storageData = await Object.fromEntries(
