@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useLoaderData } from "react-router-dom";
 import Footer from "./Footer2";
 import "./Comic.css";
@@ -13,6 +13,10 @@ const Comic = () => {
   const indexOfLastComic = currentPage * comicsPerPage;
   const indexOfFirstComic = indexOfLastComic - comicsPerPage;
   const currentComic = comicsData.slice(indexOfFirstComic, indexOfLastComic)[0]; // Get only one comic
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [comicsData]);
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
@@ -42,20 +46,21 @@ const Comic = () => {
         >
           &lt;
         </button>
-        {Array.from(
-          { length: Math.ceil(comicsData.length / comicsPerPage) },
-          (_, index) => (
+        {Array.from({ length: 4 }, (_, index) => {
+          const totalPages = Math.ceil(comicsData.length / comicsPerPage);
+          const startPage = Math.max(1, Math.min(currentPage - 1, totalPages - 3));
+          const pageNumber = startPage + index;
+          if (pageNumber > totalPages) return null;
+          return (
             <button
-              key={index + 1}
-              className={`page-btn ${
-                currentPage === index + 1 ? "active" : ""
-              }`}
-              onClick={() => paginate(index + 1)}
+              key={pageNumber}
+              className={`page-btn ${currentPage === pageNumber ? "active" : ""}`}
+              onClick={() => paginate(pageNumber)}
             >
-              {index + 1}
+              {pageNumber}
             </button>
-          )
-        )}
+          );
+        })}
         <button
           className="page-btn"
           onClick={() => paginate(currentPage + 1)}
