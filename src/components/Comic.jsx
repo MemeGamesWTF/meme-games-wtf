@@ -9,28 +9,62 @@ const Comic = () => {
   const [comicsData, setComicsData] = useState(initialComicsData);
   const [currentPage, setCurrentPage] = useState(1);
   const comicsPerPage = 1; // Show one comic per page
-
+  
   const indexOfLastComic = currentPage * comicsPerPage;
   const indexOfFirstComic = indexOfLastComic - comicsPerPage;
   const currentComic = comicsData.slice(indexOfFirstComic, indexOfLastComic)[0]; // Get only one comic
-
+  
+  // State to determine which image to show
+  const [showSecondImage, setShowSecondImage] = useState(false);
+  
   useEffect(() => {
     setCurrentPage(1);
   }, [comicsData]);
-
+  
+  // Effect to check if the current time is past the enable_at time
+  useEffect(() => {
+    if (!currentComic) return;
+    
+    const checkEnableTime = () => {
+      const now = new Date();
+      const enableAt = new Date(currentComic.enable_at);
+      
+      if (now >= enableAt) {
+        setShowSecondImage(true);
+      } else {
+        setShowSecondImage(false);
+        
+        // If not enabled yet, set a timeout to check again at the enable time
+        // const timeUntilEnable = enableAt - now;
+        // if (timeUntilEnable > 0 && timeUntilEnable < 2147483647) {
+        //   const timer = setTimeout(() => {
+        //     setShowSecondImage(true);
+        //   }, timeUntilEnable);
+          
+        //   return () => clearTimeout(timer);
+        // }
+      }
+    };
+    
+    // Check immediately when the component mounts or when the comic changes
+    checkEnableTime();
+    
+    // Also set an interval to periodically check (every minute)
+    const intervalId = setInterval(checkEnableTime, 60000);
+    
+    return () => clearInterval(intervalId);
+  }, [currentComic]);
+  
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
-
+  
   return (
     <>
       <div className="comicmain">
-        {/* <div className="c0">
-          <h2 className="comicbigtopic">Comic</h2>
-        </div> */}
         <div className="c1">
           {currentComic && (
             <div key={currentComic.id} className="comic-card">
               <img
-                src={currentComic.comic_image}
+                src={showSecondImage ? currentComic.comic_image2 : currentComic.comic_image}
                 alt={currentComic.title}
                 className="comic-image"
               />
@@ -83,6 +117,6 @@ export const comicsLoader = async () => {
     .from("comics")
     .select("*")
     .order("id", { ascending: true });
-
+  
   return { comicsData: comics };
 };
