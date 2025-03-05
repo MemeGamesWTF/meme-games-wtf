@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, useLoaderData, useRevalidator } from "react-router-dom";
 import "./GameLeaderBoard.css";
 import gold from "/assets/gold.svg";
 import silver from "/assets/silver.svg";
@@ -57,10 +57,21 @@ const Item = ({ rank, name, score }) => {
 };
 
 export default function Leaderboard() {
-  const { leaderboard, gameName, gameImage, gameDescription, gameData } =
-    useLoaderData();
-  const [gamesData, setGamesData] = useState(gameData);
-  const [description, setDescription] = useState("");
+  const {
+    leaderboard,
+    gameName,
+    gameImage,
+    gameDescription,
+    gameData: gamesData,
+  } = useLoaderData();
+  // const [gamesData, setGamesData] = useState(gameData);
+  // const [description, setDescription] = useState("");
+  const revalidator = useRevalidator();
+
+  // const callback = () => revalidator.revalidate();
+  useEffect(() => {
+    revalidator.revalidate();
+  }, [revalidator, leaderboard]);
 
   return (
     <>
@@ -174,15 +185,24 @@ export const gameLeaderboardLoader = async ({ params }) => {
     const isTelegram =
       WebApp.isActive && WebApp.initDataUnsafe.user ? true : false;
     // Fetch leaderboard data
-    const { data: leaderboard, error } = await supabase
-      .from("scores")
-      .select("name, score, game")
-      .eq("game", gameId)
-      .eq("telegram", isTelegram)
-      .or(`name.neq.${null},name.neq.''`)
-      .order("score", { ascending: false })
-      .limit(10)
-      .not("name", "eq", null);
+    // const { data: leaderboard, error } = await supabase
+    //   .from("scores")
+    //   .select("name, score, game", { distinct: true })
+    //   .eq("game", gameId)
+    //   .eq("telegram", isTelegram)
+    //   .or(`name.neq.${null},name.neq.''`)
+    //   .order("score", { ascending: false })
+    //   .limit(10)
+    //   .not("name", "eq", null);
+    const { data: leaderboard, error } = await supabase.rpc(
+      "get_top_scores_new",
+      {
+        game_id: gameId,
+        val: isTelegram,
+      }
+    );
+
+    console.log("leaderboard", leaderboard);
 
     if (error) {
       console.error("Database error:", error);
