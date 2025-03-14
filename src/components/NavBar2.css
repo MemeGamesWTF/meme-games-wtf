@@ -383,7 +383,7 @@ vertical-align: middle; /* Keeps image aligned with the text baseline */
 
   .logoutdiv2{
     box-shadow: 7px 7px 0px black;
-    @apply absolute bottom-6 left-24 bg-[#ffffff] rounded-md px-4 py-0;
+    @apply absolute bottom-6 left-[105px] bg-[#ffffff] rounded-md px-4 py-0;
   }
 
   .moblogbtntele{
