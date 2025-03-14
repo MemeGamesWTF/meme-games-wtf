@@ -13,6 +13,10 @@
   @apply flex justify-start items-start w-auto; /* Center align the logo */
 }
 
+.new{
+  @apply flex absolute right-10 top-[80px];
+}
+
 .atag1 {
   @apply h-40 w-40 bg-no-repeat bg-contain; /* Style the logo */
 }
@@ -37,10 +41,15 @@
   }
 }
 
+.PWdiv{
+  /* @apply absolute right-60 top-[80px]; */
+  @apply mr-9;
+}
+
 
 .atag2 {
   box-shadow: 7px 7px 0px black;
-  @apply absolute right-60 top-[80px] bg-white rounded-[10px] px-6 py-2 border-black border-[3px];
+  @apply mr-9 bg-white rounded-[10px] px-6 py-2 border-black border-[3px];
 }
 
 .atag2:hover {
@@ -51,7 +60,7 @@
 .atag2345 {
   box-shadow: 7px 7px 0px black;
   /* @apply absolute right-8 top-8 bg-[#00E5FF] rounded-md px-4 py-2; */
-  @apply absolute right-10 top-[80px] bg-[#00E5FF] rounded-[10px] px-6 py-2 border-black border-[3px];
+  @apply bg-[#00E5FF] rounded-[10px] px-6 py-2 border-black border-[3px];
 }
 
 .atag2345:hover {
@@ -72,7 +81,7 @@
 
 .logoutdiv{
   box-shadow: 7px 7px 0px black;
-  @apply absolute right-[75px] top-[150px] bg-[#ffffff] rounded-md px-4 py-0;
+  @apply absolute right-[35px] top-[70px] bg-[#ffffff] rounded-md px-4 py-0;
 }
 
 .logoutdiv:hover{

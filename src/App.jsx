@@ -13,6 +13,7 @@ import "./index.css";
 import RootLayout from "./components/RootLayout";
 import GamrLeaderboard, { gameLeaderboardLoader } from "./components/GameLeaderBoard";
 import Comic, {comicsLoader} from "./components/Comic";
+import PhantomWallet from "./components/PhantomWallet";
 
 
 const wireRouter = createBrowserRouter([
@@ -79,6 +80,11 @@ const wireRouter = createBrowserRouter([
     loader: gameLoader,
     errorElement: <div>notfound</div>,
   },
+  // {
+  //   path: "/phantom",
+  //   element: <PhantomWallet />,
+  //   errorElement: <div>notfound</div>,
+  // },
   // {
   //   path: "*",
   //   element: <div>notfound</div>,
