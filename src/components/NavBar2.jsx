@@ -13,6 +13,7 @@ import HTBImg from "/assets/mbthink.svg";
 import RMImg from "/assets/mbroad.svg";
 import LBImg from "/assets/trophy.svg";
 import ComicsImg from "/assets/mbbook.svg";
+import PhantomWallet from "./PhantomWallet";
 
 const X_LOGIN_ENABLED = import.meta.env.VITE_X_LOGIN_ENABLED
   ? import.meta.env.VITE_X_LOGIN_ENABLED
@@ -70,6 +71,10 @@ export default function NavBar2({ screen_name, profile_image_url_https }) {
               className="atag1 scale-effect"
               style={{ backgroundImage: `url(${Logo})` }}
             ></Link>
+            {/* <div className="PWdiv">
+                <PhantomWallet />
+              </div> */}
+              <div className="new">
             <div className="atag2">
               <ul className="navright">
                 <li>
@@ -104,6 +109,11 @@ export default function NavBar2({ screen_name, profile_image_url_https }) {
                 </li>
               </ul>
             </div>
+            {screen_name ? (
+              <div className="PWdiv">
+                <PhantomWallet />
+              </div>
+            ) : null}
             {/* Conditionally render Telegram username or login button */}
             {isTelegramEnv ? (
               <div className="atag2345tele">
@@ -181,6 +191,7 @@ export default function NavBar2({ screen_name, profile_image_url_https }) {
                 </div>
               </div>
             ) : null}
+          </div>
           </div>
         </nav>
       </div>
