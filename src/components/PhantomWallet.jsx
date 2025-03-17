@@ -4,14 +4,17 @@ import "./PhantomWallet.css";
 export default function PhantomWallet() {
   const [walletAddress, setWalletAddress] = useState(null);
   const [isPhantomInstalled, setIsPhantomInstalled] = useState(false);
-
+  
   useEffect(() => {
     const checkIfWalletIsConnected = async () => {
       // Check if Phantom is installed
       const isPhantomAvailable = window.solana && window.solana.isPhantom;
       setIsPhantomInstalled(isPhantomAvailable);
       
-      if (isPhantomAvailable) {
+      // Check if user has manually disconnected before
+      const hasManuallyDisconnected = localStorage.getItem('wallet_manually_disconnected') === 'true';
+      
+      if (isPhantomAvailable && !hasManuallyDisconnected) {
         try {
           const response = await window.solana.connect({ onlyIfTrusted: true });
           setWalletAddress(response.publicKey.toString());
@@ -20,7 +23,7 @@ export default function PhantomWallet() {
           console.error('Wallet connection error:', error);
         }
       } else {
-        console.log('Phantom Wallet not installed');
+        console.log('Phantom Wallet not installed or previously disconnected');
       }
     };
     
@@ -30,6 +33,9 @@ export default function PhantomWallet() {
   const connectWallet = async () => {
     if (window.solana) {
       try {
+        // Remove the disconnected flag when user explicitly connects
+        localStorage.removeItem('wallet_manually_disconnected');
+        
         const response = await window.solana.connect();
         setWalletAddress(response.publicKey.toString());
       } catch (error) {
@@ -43,7 +49,14 @@ export default function PhantomWallet() {
       try {
         await window.solana.disconnect();
         setWalletAddress(null);
-        window.localStorage.removeItem('phantom_wallet_session'); // Clear session
+        
+        // Set a flag in localStorage to remember that user manually disconnected
+        localStorage.setItem('wallet_manually_disconnected', 'true');
+        
+        // Additional cleanup
+        if (window.solana.isPhantom) {
+          window.solana.autoConnect = false;
+        }
       } catch (error) {
         console.error('Wallet disconnection failed:', error);
       }
