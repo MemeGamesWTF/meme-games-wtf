@@ -52,5 +52,26 @@
 @media (max-width: 768px) {
     .pw1{
         display: none;
+        /* @apply absolute right-5 top-5;
+        font-size: 10px; */
+    }
+
+    .pw4{
+        @apply absolute mt-3 ml-[10px] bg-white px-5 py-1 rounded-[5px];
+        font-size: 16px;
+    }
+    .pw5{
+        display: none;
+        /* @apply absolute mt-3 ml-0 bg-white px-2 py-1 rounded-[5px];
+        font-size: 15px; */
+    }
+    .pw6{
+        /* @apply mt-4 px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition; */
+        box-shadow: 3px 3px 0px black;
+        @apply bg-red-500 rounded-[6px] px-2 py-2 border-black border-[2px];
+    }
+    .pw7{
+        box-shadow: 3px 3px 0px black;
+        @apply bg-[#9584e2] rounded-[6px] px-2 py-2 border-black border-[2px];
     }
 }
