@@ -205,6 +205,11 @@ export default function NavBar2({ screen_name, profile_image_url_https }) {
         <div className="moblogodiv123">
           <img src={Logo} className="moblogo123" loading="lazy" alt="Logo" />
         </div>
+
+        {/* Phantom Wallet */}
+        <div>
+          <PhantomWallet />
+        </div>
       </div>
 
       {/* Sliding Menu */}
