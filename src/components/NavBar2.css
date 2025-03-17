@@ -336,7 +336,7 @@ vertical-align: middle; /* Keeps image aligned with the text baseline */
     }
     
     .sliding-menu li {
-      margin: 20px 0;
+      margin: 12px 0;
       cursor: pointer;
       font-size: 28px;
       text-decoration: none;
