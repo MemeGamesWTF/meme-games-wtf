@@ -11,6 +11,7 @@ import laugh from "/assets/laugh.svg";
 import trophy from "/assets/trophy.svg";
 import physics from "/assets/physics.svg";
 import community from "/assets/community.svg";
+import ai from "/assets/ai.svg";
 import { supabase } from "../supabaseClient";
 import TransactionList from "./TransactionList"; // Import the new component
 
@@ -246,7 +247,7 @@ const HomePage = () => {
             }}
           >
             <img src={chad} alt="chad" className="gamebtnsimages" />
-            <span>Classic Games</span>
+            <span>Classic</span>
           </button>
 
           <button
@@ -262,7 +263,7 @@ const HomePage = () => {
             }}
           >
             <img src={rocket} alt="rocket" className="gamebtnsimages" />
-            <span>Elon's Games</span>
+            <span>Elon's</span>
           </button>
 
           <button
@@ -293,7 +294,7 @@ const HomePage = () => {
               }
             }}
           >
-            <img src={physics} alt="brain" className="gamebtnsimages" />
+            <img src={physics} alt="physics" className="gamebtnsimages" />
             <span>Physics</span>
           </button>
 
@@ -309,8 +310,24 @@ const HomePage = () => {
               }
             }}
           >
-            <img src={community} alt="brain" className="gamebtnsimages" />
+            <img src={community} alt="community" className="gamebtnsimages" />
             <span>Community</span>
+          </button>
+
+          <button
+            className={`gamebtns ${
+              selectedType === "ai" ? "bg-[#FFF600]" : "bg-white"
+            }`}
+            onClick={() => {
+              if (selectedType === "ai") {
+                setSelectedType(null); // Deselect and navigate back to "/"
+              } else {
+                setSelectedType("ai"); // Select the button
+              }
+            }}
+          >
+            <img src={ai} alt="robot" className="gamebtnsimages" />
+            <span>AI</span>
           </button>
         </div>
         <div className="serchdiv">
