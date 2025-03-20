@@ -108,6 +108,7 @@ export default function Game() {
           height: "100vh",
           border: "none",
         }}
+allow="microphone; camera; autoplay; fullscreen"
       ></iframe>
     </div>
   );
