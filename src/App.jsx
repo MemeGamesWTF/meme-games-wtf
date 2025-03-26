@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import HomePage, { gamesLoader, userLoader } from "./components/HomePage";
@@ -11,10 +11,12 @@ import Leaderboard, { totalLeaderboardLoader } from "./components/Leaderboard";
 import Game, { gameLoader } from "./components/Game";
 import "./index.css";
 import RootLayout from "./components/RootLayout";
-import GamrLeaderboard, { gameLeaderboardLoader } from "./components/GameLeaderBoard";
-import Comic, {comicsLoader} from "./components/Comic";
-import PhantomWallet from "./components/PhantomWallet";
-
+import GamrLeaderboard, {
+  gameLeaderboardLoader,
+} from "./components/GameLeaderBoard";
+import Comic, { comicsLoader } from "./components/Comic";
+// import PhantomCallBack from "./components/PhantomCallBack";
+// import PhantomWallet2 from "./components/PhantomWallet2";
 
 const wireRouter = createBrowserRouter([
   {
@@ -67,7 +69,7 @@ const wireRouter = createBrowserRouter([
         loader: comicsLoader,
         errorElement: <div>notfound</div>,
       },
-    ]
+    ],
   },
   {
     path: "/callback",
@@ -81,6 +83,16 @@ const wireRouter = createBrowserRouter([
     errorElement: <div>notfound</div>,
   },
   // {
+  //   path: "/phantomcallback",
+  //   element: <PhantomCallBack />,
+  //   errorElement: <div>notfound</div>,
+  // },
+  // {
+  //   path: "/phantom",
+  //   element: <PhantomWallet2 />,
+  //   errorElement: <div>notfound</div>,
+  // },
+  // {
   //   path: "/phantom",
   //   element: <PhantomWallet />,
   //   errorElement: <div>notfound</div>,
@@ -89,7 +101,6 @@ const wireRouter = createBrowserRouter([
   //   path: "*",
   //   element: <div>notfound</div>,
   // }
-
 ]);
 
 function App() {
