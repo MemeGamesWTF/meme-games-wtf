@@ -296,11 +296,11 @@ export default function NavBar2({ screen_name, profile_image_url_https }) {
             </li>
           </NavLink>
 
-          {/* {screen_name ? ( */}
+          {screen_name ? (
               <div className="mobPWdiv">
                 <PhantomWallet2 />
               </div>
-            {/* ) : null} */}
+            ) : null}
 
           {/* Conditionally render Telegram username or login button in mobile menu */}
           {isTelegramEnv ? (
