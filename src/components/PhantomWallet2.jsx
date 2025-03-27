@@ -33,7 +33,7 @@ function PhantomWallet2() {
         wallets={wallets}
         appMetadata={{
           name: 'My Web3 App',
-          url: 'http://localhost:5173/', // Your app's URL
+          url: 'https://memegames.wtf/', // Your app's URL
         }}
       />
     </div>
