@@ -1,34 +1,36 @@
 import React, { useState, useEffect } from 'react';
-import { Connection, PublicKey } from '@solana/web3.js';
-import { PhantomWalletAdapter } from '@solana/wallet-adapter-phantom';
 
 export default function PhantomWallet3() {
   const [walletConnected, setWalletConnected] = useState(false);
   const [publicKey, setPublicKey] = useState(null);
-  const [balance, setBalance] = useState(null);
+
+  useEffect(() => {
+    // Check if Phantom wallet is available
+    if (window.solana && window.solana.isPhantom) {
+      window.solana.on('connect', (publicKey) => {
+        setPublicKey(publicKey.toBase58());
+        setWalletConnected(true);
+      });
+
+      window.solana.on('disconnect', () => {
+        setPublicKey(null);
+        setWalletConnected(false);
+      });
+    }
+  }, []);
 
   const connectWallet = async () => {
     try {
-      // Create a new Phantom wallet adapter
-      const phantomWallet = new PhantomWalletAdapter();
-
-      // Connect to the wallet
-      await phantomWallet.connect();
-
-      // Check if wallet is connected
-      if (phantomWallet.connected) {
-        const walletPublicKey = phantomWallet.publicKey;
-        setPublicKey(walletPublicKey);
-        setWalletConnected(true);
-
-        // Create a connection to the Solana network
-        const connection = new Connection('https://api.mainnet-beta.solana.com', 'confirmed');
-
-        // Get wallet balance
-        if (walletPublicKey) {
-          const walletBalance = await connection.getBalance(walletPublicKey);
-          setBalance(walletBalance / 1_000_000_000); // Convert lamports to SOL
-        }
+      // Check if Phantom wallet is available
+      if (window.solana && window.solana.isPhantom) {
+        // Request connection
+        const response = await window.solana.connect();
+        
+        // The 'connect' event listener will handle setting the state
+        console.log('Connected with Public Key:', response.publicKey.toBase58());
+      } else {
+        // Redirect to Phantom wallet installation
+        window.open('https://phantom.app', '_blank');
       }
     } catch (error) {
       console.error('Failed to connect Phantom Wallet:', error);
@@ -37,46 +39,39 @@ export default function PhantomWallet3() {
   };
 
   const disconnectWallet = async () => {
-    setWalletConnected(false);
-    setPublicKey(null);
-    setBalance(null);
+    try {
+      if (window.solana && window.solana.isPhantom) {
+        await window.solana.disconnect();
+        // The 'disconnect' event listener will handle setting the state
+      }
+    } catch (error) {
+      console.error('Failed to disconnect:', error);
+    }
   };
 
   return (
     <div className="p-4 max-w-md mx-auto">
-      {/* <h2 className="text-2xl font-bold mb-4">Phantom Wallet Connection</h2> */}
+      <h2 className="text-2xl font-bold mb-4">Phantom Wallet Connection</h2>
       
       {!walletConnected ? (
         <button 
           onClick={connectWallet}
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full"
         >
           Connect Phantom Wallet
         </button>
       ) : (
-        <div className="bg-green-100 p-4 rounded">
+        <div className="bg-green-600 p-4 rounded">
           <p className="mb-2">
             <strong>Wallet Connected</strong>
           </p>
-          {publicKey && (
-            <div>
-              <p className="mb-2">
-                <strong>Public Key:</strong> 
-                <span className="ml-2 break-words">
-                  {publicKey.toBase58()}
-                </span>
-              </p>
-              {balance !== null && (
-                <p>
-                  <strong>Balance:</strong> 
-                  <span className="ml-2">{balance.toFixed(4)} SOL</span>
-                </p>
-              )}
-            </div>
-          )}
+          <p className="mb-2 break-words">
+            <strong>Public Key:</strong> 
+            <span className="ml-2">{publicKey}</span>
+          </p>
           <button 
             onClick={disconnectWallet}
-            className="mt-4 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+            className="mt-4 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded w-full"
           >
             Disconnect
           </button>
