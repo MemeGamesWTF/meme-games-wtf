@@ -101,14 +101,14 @@ export default function PhantomWallet3() {
           Connect Phantom Wallet
         </button>
       ) : (
-        <div className="bg-green-600 p-4 rounded">
+        <div className="">
           {/* <p className="mb-2">
             <strong>Wallet Connected</strong>
           </p> */}
           {publicKey && (
             <p className="mb-2">
               {/* <strong>Public Key:</strong>  */}
-              <span className="">
+              <span className="text-[14px]">
                 {publicKey.toBase58()}
               </span>
             </p>
@@ -117,7 +117,7 @@ export default function PhantomWallet3() {
             onClick={disconnectWallet}
             className="mobpw6"
           >
-            Disconnect
+            Disconnect Phantom Wallet
           </button>
         </div>
       )}
