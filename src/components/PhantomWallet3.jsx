@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { PhantomWalletAdapter } from '@solana/wallet-adapter-phantom';
+import "./PhantomWallet2.css";
 
 export default function PhantomWallet3() {
   const [walletConnected, setWalletConnected] = useState(false);
@@ -83,7 +84,7 @@ export default function PhantomWallet3() {
   };
 
   return (
-    <div className="p-4 max-w-md mx-auto">
+    <div className="">
       {/* Display error message if exists */}
       {errorMessage && (
         <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
@@ -95,26 +96,26 @@ export default function PhantomWallet3() {
       {!walletConnected ? (
         <button 
           onClick={connectWallet}
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          className="mobpw7"
         >
           Connect Phantom Wallet
         </button>
       ) : (
         <div className="bg-green-600 p-4 rounded">
-          <p className="mb-2">
+          {/* <p className="mb-2">
             <strong>Wallet Connected</strong>
-          </p>
+          </p> */}
           {publicKey && (
             <p className="mb-2">
-              <strong>Public Key:</strong> 
-              <span className="ml-2 break-words">
+              {/* <strong>Public Key:</strong>  */}
+              <span className="">
                 {publicKey.toBase58()}
               </span>
             </p>
           )}
           <button 
             onClick={disconnectWallet}
-            className="mt-4 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+            className="mobpw6"
           >
             Disconnect
           </button>
