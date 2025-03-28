@@ -59,33 +59,11 @@ export default function PhantomWallet3() {
         setWalletConnected(true);
 
         // Create a connection to the Solana network
-        // Use multiple RPC endpoints as fallback
-        const rpcEndpoints = [
-          'https://api.mainnet-beta.solana.com',
-          'https://solana-mainnet.g.alchemy.com/v2/26bxg5odFXZfOMABh0BZ9nNO3w4R4al2', // Replace with your Alchemy key
-          'https://rpc.ankr.com/solana'
-        ];
+        const connection = new Connection('https://api.mainnet-beta.solana.com', 'confirmed');
 
-        let walletBalance = null;
-        for (const endpoint of rpcEndpoints) {
-          try {
-            const connection = new Connection(endpoint, 'confirmed');
-            walletBalance = await connection.getBalance(phantomWallet.publicKey);
-            
-            // If successful, break the loop
-            break;
-          } catch (rpcError) {
-            console.error(`Failed to get balance from ${endpoint}:`, rpcError);
-            // Continue to next endpoint
-            continue;
-          }
-        }
-
-        if (walletBalance !== null) {
-          setBalance(walletBalance / 1_000_000_000); // Convert lamports to SOL
-        } else {
-          setErrorMessage('Failed to fetch wallet balance from all endpoints');
-        }
+        // Get wallet balance
+        const walletBalance = await connection.getBalance(phantomWallet.publicKey);
+        setBalance(walletBalance / 1_000_000_000); // Convert lamports to SOL
       }
     } catch (error) {
       console.error('Failed to connect Phantom Wallet:', error);
@@ -144,13 +122,11 @@ export default function PhantomWallet3() {
                   {publicKey.toBase58()}
                 </span>
               </p>
-              {balance !== null ? (
+              {balance !== null && (
                 <p>
                   <strong>Balance:</strong> 
                   <span className="ml-2">{balance.toFixed(4)} SOL</span>
                 </p>
-              ) : (
-                <p className="text-yellow-200">Unable to fetch balance</p>
               )}
             </div>
           )}
