@@ -6,45 +6,123 @@ export default function PhantomWallet3() {
   const [walletConnected, setWalletConnected] = useState(false);
   const [publicKey, setPublicKey] = useState(null);
   const [balance, setBalance] = useState(null);
+  const [phantomWallet, setPhantomWallet] = useState(null);
+  const [errorMessage, setErrorMessage] = useState(null);
+
+  useEffect(() => {
+    // Initialize Phantom wallet adapter
+    const adapter = new PhantomWalletAdapter();
+    setPhantomWallet(adapter);
+
+    // Check if Phantom wallet is already connected
+    const checkConnection = async () => {
+      try {
+        if (adapter.publicKey) {
+          setPublicKey(adapter.publicKey);
+          setWalletConnected(true);
+        }
+      } catch (error) {
+        console.error('Error checking wallet connection:', error);
+        setErrorMessage(error.message || 'Failed to check wallet connection');
+      }
+    };
+
+    checkConnection();
+
+    // Cleanup listeners
+    return () => {
+      adapter.disconnect();
+    };
+  }, []);
 
   const connectWallet = async () => {
+    // Reset previous error
+    setErrorMessage(null);
+
+    if (!phantomWallet) {
+      setErrorMessage('Phantom wallet adapter not initialized');
+      return;
+    }
+
     try {
-      // Create a new Phantom wallet adapter
-      const phantomWallet = new PhantomWalletAdapter();
+      // If already connected, just return
+      if (phantomWallet.connected) {
+        return;
+      }
 
       // Connect to the wallet
       await phantomWallet.connect();
 
-      // Check if wallet is connected
-      if (phantomWallet.connected) {
-        const walletPublicKey = phantomWallet.publicKey;
-        setPublicKey(walletPublicKey);
+      // Verify connection and set state
+      if (phantomWallet.connected && phantomWallet.publicKey) {
+        setPublicKey(phantomWallet.publicKey);
         setWalletConnected(true);
 
         // Create a connection to the Solana network
-        const connection = new Connection('https://api.mainnet-beta.solana.com', 'confirmed');
+        // Use multiple RPC endpoints as fallback
+        const rpcEndpoints = [
+          'https://api.mainnet-beta.solana.com',
+          'https://solana-mainnet.g.alchemy.com/v2/26bxg5odFXZfOMABh0BZ9nNO3w4R4al2', // Replace with your Alchemy key
+          'https://rpc.ankr.com/solana'
+        ];
 
-        // Get wallet balance
-        if (walletPublicKey) {
-          const walletBalance = await connection.getBalance(walletPublicKey);
+        let walletBalance = null;
+        for (const endpoint of rpcEndpoints) {
+          try {
+            const connection = new Connection(endpoint, 'confirmed');
+            walletBalance = await connection.getBalance(phantomWallet.publicKey);
+            
+            // If successful, break the loop
+            break;
+          } catch (rpcError) {
+            console.error(`Failed to get balance from ${endpoint}:`, rpcError);
+            // Continue to next endpoint
+            continue;
+          }
+        }
+
+        if (walletBalance !== null) {
           setBalance(walletBalance / 1_000_000_000); // Convert lamports to SOL
+        } else {
+          setErrorMessage('Failed to fetch wallet balance from all endpoints');
         }
       }
     } catch (error) {
       console.error('Failed to connect Phantom Wallet:', error);
+      setErrorMessage(error.message || 'Failed to connect Phantom Wallet');
       setWalletConnected(false);
     }
   };
 
   const disconnectWallet = async () => {
-    setWalletConnected(false);
-    setPublicKey(null);
-    setBalance(null);
+    // Reset previous error
+    setErrorMessage(null);
+
+    if (!phantomWallet) {
+      setErrorMessage('Phantom wallet adapter not initialized');
+      return;
+    }
+
+    try {
+      await phantomWallet.disconnect();
+      setWalletConnected(false);
+      setPublicKey(null);
+      setBalance(null);
+    } catch (error) {
+      console.error('Failed to disconnect Phantom Wallet:', error);
+      setErrorMessage(error.message || 'Failed to disconnect Phantom Wallet');
+    }
   };
 
   return (
     <div className="p-4 max-w-md mx-auto">
-      {/* <h2 className="text-2xl font-bold mb-4">Phantom Wallet Connection</h2> */}
+      {/* Display error message if exists */}
+      {errorMessage && (
+        <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
+          <strong className="font-bold">Error: </strong>
+          <span className="block sm:inline">{errorMessage}</span>
+        </div>
+      )}
       
       {!walletConnected ? (
         <button 
@@ -66,12 +144,14 @@ export default function PhantomWallet3() {
                   {publicKey.toBase58()}
                 </span>
               </p>
-              {/* {balance !== null && (
+              {balance !== null ? (
                 <p>
                   <strong>Balance:</strong> 
                   <span className="ml-2">{balance.toFixed(4)} SOL</span>
                 </p>
-              )} */}
+              ) : (
+                <p className="text-yellow-200">Unable to fetch balance</p>
+              )}
             </div>
           )}
           <button 
