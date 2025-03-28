@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Connection, PublicKey } from '@solana/web3.js';
 import { PhantomWalletAdapter } from '@solana/wallet-adapter-phantom';
 
 export default function PhantomWallet3() {
   const [walletConnected, setWalletConnected] = useState(false);
   const [publicKey, setPublicKey] = useState(null);
-  const [balance, setBalance] = useState(null);
   const [phantomWallet, setPhantomWallet] = useState(null);
   const [errorMessage, setErrorMessage] = useState(null);
 
@@ -57,13 +55,6 @@ export default function PhantomWallet3() {
       if (phantomWallet.connected && phantomWallet.publicKey) {
         setPublicKey(phantomWallet.publicKey);
         setWalletConnected(true);
-
-        // Create a connection to the Solana network
-        const connection = new Connection('https://api.mainnet-beta.solana.com', 'confirmed');
-
-        // Get wallet balance
-        const walletBalance = await connection.getBalance(phantomWallet.publicKey);
-        setBalance(walletBalance / 1_000_000_000); // Convert lamports to SOL
       }
     } catch (error) {
       console.error('Failed to connect Phantom Wallet:', error);
@@ -85,7 +76,6 @@ export default function PhantomWallet3() {
       await phantomWallet.disconnect();
       setWalletConnected(false);
       setPublicKey(null);
-      setBalance(null);
     } catch (error) {
       console.error('Failed to disconnect Phantom Wallet:', error);
       setErrorMessage(error.message || 'Failed to disconnect Phantom Wallet');
@@ -115,20 +105,12 @@ export default function PhantomWallet3() {
             <strong>Wallet Connected</strong>
           </p>
           {publicKey && (
-            <div>
-              <p className="mb-2">
-                <strong>Public Key:</strong> 
-                <span className="ml-2 break-words">
-                  {publicKey.toBase58()}
-                </span>
-              </p>
-              {balance !== null && (
-                <p>
-                  <strong>Balance:</strong> 
-                  <span className="ml-2">{balance.toFixed(4)} SOL</span>
-                </p>
-              )}
-            </div>
+            <p className="mb-2">
+              <strong>Public Key:</strong> 
+              <span className="ml-2 break-words">
+                {publicKey.toBase58()}
+              </span>
+            </p>
           )}
           <button 
             onClick={disconnectWallet}
