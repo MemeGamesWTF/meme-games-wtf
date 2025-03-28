@@ -108,7 +108,7 @@ export default function PhantomWallet3() {
           {publicKey && (
             <p className="bg-white px-2 py-1 rounded-[5px]">
               {/* <strong>Public Key:</strong>  */}
-              <span className="text-[12px]">
+              <span className="text-[12px] text-black">
                 {publicKey.toBase58()}
               </span>
             </p>
