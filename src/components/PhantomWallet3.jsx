@@ -6,101 +6,45 @@ export default function PhantomWallet3() {
   const [walletConnected, setWalletConnected] = useState(false);
   const [publicKey, setPublicKey] = useState(null);
   const [balance, setBalance] = useState(null);
-  const [phantomWallet, setPhantomWallet] = useState(null);
-  const [errorMessage, setErrorMessage] = useState(null);
-
-  useEffect(() => {
-    // Initialize Phantom wallet adapter
-    const adapter = new PhantomWalletAdapter();
-    setPhantomWallet(adapter);
-
-    // Check if Phantom wallet is already connected
-    const checkConnection = async () => {
-      try {
-        if (adapter.publicKey) {
-          setPublicKey(adapter.publicKey);
-          setWalletConnected(true);
-        }
-      } catch (error) {
-        console.error('Error checking wallet connection:', error);
-        setErrorMessage(error.message || 'Failed to check wallet connection');
-      }
-    };
-
-    checkConnection();
-
-    // Cleanup listeners
-    return () => {
-      adapter.disconnect();
-    };
-  }, []);
 
   const connectWallet = async () => {
-    // Reset previous error
-    setErrorMessage(null);
-
-    if (!phantomWallet) {
-      setErrorMessage('Phantom wallet adapter not initialized');
-      return;
-    }
-
     try {
-      // If already connected, just return
-      if (phantomWallet.connected) {
-        return;
-      }
+      // Create a new Phantom wallet adapter
+      const phantomWallet = new PhantomWalletAdapter();
 
       // Connect to the wallet
       await phantomWallet.connect();
 
-      // Verify connection and set state
-      if (phantomWallet.connected && phantomWallet.publicKey) {
-        setPublicKey(phantomWallet.publicKey);
+      // Check if wallet is connected
+      if (phantomWallet.connected) {
+        const walletPublicKey = phantomWallet.publicKey;
+        setPublicKey(walletPublicKey);
         setWalletConnected(true);
 
         // Create a connection to the Solana network
         const connection = new Connection('https://api.mainnet-beta.solana.com', 'confirmed');
 
         // Get wallet balance
-        const walletBalance = await connection.getBalance(phantomWallet.publicKey);
-        setBalance(walletBalance / 1_000_000_000); // Convert lamports to SOL
+        if (walletPublicKey) {
+          const walletBalance = await connection.getBalance(walletPublicKey);
+          setBalance(walletBalance / 1_000_000_000); // Convert lamports to SOL
+        }
       }
     } catch (error) {
       console.error('Failed to connect Phantom Wallet:', error);
-      setErrorMessage(error.message || 'Failed to connect Phantom Wallet');
       setWalletConnected(false);
     }
   };
 
   const disconnectWallet = async () => {
-    // Reset previous error
-    setErrorMessage(null);
-
-    if (!phantomWallet) {
-      setErrorMessage('Phantom wallet adapter not initialized');
-      return;
-    }
-
-    try {
-      await phantomWallet.disconnect();
-      setWalletConnected(false);
-      setPublicKey(null);
-      setBalance(null);
-    } catch (error) {
-      console.error('Failed to disconnect Phantom Wallet:', error);
-      setErrorMessage(error.message || 'Failed to disconnect Phantom Wallet');
-    }
+    setWalletConnected(false);
+    setPublicKey(null);
+    setBalance(null);
   };
 
   return (
     <div className="p-4 max-w-md mx-auto">
-      {/* Display error message if exists */}
-      {errorMessage && (
-        <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
-          <strong className="font-bold">Error: </strong>
-          <span className="block sm:inline">{errorMessage}</span>
-        </div>
-      )}
+      {/* <h2 className="text-2xl font-bold mb-4">Phantom Wallet Connection</h2> */}
       
       {!walletConnected ? (
         <button 
@@ -122,12 +66,12 @@ export default function PhantomWallet3() {
                   {publicKey.toBase58()}
                 </span>
               </p>
-              {balance !== null && (
+              {/* {balance !== null && (
                 <p>
                   <strong>Balance:</strong> 
                   <span className="ml-2">{balance.toFixed(4)} SOL</span>
                 </p>
-              )}
+              )} */}
             </div>
           )}
           <button 
