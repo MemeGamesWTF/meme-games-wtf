@@ -15,6 +15,7 @@ import LBImg from "/assets/trophy.svg";
 import ComicsImg from "/assets/mbbook.svg";
 import PhantomWallet from "./PhantomWallet";
 import PhantomWallet2 from "./PhantomWallet2";
+import PhantomWallet3 from "./PhantomWallet3";
 
 const X_LOGIN_ENABLED = import.meta.env.VITE_X_LOGIN_ENABLED
   ? import.meta.env.VITE_X_LOGIN_ENABLED
@@ -298,7 +299,7 @@ export default function NavBar2({ screen_name, profile_image_url_https }) {
 
           {/* {screen_name ? ( */}
               <div className="mobPWdiv">
-                <PhantomWallet2 />
+                <PhantomWallet3 />
               </div>
             {/* ) : null} */}
 

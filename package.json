@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@solana/wallet-adapter-phantom": "^0.9.25",
+    "@solana/web3.js": "^1.98.0",
     "@supabase/supabase-js": "^2.47.10",
     "@thirdweb-dev/react": "^4.9.4",
     "@twa-dev/sdk": "^8.0.2",
