@@ -106,7 +106,7 @@ export default function PhantomWallet3() {
             <strong>Wallet Connected</strong>
           </p> */}
           {publicKey && (
-            <p className="bg-white px-2 py-1 rounded-[5px] text-center mb-2">
+            <p className="bg-white px-2 py-1 rounded-[5px] text-center">
               {/* <strong>Public Key:</strong>  */}
               <span className="text-[13px] text-black">
                 {publicKey.toBase58()}
