@@ -186,9 +186,9 @@ export default function PhantomWallet() {
                 <div className="pw-token-balance">
                   {/* <span className="pw5 pw-token-symbol">$WTF</span> */}
                   {isLoading ? (
-                    <span className="pw-loading">Loading...</span>
+                    <span className="pw-loading text-[#45c124] text-[20px]">Loading...</span>
                   ) : (
-                    <span className="pw-balance">
+                    <span className="pw-balance text-[#45c124] text-[20px]">
                       {formatBalance(wtfBalance)} WTF
                     </span>
                   )}

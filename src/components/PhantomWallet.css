@@ -29,7 +29,7 @@
   font-size: 16px;
 }
 .pw4N {
-  @apply absolute mt-[70px] ml-[95px] bg-white px-5 py-1 rounded-[5px];
+  @apply absolute mt-[70px] ml-[80px] bg-white px-5 py-1 rounded-[5px];
   font-size: 16px;
 }
 .pw5 {
