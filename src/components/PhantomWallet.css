@@ -28,6 +28,10 @@
   @apply absolute mt-3 ml-[100px] bg-white px-5 py-1 rounded-[5px];
   font-size: 16px;
 }
+.pw4N {
+  @apply absolute mt-[70px] ml-[95px] bg-white px-5 py-1 rounded-[5px];
+  font-size: 16px;
+}
 .pw5 {
   @apply absolute mt-3 ml-1 bg-white px-2 py-1 rounded-[5px];
   font-size: 15px;
