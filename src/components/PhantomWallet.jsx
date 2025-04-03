@@ -17,7 +17,11 @@ export default function PhantomWallet() {
     "https://solana-mainnet.phantom.app/YBPpkkN4g91xDiAnTE9r0RcMkjg0sKUIWvAfoFVJ",
     "https://solana-api.projectserum.com",
     "https://rpc.ankr.com/solana",
-    "https://api.mainnet-beta.solana.com"
+    "https://api.mainnet-beta.solana.com",
+    "https://api.mainnet-beta.solflare.network",  // Community endpoint with CORS support
+  "https://solana-api.syndica.io/access-token/default",  // Another option
+  "https://solana-mainnet.public.blastapi.io",  // Another public endpoint
+  "https://cors-proxy.example.com/https://api.mainnet-beta.solana.com"
   ];
 
   useEffect(() => {
