@@ -79,7 +79,7 @@ export default function Footer2() {
           <p className="text-white font-bold text-lg">
             &nbsp;&nbsp;&nbsp;
           </p>
-          <a className="yticon"></a>
+          <a href="https://www.youtube.com/@memegameswtf" className="yticon"></a>
           {/* Telegram */}
           <p className="text-back font-bold text-lg">&nbsp;&nbsp;&nbsp;</p>
           <a href="https://t.me/+bTQird4VphdlNzhk" className="footicon11"></a>
@@ -126,7 +126,7 @@ export default function Footer2() {
           <p className="text-white font-bold text-lg">
             &nbsp;
           </p>
-          <a className="yticon"></a>
+          <a href="https://www.youtube.com/@memegameswtf" className="yticon"></a>
           {/* Telegram */}
           <p className="text-back font-bold text-lg">&nbsp;</p>
           <a href="https://t.me/+bTQird4VphdlNzhk" className="footicon11"></a>
