@@ -14,11 +14,11 @@ export default function PhantomWallet() {
 
   // List of Solana RPC endpoints to try
   const RPC_ENDPOINTS = [
-    "https://solana-mainnet.phantom.app/YBPpkkN4g91xDiAnTE9r0RcMkjg0sKUIWvAfoFVJ",
+    // "https://solana-mainnet.phantom.app/YBPpkkN4g91xDiAnTE9r0RcMkjg0sKUIWvAfoFVJ",
     "https://quick-intensive-research.solana-mainnet.quiknode.pro/8f2438f3d4dbe5a42bec7211271fd74321f310d8/",
-    "https://solana-api.projectserum.com",
-    "https://rpc.ankr.com/solana",
-    "https://api.mainnet-beta.solana.com"
+    // "https://solana-api.projectserum.com",
+    // "https://rpc.ankr.com/solana",
+    // "https://api.mainnet-beta.solana.com"
   ];
 
   useEffect(() => {
