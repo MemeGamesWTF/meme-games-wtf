@@ -184,7 +184,9 @@
 }
 
 .card-title {
-  @apply text-3xl font-normal text-black;
+  @apply font-normal text-black;
+  font-size: 1.8rem /* 30px */;
+  line-height: 2.25rem /* 36px */;
 }
 
 .card-text {
