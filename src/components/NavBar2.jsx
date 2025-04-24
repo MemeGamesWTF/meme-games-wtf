@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link, NavLink } from "react-router-dom";
 import "./NavBar2.css"; // Styles for the navbar and sliding menu
 import Logo from "/assets/logo5.webp";
@@ -13,13 +13,148 @@ import HTBImg from "/assets/mbthink.svg";
 import RMImg from "/assets/mbroad.svg";
 import LBImg from "/assets/trophy.svg";
 import ComicsImg from "/assets/mbbook.svg";
+import GregHead from "/assets/greghead.svg";
+import LogouIcon from "/assets/logout.svg";
 import PhantomWallet from "./PhantomWallet";
 import PhantomWallet2 from "./PhantomWallet2";
 import PhantomWallet3 from "./PhantomWallet3";
+import PhantomWalletNew from "./PhantomWalletNew";
+import "./Authentication.css";
+// import Authentication from "./Authentication";
 
 const X_LOGIN_ENABLED = import.meta.env.VITE_X_LOGIN_ENABLED
   ? import.meta.env.VITE_X_LOGIN_ENABLED
   : "false";
+
+  // New Authentication Dropdown Component
+  const AuthDropdown = ({ 
+    screen_name, 
+    profile_image_url_https, 
+    isTelegramEnv, 
+    telegramUsername 
+  }) => {
+    const [isOpen, setIsOpen] = useState(false);
+    const [isWalletConnected, setIsWalletConnected] = useState(false);
+    const dropdownRef = useRef(null);
+  
+    useEffect(() => {
+      const handleClickOutside = (event) => {
+        if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+          setIsOpen(false);
+        }
+      };
+  
+      document.addEventListener('mousedown', handleClickOutside);
+      return () => {
+        document.removeEventListener('mousedown', handleClickOutside);
+      };
+    }, []);
+  
+    const handleXLogin = (e) => {
+      e.preventDefault();
+      if (X_LOGIN_ENABLED !== "false" && !screen_name) {
+        window.location.href = `https://x-login.movindusenuraaluthge.workers.dev?envr=${
+          import.meta.env.PROD ? "PROD" : "DEV"
+        }`;
+      }
+    };
+    
+    const handleLogout = (e) => {
+      e.preventDefault();
+      logoutAction();
+      setIsOpen(false);
+    };
+
+    const handleWalletStatusChange = (connected) => {
+      setIsWalletConnected(connected);
+    };
+  
+    return (
+      <div className="auth-dropdown" ref={dropdownRef}>
+        <button 
+          className="atag234566" 
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          {/* {screen_name ? (
+            <>
+              {screen_name.length > 7 ? `${screen_name.slice(0, 7)}...` : screen_name}
+              <img
+                src={profile_image_url_https}
+                className="profile-circle"
+                alt="profile"
+                loading="lazy"
+              />
+            </>
+          ) : (
+            <>
+          <span style={{ fontSize: "25px" }}>Join</span>
+        </>
+          )} */}
+          <span style={{ fontSize: "25px" }}>Join</span>
+        </button>
+        
+        {isOpen && (
+          <div className="dropdown-menu">
+          {/* Login and Logout Side by Side */}
+          <div className="side-by-side-container">
+            {/* X Login Option */}
+            {!isTelegramEnv && (
+              <div className={`xlogin dropdown-item ${screen_name ? "logged-in-state" : "logged-out-state"}`} onClick={handleXLogin}>
+              {screen_name ? (
+                <>
+                  <img
+                    src={profile_image_url_https || Xlogo}
+                    className="profile-circle"
+                    alt="Profile"
+                    loading="lazy"
+                  />
+                  <span>{screen_name}</span>
+                </>
+              ) : (
+                <>                
+                  <span>Login with</span>
+                  <img
+                    src={Xlogo}
+                    className="xlogo"
+                    alt="X logo"
+                    loading="lazy"
+                  />
+                </>
+              )}
+            </div>
+            )}
+
+            {/* Logout Option - Only show if logged in */}
+            {screen_name && !isTelegramEnv && (
+              <div className="dropdown-item logout-item" onClick={handleLogout}>
+                <span><img
+                    src={LogouIcon}
+                    className="logoutimg"
+                    alt="logout image"
+                    loading="lazy"
+                  /></span>
+              </div>
+            )}
+          </div>
+            
+            {/* Phantom Wallet Option - Just a container, the actual component is rendered inside */}
+            {/* <div className="dropdown-item wallet-item"> */}
+              <div className={`dropdown-item ${isWalletConnected ? "wallet-disconnect" : "wallet-connect"}`}>
+                          <PhantomWalletNew onWalletStatusChange={handleWalletStatusChange} />
+                        </div>
+            {/* </div> */}
+            
+            {/* Logout Option - Only show if logged in */}
+            {/* {screen_name && !isTelegramEnv && (
+              <div className="dropdown-item logout-item" onClick={handleLogout}>
+                <span>Logout</span>
+              </div>
+            )} */}
+          </div>
+        )}
+      </div>
+    );
+  };
 
 export default function NavBar2({ screen_name, profile_image_url_https }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -85,6 +220,11 @@ export default function NavBar2({ screen_name, profile_image_url_https }) {
                   </NavLink>
                 </li>
                 <li>
+                  <NavLink to="/greg" className="nav-item">
+                    Greg Universe
+                  </NavLink>
+                </li>
+                <li>
                   <NavLink to="/about" className="nav-item">
                     About Us
                   </NavLink>
@@ -111,72 +251,37 @@ export default function NavBar2({ screen_name, profile_image_url_https }) {
                 </li>
               </ul>
             </div>
-            {screen_name ? (
+            {/* <div>
+              <Authentication />
+            </div> */}
+            {/* {screen_name ? (
               <div className="PWdiv">
                 <PhantomWallet />
               </div>
-            ) : null}
-            {/* Conditionally render Telegram username or login button */}
-            {isTelegramEnv ? (
-              <div className="atag2345tele">
-                <div className="navrighttele">
-                  <div className="nav-item2345tele">
-                    {telegramUsername
-                      ? telegramUsername.length > 7
-                        ? `${telegramUsername.slice(0, 7)}...`
-                        : telegramUsername
-                      : "Telegram User"}
+            ) : null} */}
+
+{isTelegramEnv ? (
+                <div className="atag2345tele">
+                  <div className="navrighttele">
+                    <div className="nav-item2345tele">
+                      {telegramUsername
+                        ? telegramUsername.length > 7
+                          ? `${telegramUsername.slice(0, 7)}...`
+                          : telegramUsername
+                        : "Telegram User"}
+                    </div>
                   </div>
                 </div>
-              </div>
-            ) : (
-              !isTelegramEnv && (
-                <div className="atag2345">
-                  <div className="navright">
-                    <NavLink
-                      className={`nav-item2345 ${
-                        screen_name ? "disabled" : ""
-                      }`}
-                      activeClassName="active"
-                      exact
-                      onClick={(e) => {
-                        if (X_LOGIN_ENABLED === "false") {
-                          e.preventDefault(); // Prevent navigation if disabled
-                        } else {
-                          if (screen_name) {
-                            e.preventDefault(); // Prevent navigation if logged in
-                          } else {
-                            e.preventDefault();
-                            window.location.href = `https://x-login.movindusenuraaluthge.workers.dev?envr=${
-                              import.meta.env.PROD ? "PROD" : "DEV"
-                            }`;
-                          }
-                        }
-                      }}
-                    >
-                      {screen_name?.length > 7
-                        ? `${screen_name.slice(0, 7)}...`
-                        : screen_name || "Login With"}
+              ) : (
+                <AuthDropdown 
+                  screen_name={screen_name}
+                  profile_image_url_https={profile_image_url_https}
+                  isTelegramEnv={isTelegramEnv}
+                  telegramUsername={telegramUsername}
+                />
+              )}
 
-                      <img
-                        src={
-                          profile_image_url_https
-                            ? profile_image_url_https
-                            : Xlogo
-                        }
-                        className={
-                          profile_image_url_https ? "profile-circle" : "xlogo"
-                        }
-                        alt="xlogo"
-                        loading="lazy"
-                      />
-                    </NavLink>
-                  </div>
-                </div>
-              )
-            )}
-
-            {screen_name && !isTelegramEnv ? (
+            {/* {screen_name && !isTelegramEnv ? (
               <div className="logoutdiv">
                 <div className="navright">
                   <NavLink
@@ -192,7 +297,7 @@ export default function NavBar2({ screen_name, profile_image_url_https }) {
                   </NavLink>
                 </div>
               </div>
-            ) : null}
+            ) : null} */}
           </div>
           </div>
         </nav>
@@ -234,6 +339,18 @@ export default function NavBar2({ screen_name, profile_image_url_https }) {
                 className="inline-block mr-2 mb-2"
               />
               Games
+            </li>
+          </NavLink>
+          <NavLink to="/greg">
+            <li onClick={closeMenu}>
+              <img
+                src={GregHead}
+                alt="Greg Head"
+                width="30"
+                height="30"
+                className="inline-block mr-2 mb-1"
+              />
+              Greg Universe
             </li>
           </NavLink>
           <NavLink to="/about">
