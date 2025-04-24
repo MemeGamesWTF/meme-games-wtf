@@ -10,3 +10,13 @@
 .gph1{
     @apply text-8xl font-bold text-white text-center;
 }
+.gph2{
+    @apply text-4xl font-normal text-white text-center;
+}
+.gplink{
+    @apply text-4xl font-normal text-white text-center;
+}
+.gplink:hover{
+    @apply text-[#ba7cf8];
+    text-decoration: underline;
+}
