@@ -1,0 +1,204 @@
+.auth-dropdown-container {
+    font-size: 20px;
+    position: relative;
+    display: inline-block;
+    margin-left: 700px;
+  }
+  
+  .auth-dropdown-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    background-color: #f8f9fa;
+    border: 1px solid #e1e4e8;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s;
+  }
+  
+  /* .auth-dropdown-button:hover {
+    background-color: #e9ecef;
+  } */
+  
+  .dropdown-arrow {
+    font-size: 10px;
+    margin-left: 4px;
+  }
+  
+  .dropdown-menu {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    margin-top: 10px;
+    width: 240px;
+    background-color: white;
+    border: 3px solid black;
+    border-radius: 10px;
+    box-shadow: 7px 7px 0px black;
+    z-index: 1001;
+  }
+  
+  .dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    color: black;
+    font-family: "Jersey 10", sans-serif;
+    font-size: 20px;
+  }
+  
+  .dropdown-item:hover {
+    /* background-color: #d8d8d9; */
+  }
+  
+  /* .dropdown-item:first-child {
+    border-radius: 7px 0 0 0;
+  }
+  .dropdown-item:first-child:hover {
+    border-radius: 7px 0 0 0;
+    background-color: #757777;
+  }
+  
+  .dropdown-item:last-child {
+    border-radius: 0 0 7px 7px;
+  }
+  .dropdown-item:last-child:hover {
+    border-radius: 0 0 7px 7px;
+    background-color: #9584e2;
+  } */
+
+
+.logged-out-state{
+  border-radius: 7px 7px 0 0;
+}
+.logged-out-state:hover{
+  border-radius: 7px 7px 0 0;
+  background-color: #757777;
+}
+/* .logged-in-state:hover{
+  cursor: not-allowed;
+  pointer-events: none;
+} */
+
+  .dropdown-item.wallet-connect {
+    border-radius: 0 0 7px 7px;
+    @apply bg-[#9584e2];
+  }
+  .dropdown-item.wallet-connect:hover {
+    border-radius: 0 0 7px 7px;
+    @apply bg-[#806cd8];
+  }
+  .dropdown-item.wallet-disconnect {
+    border-radius: 0 0 7px 7px;
+    @apply bg-red-500;
+  }
+  .dropdown-item.wallet-disconnect:hover {
+    border-radius: 0 0 7px 7px;
+    @apply bg-red-600
+  }
+
+
+.logout-item{
+  border-radius: 0 7px 0 0;
+  @apply bg-blue-500 justify-center;
+}
+.logout-item:hover{
+  border-radius: 0 7px 0 0;
+  @apply bg-blue-600;
+}
+
+
+
+
+
+
+
+
+
+
+
+  
+  .dropdown-item.authenticated {
+    color: #28a745;
+    font-weight: 500;
+  }
+  
+  .profile-circlenew {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .xlogonew {
+    width: 18px;
+    height: auto;
+    object-fit: contain;
+  }
+
+
+
+
+  .nav-item234500 {
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    text-align: center;
+  
+    /* New styles added */
+    display: inline-flex; /* Aligns text and image inline */
+    align-items: center;  /* Vertically aligns text and image */
+    gap: 8px;             /* Adds spacing between text and image */
+  }
+  
+  .nav-item234500tele {
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    text-align: center;
+  
+    /* New styles added */
+    display: inline-flex; /* Aligns text and image inline */
+    align-items: center;  /* Vertically aligns text and image */
+    gap: 8px;             /* Adds spacing between text and image */
+  }
+
+
+
+
+
+  .atag234566 {
+    box-shadow: 7px 7px 0px black;
+    /* @apply absolute right-8 top-8 bg-[#00E5FF] rounded-md px-4 py-2; */
+    @apply bg-[#00E5FF] rounded-[10px] px-6 py-2 border-black border-[3px];
+  }
+  
+  .atag234566:hover {
+    /* @apply bg-[#84f37a]; */
+    transform: scale(1.05);
+  }
+  
+  .atag234566tele {
+    box-shadow: 7px 7px 0px black;
+    /* @apply absolute right-8 top-8 bg-[#00E5FF] rounded-md px-4 py-2; */
+    @apply absolute right-10 top-[80px] bg-[#00E5FF] rounded-[10px] px-11 py-2 border-black border-[3px];
+  }
+  
+  .atag234566tele:hover {
+    /* @apply bg-[#84f37a]; */
+    transform: scale(1.05);
+  }
+  
+  .logoutdiv66{
+    box-shadow: 7px 7px 0px black;
+    @apply absolute right-[35px] top-[70px] bg-[#ffffff] rounded-md px-4 py-0;
+  }
+  
+  .logoutdiv66:hover{
+    transform: scale(1.05);
+  }

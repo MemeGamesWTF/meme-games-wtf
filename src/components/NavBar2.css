@@ -198,6 +198,11 @@ width: 19px; /* Adjust size to fit better */
 height: auto;
 vertical-align: middle; /* Keeps image aligned with the text baseline */
 }
+.logoutimg {
+width: 19px; /* Adjust size to fit better */
+height: auto;
+vertical-align: middle; /* Keeps image aligned with the text baseline */
+}
 
 .profile-circle {
   width: 19px;
@@ -229,6 +234,29 @@ vertical-align: middle; /* Keeps image aligned with the text baseline */
 /* .menu-overlay{
   display: none;
 } */
+
+
+/* .dropdown-item.wallet-disconnect {
+  @apply bg-red-500;
+}
+.dropdown-item.wallet-disconnect:hover {
+  @apply bg-red-600
+} */
+
+.side-by-side-container {
+  display: flex;
+  /* No justify-content to allow natural content-based sizing */
+}
+
+.side-by-side-container .dropdown-item:first-child {
+  flex: 5; /* Takes up 3 parts of the space */
+  display: flex;
+}
+
+.side-by-side-container .dropdown-item:last-child {
+  flex: 1; /* Takes up 1 part of the space (less width) */
+  display: flex;
+}
 
 
 @media (max-width: 768px) {
@@ -378,12 +406,12 @@ vertical-align: middle; /* Keeps image aligned with the text baseline */
 
   .moblogbtn{
     box-shadow: 7px 7px 0px black;
-    @apply absolute bottom-20 left-1/2 transform -translate-x-1/2 bg-[#00E5FF] px-4 py-1 rounded-md;
+    @apply absolute bottom-[68px] left-1/2 transform -translate-x-1/2 bg-[#00E5FF] px-4 py-[2px] rounded-md;
   }
 
   .logoutdiv2{
     box-shadow: 7px 7px 0px black;
-    @apply absolute bottom-6 left-[108px] bg-[#ffffff] rounded-md px-4 py-0;
+    @apply absolute bottom-[19px] left-[108px] bg-[#ffffff] rounded-md px-4 py-0;
   }
 
   .moblogbtntele{

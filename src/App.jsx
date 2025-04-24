@@ -7,6 +7,7 @@ import HowToBuy from "./components/HowToBuy";
 import RoadMap from "./components/RoadMap";
 import RoadMap2 from "./components/RoadMap2";
 import CallBack from "./components/CallBack";
+// import Authentication from "./components/Authentication";
 import Leaderboard, { totalLeaderboardLoader } from "./components/Leaderboard";
 import Game, { gameLoader } from "./components/Game";
 import "./index.css";
@@ -17,6 +18,7 @@ import GamrLeaderboard, {
 import Comic, { comicsLoader } from "./components/Comic";
 // import PhantomCallBack from "./components/PhantomCallBack";
 // import PhantomWallet2 from "./components/PhantomWallet2";
+import GregPage from "./components/GregPage";
 
 const wireRouter = createBrowserRouter([
   {
@@ -29,6 +31,11 @@ const wireRouter = createBrowserRouter([
         path: "/",
         element: <HomePage />,
         loader: gamesLoader,
+        errorElement: <div>notfound</div>,
+      },
+      {
+        path: "/greg",
+        element: <GregPage />,
         errorElement: <div>notfound</div>,
       },
       {
@@ -82,6 +89,11 @@ const wireRouter = createBrowserRouter([
     loader: gameLoader,
     errorElement: <div>notfound</div>,
   },
+  // {
+  //   path: "/authenticationpage",
+  //   element: <Authentication />,
+  //   errorElement: <div>notfound</div>,
+  // },
   // {
   //   path: "/phantomcallback",
   //   element: <PhantomCallBack />,

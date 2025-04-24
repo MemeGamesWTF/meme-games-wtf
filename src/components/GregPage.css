@@ -1,0 +1,12 @@
+.gp1{
+    @apply bg-transparent;
+}
+.gp2{
+    @apply absolute top-[60%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex gap-3 items-center justify-center flex-col;
+}
+.gpimg{
+    @apply inline-block mr-2 mb-1;
+}
+.gph1{
+    @apply text-8xl font-bold text-white text-center;
+}
