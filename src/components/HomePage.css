@@ -272,6 +272,7 @@
 .card-header img.gamebtnsimages2 {
   /* display: block; */
   transition: filter 0.3s ease-in-out;
+  aspect-ratio: 16/9;
   @apply transition-opacity duration-300;
 }
 
