@@ -18,7 +18,7 @@ import GamrLeaderboard, {
 import Comic, { comicsLoader } from "./components/Comic";
 // import PhantomCallBack from "./components/PhantomCallBack";
 // import PhantomWallet2 from "./components/PhantomWallet2";
-import GregPage from "./components/GregPage";
+import GregPage2 from "./components/GregPage2";
 
 const wireRouter = createBrowserRouter([
   {
@@ -35,7 +35,7 @@ const wireRouter = createBrowserRouter([
       },
       {
         path: "/greg",
-        element: <GregPage />,
+        element: <GregPage2 />,
         errorElement: <div>notfound</div>,
       },
       {

@@ -1,0 +1,459 @@
+.gp1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  @apply px-0;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.gph1 {
+  font-size: 60px;
+  line-height: normal;
+  font-weight: semibold;
+  color: white;
+  text-align: center;
+  @apply mb-4;
+}
+.gpp1 {
+  font-size: 2rem;
+  line-height: normal;
+  /* font-weight: bold; */
+  color: white;
+  text-align: center;
+  @apply mb-10;
+}
+.gpp2 {
+  font-size: 2rem;
+  line-height: normal;
+  /* font-weight: bold; */
+  color: white;
+  text-align: justify;
+  /* @apply mb-4; */
+}
+.gp-banner {
+  text-align: center;
+  margin-top: 25px;
+  width: 80%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  position: relative;
+  border: 7px solid white;
+  border-radius: 32px;
+}
+
+.gp-banner-img {
+  width: 100%; /* Makes the image fill the container */
+  height: auto; /* Maintains the aspect ratio */
+  border-radius: 28px;
+  box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.2);
+  object-fit: cover; /* Ensures the image fills while cropping excess */
+}
+.gp3 {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: left;
+  padding: 2rem;
+  @apply px-0;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  @apply mt-10;
+}
+.gpp3 {
+  font-size: 2rem;
+  line-height: normal;
+  /* font-weight: bold; */
+  color: white;
+  text-align: left;
+  /* @apply mb-4; */
+}
+.video-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* padding: 2rem; */
+  /* width: 100%; */
+  @apply mt-5;
+}
+
+.youtube-iframe {
+  border-radius: 10px;
+}
+.gp4 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  @apply px-0;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  @apply mt-10;
+}
+.gph2 {
+  font-size: 60px;
+  line-height: normal;
+  font-weight: semibold;
+  color: white;
+  text-align: center;
+  @apply mb-4;
+}
+.gpp4 {
+  font-size: 2rem;
+  line-height: normal;
+  /* font-weight: bold; */
+  color: white;
+  text-align: justify;
+  /* @apply mb-4; */
+}
+.gp5 {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: left;
+  padding: 2rem;
+  @apply px-0;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  /* @apply mt-10; */
+}
+.gpp5 {
+  font-size: 1.5rem;
+  line-height: normal;
+  /* font-weight: bold; */
+  color: white;
+  text-align: left;
+  /* @apply mb-4; */
+}
+.gp6 {
+  @apply w-[65%] mx-auto
+}
+.gp7 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  @apply px-0;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  @apply mt-10;
+}
+.gph3 {
+  font-size: 60px;
+  line-height: normal;
+  font-weight: semibold;
+  color: white;
+  text-align: center;
+  @apply mb-10;
+}
+.gp8 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  @apply px-0;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  /* @apply mt-10; */
+}
+.gph4 {
+  font-size: 60px;
+  line-height: normal;
+  font-weight: semibold;
+  color: white;
+  text-align: center;
+  /* @apply mb-4; */
+}
+.gp9 {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: left;
+  /* padding: 2rem; */
+  @apply px-0 pb-4;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  /* @apply mt-10; */
+}
+.gpp8 {
+  font-size: 2rem;
+  line-height: normal;
+  /* font-weight: bold; */
+  color: white;
+  text-align: left;
+  /* @apply mb-4; */
+}
+.gp10 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
+  /* padding: 2rem; */
+  /* @apply px-0 pt-0; */
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  @apply gap-8;
+}
+.gpp9 {
+  font-size: 30px;
+  /* line-height: normal; */
+  /* font-weight: bold; */
+  color: white;
+  /* text-align: left; */
+  /* @apply mb-4; */
+}
+.gpsocialicon {
+  @apply bg-no-repeat bg-contain transition duration-300 ease-in-out opacity-100 hover:opacity-40 cursor-pointer;
+}
+.gpp6{
+  font-size: 1.5rem;
+}
+.gpp7{
+  font-size: 1.2rem;
+}
+
+
+
+@media (max-width: 768px) {
+  .gp1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  @apply px-0;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.gph1 {
+  font-size: 30px;
+  line-height: normal;
+  font-weight: semibold;
+  color: white;
+  text-align: center;
+  @apply mb-4;
+}
+.gpp1 {
+  font-size: 1.2rem;
+  line-height: normal;
+  /* font-weight: bold; */
+  color: white;
+  text-align: center;
+  @apply mb-5;
+}
+.gpp2 {
+  font-size: 1.2rem;
+  line-height: normal;
+  /* font-weight: bold; */
+  color: white;
+  text-align: justify;
+  /* @apply mb-4; */
+}
+.gp-banner {
+  text-align: center;
+  margin-top: 0px;
+  width: 80%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  position: relative;
+  border: 2px solid white;
+  border-radius: 8px;
+}
+
+.gp-banner-img {
+  width: 100%; /* Makes the image fill the container */
+  height: auto; /* Maintains the aspect ratio */
+  border-radius: 8px;
+  box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.2);
+  object-fit: cover; /* Ensures the image fills while cropping excess */
+}
+.gp3 {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: left;
+  padding: 2rem;
+  @apply px-0;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  @apply mt-0;
+}
+.gpp3 {
+  font-size: 1.2rem;
+  line-height: normal;
+  /* font-weight: bold; */
+  color: white;
+  text-align: left;
+  @apply mb-0;
+}
+.video-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* padding: 2rem; */
+  /* width: 100%; */
+  @apply mt-0;
+}
+
+.youtube-iframe {
+  border-radius: 8px;
+  width: 80%;
+  height: auto;
+}
+.gp4 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  @apply px-0;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  @apply mt-0;
+}
+.gph2 {
+  font-size: 30px;
+  line-height: normal;
+  font-weight: semibold;
+  color: white;
+  text-align: center;
+  @apply mb-4;
+}
+.gpp4 {
+  font-size: 1.2rem;
+  line-height: normal;
+  /* font-weight: bold; */
+  color: white;
+  text-align: justify;
+  /* @apply mb-4; */
+}
+.gp5 {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: left;
+  padding: 2rem;
+  @apply px-0;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  /* @apply mt-10; */
+}
+.gpp5 {
+  font-size: 1.1rem;
+  line-height: normal;
+  /* font-weight: bold; */
+  color: white;
+  text-align: left;
+  /* @apply mb-4; */
+}
+.gp6 {
+  @apply w-[80%] mx-auto;
+}
+.gp7 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  @apply px-0;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  @apply mt-0;
+}
+.gph3 {
+  font-size: 30px;
+  line-height: normal;
+  font-weight: semibold;
+  color: white;
+  text-align: center;
+  @apply mb-10;
+}
+.gp8 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  @apply px-0;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  /* @apply mt-10; */
+}
+.gph4 {
+  font-size: 30px;
+  line-height: normal;
+  font-weight: semibold;
+  color: white;
+  text-align: center;
+  /* @apply mb-4; */
+}
+.gp9 {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: left;
+  /* padding: 2rem; */
+  @apply px-0 pb-4;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  /* @apply mt-10; */
+}
+.gpp8 {
+  font-size: 1.2rem;
+  line-height: normal;
+  /* font-weight: bold; */
+  color: white;
+  text-align: left;
+  /* @apply mb-4; */
+}
+.gp10 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
+  /* padding: 2rem; */
+  /* @apply px-0 pt-0; */
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  @apply gap-8;
+}
+.gpp9 {
+  font-size: 30px;
+  /* line-height: normal; */
+  /* font-weight: bold; */
+  color: white;
+  /* text-align: left; */
+  /* @apply mb-4; */
+}
+.gpsocialicon {
+  @apply bg-no-repeat bg-contain transition duration-300 ease-in-out opacity-100 hover:opacity-40 cursor-pointer;
+}
+.gpp6{
+  font-size: 1.5rem;
+}
+.gpp7{
+  font-size: 1.2rem;
+}
+}

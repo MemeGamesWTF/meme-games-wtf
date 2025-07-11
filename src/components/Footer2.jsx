@@ -82,7 +82,7 @@ export default function Footer2() {
           <a className="yticon"></a>
           {/* Telegram */}
           <p className="text-back font-bold text-lg">&nbsp;&nbsp;&nbsp;</p>
-          <a href="https://t.me/+bTQird4VphdlNzhk" className="footicon11"></a>
+          <a href="https://t.me/+1sk-SOujR4w1ODRk" className="footicon11"></a>
           {/* Kick */}
           <p className="text-back font-bold text-lg">&nbsp;&nbsp;&nbsp;</p>
           <a href="https://kick.com/memegameswtf" className="kickicon"></a>
